@@ -1,0 +1,309 @@
+/* Default button */
+button.button {
+    --color-text-default: var(--color-white);
+    --color-text-hover: var(--color-black);
+    --color-text-active: var(--color-white);
+    --color-background-default: transparent;
+    --color-background-hover: var(--color-white);
+    --color-background-active: var(--color-primary);
+    --color-border-default: var(--color-white);
+    --color-border-hover: var(--color-white);
+    --color-border-active: var(--color-white);
+    --border-width: 2px;
+    --border-radius: 10px;
+    --padding-left-right: 4px;
+    --padding-top-bottom: 10px;
+    position: relative;
+    padding: calc(var(--padding-left-right) + var(--border-width)) calc(var(--padding-top-bottom) + var(--border-width));
+    border: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-text-default);
+    background: transparent;
+    overflow: visible;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: var(--border-width) solid var(--color-border-default);
+        border-radius: var(--border-radius);
+        text-align: center;
+        background-color: var(--color-background-default);
+        filter: brightness(1.0);
+        z-index: -1;
+        transition: all 0.15s;
+    }
+
+    &:hover {
+        color: var(--color-text-hover);
+    }
+
+    &:hover::before {
+        background-color: var(--color-background-hover);
+        border: var(--border-width) solid var(--color-border-hover);
+    }
+
+    &:active {
+        color: var(--color-text-active);
+        transition: all 0.05s;
+    }
+
+    &:active::before {
+        background-color: var(--color-background-active);
+        border: var(--border-width) solid var(--color-border-active);
+        transition: all 0.05s;
+    }
+}
+
+/* Additional button styles */
+button.button {
+    &.alt {
+        --color-text-default: var(--color-white);
+        --color-text-hover: var(--color-black);
+        --color-text-hover: var(--color-white);
+        --color-background-hover: var(--color-primary);
+        --color-text-active: var(--color-black);
+        --color-background-active: var(--color-white);
+    }
+
+    &.solid {
+        --color-text-default: var(--color-black);
+        --color-background-default: var(--color-white);
+        --color-text-hover: var(--color-white);
+        --color-background-hover: var(--color-primary);
+        --color-text-active: var(--color-white);
+        --color-background-active: var(--color-primary);
+        --color-border-default: var(--color-background-default);
+        --color-border-hover: var(--color-background-hover);
+        --color-border-active: var(--color-background-active);
+
+        &:active::before {
+            filter: brightness(0.8);
+        }
+
+        &.alt {
+            --color-text-default: var(--color-white);
+            --color-background-default: var(--color-primary);
+            --color-text-hover: var(--color-white);
+            --color-background-hover: var(--color-primary);
+            --color-text-active: var(--color-white);
+            --color-background-active: var(--color-primary);
+            --color-border-default: var(--color-background-default);
+            --color-border-hover: var(--color-background-hover);
+            --color-border-active: var(--color-background-active);
+
+            &:hover::before {
+                filter: brightness(1.15);
+            }
+
+            &:active::before {
+                filter: brightness(0.8);
+            }
+        }
+    }
+
+    &.small {
+        font-size: 0.8rem;
+    }
+
+    &.large {
+        font-size: 1.2rem;
+    }
+}
+
+/* Button color overrides */
+button.button {
+    &.red {
+        --color-background-active: var(--color-red);
+
+        &.alt {
+            --color-background-hover: var(--color-red);
+            --color-background-active: var(--color-white);
+        }
+
+        &.solid {
+            --color-background-hover: var(--color-red);
+            --color-background-active: var(--color-red);
+
+            &.alt {
+                --color-text-default: var(--color-white);
+                --color-background-default: var(--color-red);
+                --color-text-hover: var(--color-white);
+                --color-background-hover: var(--color-red);
+                --color-text-active: var(--color-white);
+                --color-background-active: var(--color-red);
+                --color-border-default: var(--color-background-default);
+                --color-border-hover: var(--color-background-hover);
+                --color-border-active: var(--color-background-active);
+            }
+        }
+    }
+
+    &.orange {
+        --color-background-active: var(--color-orange);
+
+        &.alt {
+            --color-background-hover: var(--color-orange);
+            --color-background-active: var(--color-white);
+        }
+
+        &.solid {
+            --color-background-hover: var(--color-orange);
+            --color-background-active: var(--color-orange);
+
+            &.alt {
+                --color-text-default: var(--color-white);
+                --color-background-default: var(--color-orange);
+                --color-text-hover: var(--color-white);
+                --color-background-hover: var(--color-orange);
+                --color-text-active: var(--color-white);
+                --color-background-active: var(--color-orange);
+                --color-border-default: var(--color-background-default);
+                --color-border-hover: var(--color-background-hover);
+                --color-border-active: var(--color-background-active);
+            }
+        }
+    }
+
+    &.yellow {
+        --color-background-active: var(--color-yellow);
+
+        &.alt {
+            --color-background-hover: var(--color-yellow);
+            --color-background-active: var(--color-white);
+        }
+
+        &.solid {
+            --color-background-hover: var(--color-yellow);
+            --color-background-active: var(--color-yellow);
+
+            &.alt {
+                --color-text-default: var(--color-white);
+                --color-background-default: var(--color-yellow);
+                --color-text-hover: var(--color-white);
+                --color-background-hover: var(--color-yellow);
+                --color-text-active: var(--color-white);
+                --color-background-active: var(--color-yellow);
+                --color-border-default: var(--color-background-default);
+                --color-border-hover: var(--color-background-hover);
+                --color-border-active: var(--color-background-active);
+            }
+        }
+    }
+
+    &.green {
+        --color-background-active: var(--color-green);
+
+        &.alt {
+            --color-background-hover: var(--color-green);
+            --color-background-active: var(--color-white);
+        }
+
+        &.solid {
+            --color-background-hover: var(--color-green);
+            --color-background-active: var(--color-green);
+
+            &.alt {
+                --color-text-default: var(--color-white);
+                --color-background-default: var(--color-green);
+                --color-text-hover: var(--color-white);
+                --color-background-hover: var(--color-green);
+                --color-text-active: var(--color-white);
+                --color-background-active: var(--color-green);
+                --color-border-default: var(--color-background-default);
+                --color-border-hover: var(--color-background-hover);
+                --color-border-active: var(--color-background-active);
+            }
+        }
+    }
+
+    &.blue {
+        --color-background-active: var(--color-blue);
+
+        &.alt {
+            --color-background-hover: var(--color-blue);
+            --color-background-active: var(--color-white);
+        }
+
+        &.solid {
+            --color-background-hover: var(--color-blue);
+            --color-background-active: var(--color-blue);
+
+            &.alt {
+                --color-text-default: var(--color-white);
+                --color-background-default: var(--color-blue);
+                --color-text-hover: var(--color-white);
+                --color-background-hover: var(--color-blue);
+                --color-text-active: var(--color-white);
+                --color-background-active: var(--color-blue);
+                --color-border-default: var(--color-background-default);
+                --color-border-hover: var(--color-background-hover);
+                --color-border-active: var(--color-background-active);
+            }
+        }
+    }
+
+    &.purple {
+        --color-background-active: var(--color-purple);
+
+        &.alt {
+            --color-background-hover: var(--color-purple);
+            --color-background-active: var(--color-white);
+        }
+
+        &.solid {
+            --color-background-hover: var(--color-purple);
+            --color-background-active: var(--color-purple);
+
+            &.alt {
+                --color-text-default: var(--color-white);
+                --color-background-default: var(--color-purple);
+                --color-text-hover: var(--color-white);
+                --color-background-hover: var(--color-purple);
+                --color-text-active: var(--color-white);
+                --color-background-active: var(--color-purple);
+                --color-border-default: var(--color-background-default);
+                --color-border-hover: var(--color-background-hover);
+                --color-border-active: var(--color-background-active);
+            }
+        }
+    }
+}
+
+/* Button states */
+button.button:disabled {
+    --color-text-hover: var(--color-text-default);
+    --color-text-active: var(--color-text-default);
+    --color-background-hover: var(--color-background-default);
+    --color-background-active: var(--color-background-default);
+    --color-border-hover: var(--color-border-default);
+    --color-border-active: var(--color-border-default);
+    filter: brightness(0.6);
+    cursor: not-allowed;
+
+    &.solid {
+        &:active::before {
+            filter: brightness(1.0);
+        }
+
+        &.alt {
+            &:hover::before {
+                filter: brightness(1.0);
+            }
+
+            &:active::before {
+                filter: brightness(1.0);
+            }
+        }
+    }
+}

@@ -1,0 +1,95 @@
+:root {
+    /* Javascript variables */
+    --disable-header: 0;
+
+    /* Predefined color variables */
+    --color-white: #fcfcfa;
+    --color-gray: #ccb5a5;
+    --color-black: #2d2a2e;
+    --color-red: #ff6188;
+    --color-orange: #fc9867;
+    --color-yellow: #ffd866;
+    --color-green: #a9dc76;
+    --color-blue: #78dce8;
+    --color-purple: #ab9df2;
+    --color-primary: var(--color-orange);
+
+    /* Default variables */
+    --font-family-default:
+        'Poppins', sans-serif;
+    --color-text: var(--color-white);
+    --color-background: var(--color-black);
+    --body-background-gradient: linear-gradient(to bottom, rgba(45, 42, 46, 0.8), rgba(45, 42, 46, 0.8));
+    --body-background-image: url("https://files.facepunch.com/lewis/1b2211b1/rust-drops-hero-1.jpg");
+
+    /* Scrollbar variables */
+    --color-scrollbar-background: var(--color-black);
+    --color-scrollbar-thumb-default: var(--color-white);
+    --color-scrollbar-thumb-hover: var(--color-white);
+    --color-scrollbar-thumb-active: var(--color-gray);
+
+    /* Header variables */
+    --header-height: 60px;
+    --header-color-background: var(--color-yellow);
+    --color-nav-top-item-background: var(--color-green);
+    --color-nav-top-item-background-hover: var(--color-purple);
+    --color-nav-top-item-background-active: var(--color-blue);
+    --color-nav-sub-item-background: var(--color-green);
+    --color-nav-sub-item-background-hover: var(--color-purple);
+    --color-nav-sub-item-background-active: var(--color-blue);
+
+    /* Footer variables */
+    --footer-height: 100px;
+    --footer-color-background: transparent;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    overflow: scroll;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    font-family: var(--font-family-default);
+    font-size: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+input,
+textarea,
+button {
+    font-family: var(--font-family-default);
+}
+
+::selection {
+    color: var(--color-black);
+    background-color: var(--color-white);
+}
+
+::-webkit-scrollbar {
+    background: var(--color-scrollbar-background);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--color-scrollbar-thumb-default);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: var(--color-scrollbar-thumb-active);
+}
