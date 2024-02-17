@@ -1,5 +1,14 @@
+/**
+ * @file style.css
+ * @description Main style sheet file.
+ */
+
 @import url(./root.css);
 @import url(./button.css);
+
+/*******
+ * CSS *
+ *******/
 
 #root {
     position: relative;
@@ -370,6 +379,10 @@ section.content-box {
     }
 }
 
+/***********************
+ * KEYFRAME ANIMATIONS *
+ ***********************/
+
 @keyframes modal-window-fadein {
     from {
         opacity: 0;
@@ -394,6 +407,10 @@ section.content-box {
         transform: translateY(-100px);
     }
 }
+
+/*****************
+ * MEDIA QUERIES *
+ *****************/
 
 @media only screen and (max-width: 1300px) {
     #header button {

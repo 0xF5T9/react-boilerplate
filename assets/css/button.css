@@ -1,3 +1,8 @@
+/**
+ * @file button.css
+ * @description Button styles.
+ */
+
 /* Default button */
 button.button {
     --color-text-default: var(--color-white);

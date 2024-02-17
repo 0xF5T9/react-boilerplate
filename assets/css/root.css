@@ -1,3 +1,8 @@
+/**
+ * @file root.css
+ * @description Element-level styles.
+ */
+
 :root {
     /* Predefined color variables */
     --color-white: #fcfcfa;
