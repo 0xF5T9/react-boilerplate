@@ -18,30 +18,6 @@ export function message(message, isErrorMessage) {
 }
 
 /**
- * Checks if a given property exists on a DOM element and optionally matches a specific value.
- * @param {Element} element The DOM element to check.
- * @param {string} property The property to check on the element.
- * @param {string} value (optional) The value to match against the property.
- * @returns {boolean} Returns true if the property exists and matches the value (if provided), otherwise returns false.
- */
-export function isPropertyExists(element, property, value) {
-
-    if (!element || element.nodeType != 1)
-        throw `Invalid element variable.`;
-
-    if (typeof property != "string")
-        throw `Property must be a string.`;
-
-    if (value != undefined && typeof value != "string") {
-        throw `Value must be a string.`;
-    }
-
-    const result = getComputedStyle(element).getPropertyValue(property);
-
-    return (value == undefined ? (result ? true : false) : (result == value ? true : false));
-}
-
-/**
  * Show the modal overlay element.
  */
 export function showModalOverlay() {
