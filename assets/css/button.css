@@ -23,6 +23,7 @@ button.button {
     overflow: visible;
     cursor: pointer;
     transition: all 0.15s;
+    z-index: 0;
 
     &::before {
         content: "";

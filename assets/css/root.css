@@ -1,10 +1,7 @@
 :root {
-    /* Javascript variables */
-    --disable-header: 0;
-
     /* Predefined color variables */
     --color-white: #fcfcfa;
-    --color-gray: #ccb5a5;
+    --color-gray: #808080;
     --color-black: #2d2a2e;
     --color-red: #ff6188;
     --color-orange: #fc9867;
@@ -15,8 +12,7 @@
     --color-primary: var(--color-orange);
 
     /* Default variables */
-    --font-family-default:
-        'Poppins', sans-serif;
+    --font-family-default: 'Poppins', sans-serif;
     --color-text: var(--color-white);
     --color-background: var(--color-black);
     --body-background-gradient: linear-gradient(to bottom, rgba(45, 42, 46, 0.8), rgba(45, 42, 46, 0.8));
