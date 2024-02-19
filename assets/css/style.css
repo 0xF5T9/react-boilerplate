@@ -5,6 +5,7 @@
  */
 
 @import url(./root.css);
+@import url(./common.css);
 @import url(./button.css);
 @import url(./input.css);
 
@@ -36,6 +37,12 @@
     background-color: var(--header-color-background);
     overflow: visible;
     z-index: 100;
+
+    &::after {
+        display: block;
+        content: '';
+        clear: both;
+    }
 
     /* Logo */
     &>#header-brand-text {
@@ -73,7 +80,6 @@
                 }
 
                 &>a {
-                    float: left;
                     padding: 0px 20px;
                     font-size: 1.3em;
                     font-weight: bold;
@@ -297,14 +303,6 @@ section.content-box {
 
         &.no-default-margin {
             --default-margin: 0px;
-        }
-
-        &.text-center {
-            text-align: center;
-        }
-
-        & .paragraph {
-            text-align: justify;
         }
     }
 
