@@ -1,10 +1,12 @@
 /**
  * @file style.css
  * @description Main style sheet file.
+ * @todo add media queries for sample inputs in the header div
  */
 
 @import url(./root.css);
 @import url(./button.css);
+@import url(./input.css);
 
 /*******
  * CSS *
@@ -246,6 +248,17 @@
                 --border-radius: 0px;
             }
         }
+    }
+
+    /* Inputs */
+    &>div.input-container {
+        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: 100%;
+        margin-right: 10px;
     }
 }
 

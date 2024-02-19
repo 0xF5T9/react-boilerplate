@@ -1,0 +1,166 @@
+/* Default input */
+div.input-container {
+    --input-text-color-default: var(--color-white);
+    --input-background-color-default: var(--color-black);
+    --input-border-color-default: var(--color-white);
+    --input-text-color-hover: var(--input-text-color-default);
+    --input-background-color-hover: var(--input-background-color-default);
+    --input-border-color-hover: var(--input-border-color-default);
+    --input-text-color-active: var(--input-text-color-default);
+    --input-background-color-active: var(--input-background-color-default);
+    --input-border-color-active: var(--input-border-color-default);
+    --input-text-color-focus: var(--input-text-color-default);
+    --input-background-color-focus: var(--input-background-color-default);
+    --input-border-color-focus: var(--color-primary);
+    --input-border-width: 2px;
+    --input-padding-left-right: 4px;
+    --input-padding-top-bottom: 4px;
+    --input-icon-extra-padding: 4px;
+    position: relative;
+    display: inline-block;
+    font-size: 1rem;
+
+    &.small {
+        font-size: 0.8rem;
+    }
+
+    &.large {
+        font-size: 1.2rem;
+    }
+
+    &>i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1em;
+        z-index: 1;
+
+        &.icon-left {
+            right: initial;
+            left: calc(var(--input-border-width) + var(--input-padding-left-right) + var(--input-icon-extra-padding));
+        }
+
+        &.icon-right {
+            left: initial;
+            right: calc(var(--input-border-width) + var(--input-padding-left-right) + var(--input-icon-extra-padding));
+        }
+    }
+
+    &>input[type="text"].input,
+    &>input[type="email"].input,
+    &>input[type="password"].input {
+        padding: var(--input-padding-top-bottom) var(--input-padding-left-right);
+        border: var(--input-border-width) solid var(--input-border-color-default);
+        border-radius: 4px;
+        outline: none;
+        color: var(--input-text-color-default);
+        background-color: var(--input-background-color-default);
+        font-size: 1em;
+        filter: brightness(1.0);
+        z-index: 0;
+        transition: all 0.15s;
+
+        &:focus {
+            color: var(--input-text-color-focus);
+            background-color: var(--input-background-color-focus);
+            border: var(--input-border-width) solid var(--input-border-color-focus);
+        }
+
+        &:disabled {
+            filter: brightness(0.6);
+        }
+
+        &.transparent {
+            --input-background-color-default: transparent;
+            --input-background-color-hover: transparent;
+            --input-background-color-active: transparent;
+            --input-background-color-focus: transparent;
+        }
+
+        &.icon-left {
+            padding: var(--input-padding-top-bottom) var(--input-padding-left-right) var(--input-padding-top-bottom) calc(var(--input-padding-left-right) * 2 + 1em + 1px + (var(--input-icon-extra-padding) * 2));
+        }
+
+        &.icon-right {
+            padding: var(--input-padding-top-bottom) calc(var(--input-padding-left-right) * 2 + 1em + 1px + (var(--input-icon-extra-padding) * 2)) var(--input-padding-top-bottom) var(--input-padding-left-right);
+        }
+    }
+
+    /* Additional input styles */
+    &>input[type="text"].input,
+    &>input[type="email"].input,
+    &>input[type="password"].input {
+        &.alt {
+            --input-text-color-default: var(--color-white);
+            --input-background-color-default: var(--color-black);
+            --input-border-color-default: var(--color-primary);
+            --input-text-color-focus: var(--input-text-color-default);
+            --input-background-color-focus: var(--input-background-color-default);
+            --input-border-color-focus: var(--color-white);
+
+            &.transparent {
+                --input-background-color-default: transparent;
+                --input-background-color-focus: transparent;
+            }
+        }
+    }
+
+    /* Input color overrides */
+    &>input[type="text"].input,
+    &>input[type="email"].input,
+    &>input[type="password"].input {
+        &.red {
+            --input-border-color-focus: var(--color-red);
+
+            &.alt {
+                --input-border-color-default: var(--color-red);
+                --input-border-color-focus: var(--color-white);
+            }
+        }
+
+        &.orange {
+            --input-border-color-focus: var(--color-orange);
+
+            &.alt {
+                --input-border-color-default: var(--color-orange);
+                --input-border-color-focus: var(--color-white);
+            }
+        }
+
+        &.yellow {
+            --input-border-color-focus: var(--color-yellow);
+
+            &.alt {
+                --input-border-color-default: var(--color-yellow);
+                --input-border-color-focus: var(--color-white);
+            }
+        }
+
+        &.green {
+            --input-border-color-focus: var(--color-green);
+
+            &.alt {
+                --input-border-color-default: var(--color-green);
+                --input-border-color-focus: var(--color-white);
+            }
+        }
+
+        &.blue {
+            --input-border-color-focus: var(--color-blue);
+
+            &.alt {
+                --input-border-color-default: var(--color-blue);
+                --input-border-color-focus: var(--color-white);
+            }
+        }
+
+        &.purple {
+            --input-border-color-focus: var(--color-purple);
+
+            &.alt {
+                --input-border-color-default: var(--color-purple);
+                --input-border-color-focus: var(--color-white);
+            }
+        }
+    }
+}
