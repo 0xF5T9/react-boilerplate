@@ -18,79 +18,86 @@
     <div id="root">
         <!-- Header -->
         <header id="header">
-            <!-- Brand Logo -->
-            <img id="header-brand-logo" src="/assets/img/brand-logo.png" alt="Brand Logo">
+            <div id="header-left-content-box">
+                <!-- Brand Logo -->
+                <img id="header-brand-logo" class="" src="/assets/img/brand-logo.png" alt="Brand Logo">
 
-            <!-- Brand Text -->
-            <div id="header-brand-text">
-                <h1>Boilerplate Project</h1>
-            </div>
-
-
-            <!-- Navigation Bar -->
-            <nav id="navbar">
-                <ul>
-                    <li id="navbar-item-1">
-                        <a href="#">Item 1</a>
-                        <ul>
-                            <li><a href="#">Child 1</a></li>
-                            <li>
-                                <a href="#">Child 2</a>
-                                <ul>
-                                    <li><a href="#">Child 1</a></li>
-                                    <li>
-                                        <a href="#">Child 2</a>
-                                        <ul>
-                                            <li><a href="#">Child 1</a></li>
-                                            <li>
-                                                <a href="#">Child 2</a>
-                                                <ul>
-                                                    <li><a href="#">Child 1</a></li>
-                                                    <li><a href="#">Child 2</a></li>
-                                                    <li><a href="#">Child 3</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Child 3</a></li>
-                            <li><a href="#">Child 4</a></li>
-                        </ul>
-                    </li>
-                    <li id="navbar-item-2"><a href="#">Item 2</a></li>
-                    <li id="navbar-item-3"><a href="#">Item 3</a></li>
-                    <li id="navbar-item-4"><a href="#">Item 4</a></li>
-                </ul>
-            </nav>
-
-            <!-- User Icon -->
-            <div id="user-icon" class="icon-wrapper">
-                <a href="#"><i class="fas fa-user-circle"></i></a>
-                <div class="drop-down-container">
-                    <h1>Heading</h1>
-                    <p>Some contents ...</p>
+                <!-- Brand Text -->
+                <div id="header-brand-text" class="">
+                    <h1>Boilerplate Project</h1>
                 </div>
+
+                <!-- Navigation Bar -->
+                <nav id="navbar">
+                    <ul>
+                        <li id="navbar-item-1">
+                            <a href="#">Item 1</a>
+                            <ul>
+                                <li><a href="#">Child 1</a></li>
+                                <li>
+                                    <a href="#">Child 2</a>
+                                    <ul>
+                                        <li><a href="#">Child 1</a></li>
+                                        <li>
+                                            <a href="#">Child 2</a>
+                                            <ul>
+                                                <li><a href="#">Child 1</a></li>
+                                                <li>
+                                                    <a href="#">Child 2</a>
+                                                    <ul>
+                                                        <li><a href="#">Child 1</a></li>
+                                                        <li><a href="#">Child 2</a></li>
+                                                        <li><a href="#">Child 3</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Child 3</a></li>
+                                <li><a href="#">Child 4</a></li>
+                            </ul>
+                        </li>
+                        <li id="navbar-item-2"><a href="#">Item 2</a></li>
+                        <li id="navbar-item-3"><a href="#">Item 3</a></li>
+                        <li id="navbar-item-4"><a href="#">Item 4</a></li>
+                    </ul>
+                </nav>
             </div>
 
-            <!-- Search Icon -->
-            <div id="search-icon" class="icon-wrapper">
-                <a href="#"><i class="fas fa-search"></i></a>
-                <div class="drop-down-container">
-                    <h1>Heading</h1>
-                    <p>Some contents ...</p>
+            <div id="header-middle-content-box">
+
+            </div>
+
+            <div id="header-right-content-box">
+                <!-- Sample Input -->
+                <div class="input-wrapper icon-right transparent">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" style="width: 200px;" placeholder="Search">
                 </div>
-            </div>
 
-            <!-- Sample Buttons -->
-            <div class="button-wrapper"><button class="button solid alt">Button 3</button></div>
-            <div class="button-wrapper"><button class="button solid">Button 2</button></div>
-            <div class="button-wrapper"><button class="button">Button 1</button></div>
+                <!-- Sample Buttons -->
+                <div class="button-wrapper"><button class="button">Button 1</button></div>
+                <div class="button-wrapper"><button class="button solid">Button 2</button></div>
+                <div class="button-wrapper"><button class="button solid alt">Button 3</button></div>
 
-            <!-- Sample Input -->
-            <div class="input-wrapper icon-right transparent">
-                <i class="fa-solid fa-search"></i>
-                <input type="text" style="width: 200px;" placeholder="Search">
+                <!-- Search Icon -->
+                <div id="search-icon" class="icon-wrapper">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <div class="drop-down-container">
+                        <h1>Heading</h1>
+                        <p>Some contents ...</p>
+                    </div>
+                </div>
+
+                <!-- User Icon -->
+                <div id="user-icon" class="icon-wrapper">
+                    <a href="#"><i class="fas fa-user-circle"></i></a>
+                    <div class="drop-down-container">
+                        <h1>Heading</h1>
+                        <p>Some contents ...</p>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -610,15 +617,15 @@
 
             <section class="content-box top-border flex-center fixed-height" style="height: 300px;">
                 <section class="inner-content-box text-center">
-                    <h1>Fixed Height Box</h1>
-                    <p>This box has a fixed height of 300 pixels.</p>
+                    <h1>Fixed Height Content Box</h1>
+                    <p>This content box has a fixed height of 300 pixels.</p>
                 </section>
             </section>
 
             <section class="content-box top-border flex-center">
                 <section class="inner-content-box text-center">
-                    <h1>Default Box</h1>
-                    <p>This box's height is automatically scaled.</p>
+                    <h1>Default Content Box</h1>
+                    <p>This content box's height is automatically scaled.</p>
                 </section>
             </section>
         </div>
