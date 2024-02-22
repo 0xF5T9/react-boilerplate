@@ -16,32 +16,41 @@
     --color-purple: #ab9df2;
     --color-primary: var(--color-orange);
 
-    /* Default variables */
-    --font-family-default: 'Poppins', sans-serif;
-    --color-text: var(--color-white);
-    --color-background: var(--color-black);
-    --body-background-gradient: linear-gradient(to bottom, rgba(45, 42, 46, 0.8), rgba(45, 42, 46, 0.8));
-    --body-background-image: url("https://files.facepunch.com/lewis/1b2211b1/rust-drops-hero-1.jpg");
-
-    /* Scrollbar variables */
-    --color-scrollbar-background: var(--color-black);
-    --color-scrollbar-thumb-default: var(--color-white);
-    --color-scrollbar-thumb-hover: var(--color-white);
-    --color-scrollbar-thumb-active: var(--color-gray);
+    /* General variables */
+    --general-font-family: 'Poppins', sans-serif;
+    --general-text-color: var(--color-white);
+    --general-body-background-color: var(--color-black);
+    --general-body-background-gradient-color: linear-gradient(to bottom, rgba(45, 42, 46, 0.8), rgba(45, 42, 46, 0.8));
+    --general-body-background-image-url: url("/assets/img/background.jpg");
+    --general-scrollbar-background-color: var(--color-black);
+    --general-scrollbar-thumb-background-color-default: var(--color-white);
+    --general-scrollbar-thumb-background-color-hover: var(--color-white);
+    --general-scrollbar-thumb-background-color-active: var(--color-gray);
 
     /* Header variables */
     --header-height: 60px;
-    --header-color-background: var(--color-yellow);
-    --color-nav-top-item-background: var(--color-green);
-    --color-nav-top-item-background-hover: var(--color-purple);
-    --color-nav-top-item-background-active: var(--color-blue);
-    --color-nav-sub-item-background: var(--color-green);
-    --color-nav-sub-item-background-hover: var(--color-purple);
-    --color-nav-sub-item-background-active: var(--color-blue);
+    --header-background-color: #221f22;
+    --nav-top-item-background-color-default: #221f22;
+    --nav-top-item-background-color-hover: #333234;
+    --nav-top-item-background-color-active: #333234;
+    --nav-top-item-text-color-default: #898889;
+    --nav-top-item-text-color-hover: var(--color-white);
+    --nav-top-item-text-color-active: var(--color-white);
+
+    --nav-sub-item-background-color-default: #2d2a2e;
+    --nav-sub-item-background-color-hover: #383539;
+    --nav-sub-item-background-color-active: #383539;
+    --nav-sub-item-text-color-default: var(--color-white);
+    --nav-sub-item-text-color-hover: var(--color-yellow);
+    --nav-sub-item-text-color-active: var(--color-yellow);
+    --nav-sub-menu-border-color: #221F22;
+    --nav-sub-menu-border-width: 0px;
+    --nav-sub-menu-border-radius: 10px;
+    --nav-sub-menu-distance: 4px;
 
     /* Footer variables */
-    --footer-height: 100px;
-    --footer-color-background: transparent;
+    --footer-height: 140px;
+    --footer-background-color: transparent;
 }
 
 * {
@@ -55,9 +64,9 @@ html {
     height: 100vh;
     max-width: 100%;
     overflow: scroll;
-    color: var(--color-text);
-    background-color: var(--color-background);
-    font-family: var(--font-family-default);
+    color: var(--general-text-color);
+    background-color: var(--general-body-background-color);
+    font-family: var(--general-font-family);
     font-size: 100%;
 }
 
@@ -70,7 +79,7 @@ body {
 input,
 textarea,
 button {
-    font-family: var(--font-family-default);
+    font-family: var(--general-font-family);
 }
 
 ::selection {
@@ -79,18 +88,18 @@ button {
 }
 
 ::-webkit-scrollbar {
-    background: var(--color-scrollbar-background);
+    background: var(--general-scrollbar-background-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background: var(--color-scrollbar-thumb-default);
+    border-radius: 4px;
+    background: var(--general-scrollbar-thumb-background-color-default);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-scrollbar-thumb-hover);
+    background: var(--general-scrollbar-thumb-background-color-hover);
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: var(--color-scrollbar-thumb-active);
+    background: var(--general-scrollbar-thumb-background-color-active);
 }

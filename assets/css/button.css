@@ -3,27 +3,26 @@
  * @description Button styles.
  */
 
-/* Default button */
 button.button {
-    --color-text-default: var(--color-white);
-    --color-text-hover: var(--color-black);
-    --color-text-active: var(--color-white);
-    --color-background-default: transparent;
-    --color-background-hover: var(--color-white);
-    --color-background-active: var(--color-primary);
-    --color-border-default: var(--color-white);
-    --color-border-hover: var(--color-white);
-    --color-border-active: var(--color-white);
-    --border-width: 2px;
-    --border-radius: 10px;
-    --padding-left-right: 4px;
-    --padding-top-bottom: 10px;
+    --button-text-color-default: var(--color-white);
+    --button-text-color-hover: var(--color-black);
+    --button-text-color-active: var(--color-white);
+    --button-background-color-default: transparent;
+    --button-background-color-hover: var(--color-white);
+    --button-background-color-active: var(--color-primary);
+    --button-border-color-default: var(--color-white);
+    --button-border-color-hover: var(--color-white);
+    --button-border-color-active: var(--color-white);
+    --button-border-width: 2px;
+    --button-border-radius: 10px;
+    --button-padding-left-right: 4px;
+    --button-padding-top-bottom: 10px;
     position: relative;
-    padding: calc(var(--padding-left-right) + var(--border-width)) calc(var(--padding-top-bottom) + var(--border-width));
+    padding: calc(var(--button-padding-left-right) + var(--button-border-width)) calc(var(--button-padding-top-bottom) + var(--button-border-width));
     border: 0;
     font-size: 1rem;
     font-weight: bold;
-    color: var(--color-text-default);
+    color: var(--button-text-color-default);
     background: transparent;
     overflow: visible;
     cursor: pointer;
@@ -41,72 +40,71 @@ button.button {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: var(--border-width) solid var(--color-border-default);
-        border-radius: var(--border-radius);
+        border: var(--button-border-width) solid var(--button-border-color-default);
+        border-radius: var(--button-border-radius);
         text-align: center;
-        background-color: var(--color-background-default);
+        background-color: var(--button-background-color-default);
         filter: brightness(1.0);
         z-index: -1;
         transition: all 0.15s;
     }
 
     &:hover {
-        color: var(--color-text-hover);
+        color: var(--button-text-color-hover);
     }
 
     &:hover::before {
-        background-color: var(--color-background-hover);
-        border: var(--border-width) solid var(--color-border-hover);
+        background-color: var(--button-background-color-hover);
+        border: var(--button-border-width) solid var(--button-border-color-hover);
     }
 
     &:active {
-        color: var(--color-text-active);
+        color: var(--button-text-color-active);
         transition: all 0.05s;
     }
 
     &:active::before {
-        background-color: var(--color-background-active);
-        border: var(--border-width) solid var(--color-border-active);
+        background-color: var(--button-background-color-active);
+        border: var(--button-border-width) solid var(--button-border-color-active);
         transition: all 0.05s;
     }
-}
 
-/* Additional button styles */
-button.button {
+    /* Modifier classes */
+
     &.alt {
-        --color-text-default: var(--color-white);
-        --color-text-hover: var(--color-black);
-        --color-text-hover: var(--color-white);
-        --color-background-hover: var(--color-primary);
-        --color-text-active: var(--color-black);
-        --color-background-active: var(--color-white);
+        --button-text-color-default: var(--color-white);
+        --button-text-color-hover: var(--color-black);
+        --button-text-color-hover: var(--color-white);
+        --button-background-color-hover: var(--color-primary);
+        --button-text-color-active: var(--color-black);
+        --button-background-color-active: var(--color-white);
     }
 
     &.solid {
-        --color-text-default: var(--color-black);
-        --color-background-default: var(--color-white);
-        --color-text-hover: var(--color-white);
-        --color-background-hover: var(--color-primary);
-        --color-text-active: var(--color-white);
-        --color-background-active: var(--color-primary);
-        --color-border-default: var(--color-background-default);
-        --color-border-hover: var(--color-background-hover);
-        --color-border-active: var(--color-background-active);
+        --button-text-color-default: var(--color-black);
+        --button-background-color-default: var(--color-white);
+        --button-text-color-hover: var(--color-white);
+        --button-background-color-hover: var(--color-primary);
+        --button-text-color-active: var(--color-white);
+        --button-background-color-active: var(--color-primary);
+        --button-border-color-default: var(--button-background-color-default);
+        --button-border-color-hover: var(--button-background-color-hover);
+        --button-border-color-active: var(--button-background-color-active);
 
         &:active::before {
             filter: brightness(0.8);
         }
 
         &.alt {
-            --color-text-default: var(--color-white);
-            --color-background-default: var(--color-primary);
-            --color-text-hover: var(--color-white);
-            --color-background-hover: var(--color-primary);
-            --color-text-active: var(--color-white);
-            --color-background-active: var(--color-primary);
-            --color-border-default: var(--color-background-default);
-            --color-border-hover: var(--color-background-hover);
-            --color-border-active: var(--color-background-active);
+            --button-text-color-default: var(--color-white);
+            --button-background-color-default: var(--color-primary);
+            --button-text-color-hover: var(--color-white);
+            --button-background-color-hover: var(--color-primary);
+            --button-text-color-active: var(--color-white);
+            --button-background-color-active: var(--color-primary);
+            --button-border-color-default: var(--button-background-color-default);
+            --button-border-color-hover: var(--button-background-color-hover);
+            --button-border-color-active: var(--button-background-color-active);
 
             &:hover::before {
                 filter: brightness(1.15);
@@ -125,190 +123,190 @@ button.button {
     &.large {
         font-size: 1.2rem;
     }
-}
 
-/* Button color overrides */
-button.button {
+    /* Color modifier classes */
+
     &.red {
-        --color-background-active: var(--color-red);
+        --button-background-color-active: var(--color-red);
 
         &.alt {
-            --color-background-hover: var(--color-red);
-            --color-background-active: var(--color-white);
+            --button-background-color-hover: var(--color-red);
+            --button-background-color-active: var(--color-white);
         }
 
         &.solid {
-            --color-background-hover: var(--color-red);
-            --color-background-active: var(--color-red);
+            --button-background-color-hover: var(--color-red);
+            --button-background-color-active: var(--color-red);
 
             &.alt {
-                --color-text-default: var(--color-white);
-                --color-background-default: var(--color-red);
-                --color-text-hover: var(--color-white);
-                --color-background-hover: var(--color-red);
-                --color-text-active: var(--color-white);
-                --color-background-active: var(--color-red);
-                --color-border-default: var(--color-background-default);
-                --color-border-hover: var(--color-background-hover);
-                --color-border-active: var(--color-background-active);
+                --button-text-color-default: var(--color-white);
+                --button-background-color-default: var(--color-red);
+                --button-text-color-hover: var(--color-white);
+                --button-background-color-hover: var(--color-red);
+                --button-text-color-active: var(--color-white);
+                --button-background-color-active: var(--color-red);
+                --button-border-color-default: var(--button-background-color-default);
+                --button-border-color-hover: var(--button-background-color-hover);
+                --button-border-color-active: var(--button-background-color-active);
             }
         }
     }
 
     &.orange {
-        --color-background-active: var(--color-orange);
+        --button-background-color-active: var(--color-orange);
 
         &.alt {
-            --color-background-hover: var(--color-orange);
-            --color-background-active: var(--color-white);
+            --button-background-color-hover: var(--color-orange);
+            --button-background-color-active: var(--color-white);
         }
 
         &.solid {
-            --color-background-hover: var(--color-orange);
-            --color-background-active: var(--color-orange);
+            --button-background-color-hover: var(--color-orange);
+            --button-background-color-active: var(--color-orange);
 
             &.alt {
-                --color-text-default: var(--color-white);
-                --color-background-default: var(--color-orange);
-                --color-text-hover: var(--color-white);
-                --color-background-hover: var(--color-orange);
-                --color-text-active: var(--color-white);
-                --color-background-active: var(--color-orange);
-                --color-border-default: var(--color-background-default);
-                --color-border-hover: var(--color-background-hover);
-                --color-border-active: var(--color-background-active);
+                --button-text-color-default: var(--color-white);
+                --button-background-color-default: var(--color-orange);
+                --button-text-color-hover: var(--color-white);
+                --button-background-color-hover: var(--color-orange);
+                --button-text-color-active: var(--color-white);
+                --button-background-color-active: var(--color-orange);
+                --button-border-color-default: var(--button-background-color-default);
+                --button-border-color-hover: var(--button-background-color-hover);
+                --button-border-color-active: var(--button-background-color-active);
             }
         }
     }
 
     &.yellow {
-        --color-background-active: var(--color-yellow);
+        --button-background-color-active: var(--color-yellow);
 
         &.alt {
-            --color-background-hover: var(--color-yellow);
-            --color-background-active: var(--color-white);
+            --button-background-color-hover: var(--color-yellow);
+            --button-background-color-active: var(--color-white);
         }
 
         &.solid {
-            --color-background-hover: var(--color-yellow);
-            --color-background-active: var(--color-yellow);
+            --button-background-color-hover: var(--color-yellow);
+            --button-background-color-active: var(--color-yellow);
 
             &.alt {
-                --color-text-default: var(--color-white);
-                --color-background-default: var(--color-yellow);
-                --color-text-hover: var(--color-white);
-                --color-background-hover: var(--color-yellow);
-                --color-text-active: var(--color-white);
-                --color-background-active: var(--color-yellow);
-                --color-border-default: var(--color-background-default);
-                --color-border-hover: var(--color-background-hover);
-                --color-border-active: var(--color-background-active);
+                --button-text-color-default: var(--color-white);
+                --button-background-color-default: var(--color-yellow);
+                --button-text-color-hover: var(--color-white);
+                --button-background-color-hover: var(--color-yellow);
+                --button-text-color-active: var(--color-white);
+                --button-background-color-active: var(--color-yellow);
+                --button-border-color-default: var(--button-background-color-default);
+                --button-border-color-hover: var(--button-background-color-hover);
+                --button-border-color-active: var(--button-background-color-active);
             }
         }
     }
 
     &.green {
-        --color-background-active: var(--color-green);
+        --button-background-color-active: var(--color-green);
 
         &.alt {
-            --color-background-hover: var(--color-green);
-            --color-background-active: var(--color-white);
+            --button-background-color-hover: var(--color-green);
+            --button-background-color-active: var(--color-white);
         }
 
         &.solid {
-            --color-background-hover: var(--color-green);
-            --color-background-active: var(--color-green);
+            --button-background-color-hover: var(--color-green);
+            --button-background-color-active: var(--color-green);
 
             &.alt {
-                --color-text-default: var(--color-white);
-                --color-background-default: var(--color-green);
-                --color-text-hover: var(--color-white);
-                --color-background-hover: var(--color-green);
-                --color-text-active: var(--color-white);
-                --color-background-active: var(--color-green);
-                --color-border-default: var(--color-background-default);
-                --color-border-hover: var(--color-background-hover);
-                --color-border-active: var(--color-background-active);
+                --button-text-color-default: var(--color-white);
+                --button-background-color-default: var(--color-green);
+                --button-text-color-hover: var(--color-white);
+                --button-background-color-hover: var(--color-green);
+                --button-text-color-active: var(--color-white);
+                --button-background-color-active: var(--color-green);
+                --button-border-color-default: var(--button-background-color-default);
+                --button-border-color-hover: var(--button-background-color-hover);
+                --button-border-color-active: var(--button-background-color-active);
             }
         }
     }
 
     &.blue {
-        --color-background-active: var(--color-blue);
+        --button-background-color-active: var(--color-blue);
 
         &.alt {
-            --color-background-hover: var(--color-blue);
-            --color-background-active: var(--color-white);
+            --button-background-color-hover: var(--color-blue);
+            --button-background-color-active: var(--color-white);
         }
 
         &.solid {
-            --color-background-hover: var(--color-blue);
-            --color-background-active: var(--color-blue);
+            --button-background-color-hover: var(--color-blue);
+            --button-background-color-active: var(--color-blue);
 
             &.alt {
-                --color-text-default: var(--color-white);
-                --color-background-default: var(--color-blue);
-                --color-text-hover: var(--color-white);
-                --color-background-hover: var(--color-blue);
-                --color-text-active: var(--color-white);
-                --color-background-active: var(--color-blue);
-                --color-border-default: var(--color-background-default);
-                --color-border-hover: var(--color-background-hover);
-                --color-border-active: var(--color-background-active);
+                --button-text-color-default: var(--color-white);
+                --button-background-color-default: var(--color-blue);
+                --button-text-color-hover: var(--color-white);
+                --button-background-color-hover: var(--color-blue);
+                --button-text-color-active: var(--color-white);
+                --button-background-color-active: var(--color-blue);
+                --button-border-color-default: var(--button-background-color-default);
+                --button-border-color-hover: var(--button-background-color-hover);
+                --button-border-color-active: var(--button-background-color-active);
             }
         }
     }
 
     &.purple {
-        --color-background-active: var(--color-purple);
+        --button-background-color-active: var(--color-purple);
 
         &.alt {
-            --color-background-hover: var(--color-purple);
-            --color-background-active: var(--color-white);
+            --button-background-color-hover: var(--color-purple);
+            --button-background-color-active: var(--color-white);
         }
 
         &.solid {
-            --color-background-hover: var(--color-purple);
-            --color-background-active: var(--color-purple);
+            --button-background-color-hover: var(--color-purple);
+            --button-background-color-active: var(--color-purple);
 
             &.alt {
-                --color-text-default: var(--color-white);
-                --color-background-default: var(--color-purple);
-                --color-text-hover: var(--color-white);
-                --color-background-hover: var(--color-purple);
-                --color-text-active: var(--color-white);
-                --color-background-active: var(--color-purple);
-                --color-border-default: var(--color-background-default);
-                --color-border-hover: var(--color-background-hover);
-                --color-border-active: var(--color-background-active);
+                --button-text-color-default: var(--color-white);
+                --button-background-color-default: var(--color-purple);
+                --button-text-color-hover: var(--color-white);
+                --button-background-color-hover: var(--color-purple);
+                --button-text-color-active: var(--color-white);
+                --button-background-color-active: var(--color-purple);
+                --button-border-color-default: var(--button-background-color-default);
+                --button-border-color-hover: var(--button-background-color-hover);
+                --button-border-color-active: var(--button-background-color-active);
             }
         }
     }
-}
 
-/* Button states */
-button.button:disabled {
-    --color-text-hover: var(--color-text-default);
-    --color-text-active: var(--color-text-default);
-    --color-background-hover: var(--color-background-default);
-    --color-background-active: var(--color-background-default);
-    --color-border-hover: var(--color-border-default);
-    --color-border-active: var(--color-border-default);
-    filter: brightness(0.6);
-    cursor: not-allowed;
+    /* State overrides */
 
-    &.solid {
-        &:active::before {
-            filter: brightness(1.0);
-        }
+    &:disabled {
+        --button-text-color-hover: var(--button-text-color-default);
+        --button-text-color-active: var(--button-text-color-default);
+        --button-background-color-hover: var(--button-background-color-default);
+        --button-background-color-active: var(--button-background-color-default);
+        --button-border-color-hover: var(--button-border-color-default);
+        --button-border-color-active: var(--button-border-color-default);
+        filter: brightness(0.6);
+        cursor: not-allowed;
 
-        &.alt {
-            &:hover::before {
+        &.solid {
+            &:active::before {
                 filter: brightness(1.0);
             }
 
-            &:active::before {
-                filter: brightness(1.0);
+            &.alt {
+                &:hover::before {
+                    filter: brightness(1.0);
+                }
+
+                &:active::before {
+                    filter: brightness(1.0);
+                }
             }
         }
     }
