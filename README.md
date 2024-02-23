@@ -3,4 +3,4 @@
 HTML website deployment boilerplate.
 
 TODO:
-  - Convert header from float to flexbox.
+  - Rework media queries.
