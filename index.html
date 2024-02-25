@@ -30,37 +30,52 @@
                 <!-- Navigation Bar -->
                 <nav id="navbar">
                     <ul>
-                        <li id="navbar-item-1">
-                            <a href="#">Item 1</a>
+                        <li id="navbar-item-2"><a href="#" onclick="return false;">Home</a></li>
+                        <li id="navbar-item-2">
+                            <a href="#" onclick="return false;"><i class="fas fa-caret-down"></i> Samples</a>
                             <ul>
-                                <li><a href="#">Child 1</a></li>
+                                <li><a href="#" id="navbar-item-2-buttons" onclick="return false;">Buttons</a></li>
+                                <li><a href="#" id="navbar-item-2-inputs" onclick="return false;">Inputs</a></li>
+                                <li><a href="#" id="navbar-item-2-checkboxes" onclick="return false;">Checkboxes</a>
+                                </li>
+                                <li><a href="#" id="navbar-item-2-radios" onclick="return false;">Radios</a></li>
+                            </ul>
+                        </li>
+                        <li id="navbar-item-3">
+                            <a href="#" onclick="return false;"><i class="fas fa-caret-down"></i> Downloads</a>
+                            <ul>
+                                <li><a href="#" onclick="return false;">Shutdown Timer</a></li>
+                                <li><a href="#" onclick="return false;">ASC File Cryptor</a></li>
+                            </ul>
+                        </li>
+                        <li id="navbar-item-4"><a href="#" onclick="return false;"><i class="fas fa-caret-down"></i>
+                                Profiles</a>
+                            <ul>
+                                <li><a href="#" onclick="return false;">Subitem 1</a></li>
                                 <li>
-                                    <a href="#">Child 2</a>
+                                    <a href="#" onclick="return false;">Subitem 2</a>
                                     <ul>
-                                        <li><a href="#">Child 1</a></li>
+                                        <li><a href="#" onclick="return false;">Subitem 1</a></li>
                                         <li>
-                                            <a href="#">Child 2</a>
+                                            <a href="#" onclick="return false;">Subitem 2</a>
                                             <ul>
-                                                <li><a href="#">Child 1</a></li>
+                                                <li><a href="#" onclick="return false;">Subitem 1</a></li>
                                                 <li>
-                                                    <a href="#">Child 2</a>
+                                                    <a href="#" onclick="return false;">Subitem 2</a>
                                                     <ul>
-                                                        <li><a href="#">Child 1</a></li>
-                                                        <li><a href="#">Child 2</a></li>
-                                                        <li><a href="#">Child 3</a></li>
+                                                        <li><a href="#" onclick="return false;">Subitem 1</a></li>
+                                                        <li><a href="#" onclick="return false;">Subitem 2</a></li>
+                                                        <li><a href="#" onclick="return false;">Subitem 3</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Child 3</a></li>
-                                <li><a href="#">Child 4</a></li>
+                                <li><a href="#" onclick="return false;">Subitem 3</a></li>
+                                <li><a href="#" onclick="return false;">Subitem 4</a></li>
                             </ul>
                         </li>
-                        <li id="navbar-item-2"><a href="#">Item 2</a></li>
-                        <li id="navbar-item-3"><a href="#">Item 3</a></li>
-                        <li id="navbar-item-4"><a href="#">Item 4</a></li>
                     </ul>
                 </nav>
             </div>
@@ -81,21 +96,40 @@
                 <div class="button-wrapper"><button class="button solid">Button 2</button></div>
                 <div class="button-wrapper"><button class="button solid alt">Button 3</button></div>
 
-                <!-- Search Icon -->
-                <div id="search-icon" class="icon-wrapper">
-                    <a href="#"><i class="fas fa-search"></i></a>
+                <!-- Menu Icon -->
+                <div id="mobile-menu-icon">
+                    <a href="#" onclick="return false;" onclick="return false;"><i class="fa-solid fa-bars"></i></a>
+                    <div id="mobile-menu-container">
+                        <ul>
+                            <li style="display: none;"><a href="#" onclick="return false;"><i
+                                        class="fas fa-user-circle"></i> User Center</a>
+                            </li>
+                            <li style="display: none;"><a href="#" onclick="return false;"><i class="fas fa-gear"></i>
+                                    Settings</a></li>
+                            <hr style="display: none;">
+                            <li><a href="#" onclick="return false;">Home</a></li>
+                            <li><a href="#" onclick="return false;">Samples</a></li>
+                            <li><a href="#" onclick="return false;">Downloads</a></li>
+                            <li><a href="#" onclick="return false;">Profiles</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Settings Icon -->
+                <div id="settings-icon" class="icon-wrapper">
+                    <a href="#" onclick="return false;"><i class="fas fa-gear"></i></a>
                     <div class="drop-down-container">
-                        <h1>Heading</h1>
-                        <p>Some contents ...</p>
+                        <h2>Settings Popup</h2>
+                        <p>Contents</p>
                     </div>
                 </div>
 
                 <!-- User Icon -->
                 <div id="user-icon" class="icon-wrapper">
-                    <a href="#"><i class="fas fa-user-circle"></i></a>
+                    <a href="#" onclick="return false;"><i class="fas fa-user-circle"></i></a>
                     <div class="drop-down-container">
-                        <h1>Heading</h1>
-                        <p>Some contents ...</p>
+                        <h2>User Center</h2>
+                        <p>Contents</p>
                     </div>
                 </div>
             </div>
@@ -104,7 +138,7 @@
         <!-- Page Content-->
         <div id="content-wrapper">
             <!-- Button Samples -->
-            <section class="content-box flex-center">
+            <section id="button-sample-section" class="content-box flex-center">
                 <section class="inner-content-box text-center">
                     <h1>Default Buttons</h1>
 
@@ -190,7 +224,7 @@
             </section>
 
             <!-- Input Samples -->
-            <section class="content-box top-border flex-center">
+            <section id="input-sample-section" class="content-box top-border flex-center">
                 <section class="inner-content-box text-center">
                     <h1>Default Inputs</h1>
                     <div class="input-wrapper"><input type="text" style="width: 250px;" placeholder="Standard"></div>
@@ -282,7 +316,7 @@
             </section>
 
             <!-- Checkbox Samples -->
-            <section class="content-box top-border flex-center">
+            <section id="checkbox-sample-section" class="content-box top-border flex-center">
                 <section class="inner-content-box text-center">
                     <h1>Default Checkboxes</h1>
 
@@ -449,7 +483,7 @@
             </section>
 
             <!-- Radio Samples -->
-            <section class="content-box top-border flex-center">
+            <section id="radio-sample-section" class="content-box top-border flex-center">
                 <section class="inner-content-box text-center">
                     <h1>Default Radios</h1>
 
@@ -633,14 +667,15 @@
         <!-- Footer -->
         <footer id="footer" class="top-border">
             <div id="social-link-wrapper">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-snapchat"></i></a>
-                <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" onclick="return false;"><i class="fa-brands fa-github"></i></a>
+                <a href="#" onclick="return false;"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" onclick="return false;"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" onclick="return false;"><i class="fa-brands fa-snapchat"></i></a>
+                <a href="#" onclick="return false;"><i class="fa-brands fa-pinterest-p"></i></a>
+                <a href="#" onclick="return false;"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" onclick="return false;"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
-            <p id="powered-text">Powered by <a href="#">0xF5T9</a></p>
+            <p id="powered-text">Powered by <a href="#" onclick="return false;">0xF5T9</a></p>
         </footer>
 
         <!-- Modal Window Overlay -->
@@ -654,6 +689,17 @@
                 <h1>Modal window #2</h1>
                 <p>(Click on the background or press ESC to close.)</p>
             </div>
+        </div>
+
+        <!-- Debug Overlay -->
+        <div id="desktop-overlay" class="debug-overlay">
+            <h3>Desktop</h3>
+        </div>
+        <div id="tablet-overlay" class="debug-overlay red">
+            <h3>Tablet</h3>
+        </div>
+        <div id="mobile-overlay" class="debug-overlay purple">
+            <h3>Mobile</h3>
         </div>
     </div>
     <script src="/assets/js/script.js" type="module"></script>

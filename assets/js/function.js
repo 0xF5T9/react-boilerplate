@@ -144,7 +144,7 @@ export function showHeader() {
         throw `'#header' element not found.`;
 
     if (!isHeaderVisible()) {
-        header.style.setProperty('display', 'block');
+        header.style.setProperty('display', 'flex');
         document.documentElement.style.setProperty('--header-height', global.lastHeaderHeightValue);
         var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
         window.scrollBy({
@@ -193,4 +193,41 @@ export function showFooter() {
         footer.style.setProperty('display', 'flex');
         document.documentElement.style.setProperty('--footer-height', global.lastFooterHeightValue);
     }
+}
+
+export function isMobileMenuOpen() {
+    const mobile_menu = document.querySelector('#mobile-menu-icon');
+    if (!mobile_menu)
+        throw `'#mobile-menu-icon' element not found.`;
+
+    return (mobile_menu.classList.contains('js-open') ? true : false);
+}
+
+export function openMobileMenu() {
+    const mobile_menu = document.querySelector('#mobile-menu-icon');
+    if (!mobile_menu)
+        throw `'#mobile-menu-icon' element not found.`;
+
+    const mobile_menu_icon = mobile_menu.querySelector('.fa-bars');
+    if (!mobile_menu_icon)
+        throw `Icon element not found.`;
+    mobile_menu_icon.classList.remove('fa-bars');
+    mobile_menu_icon.classList.add('fa-arrow-up-from-bracket');
+
+
+    mobile_menu.classList.add('js-open');
+}
+
+export function closeMobileMenu() {
+    const mobile_menu = document.querySelector('#mobile-menu-icon');
+    if (!mobile_menu)
+        throw `'#mobile-menu-icon' element not found.`;
+
+    const mobile_menu_icon = mobile_menu.querySelector('.fa-arrow-up-from-bracket');
+    if (!mobile_menu_icon)
+        throw `Icon element not found.`;
+    mobile_menu_icon.classList.remove('fa-arrow-up-from-bracket');
+    mobile_menu_icon.classList.add('fa-bars');
+
+    mobile_menu.classList.remove('js-open');
 }

@@ -10,6 +10,59 @@ import * as functions from './function.js';
  * FUNCTIONAL BUTTON SCRIPTS *
  *****************************/
 
+// Show/hide the mobile menu button.
+document.querySelector('#mobile-menu-icon').addEventListener('click', function (event) {
+    if (functions.isMobileMenuOpen())
+        functions.closeMobileMenu();
+    else
+        functions.openMobileMenu();
+});
+document.querySelector('#mobile-menu-container').addEventListener('click', function (event) {
+    event.stopPropagation();
+});
+
+// Navigation menu buttons
+document.querySelector('#navbar-item-2-buttons').addEventListener('click', function () {
+    document.querySelector('#button-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: "instant",
+    });
+});
+document.querySelector('#navbar-item-2-inputs').addEventListener('click', function () {
+    document.querySelector('#input-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: "instant",
+    });
+});
+document.querySelector('#navbar-item-2-checkboxes').addEventListener('click', function () {
+    document.querySelector('#checkbox-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: "instant",
+    });
+});
+document.querySelector('#navbar-item-2-radios').addEventListener('click', function () {
+    document.querySelector('#radio-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: "instant",
+    });
+});
+
 // Show sample modal window buttons.
 document.querySelector("#modal-window-sample-button-1").addEventListener('click', function (event) {
     functions.openModalWindow(document.querySelector('#sample-modal-window-1'));
