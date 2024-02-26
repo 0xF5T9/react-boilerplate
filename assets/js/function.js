@@ -231,3 +231,16 @@ export function closeMobileMenu() {
 
     mobile_menu.classList.remove('js-open');
 }
+
+export function updateDebugOverlay() {
+    var device_type = (window.innerWidth >= 1024 ? "Desktop" : (window.innerWidth >= 741 ? "Tablet" : "Mobile"));
+    var result_string = window.innerWidth + "x" + window.innerHeight + " (" + device_type + ")";
+    const screen_size_text = document.querySelector('#debug-overlay>h5');
+    screen_size_text.innerHTML = result_string;
+    if (device_type === "Desktop")
+        screen_size_text.style.setProperty('background-color', 'var(--color-orange)');
+    else if (device_type === "Tablet")
+        screen_size_text.style.setProperty('background-color', 'var(--color-red)');
+    else if (device_type === "Mobile")
+        screen_size_text.style.setProperty('background-color', 'var(--color-purple)');
+}

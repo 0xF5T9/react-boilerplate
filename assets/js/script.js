@@ -196,4 +196,9 @@ window.onkeydown = function (event) {
         functions.closeModalWindow();
 }
 
+window.onresize = function (event) {
+    functions.updateDebugOverlay();
+}
+
+functions.updateDebugOverlay();
 functions.message("All operations completed successfully.");

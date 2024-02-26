@@ -721,10 +721,10 @@ section.content-box {
     }
 }
 
-.debug-overlay {
+#debug-overlay {
     --debug-overlay-background-color: transparent;
     position: relative;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -734,11 +734,11 @@ section.content-box {
     right: 0;
     bottom: 0;
     background-color: var(--debug-overlay-background-color);
-    opacity: 0.5;
+    opacity: 0.9;
     pointer-events: none;
     z-index: 100;
 
-    &>h3 {
+    &>h5 {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -746,20 +746,8 @@ section.content-box {
         margin-bottom: 10px;
         margin-left: 10px;
         border-radius: 8px;
+        white-space: nowrap;
         background-color: var(--color-orange);
-        filter: brightness(0.9);
-    }
-
-    &.red {
-        &>h3 {
-            background-color: var(--color-red);
-        }
-    }
-
-    &.purple {
-        &>h3 {
-            background-color: var(--color-purple);
-        }
     }
 }
 
@@ -843,8 +831,7 @@ section.content-box {
  * MEDIA QUERIES *
  *****************/
 
-@media only screen and (min-device-width: 1024px),
-only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1024px) {
     #desktop-overlay {
         display: flex;
     }
@@ -870,10 +857,6 @@ only screen and (min-width: 1024px) {
 
 @media only screen and (max-device-width: 1023px) and (min-device-width: 741px),
 only screen and (max-width: 1023px) and (min-width: 741px) {
-    #desktop-overlay {
-        display: none;
-    }
-
     #tablet-overlay {
         display: flex;
     }
@@ -904,14 +887,6 @@ only screen and (max-width: 1023px) and (min-width: 741px) {
 
 @media only screen and (max-device-width: 740px),
 only screen and (max-width: 740px) {
-    #desktop-overlay {
-        display: none;
-    }
-
-    #tablet-overlay {
-        display: none;
-    }
-
     #mobile-overlay {
         display: flex;
     }
