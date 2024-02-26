@@ -65,26 +65,72 @@ document.querySelector('#navbar-item-2-radios').addEventListener('click', functi
 
 // Mobile navigation menu buttons.
 for (const list_item of document.querySelectorAll('#mobile-menu-container li')) {
-    list_item.addEventListener('click', function (event) {
-        if (list_item.classList.contains('js-open')) {
-            list_item.classList.remove('js-open');
-            const icon = list_item.querySelector('a>i');
-            icon.classList.remove('fa-caret-down');
-            icon.classList.add('fa-caret-right');
-        }
-        else {
-            list_item.classList.add('js-open');
-            const icon = list_item.querySelector('a>i');
-            icon.classList.remove('fa-caret-right');
-            icon.classList.add('fa-caret-down');
-        }
-    });
+    if (list_item.querySelector('ul')) {
+        list_item.addEventListener('click', function (event) {
+            if (list_item.classList.contains('js-open')) {
+                list_item.classList.remove('js-open');
+                const icon = list_item.querySelector('a>i');
+                icon.classList.remove('fa-caret-down');
+                icon.classList.add('fa-caret-right');
+            }
+            else {
+                list_item.classList.add('js-open');
+                const icon = list_item.querySelector('a>i');
+                icon.classList.remove('fa-caret-right');
+                icon.classList.add('fa-caret-down');
+            }
+        });
+    }
 }
 for (const item_list of document.querySelectorAll('#mobile-menu-container ul')) {
     item_list.addEventListener('click', function (event) {
         event.stopPropagation();
     });
 }
+document.querySelector('#mobile-menu-buttons').addEventListener('click', function () {
+    document.querySelector('#button-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: "instant",
+    });
+    functions.closeMobileMenu();
+});
+document.querySelector('#mobile-menu-inputs').addEventListener('click', function () {
+    document.querySelector('#input-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: "instant",
+    });
+    functions.closeMobileMenu();
+});
+document.querySelector('#mobile-menu-checkboxes').addEventListener('click', function () {
+    document.querySelector('#checkbox-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: "instant",
+    });
+    functions.closeMobileMenu();
+});
+document.querySelector('#mobile-menu-radios').addEventListener('click', function () {
+    document.querySelector('#radio-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: "instant",
+    });
+    functions.closeMobileMenu();
+});
 
 // Show sample modal window buttons.
 document.querySelector("#modal-window-sample-button-1").addEventListener('click', function (event) {
