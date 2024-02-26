@@ -354,19 +354,156 @@
                 list-style-type: none;
 
                 &>li {
-                    padding: 10px 0px 10px 10px;
+                    display: flex;
+                    flex-direction: column;
                     background-color: #2d2a2e;
                     text-align: left;
                     cursor: pointer;
                     transition: all 0.10s;
 
                     &>a {
+                        padding: 10px;
                         font-size: 1.3em;
                         font-weight: bold;
                         color: var(--general-text-color);
                         text-decoration: none;
                         user-select: none;
                         transition: all 0.10s;
+                    }
+
+                    &>ul {
+                        --margin-left: 20px;
+                        display: none;
+                        flex-direction: column;
+                        list-style-type: none;
+                        transition: all 0.10s;
+
+                        &>li {
+                            display: flex;
+                            flex-direction: column;
+                            background-color: #2d2a2e;
+                            text-align: left;
+                            cursor: pointer;
+                            transition: all 0.10s;
+
+                            &>a {
+                                padding: 10px;
+                                margin-left: var(--margin-left);
+                                font-size: 1.1em;
+                                font-weight: bold;
+                                color: var(--general-text-color);
+                                text-decoration: none;
+                                user-select: none;
+                                transition: all 0.10s;
+                            }
+
+                            &>ul {
+                                --margin-left: 40px;
+
+                                &>li>ul {
+                                    --margin-left: 60px;
+
+                                    &>li>ul {
+                                        --margin-left: 80px;
+
+                                        &>li>ul {
+                                            --margin-left: 100px;
+
+                                            &>li>ul {
+                                                --margin-left: 120px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            & ul {
+                                display: none;
+                                flex-direction: column;
+                                list-style-type: none;
+                                transition: all 0.10s;
+
+                                & li {
+                                    display: flex;
+                                    flex-direction: column;
+                                    background-color: #2d2a2e;
+                                    text-align: left;
+                                    cursor: pointer;
+                                    transition: all 0.10s;
+
+                                    &>a {
+                                        padding: 10px;
+                                        margin-left: var(--margin-left);
+                                        font-size: 1.1em;
+                                        font-weight: bold;
+                                        color: var(--general-text-color);
+                                        text-decoration: none;
+                                        user-select: none;
+                                        transition: all 0.10s;
+                                    }
+
+                                    &:hover {
+                                        background-color: #383539;
+
+                                        &>a {
+                                            color: var(--color-yellow);
+                                        }
+                                    }
+
+                                    &:active {
+                                        background-color: #383539;
+
+                                        &>a {
+                                            color: var(--color-yellow);
+                                        }
+                                    }
+
+                                    &.js-open {
+                                        &>ul {
+                                            display: flex;
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+                                    background-color: #383539;
+
+                                    &>a {
+                                        color: var(--color-yellow);
+                                    }
+                                }
+
+                                &:active {
+                                    background-color: #383539;
+
+                                    &>a {
+                                        color: var(--color-yellow);
+                                    }
+                                }
+                            }
+
+                            &:hover {
+                                background-color: #383539;
+
+                                &>a {
+                                    color: var(--color-yellow);
+                                }
+                            }
+
+                            &:active {
+                                background-color: #383539;
+
+                                &>a {
+                                    color: var(--color-yellow);
+                                }
+                            }
+
+                            &.js-open {
+                                &>ul {
+                                    display: flex;
+                                }
+                            }
+                        }
                     }
 
                     &:hover {
@@ -382,6 +519,12 @@
 
                         &>a {
                             color: var(--color-yellow);
+                        }
+                    }
+
+                    &.js-open {
+                        &>ul {
+                            display: flex;
                         }
                     }
                 }
@@ -800,7 +943,7 @@ only screen and (max-width: 740px) {
             display: flex;
 
             & li {
-                display: block !important;
+                display: flex !important;
             }
 
             & hr {

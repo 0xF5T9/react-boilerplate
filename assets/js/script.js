@@ -21,7 +21,7 @@ document.querySelector('#mobile-menu-container').addEventListener('click', funct
     event.stopPropagation();
 });
 
-// Navigation menu buttons
+// Navigation menu buttons.
 document.querySelector('#navbar-item-2-buttons').addEventListener('click', function () {
     document.querySelector('#button-sample-section').scrollIntoView();
     global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
@@ -62,6 +62,29 @@ document.querySelector('#navbar-item-2-radios').addEventListener('click', functi
         behavior: "instant",
     });
 });
+
+// Mobile navigation menu buttons.
+for (const list_item of document.querySelectorAll('#mobile-menu-container li')) {
+    list_item.addEventListener('click', function (event) {
+        if (list_item.classList.contains('js-open')) {
+            list_item.classList.remove('js-open');
+            const icon = list_item.querySelector('a>i');
+            icon.classList.remove('fa-caret-down');
+            icon.classList.add('fa-caret-right');
+        }
+        else {
+            list_item.classList.add('js-open');
+            const icon = list_item.querySelector('a>i');
+            icon.classList.remove('fa-caret-right');
+            icon.classList.add('fa-caret-down');
+        }
+    });
+}
+for (const item_list of document.querySelectorAll('#mobile-menu-container ul')) {
+    item_list.addEventListener('click', function (event) {
+        event.stopPropagation();
+    });
+}
 
 // Show sample modal window buttons.
 document.querySelector("#modal-window-sample-button-1").addEventListener('click', function (event) {
