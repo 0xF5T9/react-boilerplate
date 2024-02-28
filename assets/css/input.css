@@ -17,6 +17,7 @@ div.input-wrapper {
     --input-border-color-active: var(--input-border-color-default);
     --input-border-color-focus: var(--color-primary);
     --input-border-width: 2px;
+    --input-border-radius: 4px;
     --input-padding-left-right: 4px;
     --input-padding-top-bottom: 4px;
     --input-icon-extra-padding: 4px;
@@ -32,23 +33,60 @@ div.input-wrapper {
         z-index: 1;
     }
 
+    &::before {
+        content: '';
+        position: absolute;
+        left: 1px;
+        top: 1px;
+        display: block;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        border-radius: calc(var(--input-border-radius) - 1px);
+        background-color: var(--input-background-color-default);
+        filter: brightness(1.0);
+        transition: all 0.15s;
+    }
+
+    &:hover::before {
+        background-color: var(--input-background-color-hover);
+        filter: brightness(1.2);
+    }
+
+    &:active::before {
+        background-color: var(--input-background-color-active);
+    }
+
+    &:focus-within::before {
+        background-color: var(--input-background-color-focus);
+        filter: brightness(1.3);
+    }
+
     &>input[type="text"],
     &>input[type="email"],
     &>input[type="password"] {
         padding: var(--input-padding-top-bottom) var(--input-padding-left-right);
         border: var(--input-border-width) solid var(--input-border-color-default);
-        border-radius: 4px;
+        border-radius: var(--input-border-radius);
         outline: none;
         color: var(--input-text-color-default);
-        background-color: var(--input-background-color-default);
+        background-color: transparent;
         font-size: 1em;
         filter: brightness(1.0);
         z-index: 0;
         transition: all 0.15s;
 
+        &:hover {
+            color: var(--input-text-color-hover);
+            border: var(--input-border-width) solid var(--input-border-color-hover);
+        }
+
+        &:active {
+            color: var(--input-text-color-active);
+            border: var(--input-border-width) solid var(--input-border-color-active);
+        }
+
         &:focus {
             color: var(--input-text-color-focus);
-            background-color: var(--input-background-color-focus);
             border: var(--input-border-width) solid var(--input-border-color-focus);
         }
 
@@ -87,17 +125,12 @@ div.input-wrapper {
     }
 
     &.alt {
-
-        &>input[type="text"],
-        &>input[type="email"],
-        &>input[type="password"] {
-            --input-text-color-default: var(--color-white);
-            --input-background-color-default: var(--color-black);
-            --input-border-color-default: var(--color-primary);
-            --input-text-color-focus: var(--input-text-color-default);
-            --input-background-color-focus: var(--input-background-color-default);
-            --input-border-color-focus: var(--color-white);
-        }
+        --input-text-color-default: var(--color-white);
+        --input-background-color-default: var(--color-black);
+        --input-border-color-default: var(--color-primary);
+        --input-text-color-focus: var(--input-text-color-default);
+        --input-background-color-focus: var(--input-background-color-default);
+        --input-border-color-focus: var(--color-white);
     }
 
     &.small {
@@ -109,111 +142,101 @@ div.input-wrapper {
     }
 
     &.transparent {
+        --input-background-color-default: transparent;
+        --input-background-color-hover: transparent;
+        --input-background-color-active: transparent;
+        --input-background-color-focus: transparent;
 
-        &>input[type="text"],
-        &>input[type="email"],
-        &>input[type="password"] {
-            --input-background-color-default: transparent;
-            --input-background-color-hover: transparent;
-            --input-background-color-active: transparent;
-            --input-background-color-focus: transparent;
+        &::before {
+            content: '';
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            display: block;
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            border-radius: calc(var(--input-border-radius) - 1px);
+            background-color: rgba(255, 255, 255, 0);
+            transition: all 0.15s;
+        }
+
+        &:hover::before {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        &:active::before {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        &:focus-within::before {
+            background-color: rgba(255, 255, 255, 0.08);
         }
     }
 
     /* Color modifier classes */
 
     &.red {
+        --input-border-color-focus: var(--color-red);
 
-        &>input[type="text"],
-        &>input[type="email"],
-        &>input[type="password"] {
-            --input-border-color-focus: var(--color-red);
-        }
-
-        &.alt>input[type="text"],
-        &.alt>input[type="email"],
-        &.alt>input[type="password"] {
+        &.alt {
             --input-border-color-default: var(--color-red);
+            --input-border-color-hover: var(--color-red);
+            --input-border-color-active: var(--color-red);
             --input-border-color-focus: var(--color-white);
         }
     }
 
     &.orange {
+        --input-border-color-focus: var(--color-orange);
 
-        &>input[type="text"],
-        &>input[type="email"],
-        &>input[type="password"] {
-            --input-border-color-focus: var(--color-orange);
-        }
-
-        &.alt>input[type="text"],
-        &.alt>input[type="email"],
-        &.alt>input[type="password"] {
+        &.alt {
             --input-border-color-default: var(--color-orange);
+            --input-border-color-hover: var(--color-orange);
+            --input-border-color-active: var(--color-orange);
             --input-border-color-focus: var(--color-white);
         }
     }
 
     &.yellow {
+        --input-border-color-focus: var(--color-yellow);
 
-        &>input[type="text"],
-        &>input[type="email"],
-        &>input[type="password"] {
-            --input-border-color-focus: var(--color-yellow);
-        }
-
-        &.alt>input[type="text"],
-        &.alt>input[type="email"],
-        &.alt>input[type="password"] {
+        &.alt {
             --input-border-color-default: var(--color-yellow);
+            --input-border-color-hover: var(--color-yellow);
+            --input-border-color-active: var(--color-yellow);
             --input-border-color-focus: var(--color-white);
         }
     }
 
     &.green {
+        --input-border-color-focus: var(--color-green);
 
-        &>input[type="text"],
-        &>input[type="email"],
-        &>input[type="password"] {
-            --input-border-color-focus: var(--color-green);
-        }
-
-        &.alt>input[type="text"],
-        &.alt>input[type="email"],
-        &.alt>input[type="password"] {
+        &.alt {
             --input-border-color-default: var(--color-green);
+            --input-border-color-hover: var(--color-green);
+            --input-border-color-active: var(--color-green);
             --input-border-color-focus: var(--color-white);
         }
     }
 
     &.blue {
+        --input-border-color-focus: var(--color-blue);
 
-        &>input[type="text"],
-        &>input[type="email"],
-        &>input[type="password"] {
-            --input-border-color-focus: var(--color-blue);
-        }
-
-        &.alt>input[type="text"],
-        &.alt>input[type="email"],
-        &.alt>input[type="password"] {
+        &.alt {
             --input-border-color-default: var(--color-blue);
+            --input-border-color-hover: var(--color-blue);
+            --input-border-color-active: var(--color-blue);
             --input-border-color-focus: var(--color-white);
         }
     }
 
     &.purple {
+        --input-border-color-focus: var(--color-purple);
 
-        &>input[type="text"],
-        &>input[type="email"],
-        &>input[type="password"] {
-            --input-border-color-focus: var(--color-purple);
-        }
-
-        &.alt>input[type="text"],
-        &.alt>input[type="email"],
-        &.alt>input[type="password"] {
+        &.alt {
             --input-border-color-default: var(--color-purple);
+            --input-border-color-hover: var(--color-purple);
+            --input-border-color-active: var(--color-purple);
             --input-border-color-focus: var(--color-white);
         }
     }
