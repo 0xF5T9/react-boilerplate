@@ -83,6 +83,7 @@ div.radio-wrapper {
 
     &>label {
         display: flex;
+        cursor: pointer;
 
         &>span {
             font-size: 1em;
