@@ -3,6 +3,7 @@
  * @description Main style sheet file.
  */
 
+@import url(./normalize.css);
 @import url(./root.css);
 @import url(./common.css);
 @import url(./checkbox.css);
@@ -624,6 +625,7 @@ section.content-box {
     --content-box-top-bottom-padding: 50px;
     --inner-content-box-max-width: 1200px;
     --inner-content-box-child-top-margin: 5px;
+    --inner-content-box-heading-top-margin: 13px;
     flex: auto;
     width: 100%;
     padding: var(--content-box-top-bottom-padding) 0px;
@@ -643,8 +645,27 @@ section.content-box {
             margin-top: var(--inner-content-box-child-top-margin);
         }
 
+        &>h1+*:not(:first-child),
+        &>h2+*:not(:first-child),
+        &>h3+*:not(:first-child),
+        &>h4+*:not(:first-child),
+        &>h5+*:not(:first-child),
+        &>h6+*:not(:first-child) {
+            margin-top: var(--inner-content-box-heading-top-margin);
+        }
+
+        & h1:not(:first-child),
+        & h2:not(:first-child),
+        & h3:not(:first-child),
+        & h4:not(:first-child),
+        & h5:not(:first-child),
+        & h6:not(:first-child) {
+            margin-top: var(--inner-content-box-heading-top-margin);
+        }
+
         &.no-margin {
             --inner-content-box-child-top-margin: 0px;
+            --inner-content-box-heading-top-margin: 0px;
         }
     }
 
@@ -697,7 +718,7 @@ section.content-box {
     }
 
     &>#powered-text {
-        margin-top: 5px;
+        margin-top: 10px;
         font-size: small;
         color: var(--color-gray);
         filter: brightness(0.7);

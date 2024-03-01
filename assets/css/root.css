@@ -30,9 +30,9 @@
     --general-body-background-gradient-color: linear-gradient(to bottom, rgba(45, 42, 46, 0.8), rgba(45, 42, 46, 0.8));
     --general-body-background-image-url: url("/assets/img/background.jpg");
     --general-scrollbar-background-color: var(--color-black);
-    --general-scrollbar-thumb-background-color-default: var(--color-white);
-    --general-scrollbar-thumb-background-color-hover: var(--color-white);
-    --general-scrollbar-thumb-background-color-active: var(--color-davi-gray);
+    --general-scrollbar-thumb-background-color-default: var(--color-davi-gray);
+    --general-scrollbar-thumb-background-color-hover: var(--color-davi-gray);
+    --general-scrollbar-thumb-background-color-active: var(--color-white);
 
     /* Header variables */
     --header-height: 60px;
