@@ -145,10 +145,12 @@ document.querySelector('#show-hide-header-button').addEventListener('click', fun
     if (functions.isHeaderVisible()) {
         event.target.innerHTML = "Show Header";
         functions.hideHeader();
+        functions.showToast('Info', 'The header has been hidden.', 'info', 1000);
     }
     else {
         event.target.innerHTML = "Hide Header";
         functions.showHeader();
+        functions.showToast('Info', 'The header has been shown.', 'info', 1000);
     }
 });
 
@@ -157,10 +159,12 @@ document.querySelector('#show-hide-footer-button').addEventListener('click', fun
     if (functions.isFooterVisible()) {
         event.target.innerHTML = "Show Footer";
         functions.hideFooter();
+        functions.showToast('Info', 'The footer has been hidden.', 'info', 1000);
     }
     else {
         event.target.innerHTML = "Hide Footer";
         functions.showFooter();
+        functions.showToast('Info', 'The footer has been shown.', 'info', 1000);
     }
 });
 
@@ -194,6 +198,31 @@ for (const modal_window of document.querySelector('#modal-overlay').querySelecto
 window.onkeydown = function (event) {
     if (event.code === 'Escape' && functions.isModalOverlayOpen())
         functions.closeModalWindow();
+    else if (event.code == 'Numpad0') {
+        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+        audio.play();
+        functions.showToast('Message', 'You have new message(s).', 'message');
+    }
+    else if (event.code == 'Numpad1') {
+        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+        audio.play();
+        functions.showToast('Info', 'New version available for download!', 'info');
+    }
+    else if (event.code == 'Numpad2') {
+        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+        audio.play();
+        functions.showToast('Success', 'Your request has been sent successfully.', 'success');
+    }
+    else if (event.code == 'Numpad3') {
+        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+        audio.play();
+        functions.showToast('Error', 'Unable to connect to the remote server.', 'error');
+    }
+    else if (event.code == 'Numpad4') {
+        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+        audio.play();
+        functions.showCustomToast('Custom Toast', 'This is a custom toast message..', { titleColor: '#fcfcfa', descColor: '#fcfcfa', backgroundColor: '#544e56', borderColor: '#544e56', iconColor: '#fcfcfa', closeIconColor: '#fcfcfa' }, 'fa-solid fa-gear');
+    }
 }
 
 window.onresize = function (event) {

@@ -7,13 +7,20 @@
     /* Predefined color variables */
     --color-white: #fcfcfa;
     --color-gray: #808080;
+    --color-davi-gray: #544e56;
     --color-black: #2d2a2e;
     --color-red: #ff6188;
+    --color-red-darker: hsl(345, 100%, 54%);
     --color-orange: #fc9867;
+    --color-orange-darker: hsl(20, 96%, 55%);
     --color-yellow: #ffd866;
+    --color-yellow-darker: hsl(45, 100%, 55%);
     --color-green: #a9dc76;
+    --color-green-darker: hsl(90, 59%, 51%);
     --color-blue: #78dce8;
+    --color-blue-darker: hsl(186, 71%, 54%);
     --color-purple: #ab9df2;
+    --color-purple-darker: hsl(250, 77%, 63%);
     --color-primary: var(--color-orange);
 
     /* General variables */
@@ -25,7 +32,7 @@
     --general-scrollbar-background-color: var(--color-black);
     --general-scrollbar-thumb-background-color-default: var(--color-white);
     --general-scrollbar-thumb-background-color-hover: var(--color-white);
-    --general-scrollbar-thumb-background-color-active: var(--color-gray);
+    --general-scrollbar-thumb-background-color-active: var(--color-davi-gray);
 
     /* Header variables */
     --header-height: 60px;
