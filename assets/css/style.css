@@ -718,7 +718,7 @@ section.content-box {
     }
 
     &>#powered-text {
-        margin-top: 10px;
+        margin-top: 13px;
         font-size: small;
         color: var(--color-gray);
         filter: brightness(0.7);
