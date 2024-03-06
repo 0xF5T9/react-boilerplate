@@ -18,91 +18,6 @@ export function message(message, isErrorMessage = false) {
 }
 
 /**
- * Show the modal overlay element.
- */
-export function showModalOverlay() {
-    const modal_overlay = document.querySelector('#modal-overlay');
-    if (!modal_overlay)
-        throw `'#modal-overlay' element not found.`;
-
-    modal_overlay.classList.add('js-open');
-}
-
-/**
- * Hide the modal overlay element.
- */
-export function hideModalOverlay() {
-    const modal_overlay = document.querySelector('#modal-overlay');
-    if (!modal_overlay)
-        throw `'#modal-overlay' element not found.`;
-
-    modal_overlay.classList.remove('js-open');
-}
-
-/**
- * Check if the modal overlay is open and visible.
- * @returns {boolean} Returns true if if the modal overlay is open and visible, otherwise returns false.
- */
-export function isModalOverlayOpen() {
-    const modal_overlay = document.querySelector('#modal-overlay');
-    if (!modal_overlay)
-        throw `'#modal-overlay' element not found.`;
-
-    return (modal_overlay.classList.contains('js-open') ? true : false);
-}
-
-/**
- * Open a modal window.
- * @param {Element} modalWindowElement The modal window element. (.modal-window)
- */
-export function openModalWindow(modalWindowElement) {
-    if (!modalWindowElement || modalWindowElement.nodeType != 1) {
-        throw `The given parameter variable is not an element.`;
-    }
-
-    if (!modalWindowElement.classList.contains('modal-window'))
-        throw `The given element is not a modal window element. ('.modal-window' class not found)`;
-
-    showModalOverlay();
-    modalWindowElement.classList.remove('js-animation-close');
-    modalWindowElement.classList.add('js-open');
-    modalWindowElement.classList.add('js-animation-open');
-}
-
-/**
- * Handles modal window closing animation end.
- * Removes overlay, detaches 'animationend' listeners from modals.
- */
-function modalWindowAnimationEndCallback() {
-    const modal_overlay = document.querySelector('#modal-overlay');
-    if (!modal_overlay)
-        throw `'#modal-overlay' element not found.`;
-
-    hideModalOverlay();
-    const modal_windows = modal_overlay.querySelectorAll('.modal-window');
-    for (const modal_window of modal_windows) {
-        modal_window.classList.remove('js-open');
-        modal_window.removeEventListener('animationend', modalWindowAnimationEndCallback);
-    }
-}
-
-/**
- * Close the opening modal window.
- */
-export function closeModalWindow() {
-    const modal_overlay = document.querySelector('#modal-overlay');
-    if (!modal_overlay)
-        throw `'#modal-overlay' element not found.`;
-
-    const modal_window = modal_overlay.querySelector('.modal-window.js-animation-open');
-    if (modal_window) {
-        modal_window.addEventListener('animationend', modalWindowAnimationEndCallback);
-        modal_window.classList.remove('js-animation-open');
-        modal_window.classList.add('js-animation-close');
-    }
-}
-
-/**
  * Check if the header is visible.
  * @returns {boolean} Returns true if the header is visible, otherwise returns false.
  */
@@ -193,69 +108,6 @@ export function showFooter() {
         footer.style.setProperty('display', 'flex');
         document.documentElement.style.setProperty('--footer-height', global.lastFooterHeightValue);
     }
-}
-
-/**
- * Check if the mobile menu is open.
- * @returns {boolean} Returns true if the mobile menu is open, otherwise returns false.
- */
-export function isMobileMenuOpen() {
-    const mobile_menu = document.querySelector('#mobile-menu-icon');
-    if (!mobile_menu)
-        throw `'#mobile-menu-icon' element not found.`;
-
-    return (mobile_menu.classList.contains('js-open') ? true : false);
-}
-
-/**
- * Open the mobile menu.
- */
-export function openMobileMenu() {
-    const mobile_menu = document.querySelector('#mobile-menu-icon');
-    if (!mobile_menu)
-        throw `'#mobile-menu-icon' element not found.`;
-
-    const mobile_menu_icon = mobile_menu.querySelector('.fa-bars');
-    if (!mobile_menu_icon)
-        throw `Icon element not found.`;
-    mobile_menu_icon.classList.remove('fa-bars');
-    mobile_menu_icon.classList.add('fa-arrow-up-from-bracket');
-
-
-    mobile_menu.classList.add('js-open');
-}
-
-/**
- * Close the mobile menu.
- */
-export function closeMobileMenu() {
-    const mobile_menu = document.querySelector('#mobile-menu-icon');
-    if (!mobile_menu)
-        throw `'#mobile-menu-icon' element not found.`;
-
-    const mobile_menu_icon = mobile_menu.querySelector('.fa-arrow-up-from-bracket');
-    if (!mobile_menu_icon)
-        throw `Icon element not found.`;
-    mobile_menu_icon.classList.remove('fa-arrow-up-from-bracket');
-    mobile_menu_icon.classList.add('fa-bars');
-
-    mobile_menu.classList.remove('js-open');
-}
-
-/**
- * Update the debug overlay.
- */
-export function updateDebugOverlay() {
-    var device_type = (window.innerWidth >= 1024 ? "Desktop" : (window.innerWidth >= 741 ? "Tablet" : "Mobile"));
-    var result_string = window.innerWidth + "x" + window.innerHeight + " (" + device_type + ")";
-    const screen_size_text = document.querySelector('#debug-overlay>h5');
-    screen_size_text.innerHTML = result_string;
-    if (device_type === "Desktop")
-        screen_size_text.style.setProperty('background-color', 'var(--color-orange)');
-    else if (device_type === "Tablet")
-        screen_size_text.style.setProperty('background-color', 'var(--color-red)');
-    else if (device_type === "Mobile")
-        screen_size_text.style.setProperty('background-color', 'var(--color-purple)');
 }
 
 /**
@@ -370,4 +222,81 @@ export function showCustomToast(title = '', message = '', colors = { titleColor:
 
     // Append the toast element.
     document.querySelector('#toasts').append(toast_element);
+}
+
+/**
+ * Check if there are any drop-down windows open.
+ * @returns {boolean} Returns true if there are any drop-down windows open, otherwise returns false.
+ */
+export function isDropdownWindowOpen() {
+    return (document.querySelectorAll('.dropdown-window.is-open').length ? true : false);
+}
+
+/**
+ * Validate all dropdown windows.
+ */
+export function validateAllDropdownWindows() {
+    for (const dropdown of document.querySelectorAll('.dropdown-window')) {
+        if (dropdown.id == 'alert-dropdown') {
+            if (dropdown.classList.contains('is-open')) {
+                // ...
+            } else {
+                dropdown.parentNode.querySelector('i').classList.remove('fas');
+                dropdown.parentNode.querySelector('i').classList.add('far');
+            }
+        }
+    }
+}
+
+/**
+ * Close all drop-down windows.
+ */
+export function closeAllDropdownWindows() {
+    for (const dropdown of document.querySelectorAll('.dropdown-window.is-open')) {
+        dropdown.classList.remove('is-open');
+        validateAllDropdownWindows();
+    }
+}
+
+/**
+ * Check if the modal overlay is visible.
+ * The modal overlay becomes visible when a modal window is open.
+ * @returns {boolean} Returns true if the modal overlay is visible, otherwise returns false.
+ */
+export function isModalOverlayVisible() {
+    return (document.querySelector('#modals').querySelector('.modal-window.is-open') ? true : false);
+}
+
+/**
+ * Close the modal overlay.
+ * @param {Boolean} skipAnimation Specifies whether to skip the modal window close animation.
+ */
+export function closeModalOverlay(skipAnimation = false) {
+    for (const window of document.querySelector('#modals').querySelectorAll('.modal-window.is-open')) {
+        if (!skipAnimation) {
+            window.style.animation = `modal-window-fade-out 0.1s ease forwards`;
+            setTimeout(function () {
+                window.classList.remove('is-open');
+                window.removeAttribute('style');
+            }, 100);
+        } else {
+            window.classList.remove('is-open');
+        }
+    }
+}
+
+/**
+ * Update the debug overlay.
+ */
+export function updateDebugOverlay() {
+    var device_type = (window.innerWidth >= 1024 ? "Desktop" : (window.innerWidth >= 741 ? "Tablet" : "Mobile"));
+    var result_string = window.innerWidth + "x" + window.innerHeight + " (" + device_type + ")";
+    const screen_size_text = document.querySelector('#debug-overlay>h5');
+    screen_size_text.innerHTML = result_string;
+    if (device_type === "Desktop")
+        screen_size_text.style.setProperty('background-color', 'var(--color-orange)');
+    else if (device_type === "Tablet")
+        screen_size_text.style.setProperty('background-color', 'var(--color-red)');
+    else if (device_type === "Mobile")
+        screen_size_text.style.setProperty('background-color', 'var(--color-purple)');
 }

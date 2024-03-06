@@ -18,19 +18,24 @@
     <div id="root">
         <!-- Header -->
         <header id="header">
+
+            <!-- Left Content Box -->
             <div id="header-left-content-box">
+
                 <!-- Brand Logo -->
-                <img id="header-brand-logo" class="" src="/assets/img/brand-logo.png" alt="Brand Logo">
+                <a id="header-brand-logo" href="/"><img src="/assets/img/brand-logo.png" alt="Brand Logo"></a>
 
                 <!-- Brand Text -->
-                <div id="header-brand-text" class="">
-                    <h1>Boilerplate Project</h1>
-                </div>
+                <a id="header-brand-text" href="/">
+                    <div>
+                        <h1>Boilerplate Project</h1>
+                    </div>
+                </a>
 
                 <!-- Navigation Bar -->
                 <nav id="navbar">
                     <ul>
-                        <li id="navbar-item-2"><a href="#" onclick="return false;">Home</a></li>
+                        <li id="navbar-item-2"><a href="/" onclick="return false;">Home</a></li>
                         <li id="navbar-item-2">
                             <a href="#" onclick="return false;"><i class="fas fa-caret-down"></i> Samples</a>
                             <ul>
@@ -80,10 +85,11 @@
                 </nav>
             </div>
 
+            <!-- Middle Content Box -->
             <div id="header-middle-content-box">
-
             </div>
 
+            <!-- Right Content Box -->
             <div id="header-right-content-box">
                 <!-- Sample Input -->
                 <div class="input-wrapper icon-right transparent">
@@ -92,22 +98,22 @@
                 </div>
 
                 <!-- Sample Buttons -->
-                <div class="button-wrapper"><button class="button">Button 1</button></div>
-                <div class="button-wrapper"><button class="button solid">Button 2</button></div>
-                <div class="button-wrapper"><button class="button solid alt">Button 3</button></div>
+                <div class="header-button"><button class="button">Button 1</button></div>
+                <div class="header-button"><button class="button solid">Button 2</button></div>
+                <div class="header-button"><button class="button solid alt">Button 3</button></div>
 
                 <!-- Menu Icon -->
-                <div id="mobile-menu-icon">
-                    <a href="#" onclick="return false;" onclick="return false;"><i class="fa-solid fa-bars"></i></a>
-                    <div id="mobile-menu-container">
+                <div id="mobile-menu-icon" class="header-icon-button">
+                    <a href="javascript:void(0)" class="header-icon-button-icon"><i class="fas fa-bars"></i></a>
+                    <div id="mobile-menu-dropdown" class="dropdown-window">
                         <ul>
                             <li style="display: none;"><a href="#" onclick="return false;"><i
                                         class="fas fa-user-circle"></i> User Center</a>
                             </li>
-                            <li style="display: none;"><a href="#" onclick="return false;"><i class="fas fa-gear"></i>
-                                    Settings</a></li>
+                            <li style="display: none;"><a href="#" onclick="return false;"><i class="fas fa-bell"></i>
+                                    Alerts</a></li>
                             <hr style="display: none;">
-                            <li><a href="#" onclick="return false;">Home</a></li>
+                            <li><a href="/" onclick="return false;">Home</a></li>
                             <li>
                                 <a href="#" onclick="return false;"><i class="fas fa-caret-right"></i> Samples</a>
                                 <ul>
@@ -160,21 +166,66 @@
                     </div>
                 </div>
 
-                <!-- Settings Icon -->
-                <div id="settings-icon" class="icon-wrapper">
-                    <a href="#" onclick="return false;"><i class="fas fa-gear"></i></a>
-                    <div class="drop-down-container">
-                        <h2>Settings Popup</h2>
-                        <p>Contents</p>
+                <!-- Alerts Icon -->
+                <div id="alert-icon" class="header-icon-button">
+                    <a href="javascript:void(0)" class="header-icon-button-icon"><i class="far fa-bell"></i></a>
+                    <div id="alert-dropdown" class="dropdown-window">
+                        <div class="alert-header">
+                            <p class="alert-title">Alert Messages</p>
+                        </div>
+                        <div class="alert-body">
+                            <section class="alert-message">
+                                <i class="alert-message-icon fa-solid fa-circle-info"></i>
+                                <div class="alert-message-content">
+                                    <p class="alert-message-title">Welcome</p>
+                                    <p class="alert-message-desc">Welcome to the boilerplate project.</p>
+                                </div>
+                            </section>
+                            <section class="alert-message">
+                                <i class="alert-message-icon fa-solid fa-circle-exclamation"></i>
+                                <div class="alert-message-content">
+                                    <p class="alert-message-title">Error</p>
+                                    <p class="alert-message-desc">Unable to connect to the remote server.</p>
+                                </div>
+                            </section>
+                            <section class="alert-message">
+                                <i class="alert-message-icon fas fa-message"></i>
+                                <div class="alert-message-content">
+                                    <p class="alert-message-title">Message</p>
+                                    <p class="alert-message-desc">This is a test message.</p>
+                                </div>
+                            </section>
+                            <section class="alert-message">
+                                <i class="alert-message-icon fas fa-message"></i>
+                                <div class="alert-message-content">
+                                    <p class="alert-message-title">Message</p>
+                                    <p class="alert-message-desc"> This is a longer test message:<br><br>
+                                        "5249871785
+                                        7619941762
+                                        0389708299
+                                        9968426015
+                                        4557008913
+                                        1602392973
+                                        3123316770
+                                        4820916127
+                                        8262857752
+                                        2974726339"</p>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="alert-footer">
+                            <a href="#" onclick="return false;">View all alerts</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- User Icon -->
-                <div id="user-icon" class="icon-wrapper">
-                    <a href="#" onclick="return false;"><i class="fas fa-user-circle"></i></a>
-                    <div class="drop-down-container">
-                        <h2>User Center</h2>
-                        <p>Contents</p>
+                <div id="user-icon" class="header-icon-button">
+                    <a href="#" onclick="return false;" class="header-icon-button-icon"><i
+                            class="fas fa-user-circle"></i></a>
+                    <div id="user-dropdown" class="dropdown-window">
+                        <i class="fas fa-gears"></i>
+                        <span>Working on progress ...</span>
                     </div>
                 </div>
             </div>
@@ -694,6 +745,7 @@
                 </section>
             </section>
 
+            <!-- Fixed Content Box Sample -->
             <section class="content-box top-border flex-center fixed-height" style="height: 300px;">
                 <section class="inner-content-box text-center">
                     <h1>Fixed Height Content Box</h1>
@@ -701,6 +753,7 @@
                 </section>
             </section>
 
+            <!-- Default Content Box Sample -->
             <section class="content-box top-border flex-center">
                 <section class="inner-content-box text-center">
                     <h1>Default Content Box</h1>
@@ -723,22 +776,43 @@
             <p id="powered-text">Powered by <a href="#" onclick="return false;">0xF5T9</a></p>
         </footer>
 
-        <!-- Modal Window Overlay -->
-        <div id="modal-overlay">
-            <!-- Modal Windows -->
-            <div id="sample-modal-window-1" class="modal-window" style="height: 300px;">
-                <h1>Modal window #1</h1>
-                <p>(Click on the background or press ESC to close.)</p>
+        <!-- Modal Window Container -->
+        <div id="modals">
+            <style>
+                #custom-modal-window-1 {
+                    width: 400px;
+                    height: 200px;
+                    padding: 20px;
+                    text-align: center;
+
+                    &>*:not(:first-child) {
+                        margin-top: 10px;
+                    }
+                }
+
+                #custom-modal-window-2 {
+                    width: 400px;
+                    height: 200px;
+                    padding: 20px;
+                    text-align: center;
+
+                    &>*:not(:first-child) {
+                        margin-top: 10px;
+                    }
+                }
+            </style>
+            <div id="custom-modal-window-1" class="modal-window">
+                <h3>Modal Window 1</h3>
+                <p>Modal window contents.</p>
             </div>
-            <div id="sample-modal-window-2" class="modal-window" style="height: 300px;">
-                <h1>Modal window #2</h1>
-                <p>(Click on the background or press ESC to close.)</p>
+            <div id="custom-modal-window-2" class="modal-window">
+                <h3>Modal Window 2</h3>
+                <p>Modal window contents.</p>
             </div>
         </div>
 
         <!-- Toast Container -->
         <div id="toasts">
-            <!-- ... -->
         </div>
 
         <!-- Debug Overlay -->
