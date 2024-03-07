@@ -202,7 +202,7 @@
                 }
 
                 &>a {
-                    margin: 0px 10px;
+                    margin: 0px 5px;
                     padding: 4px 12px;
                     border-radius: 8px;
                     font-size: 1.0em;
@@ -381,6 +381,11 @@
                 }
 
                 &:hover {
+                    &>a {
+                        color: var(--nav-top-item-text-color-hover);
+                        background-color: var(--nav-top-item-background-color-hover);
+                    }
+
                     &>ul {
                         visibility: visible;
                         opacity: 1;
