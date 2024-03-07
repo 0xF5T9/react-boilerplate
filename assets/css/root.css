@@ -56,7 +56,15 @@
     --color-primary: var(--color-orange);
 
     /* General variables */
-    --general-font-family: 'Poppins', sans-serif;
+    --general-font-family: -apple-system,
+        BlinkMacSystemFont,
+        "Noto Sans",
+        "Poppins",
+        Helvetica,
+        Arial,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji";
     --general-text-color: var(--color-white);
     --general-font-size-normal: 1rem;
     --general-font-size-small: calc(1rem * 0.8333333);
@@ -109,7 +117,7 @@ html {
     color: var(--general-text-color);
     background-color: var(--general-body-background-color);
     font-family: var(--general-font-family);
-    font-size: 100%;
+    font-size: 87.5%;
 }
 
 body {

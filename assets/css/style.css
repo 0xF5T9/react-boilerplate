@@ -87,9 +87,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: var(--header-height);
+        width: calc(var(--header-height) * 0.83333);
         height: var(--header-height);
         font-size: calc(var(--header-height) / 2);
+        font-size: calc(var(--header-height) * 0.45);
 
         &:hover>.header-icon-button-icon {
             color: var(--header-icon-button-icon-color-hover);
@@ -100,7 +101,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 5px 10px;
+            width: 70%;
+            height: 70%;
+            border-radius: 4px;
+            width: calc(var(--header-height) * 0.675);
+            height: calc(var(--header-height) * 0.675);
             border-radius: 4px;
             color: var(--header-icon-button-icon-color-default);
             background-color: var(--header-icon-button-background-color-default);
@@ -408,6 +413,7 @@
             height: auto;
             max-height: calc(100vh - var(--header-height));
             border-top: 1px solid var(--dropdown-window-border-color);
+            border-radius: 0;
             border-left: 0;
             border-right: 0;
             border-bottom: 0;
@@ -948,8 +954,7 @@ section.content-box {
         overflow: hidden;
         will-change: opacity, transform;
 
-        &:empty,
-        &:-moz-only-whitespace {
+        &:empty {
             display: none;
             width: max-content;
             justify-content: center;
@@ -957,8 +962,7 @@ section.content-box {
             padding: 20px;
         }
 
-        &:empty::before,
-        &:-moz-only-whitespace::before {
+        &:empty::before {
             content: 'This modal window is empty.';
             color: var(--color-gray);
         }
@@ -1029,6 +1033,7 @@ section.content-box {
             }
 
             &>.toast-desc {
+                margin-top: 3px;
                 color: var(--toast-desc-color);
                 font-weight: medium;
             }
@@ -1070,8 +1075,7 @@ section.content-box {
     will-change: opacity, transform, visibility;
     transition: all 0.15s;
 
-    &:empty,
-    &:-moz-only-whitespace {
+    &:empty {
         display: flex;
         justify-content: center;
         align-items: center;
