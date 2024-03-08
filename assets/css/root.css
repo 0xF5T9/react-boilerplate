@@ -78,7 +78,7 @@
     --general-scrollbar-thumb-background-color-active: var(--color-gray-bright-intense);
 
     /* Header variables */
-    --header-height: 60px;
+    --header-height: 56.8px;
     --header-background-color: #221f22;
     --nav-top-item-background-color-default: #221f22;
     --nav-top-item-background-color-hover: #333234;
