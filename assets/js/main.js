@@ -47,7 +47,7 @@ for (const item_list of document.querySelectorAll('#mobile-menu-dropdown ul')) {
 document.querySelector('#navbar-item-2-buttons').addEventListener('click', function () {
     document.querySelector('#button-sample-section').scrollIntoView();
     global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
     lastHeaderHeightValue = -lastHeaderHeightValue;
     window.scrollBy({
         top: lastHeaderHeightValue,
@@ -57,7 +57,7 @@ document.querySelector('#navbar-item-2-buttons').addEventListener('click', funct
 document.querySelector('#navbar-item-2-inputs').addEventListener('click', function () {
     document.querySelector('#input-sample-section').scrollIntoView();
     global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
     lastHeaderHeightValue = -lastHeaderHeightValue;
     window.scrollBy({
         top: lastHeaderHeightValue,
@@ -67,7 +67,7 @@ document.querySelector('#navbar-item-2-inputs').addEventListener('click', functi
 document.querySelector('#navbar-item-2-checkboxes').addEventListener('click', function () {
     document.querySelector('#checkbox-sample-section').scrollIntoView();
     global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
     lastHeaderHeightValue = -lastHeaderHeightValue;
     window.scrollBy({
         top: lastHeaderHeightValue,
@@ -77,7 +77,7 @@ document.querySelector('#navbar-item-2-checkboxes').addEventListener('click', fu
 document.querySelector('#navbar-item-2-radios').addEventListener('click', function () {
     document.querySelector('#radio-sample-section').scrollIntoView();
     global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
     lastHeaderHeightValue = -lastHeaderHeightValue;
     window.scrollBy({
         top: lastHeaderHeightValue,
@@ -87,7 +87,7 @@ document.querySelector('#navbar-item-2-radios').addEventListener('click', functi
 document.querySelector('#mobile-menu-buttons').addEventListener('click', function () {
     document.querySelector('#button-sample-section').scrollIntoView();
     global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
     lastHeaderHeightValue = -lastHeaderHeightValue;
     window.scrollBy({
         top: lastHeaderHeightValue,
@@ -97,7 +97,7 @@ document.querySelector('#mobile-menu-buttons').addEventListener('click', functio
 document.querySelector('#mobile-menu-inputs').addEventListener('click', function () {
     document.querySelector('#input-sample-section').scrollIntoView();
     global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
     lastHeaderHeightValue = -lastHeaderHeightValue;
     window.scrollBy({
         top: lastHeaderHeightValue,
@@ -107,7 +107,7 @@ document.querySelector('#mobile-menu-inputs').addEventListener('click', function
 document.querySelector('#mobile-menu-checkboxes').addEventListener('click', function () {
     document.querySelector('#checkbox-sample-section').scrollIntoView();
     global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
     lastHeaderHeightValue = -lastHeaderHeightValue;
     window.scrollBy({
         top: lastHeaderHeightValue,
@@ -117,7 +117,7 @@ document.querySelector('#mobile-menu-checkboxes').addEventListener('click', func
 document.querySelector('#mobile-menu-radios').addEventListener('click', function () {
     document.querySelector('#radio-sample-section').scrollIntoView();
     global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-    var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
     lastHeaderHeightValue = -lastHeaderHeightValue;
     window.scrollBy({
         top: lastHeaderHeightValue,
@@ -270,4 +270,4 @@ window.onclick = function (event) {
 }
 
 functions.updateDebugOverlay();
-functions.message("All operations completed successfully."); 
+functions.message("All operations completed successfully.");

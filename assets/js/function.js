@@ -39,7 +39,7 @@ export function hideHeader() {
 
     if (isHeaderVisible()) {
         global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-        var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
         lastHeaderHeightValue = -lastHeaderHeightValue;
         window.scrollBy({
             top: lastHeaderHeightValue,
@@ -61,7 +61,7 @@ export function showHeader() {
     if (!isHeaderVisible()) {
         header.style.setProperty('display', 'flex');
         document.documentElement.style.setProperty('--header-height', global.lastHeaderHeightValue);
-        var lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
         window.scrollBy({
             top: lastHeaderHeightValue,
             behavior: "instant",
@@ -132,7 +132,7 @@ export function showToast(title = '', message = '', type = 'message', duration =
         success: 'fa-solid fa-circle-check',
         error: 'fa-solid fa-circle-exclamation'
     };
-    var toast_icon = toast_icons[type];
+    let toast_icon = toast_icons[type];
     if (toast_icon === undefined) toast_icon = toast_icons['message'];
 
     // Create the toast element.
@@ -186,7 +186,7 @@ export function showCustomToast(title = '', message = '', colors = { titleColor:
     const total_toast_duration_float = ((duration / 1000) + animationDuration.fadeIn / 1000 + animationDuration.fadeOut / 1000).toFixed(2);
 
     // Define icon classes.
-    var toast_icon = iconClasses;
+    let toast_icon = iconClasses;
 
     // Create the toast element.
     const toast_element = document.createElement(`div`);
@@ -289,8 +289,8 @@ export function closeModalOverlay(skipAnimation = false) {
  * Update the debug overlay.
  */
 export function updateDebugOverlay() {
-    var device_type = (window.innerWidth >= 1024 ? "Desktop" : (window.innerWidth >= 741 ? "Tablet" : "Mobile"));
-    var result_string = window.innerWidth + "x" + window.innerHeight + " (" + device_type + ")";
+    let device_type = (window.innerWidth >= 1024 ? "Desktop" : (window.innerWidth >= 741 ? "Tablet" : "Mobile"));
+    let result_string = window.innerWidth + "x" + window.innerHeight + " (" + device_type + ")";
     const screen_size_text = document.querySelector('#debug-overlay>h5');
     screen_size_text.innerHTML = result_string;
     if (device_type === "Desktop")
