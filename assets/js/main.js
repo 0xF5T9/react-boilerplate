@@ -248,6 +248,11 @@ window.onkeydown = function (event) {
         audio.play();
         functions.showCustomToast('Custom Toast', 'This is a custom toast message..', { titleColor: '#fcfcfa', descColor: '#fcfcfa', backgroundColor: '#544e56', borderColor: '#544e56', iconColor: '#fcfcfa', closeIconColor: '#fcfcfa' }, 'fa-solid fa-gear');
     }
+    else if (event.code == 'Escape') {
+        if (functions.isModalOverlayVisible()) {
+            functions.closeModalOverlay(true);
+        }
+    }
 
     // functions.message(event.code);
 }
