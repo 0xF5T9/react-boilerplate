@@ -1,0 +1,31 @@
+/**
+ * @file 404.css
+ * @description 404 styles.
+ */
+
+#section-404 {
+    user-select: none;
+}
+
+#title-404 {
+    color: var(--color-primary);
+    font-size: 100px;
+    font-weight: 300;
+}
+
+#subtitle-404 {
+    color: var(--color-white);
+    font-weight: 200;
+}
+
+#homepage-link-404 {
+    display: block;
+    margin-top: 24px;
+    color: var(--color-white);
+    text-decoration: none;
+    
+    &>button.button {
+        font-size: large;
+        font-weight: 300;
+    }
+}
