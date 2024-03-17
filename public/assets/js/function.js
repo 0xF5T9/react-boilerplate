@@ -300,3 +300,4 @@ export function updateDebugOverlay() {
     else if (device_type === "Mobile")
         screen_size_text.style.setProperty('background-color', 'var(--color-purple)');
 }
+
