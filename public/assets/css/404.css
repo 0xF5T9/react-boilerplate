@@ -3,6 +3,15 @@
  * @description 404 styles.
  */
 
+:root {
+    --header-height: 0px;
+    --footer-height: 0px;
+}
+
+#header, #footer {
+    display: none !important;
+}
+
 #section-404 {
     --value: -12px;
     padding: 20px 20px;
