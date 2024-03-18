@@ -113,7 +113,7 @@ html {
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-    overflow: scroll;
+    overflow: auto;
     color: var(--general-text-color);
     background-color: var(--general-body-background-color);
     font-family: var(--general-font-family);
