@@ -20,7 +20,7 @@ div.radio-wrapper {
     flex-direction: row;
     align-items: center;
 
-    &>input[type="radio"] {
+    & > input[type='radio'] {
         position: relative;
         display: inline-flex;
         justify-content: center;
@@ -35,7 +35,7 @@ div.radio-wrapper {
         margin-right: 6px;
         font-size: 1.5em;
         background-color: var(--radio-background-color-default);
-        filter: brightness(1.0);
+        filter: brightness(1);
         cursor: pointer;
         transition: all 0.15s;
 
@@ -81,26 +81,26 @@ div.radio-wrapper {
         }
     }
 
-    &>label {
+    & > label {
         display: flex;
         cursor: pointer;
 
-        &>span {
+        & > span {
             font-size: 1em;
-            filter: brightness(1.0);
+            filter: brightness(1);
             user-select: none;
             transition: all 0.15s;
         }
     }
 
-    & input[type="radio"]:disabled~label>span {
+    & input[type='radio']:disabled ~ label > span {
         filter: brightness(0.6);
     }
 
     /* Modifier classes */
 
     &.alt {
-        &>input[type="radio"] {
+        & > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-background-color-checked: transparent;
             --radio-border-color-default: var(--color-primary);
@@ -111,14 +111,18 @@ div.radio-wrapper {
     }
 
     &.solid {
-        &>input[type="radio"] {
+        & > input[type='radio'] {
             --radio-symbol-color-default: transparent;
             --radio-symbol-color-hover: var(--radio-symbol-color-default);
             --radio-symbol-color-active: var(--radio-symbol-color-default);
             --radio-symbol-color-checked: var(--color-primary);
             --radio-background-color-default: transparent;
-            --radio-background-color-hover: var(--radio-background-color-default);
-            --radio-background-color-active: var(--radio-background-color-default);
+            --radio-background-color-hover: var(
+                --radio-background-color-default
+            );
+            --radio-background-color-active: var(
+                --radio-background-color-default
+            );
             --radio-background-color-checked: var(--color-white);
             --radio-border-color-default: var(--color-white);
             --radio-border-color-hover: var(--radio-border-color-default);
@@ -126,14 +130,18 @@ div.radio-wrapper {
             --radio-border-color-checked: var(--radio-border-color-default);
         }
 
-        &.alt>input[type="radio"] {
+        &.alt > input[type='radio'] {
             --radio-symbol-color-default: transparent;
             --radio-symbol-color-hover: var(--radio-symbol-color-default);
             --radio-symbol-color-active: var(--radio-symbol-color-default);
             --radio-symbol-color-checked: var(--color-white);
             --radio-background-color-default: transparent;
-            --radio-background-color-hover: var(--radio-background-color-default);
-            --radio-background-color-active: var(--radio-background-color-default);
+            --radio-background-color-hover: var(
+                --radio-background-color-default
+            );
+            --radio-background-color-active: var(
+                --radio-background-color-default
+            );
             --radio-background-color-checked: var(--color-primary);
             --radio-border-color-default: var(--color-primary);
             --radio-border-color-hover: var(--radio-border-color-default);
@@ -143,22 +151,21 @@ div.radio-wrapper {
     }
 
     &.small {
-
-        &>input[type="radio"] {
+        & > input[type='radio'] {
             font-size: 1.26em;
         }
 
-        &>label>span {
+        & > label > span {
             font-size: 0.75em;
         }
     }
 
     &.large {
-        &>input[type="radio"] {
+        & > input[type='radio'] {
             font-size: 1.75em;
         }
 
-        &>label>span {
+        & > label > span {
             font-size: 1.25em;
         }
     }
@@ -166,20 +173,20 @@ div.radio-wrapper {
     /* Color modifier classes */
 
     &.red {
-        &>input[type="radio"] {
+        & > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-red);
         }
 
-        &.alt>input[type="radio"] {
+        &.alt > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-border-color-default: var(--color-red);
         }
 
-        &.solid>input[type="radio"] {
+        &.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-red);
         }
 
-        &.alt.solid>input[type="radio"] {
+        &.alt.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-background-color-checked: var(--color-red);
             --radio-border-color-default: var(--color-red);
@@ -187,20 +194,20 @@ div.radio-wrapper {
     }
 
     &.orange {
-        &>input[type="radio"] {
+        & > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-orange);
         }
 
-        &.alt>input[type="radio"] {
+        &.alt > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-border-color-default: var(--color-orange);
         }
 
-        &.solid>input[type="radio"] {
+        &.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-orange);
         }
 
-        &.alt.solid>input[type="radio"] {
+        &.alt.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-background-color-checked: var(--color-orange);
             --radio-border-color-default: var(--color-orange);
@@ -208,20 +215,20 @@ div.radio-wrapper {
     }
 
     &.yellow {
-        &>input[type="radio"] {
+        & > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-yellow);
         }
 
-        &.alt>input[type="radio"] {
+        &.alt > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-border-color-default: var(--color-yellow);
         }
 
-        &.solid>input[type="radio"] {
+        &.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-yellow);
         }
 
-        &.alt.solid>input[type="radio"] {
+        &.alt.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-background-color-checked: var(--color-yellow);
             --radio-border-color-default: var(--color-yellow);
@@ -229,20 +236,20 @@ div.radio-wrapper {
     }
 
     &.green {
-        &>input[type="radio"] {
+        & > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-green);
         }
 
-        &.alt>input[type="radio"] {
+        &.alt > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-border-color-default: var(--color-green);
         }
 
-        &.solid>input[type="radio"] {
+        &.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-green);
         }
 
-        &.alt.solid>input[type="radio"] {
+        &.alt.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-background-color-checked: var(--color-green);
             --radio-border-color-default: var(--color-green);
@@ -250,20 +257,20 @@ div.radio-wrapper {
     }
 
     &.blue {
-        &>input[type="radio"] {
+        & > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-blue);
         }
 
-        &.alt>input[type="radio"] {
+        &.alt > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-border-color-default: var(--color-blue);
         }
 
-        &.solid>input[type="radio"] {
+        &.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-blue);
         }
 
-        &.alt.solid>input[type="radio"] {
+        &.alt.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-background-color-checked: var(--color-blue);
             --radio-border-color-default: var(--color-blue);
@@ -271,23 +278,24 @@ div.radio-wrapper {
     }
 
     &.purple {
-        &>input[type="radio"] {
+        & > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-purple);
         }
 
-        &.alt>input[type="radio"] {
+        &.alt > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-border-color-default: var(--color-purple);
         }
 
-        &.solid>input[type="radio"] {
+        &.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-purple);
         }
 
-        &.alt.solid>input[type="radio"] {
+        &.alt.solid > input[type='radio'] {
             --radio-symbol-color-checked: var(--color-white);
             --radio-background-color-checked: var(--color-purple);
             --radio-border-color-default: var(--color-purple);
         }
     }
 }
+

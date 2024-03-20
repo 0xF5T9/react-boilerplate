@@ -8,7 +8,8 @@
     --footer-height: 0px;
 }
 
-#header, #footer {
+#header,
+#footer {
     display: none !important;
 }
 
@@ -38,7 +39,7 @@
     color: var(--color-white);
     text-decoration: none;
 
-    &>button.button {
+    & > button.button {
         font-size: large;
         white-space: nowrap;
     }
