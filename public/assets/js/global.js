@@ -4,6 +4,7 @@
  */
 
 export const global = {
-    lastHeaderHeightValue: "",
-    lastFooterHeightValue: ""
+    lastHeaderHeightValue: '',
+    lastFooterHeightValue: '',
 };
+

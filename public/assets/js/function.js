@@ -11,10 +11,8 @@ import { global } from './global.js';
  * @param {Boolean} isErrorMessage Specifies whether the message is an error message. (optional - default:false)
  */
 export function message(message, isErrorMessage = false) {
-    if (isErrorMessage)
-        throw "[" + new Date().getTime() + "] " + message;
-    else
-        console.log("[" + new Date().getTime() + "] " + message);
+    if (isErrorMessage) throw '[' + new Date().getTime() + '] ' + message;
+    else console.log('[' + new Date().getTime() + '] ' + message);
 }
 
 /**
@@ -23,10 +21,11 @@ export function message(message, isErrorMessage = false) {
  */
 export function isHeaderVisible() {
     const header = document.querySelector('#header');
-    if (!header)
-        throw `'#header' element not found.`;
+    if (!header) throw `'#header' element not found.`;
 
-    return (getComputedStyle(header).getPropertyValue('display') != 'none' ? true : false);
+    return getComputedStyle(header).getPropertyValue('display') != 'none'
+        ? true
+        : false;
 }
 
 /**
@@ -34,16 +33,17 @@ export function isHeaderVisible() {
  */
 export function hideHeader() {
     const header = document.querySelector('#header');
-    if (!header)
-        throw `'#header' element not found.`;
+    if (!header) throw `'#header' element not found.`;
 
     if (isHeaderVisible()) {
-        global.lastHeaderHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+        global.lastHeaderHeightValue = getComputedStyle(
+            document.documentElement
+        ).getPropertyValue('--header-height');
         let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
         lastHeaderHeightValue = -lastHeaderHeightValue;
         window.scrollBy({
             top: lastHeaderHeightValue,
-            behavior: "instant",
+            behavior: 'instant',
         });
         header.style.setProperty('display', 'none');
         document.documentElement.style.setProperty('--header-height', '0px');
@@ -55,16 +55,18 @@ export function hideHeader() {
  */
 export function showHeader() {
     const header = document.querySelector('#header');
-    if (!header)
-        throw `'#header' element not found.`;
+    if (!header) throw `'#header' element not found.`;
 
     if (!isHeaderVisible()) {
         header.style.setProperty('display', 'flex');
-        document.documentElement.style.setProperty('--header-height', global.lastHeaderHeightValue);
+        document.documentElement.style.setProperty(
+            '--header-height',
+            global.lastHeaderHeightValue
+        );
         let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
         window.scrollBy({
             top: lastHeaderHeightValue,
-            behavior: "instant",
+            behavior: 'instant',
         });
     }
 }
@@ -75,10 +77,11 @@ export function showHeader() {
  */
 export function isFooterVisible() {
     const footer = document.querySelector('#footer');
-    if (!footer)
-        throw `'#footer' element not found.`;
+    if (!footer) throw `'#footer' element not found.`;
 
-    return (getComputedStyle(footer).getPropertyValue('display') != 'none' ? true : false);
+    return getComputedStyle(footer).getPropertyValue('display') != 'none'
+        ? true
+        : false;
 }
 
 /**
@@ -86,11 +89,12 @@ export function isFooterVisible() {
  */
 export function hideFooter() {
     const footer = document.querySelector('#footer');
-    if (!footer)
-        throw `'#footer' element not found.`;
+    if (!footer) throw `'#footer' element not found.`;
 
     if (isFooterVisible()) {
-        global.lastFooterHeightValue = getComputedStyle(document.documentElement).getPropertyValue('--footer-height');
+        global.lastFooterHeightValue = getComputedStyle(
+            document.documentElement
+        ).getPropertyValue('--footer-height');
         footer.style.setProperty('display', 'none');
         document.documentElement.style.setProperty('--footer-height', '0px');
     }
@@ -101,12 +105,14 @@ export function hideFooter() {
  */
 export function showFooter() {
     const footer = document.querySelector('#footer');
-    if (!footer)
-        throw `'#footer' element not found.`;
+    if (!footer) throw `'#footer' element not found.`;
 
     if (!isFooterVisible()) {
         footer.style.setProperty('display', 'flex');
-        document.documentElement.style.setProperty('--footer-height', global.lastFooterHeightValue);
+        document.documentElement.style.setProperty(
+            '--footer-height',
+            global.lastFooterHeightValue
+        );
     }
 }
 
@@ -119,18 +125,30 @@ export function showFooter() {
  * @param {Object} animationDuration Specifies the toast animation duration in milliseconds. (optional - default:{fadeIn: 300, fadeOut: 300})
  * @note For 'title' and 'message' parameters, escape characters like '\n' or html tags can be used.
  */
-export function showToast(title = '', message = '', type = 'message', duration = 3000, animationDuration = { fadeIn: 300, fadeOut: 300 }) {
+export function showToast(
+    title = '',
+    message = '',
+    type = 'message',
+    duration = 3000,
+    animationDuration = { fadeIn: 300, fadeOut: 300 }
+) {
     // Calculate float values for animation durations in seconds.
     const fadein_duration_float = (animationDuration.fadeIn / 1000).toFixed(2);
-    const fadeout_duration_float = (animationDuration.fadeOut / 1000).toFixed(2);
-    const total_toast_duration_float = ((duration / 1000) + animationDuration.fadeIn / 1000 + animationDuration.fadeOut / 1000).toFixed(2);
+    const fadeout_duration_float = (animationDuration.fadeOut / 1000).toFixed(
+        2
+    );
+    const total_toast_duration_float = (
+        duration / 1000 +
+        animationDuration.fadeIn / 1000 +
+        animationDuration.fadeOut / 1000
+    ).toFixed(2);
 
     // Define icon classes based on toast type
     const toast_icons = {
         message: 'fa-solid fa-message',
         info: 'fa-solid fa-circle-info',
         success: 'fa-solid fa-circle-check',
-        error: 'fa-solid fa-circle-exclamation'
+        error: 'fa-solid fa-circle-exclamation',
     };
     let toast_icon = toast_icons[type];
     if (toast_icon === undefined) toast_icon = toast_icons['message'];
@@ -138,10 +156,8 @@ export function showToast(title = '', message = '', type = 'message', duration =
     // Create the toast element.
     const toast_element = document.createElement(`div`);
     toast_element.classList.add('toast');
-    if (type === 'success')
-        toast_element.classList.add('toast-success');
-    else if (type === 'error')
-        toast_element.classList.add('toast-error');
+    if (type === 'success') toast_element.classList.add('toast-success');
+    else if (type === 'error') toast_element.classList.add('toast-error');
     toast_element.style.animation = `toast-fade-in ${fadein_duration_float}s ease, toast-fade-out ${fadeout_duration_float}s linear ${total_toast_duration_float}s forwards`;
     toast_element.innerHTML = `
             <div class="toast-icon"><i class="${toast_icon}"></i></div>
@@ -153,9 +169,12 @@ export function showToast(title = '', message = '', type = 'message', duration =
             `;
 
     // Set a timeout to remove the toast element after the specified duration.
-    const timeout_id = setTimeout(function () {
-        toast_element.remove();
-    }, (duration + animationDuration.fadeIn + (animationDuration.fadeOut * 2)));
+    const timeout_id = setTimeout(
+        function () {
+            toast_element.remove();
+        },
+        duration + animationDuration.fadeIn + animationDuration.fadeOut * 2
+    );
 
     // Define click event for closing the toast.
     toast_element.onclick = function (event) {
@@ -179,11 +198,31 @@ export function showToast(title = '', message = '', type = 'message', duration =
  * @param {Object} animationDuration Specifies the toast animation duration in milliseconds. (optional - default:{fadeIn: 300, fadeOut: 300})
  * @note For 'title' and 'message' parameters, escape characters like '\n' or html tags can be used.
  */
-export function showCustomToast(title = '', message = '', colors = { titleColor: '#fcfcfa', descColor: '#fcfcfa', backgroundColor: '#2d2a2e', borderColor: '#2d2a2e', iconColor: '#fcfcfa', closeIconColor: '#fcfcfa' }, iconClasses = 'fa-solid fa-message', duration = 3000, animationDuration = { fadeIn: 300, fadeOut: 300 }) {
+export function showCustomToast(
+    title = '',
+    message = '',
+    colors = {
+        titleColor: '#fcfcfa',
+        descColor: '#fcfcfa',
+        backgroundColor: '#2d2a2e',
+        borderColor: '#2d2a2e',
+        iconColor: '#fcfcfa',
+        closeIconColor: '#fcfcfa',
+    },
+    iconClasses = 'fa-solid fa-message',
+    duration = 3000,
+    animationDuration = { fadeIn: 300, fadeOut: 300 }
+) {
     // Calculate float values for animation durations in seconds.
     const fadein_duration_float = (animationDuration.fadeIn / 1000).toFixed(2);
-    const fadeout_duration_float = (animationDuration.fadeOut / 1000).toFixed(2);
-    const total_toast_duration_float = ((duration / 1000) + animationDuration.fadeIn / 1000 + animationDuration.fadeOut / 1000).toFixed(2);
+    const fadeout_duration_float = (animationDuration.fadeOut / 1000).toFixed(
+        2
+    );
+    const total_toast_duration_float = (
+        duration / 1000 +
+        animationDuration.fadeIn / 1000 +
+        animationDuration.fadeOut / 1000
+    ).toFixed(2);
 
     // Define icon classes.
     let toast_icon = iconClasses;
@@ -192,12 +231,30 @@ export function showCustomToast(title = '', message = '', colors = { titleColor:
     const toast_element = document.createElement(`div`);
     toast_element.classList.add('toast');
     toast_element.style.animation = `toast-fade-in ${fadein_duration_float}s ease, toast-fade-out ${fadeout_duration_float}s linear ${total_toast_duration_float}s forwards`;
-    toast_element.style.setProperty('--toast-title-color', `${colors.titleColor}`);
-    toast_element.style.setProperty('--toast-desc-color', `${colors.descColor}`);
-    toast_element.style.setProperty('--toast-background-color', `${colors.backgroundColor}`);
-    toast_element.style.setProperty('--toast-border-color', `${colors.borderColor}`);
-    toast_element.style.setProperty('--toast-icon-color', `${colors.iconColor}`);
-    toast_element.style.setProperty('--toast-close-icon-color', `${colors.closeIconColor}`);
+    toast_element.style.setProperty(
+        '--toast-title-color',
+        `${colors.titleColor}`
+    );
+    toast_element.style.setProperty(
+        '--toast-desc-color',
+        `${colors.descColor}`
+    );
+    toast_element.style.setProperty(
+        '--toast-background-color',
+        `${colors.backgroundColor}`
+    );
+    toast_element.style.setProperty(
+        '--toast-border-color',
+        `${colors.borderColor}`
+    );
+    toast_element.style.setProperty(
+        '--toast-icon-color',
+        `${colors.iconColor}`
+    );
+    toast_element.style.setProperty(
+        '--toast-close-icon-color',
+        `${colors.closeIconColor}`
+    );
     toast_element.innerHTML = `
             <div class="toast-icon"><i class="${toast_icon}"></i></div>
             <div class="toast-message">
@@ -208,9 +265,12 @@ export function showCustomToast(title = '', message = '', colors = { titleColor:
             `;
 
     // Set a timeout to remove the toast element after the specified duration.
-    const timeout_id = setTimeout(function () {
-        toast_element.remove();
-    }, (duration + animationDuration.fadeIn + (animationDuration.fadeOut * 2)));
+    const timeout_id = setTimeout(
+        function () {
+            toast_element.remove();
+        },
+        duration + animationDuration.fadeIn + animationDuration.fadeOut * 2
+    );
 
     // Define click event for closing the toast.
     toast_element.onclick = function (event) {
@@ -229,7 +289,9 @@ export function showCustomToast(title = '', message = '', colors = { titleColor:
  * @returns {boolean} Returns true if there are any drop-down windows open, otherwise returns false.
  */
 export function isDropdownWindowOpen() {
-    return (document.querySelectorAll('.dropdown-window.is-open').length ? true : false);
+    return document.querySelectorAll('.dropdown-window.is-open').length
+        ? true
+        : false;
 }
 
 /**
@@ -252,7 +314,9 @@ export function validateAllDropdownWindows() {
  * Close all drop-down windows.
  */
 export function closeAllDropdownWindows() {
-    for (const dropdown of document.querySelectorAll('.dropdown-window.is-open')) {
+    for (const dropdown of document.querySelectorAll(
+        '.dropdown-window.is-open'
+    )) {
         dropdown.classList.remove('is-open');
         validateAllDropdownWindows();
     }
@@ -264,7 +328,11 @@ export function closeAllDropdownWindows() {
  * @returns {boolean} Returns true if the modal overlay is visible, otherwise returns false.
  */
 export function isModalOverlayVisible() {
-    return (document.querySelector('#modals').querySelector('.modal-window.is-open') ? true : false);
+    return document
+        .querySelector('#modals')
+        .querySelector('.modal-window.is-open')
+        ? true
+        : false;
 }
 
 /**
@@ -272,7 +340,9 @@ export function isModalOverlayVisible() {
  * @param {Boolean} skipAnimation Specifies whether to skip the modal window close animation.
  */
 export function closeModalOverlay(skipAnimation = false) {
-    for (const window of document.querySelector('#modals').querySelectorAll('.modal-window.is-open')) {
+    for (const window of document
+        .querySelector('#modals')
+        .querySelectorAll('.modal-window.is-open')) {
         if (!skipAnimation) {
             window.style.animation = `modal-window-fade-out 0.1s ease forwards`;
             setTimeout(function () {
@@ -289,15 +359,29 @@ export function closeModalOverlay(skipAnimation = false) {
  * Update the debug overlay.
  */
 export function updateDebugOverlay() {
-    let device_type = (window.innerWidth >= 1024 ? "Desktop" : (window.innerWidth >= 741 ? "Tablet" : "Mobile"));
-    let result_string = window.innerWidth + "x" + window.innerHeight + " (" + device_type + ")";
+    let device_type =
+        window.innerWidth >= 1024
+            ? 'Desktop'
+            : window.innerWidth >= 741
+              ? 'Tablet'
+              : 'Mobile';
+    let result_string =
+        window.innerWidth + 'x' + window.innerHeight + ' (' + device_type + ')';
     const screen_size_text = document.querySelector('#debug-overlay>h5');
     screen_size_text.innerHTML = result_string;
-    if (device_type === "Desktop")
-        screen_size_text.style.setProperty('background-color', 'var(--color-orange)');
-    else if (device_type === "Tablet")
-        screen_size_text.style.setProperty('background-color', 'var(--color-red)');
-    else if (device_type === "Mobile")
-        screen_size_text.style.setProperty('background-color', 'var(--color-purple)');
+    if (device_type === 'Desktop')
+        screen_size_text.style.setProperty(
+            'background-color',
+            'var(--color-orange)'
+        );
+    else if (device_type === 'Tablet')
+        screen_size_text.style.setProperty(
+            'background-color',
+            'var(--color-red)'
+        );
+    else if (device_type === 'Mobile')
+        screen_size_text.style.setProperty(
+            'background-color',
+            'var(--color-purple)'
+        );
 }
-
