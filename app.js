@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const fs = require('fs');
+const port = 80;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -31,6 +32,6 @@ app.use(function (error, req, res, next) {
     res.status(500).send('500: Internal Server Error');
 });
 
-app.listen(80, function () {
-    console.log('Running at port 80.');
+app.listen(port, function () {
+    console.log(`Running at port ${port}.`);
 });
