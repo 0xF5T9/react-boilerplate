@@ -292,57 +292,75 @@ window.onresize = function (event) {
 
 // Process on key down events.
 window.onkeydown = function (event) {
-    if (event.code == 'Num1') {
-        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-        audio.play();
-        functions.showToast('Message', 'You have new message(s).', 'message');
-    } else if (event.code == 'Digit1') {
-        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-        audio.play();
-        functions.showToast(
-            'Info',
-            'New version available for download!',
-            'info'
-        );
-    } else if (event.code == 'Digit2') {
-        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-        audio.play();
-        functions.showToast(
-            'Success',
-            'Your request has been sent successfully.',
-            'success'
-        );
-    } else if (event.code == 'Digit3') {
-        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-        audio.play();
-        functions.showToast(
-            'Error',
-            'Unable to connect to the remote server.',
-            'error'
-        );
-    } else if (event.code == 'Digit4') {
-        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-        audio.play();
-        functions.showCustomToast(
-            'Custom Toast',
-            'This is a custom toast message..',
-            {
-                titleColor: '#fcfcfa',
-                descColor: '#fcfcfa',
-                backgroundColor: '#544e56',
-                borderColor: '#544e56',
-                iconColor: '#fcfcfa',
-                closeIconColor: '#fcfcfa',
-            },
-            'fa-solid fa-gear'
-        );
-    } else if (event.code == 'Escape') {
-        if (functions.isModalOverlayVisible()) {
-            functions.closeModalOverlay(true);
+    switch (event.code) {
+        case 'Digit1': {
+            const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+            audio.play();
+            functions.showToast(
+                'Info',
+                'New version available for download!',
+                'info'
+            );
+            break;
         }
+        case 'Digit2': {
+            const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+            audio.play();
+            functions.showToast(
+                'Success',
+                'Your request has been sent successfully.',
+                'success'
+            );
+            break;
+        }
+        case 'Digit3': {
+            const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+            audio.play();
+            functions.showToast(
+                'Error',
+                'Unable to connect to the remote server.',
+                'error'
+            );
+            break;
+        }
+        case 'Digit4': {
+            const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+            audio.play();
+            functions.showCustomToast(
+                'Custom Toast',
+                'This is a custom toast message..',
+                {
+                    titleColor: '#fcfcfa',
+                    descColor: '#fcfcfa',
+                    backgroundColor: '#544e56',
+                    borderColor: '#544e56',
+                    iconColor: '#fcfcfa',
+                    closeIconColor: '#fcfcfa',
+                },
+                'fa-solid fa-gear'
+            );
+            break;
+        }
+        case 'Digit5': {
+            const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+            audio.play();
+            functions.showToast(
+                'Message',
+                'You have new message(s).',
+                'message'
+            );
+            break;
+        }
+        case 'Escape': {
+            if (functions.isModalOverlayVisible()) {
+                functions.closeModalOverlay(true);
+            }
+            break;
+        }
+        default:
+            // console.log('Key pressed:', event.code);
+            break;
     }
-
-    // functions.message(event.code);
 };
 
 // Process on click events.
@@ -366,8 +384,6 @@ window.onclick = function (event) {
         }
     }
 };
-
-// ...
 
 functions.updateDebugOverlay();
 functions.message('All operations completed successfully.');

@@ -1114,8 +1114,8 @@ section.content-box {
 
             & > .toast-desc {
                 margin-top: 3px;
+                line-height: initial;
                 color: var(--toast-desc-color);
-                font-weight: medium;
             }
         }
 
