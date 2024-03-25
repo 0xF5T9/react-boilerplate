@@ -5,16 +5,18 @@
 
 import { global } from './global.js';
 import * as functions from './function.js';
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
 /*****************************
  * FUNCTIONAL BUTTON SCRIPTS *
  *****************************/
 
 // Header mobile menu button.
-document
-    .querySelector('#mobile-menu-icon>.header-icon-button-icon')
-    .addEventListener('click', function (event) {
-        const icon_button = document.querySelector('#mobile-menu-icon');
+$('#mobile-menu-icon>.header-icon-button-icon').addEventListener(
+    'click',
+    function (event) {
+        const icon_button = $('#mobile-menu-icon');
         const dropdown_window = icon_button.querySelector('.dropdown-window');
         const icon = icon_button.querySelector('i');
         if (!dropdown_window.classList.contains('is-open')) {
@@ -22,8 +24,9 @@ document
         } else {
             dropdown_window.classList.remove('is-open');
         }
-    });
-for (const list_item of document.querySelectorAll('#mobile-menu-dropdown li')) {
+    }
+);
+for (const list_item of $$('#mobile-menu-dropdown li')) {
     if (list_item.querySelector('ul')) {
         list_item.addEventListener('click', function (event) {
             if (list_item.classList.contains('is-open')) {
@@ -40,129 +43,113 @@ for (const list_item of document.querySelectorAll('#mobile-menu-dropdown li')) {
         });
     }
 }
-for (const item_list of document.querySelectorAll('#mobile-menu-dropdown ul')) {
+for (const item_list of $$('#mobile-menu-dropdown ul')) {
     item_list.addEventListener('click', function (event) {
         event.stopPropagation();
     });
 }
-document
-    .querySelector('#navbar-item-2-buttons')
-    .addEventListener('click', function () {
-        document.querySelector('#button-sample-section').scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
+$('#navbar-item-2-buttons').addEventListener('click', function () {
+    $('#button-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(
+        document.documentElement
+    ).getPropertyValue('--header-height');
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: 'instant',
     });
-document
-    .querySelector('#navbar-item-2-inputs')
-    .addEventListener('click', function () {
-        document.querySelector('#input-sample-section').scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
+});
+$('#navbar-item-2-inputs').addEventListener('click', function () {
+    $('#input-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(
+        document.documentElement
+    ).getPropertyValue('--header-height');
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: 'instant',
     });
-document
-    .querySelector('#navbar-item-2-checkboxes')
-    .addEventListener('click', function () {
-        document.querySelector('#checkbox-sample-section').scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
+});
+$('#navbar-item-2-checkboxes').addEventListener('click', function () {
+    $('#checkbox-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(
+        document.documentElement
+    ).getPropertyValue('--header-height');
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: 'instant',
     });
-document
-    .querySelector('#navbar-item-2-radios')
-    .addEventListener('click', function () {
-        document.querySelector('#radio-sample-section').scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
+});
+$('#navbar-item-2-radios').addEventListener('click', function () {
+    $('#radio-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(
+        document.documentElement
+    ).getPropertyValue('--header-height');
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: 'instant',
     });
-document
-    .querySelector('#mobile-menu-buttons')
-    .addEventListener('click', function () {
-        document.querySelector('#button-sample-section').scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
+});
+$('#mobile-menu-buttons').addEventListener('click', function () {
+    $('#button-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(
+        document.documentElement
+    ).getPropertyValue('--header-height');
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: 'instant',
     });
-document
-    .querySelector('#mobile-menu-inputs')
-    .addEventListener('click', function () {
-        document.querySelector('#input-sample-section').scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
+});
+$('#mobile-menu-inputs').addEventListener('click', function () {
+    $('#input-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(
+        document.documentElement
+    ).getPropertyValue('--header-height');
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: 'instant',
     });
-document
-    .querySelector('#mobile-menu-checkboxes')
-    .addEventListener('click', function () {
-        document.querySelector('#checkbox-sample-section').scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
+});
+$('#mobile-menu-checkboxes').addEventListener('click', function () {
+    $('#checkbox-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(
+        document.documentElement
+    ).getPropertyValue('--header-height');
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: 'instant',
     });
-document
-    .querySelector('#mobile-menu-radios')
-    .addEventListener('click', function () {
-        document.querySelector('#radio-sample-section').scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
+});
+$('#mobile-menu-radios').addEventListener('click', function () {
+    $('#radio-sample-section').scrollIntoView();
+    global.lastHeaderHeightValue = getComputedStyle(
+        document.documentElement
+    ).getPropertyValue('--header-height');
+    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
+    lastHeaderHeightValue = -lastHeaderHeightValue;
+    window.scrollBy({
+        top: lastHeaderHeightValue,
+        behavior: 'instant',
     });
+});
 
 // Header alert button.
-document
-    .querySelector('#alert-icon>.header-icon-button-icon')
-    .addEventListener('click', function (event) {
-        const icon_button = document.querySelector('#alert-icon');
+$('#alert-icon>.header-icon-button-icon').addEventListener(
+    'click',
+    function (event) {
+        const icon_button = $('#alert-icon');
         const dropdown_window = icon_button.querySelector('.dropdown-window');
         const icon = icon_button.querySelector('i');
         if (!dropdown_window.classList.contains('is-open')) {
@@ -174,107 +161,87 @@ document
             icon.classList.remove('fas');
             icon.classList.add('far');
         }
-    });
+    }
+);
 
 // Header user button.
-document
-    .querySelector('#user-icon>.header-icon-button-icon')
-    .addEventListener('click', function (event) {
-        const icon_button = document.querySelector('#user-icon');
+$('#user-icon>.header-icon-button-icon').addEventListener(
+    'click',
+    function (event) {
+        const icon_button = $('#user-icon');
         const dropdown_window = icon_button.querySelector('.dropdown-window');
         if (!dropdown_window.classList.contains('is-open')) {
             dropdown_window.classList.add('is-open');
         } else {
             dropdown_window.classList.remove('is-open');
         }
-    });
+    }
+);
 
 // Show sample modal window buttons.
-document
-    .querySelector('#modal-window-sample-button-1')
-    .addEventListener('click', function () {
-        const modal_window = document.querySelector('#custom-modal-window-1');
-        if (functions.isModalOverlayVisible())
-            functions.closeModalOverlay(true);
-        setTimeout(function () {
-            modal_window.classList.add('is-open');
-        }, 1);
-    });
-document
-    .querySelector('#modal-window-sample-button-2')
-    .addEventListener('click', function () {
-        const modal_window = document.querySelector('#custom-modal-window-2');
-        if (functions.isModalOverlayVisible())
-            functions.closeModalOverlay(true);
-        setTimeout(function () {
-            modal_window.classList.add('is-open');
-        }, 1);
-    });
+$('#modal-window-sample-button-1').addEventListener('click', function () {
+    const modal_window = $('#custom-modal-window-1');
+    if (functions.isModalOverlayVisible()) functions.closeModalOverlay(true);
+    setTimeout(function () {
+        modal_window.classList.add('is-open');
+    }, 1);
+});
+$('#modal-window-sample-button-2').addEventListener('click', function () {
+    const modal_window = $('#custom-modal-window-2');
+    if (functions.isModalOverlayVisible()) functions.closeModalOverlay(true);
+    setTimeout(function () {
+        modal_window.classList.add('is-open');
+    }, 1);
+});
 
 // Show/hide header button.
-document
-    .querySelector('#show-hide-header-button')
-    .addEventListener('click', function (event) {
-        if (functions.isHeaderVisible()) {
-            event.target.innerHTML = 'Show Header';
-            functions.hideHeader();
-            functions.showToast(
-                'Info',
-                'The header has been hidden.',
-                'info',
-                1000
-            );
-        } else {
-            event.target.innerHTML = 'Hide Header';
-            functions.showHeader();
-            functions.showToast(
-                'Info',
-                'The header has been shown.',
-                'info',
-                1000
-            );
-        }
-    });
+$('#show-hide-header-button').addEventListener('click', function (event) {
+    if (functions.isHeaderVisible()) {
+        event.target.innerHTML = 'Show Header';
+        functions.hideHeader();
+        functions.showToast(
+            'Info',
+            'The header has been hidden.',
+            'info',
+            1000
+        );
+    } else {
+        event.target.innerHTML = 'Hide Header';
+        functions.showHeader();
+        functions.showToast('Info', 'The header has been shown.', 'info', 1000);
+    }
+});
 
 // Show/hide footer button.
-document
-    .querySelector('#show-hide-footer-button')
-    .addEventListener('click', function (event) {
-        if (functions.isFooterVisible()) {
-            event.target.innerHTML = 'Show Footer';
-            functions.hideFooter();
-            functions.showToast(
-                'Info',
-                'The footer has been hidden.',
-                'info',
-                1000
-            );
-        } else {
-            event.target.innerHTML = 'Hide Footer';
-            functions.showFooter();
-            functions.showToast(
-                'Info',
-                'The footer has been shown.',
-                'info',
-                1000
-            );
-        }
-    });
+$('#show-hide-footer-button').addEventListener('click', function (event) {
+    if (functions.isFooterVisible()) {
+        event.target.innerHTML = 'Show Footer';
+        functions.hideFooter();
+        functions.showToast(
+            'Info',
+            'The footer has been hidden.',
+            'info',
+            1000
+        );
+    } else {
+        event.target.innerHTML = 'Hide Footer';
+        functions.showFooter();
+        functions.showToast('Info', 'The footer has been shown.', 'info', 1000);
+    }
+});
 
 // Click sound button.
-document
-    .querySelector('#click-sound-button')
-    .addEventListener('click', function () {
-        const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-        audio.play();
-    });
+$('#click-sound-button').addEventListener('click', function () {
+    const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+    audio.play();
+});
 
 /************************
  * MODAL WINDOW SCRIPTS *
  ************************/
 
 // Disable existing modal window click propagation.
-for (const modal_window of document.querySelectorAll('.modal-window')) {
+for (const modal_window of $$('.modal-window')) {
     modal_window.addEventListener('click', function (event) {
         event.stopPropagation();
     });
@@ -357,6 +324,15 @@ window.onkeydown = function (event) {
             }
             break;
         }
+        case 'F1': {
+            const modal_window = $('#custom-modal-window-3');
+            if (functions.isModalOverlayVisible())
+                functions.closeModalOverlay(true);
+            setTimeout(function () {
+                modal_window.classList.add('is-open');
+            }, 1);
+            break;
+        }
         default:
             // console.log('Key pressed:', event.code);
             break;
@@ -372,9 +348,7 @@ window.onclick = function (event) {
     }
 
     // Close all openings drop-down windows on background clicks.
-    for (const dropdown of document.querySelectorAll(
-        '.dropdown-window.is-open'
-    )) {
+    for (const dropdown of $$('.dropdown-window.is-open')) {
         if (
             !dropdown.contains(event.target) &&
             !dropdown.parentNode.contains(event.target)

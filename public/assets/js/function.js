@@ -4,6 +4,8 @@
  */
 
 import { global } from './global.js';
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
 /**
  * Output a debug message to the console.
@@ -20,7 +22,7 @@ export function message(message, isErrorMessage = false) {
  * @returns {boolean} Returns true if the header is visible, otherwise returns false.
  */
 export function isHeaderVisible() {
-    const header = document.querySelector('#header');
+    const header = $('#header');
     if (!header) throw `'#header' element not found.`;
 
     return getComputedStyle(header).getPropertyValue('display') != 'none'
@@ -32,7 +34,7 @@ export function isHeaderVisible() {
  * Hide the header.
  */
 export function hideHeader() {
-    const header = document.querySelector('#header');
+    const header = $('#header');
     if (!header) throw `'#header' element not found.`;
 
     if (isHeaderVisible()) {
@@ -54,7 +56,7 @@ export function hideHeader() {
  * Show the header.
  */
 export function showHeader() {
-    const header = document.querySelector('#header');
+    const header = $('#header');
     if (!header) throw `'#header' element not found.`;
 
     if (!isHeaderVisible()) {
@@ -76,7 +78,7 @@ export function showHeader() {
  * @returns {boolean} Returns true if the footer is visible, otherwise returns false.
  */
 export function isFooterVisible() {
-    const footer = document.querySelector('#footer');
+    const footer = $('#footer');
     if (!footer) throw `'#footer' element not found.`;
 
     return getComputedStyle(footer).getPropertyValue('display') != 'none'
@@ -88,7 +90,7 @@ export function isFooterVisible() {
  * Hide the footer.
  */
 export function hideFooter() {
-    const footer = document.querySelector('#footer');
+    const footer = $('#footer');
     if (!footer) throw `'#footer' element not found.`;
 
     if (isFooterVisible()) {
@@ -104,7 +106,7 @@ export function hideFooter() {
  * Show the footer.
  */
 export function showFooter() {
-    const footer = document.querySelector('#footer');
+    const footer = $('#footer');
     if (!footer) throw `'#footer' element not found.`;
 
     if (!isFooterVisible()) {
@@ -185,7 +187,7 @@ export function showToast(
     };
 
     // Append the toast element.
-    document.querySelector('#toasts').append(toast_element);
+    $('#toasts').append(toast_element);
 }
 
 /**
@@ -281,7 +283,7 @@ export function showCustomToast(
     };
 
     // Append the toast element.
-    document.querySelector('#toasts').append(toast_element);
+    $('#toasts').append(toast_element);
 }
 
 /**
@@ -289,16 +291,14 @@ export function showCustomToast(
  * @returns {boolean} Returns true if there are any drop-down windows open, otherwise returns false.
  */
 export function isDropdownWindowOpen() {
-    return document.querySelectorAll('.dropdown-window.is-open').length
-        ? true
-        : false;
+    return $$('.dropdown-window.is-open').length ? true : false;
 }
 
 /**
  * Validate all dropdown windows.
  */
 export function validateAllDropdownWindows() {
-    for (const dropdown of document.querySelectorAll('.dropdown-window')) {
+    for (const dropdown of $$('.dropdown-window')) {
         if (dropdown.id == 'alert-dropdown') {
             if (dropdown.classList.contains('is-open')) {
                 // ...
@@ -314,9 +314,7 @@ export function validateAllDropdownWindows() {
  * Close all drop-down windows.
  */
 export function closeAllDropdownWindows() {
-    for (const dropdown of document.querySelectorAll(
-        '.dropdown-window.is-open'
-    )) {
+    for (const dropdown of $$('.dropdown-window.is-open')) {
         dropdown.classList.remove('is-open');
         validateAllDropdownWindows();
     }
@@ -328,11 +326,7 @@ export function closeAllDropdownWindows() {
  * @returns {boolean} Returns true if the modal overlay is visible, otherwise returns false.
  */
 export function isModalOverlayVisible() {
-    return document
-        .querySelector('#modals')
-        .querySelector('.modal-window.is-open')
-        ? true
-        : false;
+    return $('#modals').querySelector('.modal-window.is-open') ? true : false;
 }
 
 /**
@@ -340,9 +334,9 @@ export function isModalOverlayVisible() {
  * @param {Boolean} skipAnimation Specifies whether to skip the modal window close animation.
  */
 export function closeModalOverlay(skipAnimation = false) {
-    for (const window of document
-        .querySelector('#modals')
-        .querySelectorAll('.modal-window.is-open')) {
+    for (const window of $('#modals').querySelectorAll(
+        '.modal-window.is-open'
+    )) {
         if (!skipAnimation) {
             window.style.animation = `modal-window-fade-out 0.1s ease forwards`;
             setTimeout(function () {
@@ -367,7 +361,7 @@ export function updateDebugOverlay() {
               : 'Mobile';
     let result_string =
         window.innerWidth + 'x' + window.innerHeight + ' (' + device_type + ')';
-    const screen_size_text = document.querySelector('#debug-overlay>h5');
+    const screen_size_text = $('#debug-overlay>h5');
     screen_size_text.innerHTML = result_string;
     if (device_type === 'Desktop')
         screen_size_text.style.setProperty(

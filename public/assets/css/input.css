@@ -64,6 +64,8 @@ div.input-wrapper {
     & > input[type='text'],
     & > input[type='email'],
     & > input[type='password'] {
+        display: block;
+        width: 100%;
         padding: var(--input-padding-top-bottom) var(--input-padding-left-right);
         border: var(--input-border-width) solid
             var(--input-border-color-default);
@@ -260,4 +262,3 @@ div.input-wrapper {
         }
     }
 }
-
