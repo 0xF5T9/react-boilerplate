@@ -154,6 +154,15 @@ button {
     background: var(--general-scrollbar-thumb-background-color-active);
 }
 
+::placeholder {
+    color: var(--color-gray);
+    opacity: 1;
+}
+
+::-ms-input-placeholder {
+    color: var(--color-gray);
+}
+
 table {
     border: 1px solid;
     border-collapse: collapse;

@@ -24,6 +24,7 @@
     font-size: 1rem;
     font-weight: bold;
     color: var(--button-text-color-default);
+    text-shadow: 0 0 4px rgba(45, 42, 46, 0.15);
     background: transparent;
     overflow: visible;
     cursor: pointer;
