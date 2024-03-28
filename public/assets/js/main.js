@@ -325,12 +325,13 @@ window.onkeydown = function (event) {
             break;
         }
         case 'F1': {
-            const modal_window = $('#custom-modal-window-3');
+            const modal_window = $('#custom-modal-window-1');
             if (functions.isModalOverlayVisible())
                 functions.closeModalOverlay(true);
-            setTimeout(function () {
-                modal_window.classList.add('is-open');
-            }, 1);
+            else
+                setTimeout(function () {
+                    modal_window.classList.add('is-open');
+                }, 1);
             break;
         }
         default:
