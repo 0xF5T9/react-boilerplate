@@ -38,9 +38,6 @@
     margin-top: 24px;
     color: var(--color-white);
     text-decoration: none;
-
-    & > button.button {
-        font-size: large;
-        white-space: nowrap;
-    }
+    white-space: nowrap;
+    font-size: initial;
 }
