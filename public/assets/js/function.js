@@ -1,21 +1,11 @@
 /**
  * @file function.js
- * @description Function definitions.
+ * @description Website specific function definitions.
  */
 
 import { global } from './global.js';
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-
-/**
- * Output a debug message to the console.
- * @param {String} message The message string.
- * @param {Boolean} isErrorMessage Specifies whether the message is an error message. (optional - default:false)
- */
-export function message(message, isErrorMessage = false) {
-    if (isErrorMessage) throw '[' + new Date().getTime() + '] ' + message;
-    else console.log('[' + new Date().getTime() + '] ' + message);
-}
 
 /**
  * Check if the header is visible.
