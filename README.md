@@ -6,6 +6,18 @@ HTML website deployment boilerplate.
 
 `git clone https://0xF5T9@github.com/0xF5T9/html-boilerplate.git`
 
-# Live the web-server using Express
+# Start the web server
 
-To be updated
+### 1. Generate the project file `package.json`
+
+`npm init --y`
+
+### 2A. Live the web-server using Live Server
+
+* Install the `live-server` package locally: `npm install live-server`.
+* Run 'Start live server' task to start the server. (Check `tasks.json`)
+
+### 2B. Live the web-server using Express
+
+* Install the `express` package locally: `npm install express`.
+* Run 'Start express server' task to start the server. (Check `tasks.json`)

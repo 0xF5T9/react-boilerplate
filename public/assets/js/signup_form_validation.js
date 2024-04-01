@@ -1,3 +1,8 @@
+/**
+ * @file signup_form_validation.js
+ * @description Signup form validation script.
+ */
+
 import * as helper from './helper.js';
 
 const $ = document.querySelector.bind(document);

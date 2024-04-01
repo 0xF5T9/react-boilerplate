@@ -34,9 +34,9 @@ export function validateEmailString(email) {
  * @param {Function} validateCallback The callback function that do the validation. (Returns true or false)
  *                                    The following arguments will be passed to the callback function,
  *                                    respectively: The form group element and the event type (string).
- * @param {Boolean} onChange Specifies whether to trigger the validate function on input content update.
- * @param {Boolean} onFocusLost Specifies whether to trigger the validate function on input focus lost.
- * @param {Boolean} onInput Specifies whether to trigger the validate function on input.
+ * @param {Boolean} onChange Specifies whether to trigger the validate function on input content update. (optional - default:true)
+ * @param {Boolean} onFocusLost Specifies whether to trigger the validate function on input focus lost. (optional - default:true)
+ * @param {Boolean} onInput Specifies whether to trigger the validate function on input. (optional - default:true)
  */
 export function setInputValidateCallback(
     formGroup,
