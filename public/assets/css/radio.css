@@ -16,6 +16,7 @@ div.radio-wrapper {
     --radio-border-color-hover: var(--color-primary);
     --radio-border-color-active: var(--color-primary);
     --radio-border-color-checked: var(--color-primary);
+    --radio-focus-border-color: var(--color-white);
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -65,6 +66,11 @@ div.radio-wrapper {
 
         &:active::before {
             background-color: var(--radio-symbol-color-active);
+        }
+
+        &:focus {
+            outline: 0;
+            box-shadow: 0 0 0 2px var(--radio-focus-border-color);
         }
 
         &:checked {
@@ -127,6 +133,7 @@ div.radio-wrapper {
         --radio-border-color-hover: var(--color-white);
         --radio-border-color-active: var(--color-white);
         --radio-border-color-checked: var(--color-white);
+        --radio-focus-border-color: var(--color-primary);
     }
 
     &.white-only {
@@ -142,46 +149,7 @@ div.radio-wrapper {
         --radio-border-color-hover: var(--color-white);
         --radio-border-color-active: var(--color-white);
         --radio-border-color-checked: var(--color-white);
-    }
-
-    &.solid {
-        & > input[type='radio'] {
-            --radio-symbol-color-default: transparent;
-            --radio-symbol-color-hover: var(--radio-symbol-color-default);
-            --radio-symbol-color-active: var(--radio-symbol-color-default);
-            --radio-symbol-color-checked: var(--color-primary);
-            --radio-background-color-default: transparent;
-            --radio-background-color-hover: var(
-                --radio-background-color-default
-            );
-            --radio-background-color-active: var(
-                --radio-background-color-default
-            );
-            --radio-background-color-checked: var(--color-white);
-            --radio-border-color-default: var(--color-white);
-            --radio-border-color-hover: var(--radio-border-color-default);
-            --radio-border-color-active: var(--radio-border-color-default);
-            --radio-border-color-checked: var(--radio-border-color-default);
-        }
-
-        &.alt > input[type='radio'] {
-            --radio-symbol-color-default: transparent;
-            --radio-symbol-color-hover: var(--radio-symbol-color-default);
-            --radio-symbol-color-active: var(--radio-symbol-color-default);
-            --radio-symbol-color-checked: var(--color-white);
-            --radio-background-color-default: transparent;
-            --radio-background-color-hover: var(
-                --radio-background-color-default
-            );
-            --radio-background-color-active: var(
-                --radio-background-color-default
-            );
-            --radio-background-color-checked: var(--color-primary);
-            --radio-border-color-default: var(--color-primary);
-            --radio-border-color-hover: var(--radio-border-color-default);
-            --radio-border-color-active: var(--radio-border-color-default);
-            --radio-border-color-checked: var(--radio-border-color-default);
-        }
+        --radio-focus-border-color: var(--color-primary);
     }
 
     &.small {
