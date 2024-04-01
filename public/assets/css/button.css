@@ -13,6 +13,7 @@
     --button-border-color-default: var(--color-primary);
     --button-border-color-hover: var(--color-primary);
     --button-border-color-active: var(--color-primary);
+    --button-focus-border-color: var(--color-white);
     --button-border-width: 2px;
     --button-border-radius: 8px;
     --button-padding-left-right: 4px;
@@ -76,6 +77,14 @@
         transition: all 0.05s;
     }
 
+    &:focus {
+        outline: 0;
+    }
+
+    &:focus::before {
+        box-shadow: 0 0 0 2px var(--button-focus-border-color);
+    }
+
     /* Modifier classes */
 
     &.white {
@@ -88,6 +97,7 @@
         --button-border-color-default: var(--color-white);
         --button-border-color-hover: var(--color-primary);
         --button-border-color-active: var(--color-primary);
+        --button-focus-border-color: var(--color-primary);
     }
 
     &.outline {
@@ -116,6 +126,7 @@
         --button-border-color-default: var(--color-white) !important;
         --button-border-color-hover: var(--color-white) !important;
         --button-border-color-active: var(--color-white) !important;
+        --button-focus-border-color: var(--color-primary);
 
         &.outline {
             --button-text-color-default: var(--color-white) !important;

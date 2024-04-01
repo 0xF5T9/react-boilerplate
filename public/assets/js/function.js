@@ -161,12 +161,9 @@ export function showToast(
             `;
 
     // Set a timeout to remove the toast element after the specified duration.
-    const timeout_id = setTimeout(
-        function () {
-            toast_element.remove();
-        },
-        duration + animationDuration.fadeIn + animationDuration.fadeOut * 2
-    );
+    const timeout_id = setTimeout(function () {
+        toast_element.remove();
+    }, duration + animationDuration.fadeIn + animationDuration.fadeOut * 2);
 
     // Define click event for closing the toast.
     toast_element.onclick = function (event) {
@@ -257,12 +254,9 @@ export function showCustomToast(
             `;
 
     // Set a timeout to remove the toast element after the specified duration.
-    const timeout_id = setTimeout(
-        function () {
-            toast_element.remove();
-        },
-        duration + animationDuration.fadeIn + animationDuration.fadeOut * 2
-    );
+    const timeout_id = setTimeout(function () {
+        toast_element.remove();
+    }, duration + animationDuration.fadeIn + animationDuration.fadeOut * 2);
 
     // Define click event for closing the toast.
     toast_element.onclick = function (event) {
@@ -347,8 +341,8 @@ export function updateDebugOverlay() {
         window.innerWidth >= 1024
             ? 'Desktop'
             : window.innerWidth >= 741
-              ? 'Tablet'
-              : 'Mobile';
+            ? 'Tablet'
+            : 'Mobile';
     let result_string =
         window.innerWidth + 'x' + window.innerHeight + ' (' + device_type + ')';
     const screen_size_text = $('#debug-overlay>h5');

@@ -32,32 +32,79 @@ export function validateEmailString(email) {
  * @param {Element} formGroup The form group element that contains the input.
  *                            This element will be passed to the callback function.
  * @param {Function} validateCallback The callback function that do the validation. (Returns true or false)
+ *                                    The following arguments will be passed to the callback function,
+ *                                    respectively: The form group element and the event type (string).
  * @param {Boolean} onChange Specifies whether to trigger the validate function on input content update.
  * @param {Boolean} onFocusLost Specifies whether to trigger the validate function on input focus lost.
+ * @param {Boolean} onInput Specifies whether to trigger the validate function on input.
  */
 export function setInputValidateCallback(
     formGroup,
     validateCallback,
     onChange = true,
-    onFocusLost = true
+    onFocusLost = true,
+    onInput = true
 ) {
     const input = formGroup.querySelector('input');
 
     // Verify group on input content update
     if (onChange) {
         input.addEventListener('change', function (event) {
-            if (!event.currentTarget.getAttribute('visited')) return;
-            validateCallback(formGroup);
+            validateCallback(formGroup, 'change');
         });
     }
 
-    // Verify group on first focus lost.
+    // Verify group on focus lost.
     if (onFocusLost) {
         input.addEventListener('focusout', function (event) {
-            if (!event.currentTarget.getAttribute('visited')) {
-                validateCallback(formGroup);
-                event.currentTarget.setAttribute('visited', 'true');
-            }
+            validateCallback(formGroup, 'focusout');
+        });
+    }
+
+    // Verify group on input.
+    if (onInput) {
+        input.addEventListener('input', function (event) {
+            validateCallback(formGroup, 'input');
+        });
+    }
+}
+
+/**
+ * Set radio input validate callback.
+ * @param {Element} formGroup The form group element that contains the radio inputs.
+ *                            This element will be passed to the callback function.
+ * @param {Function} validateCallback The callback function that do the validation. (Returns true or false)
+ *                                    The following arguments will be passed to the callback function,
+ *                                    respectively: The form group element and the event type (string).
+ * @note The validate callback function will be called on the click event.
+ */
+export function setRadioValidateCallback(formGroup, validateCallback) {
+    const radios = formGroup.querySelectorAll('input[type="radio"]');
+
+    // Verify radio inputs on click.
+    for (const radio of radios) {
+        radio.addEventListener('click', function (event) {
+            validateCallback(formGroup, 'click');
+        });
+    }
+}
+
+/**
+ * Set checkbox input validate callback.
+ * @param {Element} formGroup The form group element that contains the checkbox inputs.
+ *                            This element will be passed to the callback function.
+ * @param {Function} validateCallback The callback function that do the validation. (Returns true or false)
+ *                                    The following arguments will be passed to the callback function,
+ *                                    respectively: The form group element and the event type (string).
+ * @note The validate callback function will be called on the click event.
+ */
+export function setCheckboxValidateCallback(formGroup, validateCallback) {
+    const checkboxes = formGroup.querySelectorAll('input[type="checkbox"]');
+
+    // Verify checkbox inputs on click.
+    for (const checkbox of checkboxes) {
+        checkbox.addEventListener('click', function (event) {
+            validateCallback(formGroup, 'click');
         });
     }
 }

@@ -241,89 +241,10 @@ $('#click-sound-button').addEventListener('click', function () {
  * MODAL WINDOW SCRIPTS *
  ************************/
 
-// Disable existing modal window click propagation.
+// Disable existing modal windows click propagation.
 for (const modal_window of $$('.modal-window')) {
     modal_window.addEventListener('click', function (event) {
         event.stopPropagation();
-    });
-}
-
-/****************
- * FORM SCRIPTS *
- ****************/
-
-{
-    // Get the test form and its form groups.
-    const test_form = $('#test-form'),
-        test_form_email_group = test_form.querySelector('.email-group'),
-        test_form_password_group = test_form.querySelector('.password-group'),
-        test_form_submit = test_form.querySelector('button[type="submit"]');
-
-    // Disable submit button default behavior
-    test_form_submit.onclick = function () {
-        return false;
-    };
-
-    const validateEmailGroup = function (formGroup) {
-        const input = formGroup.querySelector('input'),
-            form_message = formGroup.querySelector('.output-message');
-        if (!input.value) {
-            form_message.innerHTML = 'This field is required.';
-            return false;
-        } else if (!helper.validateEmailString(input.value)) {
-            form_message.innerHTML = 'The entered email is invalid.';
-            return false;
-        }
-
-        form_message.innerHTML = '';
-        return true;
-    };
-    helper.setInputValidateCallback(test_form_email_group, validateEmailGroup);
-
-    const validatePasswordGroup = function (formGroup) {
-        const input = formGroup.querySelector('input'),
-            form_message = formGroup.querySelector('.output-message');
-        if (!input.value) {
-            form_message.innerHTML = 'This field is required.';
-            return false;
-        } else if (input.value.length < 6) {
-            form_message.innerHTML = 'The entered password is too short.';
-            return false;
-        }
-
-        form_message.innerHTML = '';
-        return true;
-    };
-    helper.setInputValidateCallback(
-        test_form_password_group,
-        validatePasswordGroup
-    );
-
-    test_form_submit.addEventListener('click', function (event) {
-        let are_all_validation_success = false,
-            error_message = '';
-        while (!are_all_validation_success) {
-            const email_validation_result = validateEmailGroup(
-                    test_form_email_group
-                ),
-                password_validation_result = validatePasswordGroup(
-                    test_form_password_group
-                ),
-                is_validation_success =
-                    email_validation_result && password_validation_result;
-            if (!is_validation_success) {
-                error_message = 'Form validation failed.';
-                break;
-            }
-
-            test_form_email_group.querySelector('input').value = '';
-            test_form_password_group.querySelector('input').value = '';
-            console.log('Success');
-
-            are_all_validation_success = true;
-        }
-
-        if (!are_all_validation_success) console.log(error_message);
     });
 }
 
@@ -339,65 +260,72 @@ window.onresize = function (event) {
 
 // Process on key down events.
 window.onkeydown = function (event) {
+    if (event.altKey) {
+        switch (event.code) {
+            case 'Digit1': {
+                const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+                audio.play();
+                functions.showToast(
+                    'Info',
+                    'New version available for download!',
+                    'info'
+                );
+                break;
+            }
+            case 'Digit2': {
+                const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+                audio.play();
+                functions.showToast(
+                    'Success',
+                    'Your request has been sent successfully.',
+                    'success'
+                );
+                break;
+            }
+            case 'Digit3': {
+                const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+                audio.play();
+                functions.showToast(
+                    'Error',
+                    'Unable to connect to the remote server.',
+                    'error'
+                );
+                break;
+            }
+            case 'Digit4': {
+                const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+                audio.play();
+                functions.showCustomToast(
+                    'Custom Toast',
+                    'This is a custom toast message..',
+                    {
+                        titleColor: '#fcfcfa',
+                        descColor: '#fcfcfa',
+                        backgroundColor: '#544e56',
+                        borderColor: '#544e56',
+                        iconColor: '#fcfcfa',
+                        closeIconColor: '#fcfcfa',
+                    },
+                    'fa-solid fa-gear'
+                );
+                break;
+            }
+            case 'Digit5': {
+                const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+                audio.play();
+                functions.showToast(
+                    'Message',
+                    'You have new message(s).',
+                    'message'
+                );
+                break;
+            }
+            default:
+                break;
+        }
+    }
+
     switch (event.code) {
-        case 'Digit1': {
-            const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-            audio.play();
-            functions.showToast(
-                'Info',
-                'New version available for download!',
-                'info'
-            );
-            break;
-        }
-        case 'Digit2': {
-            const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-            audio.play();
-            functions.showToast(
-                'Success',
-                'Your request has been sent successfully.',
-                'success'
-            );
-            break;
-        }
-        case 'Digit3': {
-            const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-            audio.play();
-            functions.showToast(
-                'Error',
-                'Unable to connect to the remote server.',
-                'error'
-            );
-            break;
-        }
-        case 'Digit4': {
-            const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-            audio.play();
-            functions.showCustomToast(
-                'Custom Toast',
-                'This is a custom toast message..',
-                {
-                    titleColor: '#fcfcfa',
-                    descColor: '#fcfcfa',
-                    backgroundColor: '#544e56',
-                    borderColor: '#544e56',
-                    iconColor: '#fcfcfa',
-                    closeIconColor: '#fcfcfa',
-                },
-                'fa-solid fa-gear'
-            );
-            break;
-        }
-        case 'Digit5': {
-            const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-            audio.play();
-            functions.showToast(
-                'Message',
-                'You have new message(s).',
-                'message'
-            );
-            break;
-        }
         case 'Escape': {
             if (functions.isModalOverlayVisible()) {
                 functions.closeModalOverlay(true);
@@ -405,7 +333,7 @@ window.onkeydown = function (event) {
             break;
         }
         case 'F1': {
-            const modal_window = $('#custom-modal-window-3');
+            const modal_window = $('#signup-form-modal-window');
             if (functions.isModalOverlayVisible())
                 functions.closeModalOverlay(true);
             else

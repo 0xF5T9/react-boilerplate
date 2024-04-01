@@ -2,7 +2,10 @@
 
 HTML website deployment boilerplate.
 
+# Git Clone Command
+
 `git clone https://0xF5T9@github.com/0xF5T9/html-boilerplate.git`
 
-TODO:
- - Test form validation
+# Live the web-server using Express
+
+To be updated
