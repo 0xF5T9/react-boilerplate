@@ -5,10 +5,11 @@
 
 import * as helper from './helper.js';
 
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
+(function () {
+    // Selector binds.
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
 
-{
     // Get the signup form and its form groups.
     const signup_form = $('#signup-form'),
         signup_form_email_group = signup_form.querySelector('.email-group'),
@@ -21,11 +22,6 @@ const $$ = document.querySelectorAll.bind(document);
         signup_form_agreement_group =
             signup_form.querySelector('.agreement-group'),
         signup_form_submit = signup_form.querySelector('button[type="submit"]');
-
-    // Disable submit button default behavior
-    signup_form_submit.onclick = function () {
-        return false;
-    };
 
     // Set the validate callback for the email group.
     const validateEmailGroup = function (formGroup, eventType) {
@@ -148,6 +144,11 @@ const $$ = document.querySelectorAll.bind(document);
         validateAgreementGroup
     );
 
+    // Disable submit button default behavior
+    signup_form_submit.onclick = function () {
+        return false;
+    };
+
     // Validate all form groups on submit.
     signup_form_submit.addEventListener('click', function (event) {
         let are_all_validation_success = false,
@@ -202,4 +203,4 @@ const $$ = document.querySelectorAll.bind(document);
 
         if (!are_all_validation_success) console.log(error_message);
     });
-}
+})();
