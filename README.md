@@ -1,7 +1,6 @@
 #  HTML Boilerplate Project (html-boilerplate)
 
 HTML website deployment boilerplate.
-- TODO: Add <select> css
 
 # Git Clone Command
 
