@@ -3,6 +3,8 @@
  * @description Start the web-server using Express.
  */
 
+'use strict';
+
 const express = require('express');
 const path = require('path');
 const app = express();

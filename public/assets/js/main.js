@@ -3,6 +3,8 @@
  * @description Main script file.
  */
 
+'use strict';
+
 import { global } from './global.js';
 import * as functions from './function.js';
 import * as helper from './helper.js';

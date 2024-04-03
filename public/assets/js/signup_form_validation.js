@@ -3,6 +3,8 @@
  * @description Signup form validation script.
  */
 
+'use strict';
+
 import * as helper from './helper.js';
 
 (function () {

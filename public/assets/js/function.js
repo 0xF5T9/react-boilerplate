@@ -3,6 +3,8 @@
  * @description Website specific function definitions.
  */
 
+'use strict';
+
 import { global } from './global.js';
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
