@@ -20,6 +20,9 @@ import * as helper from './helper.js';
         signup_form_password_repeat_group = signup_form.querySelector(
             '.password-repeat-group'
         ),
+        signup_form_select_region_group = signup_form.querySelector(
+            '.region-group'
+        ),
         signup_form_gender_group = signup_form.querySelector('.gender-group'),
         signup_form_agreement_group =
             signup_form.querySelector('.agreement-group'),
@@ -104,6 +107,24 @@ import * as helper from './helper.js';
         false
     );
 
+    // Set the validate callback for the select region group.
+    const validateSelectRegionGroup = function (formGroup) {
+        const select = formGroup.querySelector('select'),
+            form_message = formGroup.querySelector('.form-message');
+
+        if (select.value === 'none') {
+            form_message.innerHTML = 'Please select your region.';
+            return false;
+        }
+
+        form_message.innerHTML = '';
+        return true;
+    };
+    helper.setSelectValidateCallback(
+        signup_form_select_region_group,
+        validateSelectRegionGroup
+    );
+
     // Set the validate callback for the select gender group.
     const validateGenderGroup = function (formGroup) {
         const radios = formGroup.querySelectorAll('input[type="radio"]'),
@@ -165,6 +186,9 @@ import * as helper from './helper.js';
                 password_repeat_validation_result = validatePasswordRepeatGroup(
                     signup_form_password_repeat_group
                 ),
+                region_validation_result = validateSelectRegionGroup(
+                    signup_form_select_region_group
+                ),
                 gender_validation_result = validateGenderGroup(
                     signup_form_gender_group
                 ),
@@ -175,6 +199,7 @@ import * as helper from './helper.js';
                     email_validation_result &&
                     password_validation_result &&
                     password_repeat_validation_result &&
+                    region_validation_result &&
                     gender_validation_result &&
                     agreement_validation_result;
             if (!is_validation_success) {
@@ -186,6 +211,8 @@ import * as helper from './helper.js';
                 email: signup_form_email_group.querySelector('input').value,
                 password:
                     signup_form_password_group.querySelector('input').value,
+                region: signup_form_select_region_group.querySelector('select')
+                    .value,
                 gender: Array.from(
                     signup_form_gender_group.querySelectorAll(
                         'input[type="radio"]'

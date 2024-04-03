@@ -110,3 +110,36 @@ export function setCheckboxValidateCallback(formGroup, validateCallback) {
         });
     }
 }
+
+/**
+ * Set select validate callback.
+ * @param {Element} formGroup The form group element that contains the select element.
+ *                            This element will be passed to the callback function.
+ * @param {Function} validateCallback The callback function that do the validation. (Returns true or false)
+ *                                    The following arguments will be passed to the callback function,
+ *                                    respectively: The form group element and the event type (string).
+ * @param {Boolean} onChange Specifies whether to trigger the validate function on select content update. (optional - default:true)
+ * @param {Boolean} onFocusLost Specifies whether to trigger the validate function on select focus lost. (optional - default:true)
+ */
+export function setSelectValidateCallback(
+    formGroup,
+    validateCallback,
+    onChange = true,
+    onFocusLost = true
+) {
+    const select = formGroup.querySelector('select');
+
+    // Verify group on select content update
+    if (onChange) {
+        select.addEventListener('change', function (event) {
+            validateCallback(formGroup, 'change');
+        });
+    }
+
+    // Verify group on focus lost.
+    if (onFocusLost) {
+        select.addEventListener('focusout', function (event) {
+            validateCallback(formGroup, 'focusout');
+        });
+    }
+}
