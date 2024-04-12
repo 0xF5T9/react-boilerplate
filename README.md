@@ -6,33 +6,11 @@ HTML website deployment boilerplate.
 
 `git clone https://0xF5T9@github.com/0xF5T9/html-boilerplate.git`
 
-# Start the web server
+# Install the project packages
 
-### 1. Generate the project file **package.json**
+1. Run `npm install` to install the packages.
+2. Review the packages configurations: `package.json`, `webpack.config.js`, `.prettierrc`, `.babelrc`
 
-`npm init --y`
+# Live the web-server
 
-### 2A. Live the web-server using Live Server
-
-* Install the **live-server** package locally: `npm install live-server`.
-* Run '**Start live server**' task to start the server. (Check **tasks.json**)
-
-### 2B. Live the web-server using Express
-
-* Install the **express** package locally: `npm install express`.
-* Run '**Start express server**' task to start the server. (Check **tasks.json**)
-
-### Extras
-
-* The project uses [Prettier](https://prettier.io/) as formatter with the following options:
-
-'**.prettierrc**':
-```json
-{
-    "trailingComma": "es5",
-    "tabWidth": 4,
-    "semi": true,
-    "singleQuote": true,
-    "endOfLine": "auto"
-}
-```
+1. Check the `tasks.json` and `package.json` for the project build/start scripts.

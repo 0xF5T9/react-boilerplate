@@ -5,8 +5,6 @@
 
 'use strict';
 
-import * as helper from './helper.js';
-
 (function () {
     // Selector binds.
     const $ = document.querySelector.bind(document);
@@ -20,9 +18,8 @@ import * as helper from './helper.js';
         signup_form_password_repeat_group = signup_form.querySelector(
             '.password-repeat-group'
         ),
-        signup_form_select_region_group = signup_form.querySelector(
-            '.region-group'
-        ),
+        signup_form_select_region_group =
+            signup_form.querySelector('.region-group'),
         signup_form_gender_group = signup_form.querySelector('.gender-group'),
         signup_form_agreement_group =
             signup_form.querySelector('.agreement-group'),

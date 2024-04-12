@@ -1,13 +1,18 @@
 /**
- * @file script.js
- * @description Main script file.
+ * @file entry.js
+ * @description Entry script file.
  */
 
 'use strict';
 
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { global } from './global.js';
 import * as functions from './function.js';
 import * as helper from './helper.js';
+window.React = React;
+window.ReactDOM = ReactDOM;
+window.helper = helper;
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -372,3 +377,5 @@ window.onclick = function (event) {
 
 functions.updateDebugOverlay();
 helper.message('All operations completed successfully.');
+console.log('React version:', React.version);
+console.log('React DOM version:', ReactDOM.version);
