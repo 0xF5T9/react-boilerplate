@@ -10,6 +10,7 @@ import ReactDOM from 'react-dom';
 import { global } from './global.js';
 import * as functions from './function.js';
 import * as helper from './helper.js';
+import * as signupForm from './signup_form.js';
 window.React = React;
 window.ReactDOM = ReactDOM;
 window.helper = helper;

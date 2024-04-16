@@ -2170,62 +2170,24 @@
             </footer>
 
             <!-- Modal Window Container -->
+            <style>
+                #custom-modal-window-1,
+                #custom-modal-window-2 {
+                    --modal-window-width: 400px;
+                    padding: 20px;
+                    text-align: center;
+
+                    & > *:not(:first-child) {
+                        margin-top: 10px;
+                    }
+                }
+
+                #signup-form-modal-window {
+                    --modal-window-width: 310px;
+                    padding: 20px;
+                }
+            </style>
             <div id="modals">
-                <style>
-                    #custom-modal-window-1,
-                    #custom-modal-window-2 {
-                        --modal-window-width: 400px;
-                        padding: 20px;
-                        text-align: center;
-
-                        & > *:not(:first-child) {
-                            margin-top: 10px;
-                        }
-                    }
-
-                    #signup-form-modal-window {
-                        --modal-window-width: 310px;
-                        padding: 20px;
-
-                        #signup-form {
-                            & .form-group {
-                                display: flex;
-                                flex-flow: column nowrap;
-
-                                & .form-message {
-                                    color: var(--color-red);
-                                }
-                            }
-                            & > * + *:not(:first-child) {
-                                margin-top: 4px;
-                            }
-
-                            & > .form-group {
-                                & > * + *:not(:first-child) {
-                                    margin-top: 4px;
-                                }
-                            }
-                            & button[type='submit'] {
-                                width: 100%;
-                                margin-top: 12px;
-                            }
-
-                            & label {
-                                font-weight: 600;
-                            }
-
-                            & .gender-group .radio-group-wrapper {
-                                display: flex;
-                                justify-content: space-evenly;
-                                margin-top: 8px;
-                            }
-
-                            & .agreement-group .checkbox-group-wrapper {
-                                margin-top: 8px;
-                            }
-                        }
-                    }
-                </style>
                 <div id="custom-modal-window-1" class="modal-window">
                     <h3>Modal Window 1</h3>
                     <p>Modal window contents.</p>
@@ -2234,153 +2196,7 @@
                     <h3>Modal Window 2</h3>
                     <p>Modal window contents.</p>
                 </div>
-                <div id="signup-form-modal-window" class="modal-window">
-                    <form id="signup-form">
-                        <div class="form-group email-group">
-                            <label for="signup-form-email-input">Email</label>
-                            <div class="input-wrapper icon-left">
-                                <i class="fa-solid fa-envelope"></i>
-                                <input
-                                    type="email"
-                                    placeholder="Email"
-                                    value=""
-                                    id="signup-form-email-input"
-                                    required
-                                />
-                            </div>
-                            <span class="form-message"></span>
-                        </div>
-
-                        <div class="form-group password-group">
-                            <label for="signup-form-password-input"
-                                >Password</label
-                            >
-                            <div class="input-wrapper icon-left">
-                                <i class="fa-solid fa-lock"></i>
-                                <input
-                                    type="password"
-                                    placeholder="Password"
-                                    value=""
-                                    id="signup-form-password-input"
-                                    required
-                                />
-                            </div>
-                            <span class="form-message"></span>
-                        </div>
-
-                        <div class="form-group password-repeat-group">
-                            <label for="signup-form-password-repeat-input"
-                                >Confirm Password</label
-                            >
-                            <div class="input-wrapper icon-left">
-                                <i class="fa-solid fa-lock"></i>
-                                <input
-                                    type="password"
-                                    placeholder="Password"
-                                    value=""
-                                    id="signup-form-password-repeat-input"
-                                    required
-                                />
-                            </div>
-                            <span class="form-message"></span>
-                        </div>
-
-                        <div class="form-group region-group">
-                            <label for="select-region"> Select Region </label>
-                            <select
-                                class="select"
-                                name="select-region"
-                                id="select-region"
-                            >
-                                <option value="none">-- Select --</option>
-                                <option value="hn">Hanoi</option>
-                                <option value="hcm">Ho Chi Minh</option>
-                            </select>
-                            <span class="form-message"></span>
-                        </div>
-
-                        <div class="form-group gender-group">
-                            <label
-                                for="gender-male"
-                                style="pointer-events: none"
-                                >Select Gender</label
-                            >
-                            <div class="radio-group-wrapper">
-                                <div class="radio-wrapper alt-1">
-                                    <input
-                                        id="gender-male"
-                                        type="radio"
-                                        name="gender-radio-group"
-                                        value="male"
-                                        required
-                                    />
-                                    <label for="gender-male"
-                                        ><span>Male</span></label
-                                    >
-                                </div>
-                                <div class="radio-wrapper alt-1">
-                                    <input
-                                        id="gender-female"
-                                        type="radio"
-                                        name="gender-radio-group"
-                                        value="female"
-                                        required
-                                    />
-                                    <label for="gender-female"
-                                        ><span>Female</span></label
-                                    >
-                                </div>
-                            </div>
-                            <span class="form-message"></span>
-                        </div>
-
-                        <div class="form-group agreement-group">
-                            <label
-                                for="subscribe-newsletter"
-                                style="pointer-events: none"
-                                >Agreements</label
-                            >
-                            <div class="checkbox-group-wrapper">
-                                <div class="checkbox-wrapper alt-1">
-                                    <input
-                                        id="subscribe-newsletter"
-                                        class=""
-                                        type="checkbox"
-                                    />
-                                    <label for="subscribe-newsletter"
-                                        ><span
-                                            >Subscribe to our newsletters.</span
-                                        ></label
-                                    >
-                                </div>
-                                <div
-                                    class="checkbox-wrapper alt-1"
-                                    style="margin-top: 6px"
-                                >
-                                    <input
-                                        id="agree-tos"
-                                        class=""
-                                        type="checkbox"
-                                        required
-                                    />
-                                    <label for="agree-tos"
-                                        ><span
-                                            >Agree to the Term of
-                                            Services.</span
-                                        ></label
-                                    >
-                                </div>
-                            </div>
-                            <span class="form-message"></span>
-                        </div>
-
-                        <button type="submit" class="button">Sign Up</button>
-                    </form>
-                    <script
-                        src="/assets/js/signup_form_validation.js"
-                        type="module"
-                    ></script>
-                </div>
+                <div id="signup-form-modal-window" class="modal-window"></div>
             </div>
 
             <!-- Toast Container -->
