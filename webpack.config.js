@@ -1,10 +1,22 @@
+/**
+ * @file webpack.config.js
+ * @description Webpack development configuration file.
+ */
+
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+console.log('Using Webpack development configuration ...');
 
 module.exports = {
-    entry: './sources/js/entry.js',
+    entry: {
+        style: './sources/js/style.js',
+        index: './sources/js/entry.js',
+        index404: './sources/js/entry404.js',
+    },
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public/assets/js/generated'),
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'build'),
         clean: true,
     },
     mode: 'development',
@@ -17,6 +29,10 @@ module.exports = {
                     loader: 'babel-loader',
                 },
             },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
         ],
     },
     devServer: {
@@ -27,8 +43,20 @@ module.exports = {
         hot: true,
         open: true,
         devMiddleware: {
-            // Ensures hot reloading works even when the bundle.js isn't in the same folder as index.html
-            writeToDisk: true,
+            writeToDisk: false,
         },
+        watchFiles: ['sources/**/*'],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './sources/html/index.html',
+            chunks: ['index', 'style'],
+        }),
+        new HtmlWebpackPlugin({
+            template: './sources/html/404.html',
+            filename: '404.html',
+            chunks: ['index404', 'style'],
+        }),
+    ],
 };

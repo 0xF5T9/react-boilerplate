@@ -8,8 +8,8 @@
 @import url(./common.css);
 @import url(./checkbox.css);
 @import url(./radio.css);
-@import url(./button.css);
 @import url(./input.css);
+@import url(./button.css);
 @import url(./select.css);
 
 /*******
@@ -29,6 +29,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+#app {
+    display: flex;
+    flex-flow: column nowrap;
+    flex-grow: 1;
 }
 
 #header {
@@ -849,19 +855,19 @@
     padding-bottom: var(--footer-height);
 }
 
-section.content-box {
-    --content-box-top-bottom-padding: 50px;
-    --inner-content-box-max-width: 1200px;
-    --inner-content-box-child-top-margin: 5px;
-    --inner-content-box-heading-top-margin: 13px;
+section.content-section {
+    --content-section-top-bottom-padding: 50px;
+    --inner-content-section-max-width: 1200px;
+    --inner-content-section-child-top-margin: 5px;
+    --inner-content-section-heading-top-margin: 13px;
     flex: auto;
     width: 100%;
-    padding: var(--content-box-top-bottom-padding) 0px;
+    padding: var(--content-section-top-bottom-padding) 0px;
     background-color: transparent;
     overflow: hidden;
 
-    & > section.inner-content-box {
-        max-width: var(--inner-content-box-max-width);
+    & > section.inner-content-section {
+        max-width: var(--inner-content-section-max-width);
         margin-left: auto;
         margin-right: auto;
 
@@ -870,7 +876,7 @@ section.content-box {
         }
 
         & > *:not(:first-child) {
-            margin-top: var(--inner-content-box-child-top-margin);
+            margin-top: var(--inner-content-section-child-top-margin);
         }
 
         & > h1 + *:not(:first-child),
@@ -879,7 +885,7 @@ section.content-box {
         & > h4 + *:not(:first-child),
         & > h5 + *:not(:first-child),
         & > h6 + *:not(:first-child) {
-            margin-top: var(--inner-content-box-heading-top-margin);
+            margin-top: var(--inner-content-section-heading-top-margin);
         }
 
         & h1:not(:first-child),
@@ -888,17 +894,17 @@ section.content-box {
         & h4:not(:first-child),
         & h5:not(:first-child),
         & h6:not(:first-child) {
-            margin-top: var(--inner-content-box-heading-top-margin);
-        }
-
-        &.no-margin {
-            --inner-content-box-child-top-margin: 0px;
-            --inner-content-box-heading-top-margin: 0px;
+            margin-top: var(--inner-content-section-heading-top-margin);
         }
     }
 
+    &.no-child-default-margin {
+        --inner-content-section-child-top-margin: 0px;
+        --inner-content-section-heading-top-margin: 0px;
+    }
+
     &.no-padding {
-        --content-box-top-bottom-padding: 0;
+        --content-section-top-bottom-padding: 0;
     }
 
     &.flex-center {

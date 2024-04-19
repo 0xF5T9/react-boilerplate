@@ -7,271 +7,99 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { global } from './global.js';
 import * as functions from './function.js';
 import * as helper from './helper.js';
-import * as signupForm from './signup_form.js';
+import { createRoot } from 'react-dom/client';
+import { useEffect } from 'react';
+import { Header } from './components/header.js';
+import { Content } from './components/content.js';
+import { Footer } from './components/footer.js';
+import { SignupForm } from './components/signup_form.js';
 window.React = React;
 window.ReactDOM = ReactDOM;
 window.helper = helper;
 const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
 
-/*****************************
- * FUNCTIONAL BUTTON SCRIPTS *
- *****************************/
-
-// Header mobile menu button.
-$('#mobile-menu-icon>.header-icon-button-icon').addEventListener(
-    'click',
-    function (event) {
-        const icon_button = $('#mobile-menu-icon');
-        const dropdown_window = icon_button.querySelector('.dropdown-window');
-        const icon = icon_button.querySelector('i');
-        if (!dropdown_window.classList.contains('is-open')) {
-            dropdown_window.classList.add('is-open');
-        } else {
-            dropdown_window.classList.remove('is-open');
-        }
-    }
-);
-for (const list_item of $$('#mobile-menu-dropdown li')) {
-    if (list_item.querySelector('ul')) {
-        list_item.addEventListener('click', function (event) {
-            if (list_item.classList.contains('is-open')) {
-                list_item.classList.remove('is-open');
-                const icon = list_item.querySelector('a>i');
-                icon.classList.remove('fa-caret-down');
-                icon.classList.add('fa-caret-right');
-            } else {
-                list_item.classList.add('is-open');
-                const icon = list_item.querySelector('a>i');
-                icon.classList.remove('fa-caret-right');
-                icon.classList.add('fa-caret-down');
-            }
+// Render the application.
+(() => {
+    function App() {
+        useEffect(() => {
+            functions.updateDebugOverlay();
         });
-    }
-}
-for (const item_list of $$('#mobile-menu-dropdown ul')) {
-    item_list.addEventListener('click', function (event) {
-        event.stopPropagation();
-    });
-}
-$('#navbar-item-2-buttons').addEventListener('click', function () {
-    $('#button-sample-section').scrollIntoView();
-    global.lastHeaderHeightValue = getComputedStyle(
-        document.documentElement
-    ).getPropertyValue('--header-height');
-    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-    lastHeaderHeightValue = -lastHeaderHeightValue;
-    window.scrollBy({
-        top: lastHeaderHeightValue,
-        behavior: 'instant',
-    });
-});
-$('#navbar-item-2-inputs').addEventListener('click', function () {
-    $('#input-sample-section').scrollIntoView();
-    global.lastHeaderHeightValue = getComputedStyle(
-        document.documentElement
-    ).getPropertyValue('--header-height');
-    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-    lastHeaderHeightValue = -lastHeaderHeightValue;
-    window.scrollBy({
-        top: lastHeaderHeightValue,
-        behavior: 'instant',
-    });
-});
-$('#navbar-item-2-checkboxes').addEventListener('click', function () {
-    $('#checkbox-sample-section').scrollIntoView();
-    global.lastHeaderHeightValue = getComputedStyle(
-        document.documentElement
-    ).getPropertyValue('--header-height');
-    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-    lastHeaderHeightValue = -lastHeaderHeightValue;
-    window.scrollBy({
-        top: lastHeaderHeightValue,
-        behavior: 'instant',
-    });
-});
-$('#navbar-item-2-radios').addEventListener('click', function () {
-    $('#radio-sample-section').scrollIntoView();
-    global.lastHeaderHeightValue = getComputedStyle(
-        document.documentElement
-    ).getPropertyValue('--header-height');
-    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-    lastHeaderHeightValue = -lastHeaderHeightValue;
-    window.scrollBy({
-        top: lastHeaderHeightValue,
-        behavior: 'instant',
-    });
-});
-$('#mobile-menu-buttons').addEventListener('click', function () {
-    $('#button-sample-section').scrollIntoView();
-    global.lastHeaderHeightValue = getComputedStyle(
-        document.documentElement
-    ).getPropertyValue('--header-height');
-    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-    lastHeaderHeightValue = -lastHeaderHeightValue;
-    window.scrollBy({
-        top: lastHeaderHeightValue,
-        behavior: 'instant',
-    });
-});
-$('#mobile-menu-inputs').addEventListener('click', function () {
-    $('#input-sample-section').scrollIntoView();
-    global.lastHeaderHeightValue = getComputedStyle(
-        document.documentElement
-    ).getPropertyValue('--header-height');
-    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-    lastHeaderHeightValue = -lastHeaderHeightValue;
-    window.scrollBy({
-        top: lastHeaderHeightValue,
-        behavior: 'instant',
-    });
-});
-$('#mobile-menu-checkboxes').addEventListener('click', function () {
-    $('#checkbox-sample-section').scrollIntoView();
-    global.lastHeaderHeightValue = getComputedStyle(
-        document.documentElement
-    ).getPropertyValue('--header-height');
-    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-    lastHeaderHeightValue = -lastHeaderHeightValue;
-    window.scrollBy({
-        top: lastHeaderHeightValue,
-        behavior: 'instant',
-    });
-});
-$('#mobile-menu-radios').addEventListener('click', function () {
-    $('#radio-sample-section').scrollIntoView();
-    global.lastHeaderHeightValue = getComputedStyle(
-        document.documentElement
-    ).getPropertyValue('--header-height');
-    let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-    lastHeaderHeightValue = -lastHeaderHeightValue;
-    window.scrollBy({
-        top: lastHeaderHeightValue,
-        behavior: 'instant',
-    });
-});
 
-// Header alert button.
-$('#alert-icon>.header-icon-button-icon').addEventListener(
-    'click',
-    function (event) {
-        const icon_button = $('#alert-icon');
-        const dropdown_window = icon_button.querySelector('.dropdown-window');
-        const icon = icon_button.querySelector('i');
-        if (!dropdown_window.classList.contains('is-open')) {
-            dropdown_window.classList.add('is-open');
-            icon.classList.remove('far');
-            icon.classList.add('fas');
-        } else {
-            dropdown_window.classList.remove('is-open');
-            icon.classList.remove('fas');
-            icon.classList.add('far');
-        }
-    }
-);
+        return (
+            <div id="app">
+                <Header />
+                <Content />
+                <Footer />
+                <style>
+                    {`  #custom-modal-window-1,
+                        #custom-modal-window-2 {
+                            --modal-window-width: 400px;
+                            padding: 20px;
+                            text-align: center;
 
-// Header user button.
-$('#user-icon>.header-icon-button-icon').addEventListener(
-    'click',
-    function (event) {
-        const icon_button = $('#user-icon');
-        const dropdown_window = icon_button.querySelector('.dropdown-window');
-        if (!dropdown_window.classList.contains('is-open')) {
-            dropdown_window.classList.add('is-open');
-        } else {
-            dropdown_window.classList.remove('is-open');
-        }
-    }
-);
+                            & > *:not(:first-child) {
+                                margin-top: 10px;
+                            }
+                        }
 
-// Show sample modal window buttons.
-$('#modal-window-sample-button-1').addEventListener('click', function () {
-    const modal_window = $('#custom-modal-window-1');
-    if (functions.isModalOverlayVisible()) functions.closeModalOverlay(true);
-    setTimeout(function () {
-        modal_window.classList.add('is-open');
-    }, 1);
-});
-$('#modal-window-sample-button-2').addEventListener('click', function () {
-    const modal_window = $('#custom-modal-window-2');
-    if (functions.isModalOverlayVisible()) functions.closeModalOverlay(true);
-    setTimeout(function () {
-        modal_window.classList.add('is-open');
-    }, 1);
-});
-
-// Show/hide header button.
-$('#show-hide-header-button').addEventListener('click', function (event) {
-    if (functions.isHeaderVisible()) {
-        event.target.innerHTML = 'Show Header';
-        functions.hideHeader();
-        functions.showToast(
-            'Info',
-            'The header has been hidden.',
-            'info',
-            1000
+                        #signup-form-modal-window {
+                        --modal-window-width: 310px;
+                        padding: 20px;
+                        }
+                    `}
+                </style>
+                <div id="modals">
+                    <div
+                        id="custom-modal-window-1"
+                        className="modal-window"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <h3>Modal Window 1</h3>
+                        <p>Modal window contents.</p>
+                    </div>
+                    <div
+                        id="custom-modal-window-2"
+                        className="modal-window"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <h3>Modal Window 2</h3>
+                        <p>Modal window contents.</p>
+                    </div>
+                    <div
+                        id="signup-form-modal-window"
+                        className="modal-window"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <SignupForm />
+                    </div>
+                </div>
+                <div id="toasts"></div>
+                <div id="debug-overlay">
+                    <h5></h5>
+                </div>
+            </div>
         );
-    } else {
-        event.target.innerHTML = 'Hide Header';
-        functions.showHeader();
-        functions.showToast('Info', 'The header has been shown.', 'info', 1000);
     }
-});
 
-// Show/hide footer button.
-$('#show-hide-footer-button').addEventListener('click', function (event) {
-    if (functions.isFooterVisible()) {
-        event.target.innerHTML = 'Show Footer';
-        functions.hideFooter();
-        functions.showToast(
-            'Info',
-            'The footer has been hidden.',
-            'info',
-            1000
-        );
-    } else {
-        event.target.innerHTML = 'Hide Footer';
-        functions.showFooter();
-        functions.showToast('Info', 'The footer has been shown.', 'info', 1000);
-    }
-});
+    const render = createRoot($('#root'));
+    render.render(<App />);
+})();
 
-// Click sound button.
-$('#click-sound-button').addEventListener('click', function () {
-    const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
-    audio.play();
-});
-
-/************************
- * MODAL WINDOW SCRIPTS *
- ************************/
-
-// Disable existing modal windows click propagation.
-for (const modal_window of $$('.modal-window')) {
-    modal_window.addEventListener('click', function (event) {
-        event.stopPropagation();
-    });
-}
-
-/**************************
- * BROWSER WINDOW SCRIPTS *
- **************************/
-
-// Process browser resize events.
+// Browser window resize events.
 window.onresize = function (event) {
-    // Update debug overlay values on browser resizing.
     functions.updateDebugOverlay();
 };
 
-// Process on key down events.
+// Browser window on key-down events.
 window.onkeydown = function (event) {
     if (event.altKey) {
         switch (event.code) {
             case 'Digit1': {
-                const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+                const audio = new Audio(
+                    '/assets/static/sound/ClickSoundEffect.wav'
+                );
                 audio.play();
                 functions.showToast(
                     'Info',
@@ -281,7 +109,9 @@ window.onkeydown = function (event) {
                 break;
             }
             case 'Digit2': {
-                const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+                const audio = new Audio(
+                    '/assets/static/sound/ClickSoundEffect.wav'
+                );
                 audio.play();
                 functions.showToast(
                     'Success',
@@ -291,7 +121,9 @@ window.onkeydown = function (event) {
                 break;
             }
             case 'Digit3': {
-                const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+                const audio = new Audio(
+                    '/assets/static/sound/ClickSoundEffect.wav'
+                );
                 audio.play();
                 functions.showToast(
                     'Error',
@@ -301,7 +133,9 @@ window.onkeydown = function (event) {
                 break;
             }
             case 'Digit4': {
-                const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+                const audio = new Audio(
+                    '/assets/static/sound/ClickSoundEffect.wav'
+                );
                 audio.play();
                 functions.showCustomToast(
                     'Custom Toast',
@@ -319,7 +153,9 @@ window.onkeydown = function (event) {
                 break;
             }
             case 'Digit5': {
-                const audio = new Audio('/assets/sound/ClickSoundEffect.wav');
+                const audio = new Audio(
+                    '/assets/static/sound/ClickSoundEffect.wav'
+                );
                 audio.play();
                 functions.showToast(
                     'Message',
@@ -331,6 +167,8 @@ window.onkeydown = function (event) {
             default:
                 break;
         }
+
+        return;
     }
 
     switch (event.code) {
@@ -342,12 +180,11 @@ window.onkeydown = function (event) {
         }
         case 'F1': {
             const modal_window = $('#signup-form-modal-window');
-            if (functions.isModalOverlayVisible())
-                functions.closeModalOverlay(true);
-            else
-                setTimeout(function () {
-                    modal_window.classList.add('is-open');
-                }, 1);
+            if (modal_window) {
+                if (functions.isModalOverlayVisible())
+                    functions.closeModalOverlay(true);
+                else modal_window.classList.add('is-open');
+            }
             break;
         }
         default:
@@ -356,16 +193,15 @@ window.onkeydown = function (event) {
     }
 };
 
-// Process on click events.
+// Browser window on click events.
 window.onclick = function (event) {
-    // Close modal window on background click.
-    // 'The'stopPropagation()' function should be called on the modal window element.
-    if (functions.isModalOverlayVisible()) {
-        functions.closeModalOverlay();
-    }
+    // Close modal windows on background click.
+    if (functions.isModalOverlayVisible()) functions.closeModalOverlay();
 
-    // Close all openings drop-down windows on background clicks.
-    for (const dropdown of $$('.dropdown-window.is-open')) {
+    // Close dropdown windows on background click.
+    for (const dropdown of document.querySelectorAll(
+        '.dropdown-window.is-open'
+    )) {
         if (
             !dropdown.contains(event.target) &&
             !dropdown.parentNode.contains(event.target)
@@ -376,7 +212,6 @@ window.onclick = function (event) {
     }
 };
 
-functions.updateDebugOverlay();
-helper.message('All operations completed successfully.');
-console.log('React version:', React.version);
-console.log('React DOM version:', ReactDOM.version);
+console.log(
+    `All operations completed successfully.\nReact version: ${React.version}\nReact DOM version: ${ReactDOM.version}`
+);
