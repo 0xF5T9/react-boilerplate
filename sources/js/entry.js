@@ -45,8 +45,9 @@ const $ = document.querySelector.bind(document);
                         }
 
                         #signup-form-modal-window {
-                        --modal-window-width: 310px;
-                        padding: 20px;
+                            --modal-window-width: 310px;
+                            padding: 20px;
+                            overflow: auto !important;
                         }
                     `}
                 </style>
