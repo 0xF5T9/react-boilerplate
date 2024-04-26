@@ -4,11 +4,10 @@
  */
 
 'use strict';
-import * as commonComponents from './common.js';
-import * as buttonComponents from './button.js';
-import * as inputComponents from './input.js';
+import * as commonComponents from './common';
+import * as buttonComponents from './button';
+import * as inputComponents from './input';
 const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
 
 /************************
  * CUSTOM EVENT HANDLES *
@@ -153,13 +152,14 @@ function handleUserIconClick(event) {
 
 /**
  * Mobile menu item list component.
- * @param {Object} props.children Item list children (required)
- * @param {Object} props.id Item list id (optional)
- * @param {Object} props.className Item list class names (optional)
- * @param {Object} props.listProps Additional item list element properties (optional)
+ * @param {Object} props Component properties.
+ * @param {*} props.children Item list children (required)
+ * @param {String} props.id Item list id (optional)
+ * @param {String} props.className Item list class names (optional)
+ * @param {*} props.listProps Additional item list element properties (optional)
  * @returns Returns the component.
  */
-function MobileMenuList({ children, id = '', className = '', listProps }) {
+function MobileMenuList({ children, id, className = '', listProps }) {
     return (
         <ul
             id={id}
@@ -174,18 +174,14 @@ function MobileMenuList({ children, id = '', className = '', listProps }) {
 
 /**
  * Mobile menu list item component.
- * @param {Object} props.children List item children (required)
- * @param {Object} props.id List item id (optional)
- * @param {Object} props.className List item class names (optional)
- * @param {Object} props.listItemProps Additional list item element properties (optional)
+ * @param {Object} props Component properties.
+ * @param {*} props.children List item children (required)
+ * @param {String} props.id List item id (optional)
+ * @param {String} props.className List item class names (optional)
+ * @param {*} props.listItemProps Additional list item element properties (optional)
  * @returns Returns the component.
  */
-function MobileMenuListItem({
-    children,
-    id = '',
-    className = '',
-    listItemProps,
-}) {
+function MobileMenuListItem({ children, id, className = '', listItemProps }) {
     return (
         <li
             id={id}

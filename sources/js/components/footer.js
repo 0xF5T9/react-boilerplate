@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import * as commonComponents from './common.js';
+import * as commonComponents from './common';
 
 /***************************
  * FOOTER CHILD COMPONENTS *

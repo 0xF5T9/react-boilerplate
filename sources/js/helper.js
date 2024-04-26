@@ -5,9 +5,6 @@
 
 'use strict';
 
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
-
 /**
  * Check if a string is a valid email.
  * @param {String} email The email string.

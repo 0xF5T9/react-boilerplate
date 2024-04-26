@@ -7,10 +7,11 @@
 
 /**
  * The form group component.
- * @param {Object} props.id The form group id (optional)
- * @param {Object} props.children The form child components (optional)
- * @param {Object} props.formMessage The form group message (optional)
- * @returns @returns Returns the component.
+ * @param {Object} props Component properties.
+ * @param {String} props.id The form group id (optional)
+ * @param {*} props.children The form child components (optional)
+ * @param {String} props.formMessage The form group message (optional)
+ * @returns Returns the component.
  */
 export function FormGroup({ id, children, formMessage }) {
     return (

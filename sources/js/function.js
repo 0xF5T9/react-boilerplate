@@ -5,7 +5,7 @@
 
 'use strict';
 
-import { global } from './global.js';
+import { global } from './global';
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 

@@ -7,18 +7,19 @@
 
 /**
  * Input component. (Text | Email | Password)
- * @param {Object} props.type Input type (required: 'text' | 'email' | 'password')
- * @param {Object} props.color Input color (optional: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param {Object} props.size Input size (optional: 'small' | 'large')
- * @param {Object} props.transparent Input background transparency (optional: true | false)
- * @param {Object} props.altStyle Input style (optional: 'alt')
+ * @param {Object} props Component properties.
+ * @param {String} props.type Input type (required: 'text' | 'email' | 'password')
+ * @param {String} props.color Input color (optional: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
+ * @param {String} props.size Input size (optional: 'small' | 'large')
+ * @param {Boolean} props.transparent Input background transparency (optional: true | false)
+ * @param {String} props.altStyle Input style (optional: 'alt')
  * @param {Object} props.icon Input icon (optional: {iconPosition: 'icon-left' | 'icon-right', iconClass: '<icon classses>'})
- * @param {Object} props.placeholder Input placeholder (optional)
- * @param {Object} props.id Input id (optional)
- * @param {Object} props.disabled Disable the input (optional: true | false)
- * @param {Object} props.inputWrapperProps Additional input wrapper element properties (optional)
- * @param {Object} props.iconProps Additional input icon element properties (optional)
- * @param {Object} props.inputProps Additional input element properties (optional)
+ * @param {String} props.placeholder Input placeholder (optional)
+ * @param {String} props.id Input id (optional)
+ * @param {Boolean} props.disabled Disable the input (optional: true | false)
+ * @param {*} props.inputWrapperProps Additional input wrapper element properties (optional)
+ * @param {*} props.iconProps Additional input icon element properties (optional)
+ * @param {*} props.inputProps Additional input element properties (optional)
  * @returns Returns the component.
  */
 export function Input({
@@ -28,8 +29,8 @@ export function Input({
     transparent = false,
     altStyle = '',
     icon = { iconPosition: '', iconClass: '' },
-    placeholder = '',
-    id = '',
+    placeholder,
+    id,
     disabled = false,
     inputWrapperProps,
     iconProps,
@@ -56,15 +57,16 @@ export function Input({
 
 /**
  * Checkbox component.
- * @param {Object} props.labelText Label text (optional)
- * @param {Object} props.color Checkbox color (optional: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param {Object} props.size Checkbox size (optional: 'small' | 'large')
- * @param {Object} props.altStyle Checkbox alt style (optional: 'alt-1' | 'alt-2')
- * @param {Object} props.whiteOnly Use white only checkbox style (optional: true | false)
- * @param {Object} props.id Checkbox id (required)
- * @param {Object} props.disabled Disable the checkbox (optional: true | false)
- * @param {Object} props.checkboxWrapperProps Additional checkbox wrapper element properties (optional)
- * @param {Object} props.checkboxProps Additional checkbox element properties (optional)
+ * @param {Object} props Component properties.
+ * @param {String} props.labelText Label text (optional)
+ * @param {String} props.color Checkbox color (optional: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
+ * @param {String} props.size Checkbox size (optional: 'small' | 'large')
+ * @param {String} props.altStyle Checkbox alt style (optional: 'alt-1' | 'alt-2')
+ * @param {Boolean} props.whiteOnly Use white only checkbox style (optional: true | false)
+ * @param {String} props.id Checkbox id (required)
+ * @param {Boolean} props.disabled Disable the checkbox (optional: true | false)
+ * @param {*} props.checkboxWrapperProps Additional checkbox wrapper element properties (optional)
+ * @param {*} props.checkboxProps Additional checkbox element properties (optional)
  * @returns
  */
 export function Checkbox({
@@ -73,7 +75,7 @@ export function Checkbox({
     size = '',
     altStyle = '',
     whiteOnly = false,
-    id = '',
+    id,
     disabled = false,
     checkboxWrapperProps,
     checkboxProps,
@@ -96,17 +98,18 @@ export function Checkbox({
 
 /**
  * Radio input component.
- * @param {Object} props.labelText Label text. (optional)
- * @param {Object} props.name Radio group name (required)
- * @param {Object} props.value Radio value (required)
- * @param {Object} props.color Radio color (optional: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param {Object} props.size Radio size (optional: 'small' | 'large')
- * @param {Object} props.altStyle Radio alt style (optional: 'alt-1' | 'alt-2')
- * @param {Object} props.whiteOnly Use white only radio style (optional: true | false)
- * @param {Object} props.id Radio id (required)
- * @param {Object} props.disabled Disable the radio (optional: true | false)
- * @param {Object} props.radioWrapperProps Additional radio wrapper element properties (optional)
- * @param {Object} props.radioProps Additional radio element properties (optional)
+ * @param {Object} props Component properties.
+ * @param {String} props.labelText Label text. (optional)
+ * @param {String} props.name Radio group name (required)
+ * @param {String} props.value Radio value (required)
+ * @param {String} props.color Radio color (optional: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
+ * @param {String} props.size Radio size (optional: 'small' | 'large')
+ * @param {String} props.altStyle Radio alt style (optional: 'alt-1' | 'alt-2')
+ * @param {Boolean} props.whiteOnly Use white only radio style (optional: true | false)
+ * @param {String} props.id Radio id (required)
+ * @param {Boolean} props.disabled Disable the radio (optional: true | false)
+ * @param {*} props.radioWrapperProps Additional radio wrapper element properties (optional)
+ * @param {*} props.radioProps Additional radio element properties (optional)
  * @returns Returns the component.
  */
 export function Radio({
@@ -117,7 +120,7 @@ export function Radio({
     size = '',
     altStyle = '',
     whiteOnly = false,
-    id = '',
+    id,
     disabled = false,
     radioWrapperProps,
     radioProps,

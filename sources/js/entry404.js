@@ -7,7 +7,7 @@
 
 import '../css/404.css';
 import { createRoot } from 'react-dom/client';
-import { ContentSection } from './components/content.js';
+import { ContentSection } from './components/content';
 const $ = document.querySelector.bind(document);
 
 // Render the application.

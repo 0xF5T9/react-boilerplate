@@ -6,10 +6,8 @@
 'use strict';
 
 import { useState } from 'react';
-import * as inputComponents from './input.js';
-import * as formComponents from './form.js';
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
+import * as inputComponents from './input';
+import * as formComponents from './form';
 
 /**
  * Sign up form component.

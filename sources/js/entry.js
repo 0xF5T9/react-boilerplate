@@ -7,14 +7,15 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as functions from './function.js';
-import * as helper from './helper.js';
+import * as functions from './function';
+import * as helper from './helper';
 import { createRoot } from 'react-dom/client';
 import { useEffect } from 'react';
-import { Header } from './components/header.js';
-import { Content } from './components/content.js';
-import { Footer } from './components/footer.js';
-import { SignupForm } from './components/signup_form.js';
+import { GlobalContextProvider } from './components/context/global_context';
+import { Header } from './components/header';
+import { Content } from './components/content';
+import { Footer } from './components/footer';
+import { SignupForm } from './components/signup_form';
 window.React = React;
 window.ReactDOM = ReactDOM;
 window.helper = helper;
@@ -25,15 +26,16 @@ const $ = document.querySelector.bind(document);
     function App() {
         useEffect(() => {
             functions.updateDebugOverlay();
-        });
+        }, []);
 
         return (
-            <div id="app">
-                <Header />
-                <Content />
-                <Footer />
-                <style>
-                    {`  #custom-modal-window-1,
+            <GlobalContextProvider>
+                <div id="app">
+                    <Header />
+                    <Content />
+                    <Footer />
+                    <style>
+                        {`  #custom-modal-window-1,
                         #custom-modal-window-2 {
                             --modal-window-width: 400px;
                             padding: 20px;
@@ -50,37 +52,38 @@ const $ = document.querySelector.bind(document);
                             overflow: auto !important;
                         }
                     `}
-                </style>
-                <div id="modals">
-                    <div
-                        id="custom-modal-window-1"
-                        className="modal-window"
-                        onClick={(event) => event.stopPropagation()}
-                    >
-                        <h3>Modal Window 1</h3>
-                        <p>Modal window contents.</p>
+                    </style>
+                    <div id="modals">
+                        <div
+                            id="custom-modal-window-1"
+                            className="modal-window"
+                            onClick={(event) => event.stopPropagation()}
+                        >
+                            <h3>Modal Window 1</h3>
+                            <p>Modal window contents.</p>
+                        </div>
+                        <div
+                            id="custom-modal-window-2"
+                            className="modal-window"
+                            onClick={(event) => event.stopPropagation()}
+                        >
+                            <h3>Modal Window 2</h3>
+                            <p>Modal window contents.</p>
+                        </div>
+                        <div
+                            id="signup-form-modal-window"
+                            className="modal-window"
+                            onClick={(event) => event.stopPropagation()}
+                        >
+                            <SignupForm />
+                        </div>
                     </div>
-                    <div
-                        id="custom-modal-window-2"
-                        className="modal-window"
-                        onClick={(event) => event.stopPropagation()}
-                    >
-                        <h3>Modal Window 2</h3>
-                        <p>Modal window contents.</p>
-                    </div>
-                    <div
-                        id="signup-form-modal-window"
-                        className="modal-window"
-                        onClick={(event) => event.stopPropagation()}
-                    >
-                        <SignupForm />
+                    <div id="toasts"></div>
+                    <div id="debug-overlay">
+                        <h5></h5>
                     </div>
                 </div>
-                <div id="toasts"></div>
-                <div id="debug-overlay">
-                    <h5></h5>
-                </div>
-            </div>
+            </GlobalContextProvider>
         );
     }
 

@@ -7,14 +7,17 @@
 
 /**
  * Button component.
- * @param {Object} props.color Button color (optional: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param {Object} props.size Button size (optional: 'small' | 'large')
- * @param {Object} props.outline Use button outline style (optional: false)
- * @param {Object} props.white Use white button style (optional: false)
- * @param {Object} props.whiteOnly Use white only button style (optional: false)
- * @param {Object} props.id The button id (optional)
- * @param {Object} props.disabled Disable the button (optional: true | false)
- * @param {Object} props.buttonProps Additional button element properties (optional)
+ * @param {Object} props Component properties.
+ * @param {String} props.color Button color (optional: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
+ * @param {String} props.size Button size (optional: 'small' | 'large')
+ * @param {Boolean} props.outline Use button outline style (optional: false)
+ * @param {Boolean} props.white Use white button style (optional: false)
+ * @param {Boolean} props.whiteOnly Use white only button style (optional: false)
+ * @param {String} props.id The button id (optional)
+ * @param {String} props.value The button value (optional)
+ * @param {Boolean} props.disabled Disable the button (optional: true | false)
+ * @param {*} props.children Button children.
+ * @param {*} props.buttonProps Additional button element properties (optional)
  * @returns Returns the component.
  */
 export function Button({
@@ -23,7 +26,8 @@ export function Button({
     outline = false,
     white = false,
     whiteOnly = false,
-    id = '',
+    id,
+    value,
     disabled = false,
     children,
     buttonProps,
@@ -33,6 +37,7 @@ export function Button({
     return (
         <button
             id={id}
+            value={value}
             className={button_classes}
             disabled={disabled ? true : false}
             {...buttonProps}

@@ -7,18 +7,19 @@
 
 /**
  * Anchor component.
- * @param {Object} props.children Anchor children (optional)
- * @param {Object} props.id Anchor id (optional)
- * @param {Object} props.className Anchor class (optional)
- * @param {Object} props.href Anchor href (optional)
- * @param {Object} props.noDefault Disable anchor default behavior (optional: true | false)
- * @param {Object} props.onClick Anchor on-click callback function. noDefault must be set to true. (optional)
- * @param {Object} props.anchorProps Additional anchor element properties (optional)
+ * @param {Object} props Component properties.
+ * @param {*} props.children Anchor children (optional)
+ * @param {String} props.id Anchor id (optional)
+ * @param {String} props.className Anchor class (optional)
+ * @param {String} props.href Anchor href (optional)
+ * @param {Boolean} props.noDefault Disable anchor default behavior (optional: true | false)
+ * @param {Function} props.onClick Anchor on-click callback function. noDefault must be set to true. (optional)
+ * @param {*} props.anchorProps Additional anchor element properties (optional)
  * @returns Returns the component.
  */
 export function Anchor({
     children,
-    id = '',
+    id,
     className = '',
     href = '',
     noDefault = false,
