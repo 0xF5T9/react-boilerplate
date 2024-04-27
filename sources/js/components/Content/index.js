@@ -1,12 +1,14 @@
 /**
- * @file content.js
+ * @file index.js
  * @description The content component.
  */
 
 'use strict';
-import * as functions from '../function';
-import { Input, Checkbox, Radio } from './input';
-import { Button } from './button';
+import * as functions from '../../function';
+import Button from '../Button';
+import Input from '../Input';
+import Checkbox from '../Checkbox';
+import Radio from '../Radio';
 const $ = document.querySelector.bind(document);
 
 /************************
@@ -93,7 +95,7 @@ function playClickSound(event) {
  * @param {*} props.innerSectionProps Inner section element additional properties (optional)
  * @returns Returns the component.
  */
-export function ContentSection({
+function ContentSection({
     children,
     id,
     noPadding = false,
@@ -130,7 +132,7 @@ export function ContentSection({
  * Content component.
  * @returns Returns the content component.
  */
-export function Content() {
+function Content() {
     return (
         <div id="content-wrapper">
             {/* Button sample section */}
@@ -496,7 +498,7 @@ export function Content() {
                 <Input
                     type="email"
                     icon={{
-                        iconPosition: 'icon-left',
+                        iconPosition: 'left',
                         iconClass: 'fa-solid fa-envelope',
                     }}
                     placeholder="Email"
@@ -505,7 +507,7 @@ export function Content() {
                 <Input
                     type="password"
                     icon={{
-                        iconPosition: 'icon-left',
+                        iconPosition: 'left',
                         iconClass: 'fa-solid fa-lock',
                     }}
                     placeholder="Password"
@@ -515,7 +517,7 @@ export function Content() {
                 <Input
                     type="text"
                     icon={{
-                        iconPosition: 'icon-right',
+                        iconPosition: 'right',
                         iconClass: 'fa-solid fa-search',
                     }}
                     placeholder="Search"
@@ -524,7 +526,7 @@ export function Content() {
                 <Input
                     type="text"
                     icon={{
-                        iconPosition: 'icon-right',
+                        iconPosition: 'right',
                         iconClass: 'fa-solid fa-address-book',
                     }}
                     placeholder="Phone Number"
@@ -553,7 +555,7 @@ export function Content() {
                     type="text"
                     size="small"
                     icon={{
-                        iconPosition: 'icon-right',
+                        iconPosition: 'right',
                         iconClass: 'fa-solid fa-info-circle',
                     }}
                     placeholder="Small"
@@ -562,7 +564,7 @@ export function Content() {
                 <Input
                     type="text"
                     icon={{
-                        iconPosition: 'icon-right',
+                        iconPosition: 'right',
                         iconClass: 'fa-solid fa-info-circle',
                     }}
                     placeholder="Default"
@@ -572,7 +574,7 @@ export function Content() {
                     type="text"
                     size="large"
                     icon={{
-                        iconPosition: 'icon-right',
+                        iconPosition: 'right',
                         iconClass: 'fa-solid fa-info-circle',
                     }}
                     placeholder="Large"
@@ -1503,3 +1505,7 @@ export function Content() {
         </div>
     );
 }
+
+// Exports:
+export default Content;
+export { ContentSection };

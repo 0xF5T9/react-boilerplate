@@ -6,10 +6,6 @@
 @import url(./normalize.css);
 @import url(./root.css);
 @import url(./common.css);
-@import url(./checkbox.css);
-@import url(./radio.css);
-@import url(./input.css);
-@import url(./button.css);
 @import url(./select.css);
 
 /*******
@@ -132,30 +128,6 @@
                 );
             }
         }
-    }
-
-    /* Buttons */
-    & div.header-button {
-        margin-right: 10px;
-
-        &.fill {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: auto;
-            height: 100%;
-
-            & > button.button {
-                width: 100%;
-                height: 100%;
-                --button-border-radius: 0px;
-            }
-        }
-    }
-
-    /* Inputs */
-    & div.input-wrapper {
-        margin-right: 10px;
     }
 
     /* Brand logo */
@@ -1284,7 +1256,7 @@ section.content-section {
     @media only screen and (max-device-width: 1477px),
         only screen and (max-width: 1477px) {
         #header {
-            & .input-wrapper {
+            & .header-input {
                 display: none !important;
             }
         }
@@ -1304,7 +1276,7 @@ section.content-section {
 @media only screen and (max-device-width: 1024px) and (min-device-width: 741px),
     only screen and (max-width: 1024px) and (min-width: 741px) {
     #header {
-        & .input-wrapper {
+        & .header-input {
             display: none !important;
         }
 
@@ -1331,7 +1303,7 @@ section.content-section {
 @media only screen and (max-device-width: 740px),
     only screen and (max-width: 740px) {
     #header {
-        & .input-wrapper {
+        & .header-input {
             display: none !important;
         }
 

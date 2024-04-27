@@ -1,10 +1,10 @@
 /**
- * @file footer.js
+ * @file index.js
  * @description The footer component.
  */
 
 'use strict';
-import * as commonComponents from './common';
+import * as Common from '../Common';
 
 /***************************
  * FOOTER CHILD COMPONENTS *
@@ -20,44 +20,44 @@ import * as commonComponents from './common';
  * Footer component.
  * @returns Returns the footer component.
  */
-export function Footer() {
+function Footer() {
     return (
         <footer id="footer" className="top-border">
             <div id="social-link-wrapper">
-                <commonComponents.Anchor noDefault>
+                <Common.Anchor noDefault>
                     <i className="fa-brands fa-github"></i>
-                </commonComponents.Anchor>
+                </Common.Anchor>
 
-                <commonComponents.Anchor noDefault>
+                <Common.Anchor noDefault>
                     <i className="fa-brands fa-facebook"></i>
-                </commonComponents.Anchor>
+                </Common.Anchor>
 
-                <commonComponents.Anchor noDefault>
+                <Common.Anchor noDefault>
                     <i className="fa-brands fa-instagram"></i>
-                </commonComponents.Anchor>
+                </Common.Anchor>
 
-                <commonComponents.Anchor noDefault>
+                <Common.Anchor noDefault>
                     <i className="fa-brands fa-snapchat"></i>
-                </commonComponents.Anchor>
+                </Common.Anchor>
 
-                <commonComponents.Anchor noDefault>
+                <Common.Anchor noDefault>
                     <i className="fa-brands fa-pinterest-p"></i>
-                </commonComponents.Anchor>
+                </Common.Anchor>
 
-                <commonComponents.Anchor noDefault>
+                <Common.Anchor noDefault>
                     <i className="fa-brands fa-twitter"></i>
-                </commonComponents.Anchor>
+                </Common.Anchor>
 
-                <commonComponents.Anchor noDefault>
+                <Common.Anchor noDefault>
                     <i className="fa-brands fa-linkedin-in"></i>
-                </commonComponents.Anchor>
+                </Common.Anchor>
             </div>
             <p id="powered-text">
-                Powered by{' '}
-                <commonComponents.Anchor noDefault>
-                    0xF5T9
-                </commonComponents.Anchor>
+                Powered by <Common.Anchor noDefault>0xF5T9</Common.Anchor>
             </p>
         </footer>
     );
 }
+
+// Exports:
+export default Footer;

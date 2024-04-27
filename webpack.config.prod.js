@@ -31,11 +31,23 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                auto: true,
+                                localIdentName: '[hash:base64:5]',
+                            },
+                        },
+                    },
+                ],
             },
         ],
     },
     plugins: [
+        // Enable minify for generated html files.
         new HtmlWebpackPlugin({
             filename: `${path.resolve(__dirname, 'public')}\\index.html`,
             template: './sources/html/index.html',
@@ -65,4 +77,18 @@ module.exports = {
             },
         }),
     ],
+    // Optimizations:
+    performance: {
+        // Increase entry point size.
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000,
+    },
+    optimization: {
+        // Enable chunk spliting.
+
+        splitChunks: {
+            maxSize: 250000,
+            chunks: 'all',
+        },
+    },
 };

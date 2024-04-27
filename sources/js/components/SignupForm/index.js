@@ -1,19 +1,22 @@
 /**
- * @file signup_form.js
+ * @file index.js
  * @description Signup form component.
  */
 
 'use strict';
 
 import { useState } from 'react';
-import * as inputComponents from './input';
-import * as formComponents from './form';
+import Button from '../Button';
+import Input from '../Input';
+import Checkbox from '../Checkbox';
+import Radio from '../Radio';
+import FormGroup from '../FormGroup';
 
 /**
  * Sign up form component.
  * @returns Returns the component.
  */
-export function SignupForm() {
+function SignupForm() {
     const [state, setState] = useState({
         emailGroup: {
             isVisited: false,
@@ -245,7 +248,7 @@ export function SignupForm() {
                 rowGap: '4px',
             }}
         >
-            <formComponents.FormGroup
+            <FormGroup
                 id="signup-form-email-group"
                 formMessage={state.emailGroup.formMessage}
             >
@@ -255,10 +258,10 @@ export function SignupForm() {
                 >
                     Email
                 </label>
-                <inputComponents.Input
+                <Input
                     type="email"
                     icon={{
-                        iconPosition: 'icon-left',
+                        iconPosition: 'left',
                         iconClass: 'fa-solid fa-envelope',
                     }}
                     inputProps={{
@@ -268,8 +271,8 @@ export function SignupForm() {
                         onChange: emailInputValidate,
                     }}
                 />
-            </formComponents.FormGroup>
-            <formComponents.FormGroup
+            </FormGroup>
+            <FormGroup
                 id="signup-form-password-group"
                 formMessage={state.passwordGroup.formMessage}
             >
@@ -279,10 +282,10 @@ export function SignupForm() {
                 >
                     Password
                 </label>
-                <inputComponents.Input
+                <Input
                     type="password"
                     icon={{
-                        iconPosition: 'icon-left',
+                        iconPosition: 'left',
                         iconClass: 'fa-solid fa-lock',
                     }}
                     inputProps={{
@@ -292,8 +295,8 @@ export function SignupForm() {
                         onChange: passwordInputValidate,
                     }}
                 />
-            </formComponents.FormGroup>
-            <formComponents.FormGroup
+            </FormGroup>
+            <FormGroup
                 id="signup-form-password-confirm-group"
                 formMessage={state.passwordConfirmGroup.formMessage}
             >
@@ -303,10 +306,10 @@ export function SignupForm() {
                 >
                     Confirm Password
                 </label>
-                <inputComponents.Input
+                <Input
                     type="password"
                     icon={{
-                        iconPosition: 'icon-left',
+                        iconPosition: 'left',
                         iconClass: 'fa-solid fa-lock',
                     }}
                     inputProps={{
@@ -316,8 +319,8 @@ export function SignupForm() {
                         onChange: passwordConfirmInputValidate,
                     }}
                 />
-            </formComponents.FormGroup>
-            <formComponents.FormGroup
+            </FormGroup>
+            <FormGroup
                 id="signup-form-region-group"
                 formMessage={state.regionGroup.formMessage}
             >
@@ -338,8 +341,8 @@ export function SignupForm() {
                     <option value="sea">South East Asia</option>
                     <option value="na">North America</option>
                 </select>
-            </formComponents.FormGroup>
-            <formComponents.FormGroup
+            </FormGroup>
+            <FormGroup
                 id="signup-form-gender-group"
                 formMessage={state.genderGroup.formMessage}
             >
@@ -356,7 +359,7 @@ export function SignupForm() {
                         marginTop: '4px',
                     }}
                 >
-                    <inputComponents.Radio
+                    <Radio
                         labelText="Male"
                         id="gender-male"
                         name="gender-radio-group"
@@ -364,7 +367,7 @@ export function SignupForm() {
                         altStyle="alt-1"
                         radioProps={{ onClick: genderInputValidate }}
                     />
-                    <inputComponents.Radio
+                    <Radio
                         labelText="Female"
                         id="gender-female"
                         name="gender-radio-group"
@@ -373,8 +376,8 @@ export function SignupForm() {
                         radioProps={{ onClick: genderInputValidate }}
                     />
                 </div>
-            </formComponents.FormGroup>
-            <formComponents.FormGroup
+            </FormGroup>
+            <FormGroup
                 id="signup-form-agreement-group"
                 formMessage={state.agreementGroup.formMessage}
             >
@@ -392,12 +395,12 @@ export function SignupForm() {
                         marginTop: '4px',
                     }}
                 >
-                    <inputComponents.Checkbox
+                    <Checkbox
                         labelText="Subscribe to our newsletters."
                         id="newsletters-checkbox"
                         altStyle="alt-1"
                     />
-                    <inputComponents.Checkbox
+                    <Checkbox
                         labelText="Agree to the Term of Services."
                         id="tos-checkbox"
                         altStyle="alt-1"
@@ -407,68 +410,77 @@ export function SignupForm() {
                         }}
                     />
                 </div>
-            </formComponents.FormGroup>
+            </FormGroup>
 
-            <button
-                className="button"
-                onClick={(event) => {
-                    event.preventDefault();
-                    const form = event.currentTarget.closest('form');
+            <Button
+                buttonProps={{
+                    onClick: (event) => {
+                        event.preventDefault();
+                        const form = event.currentTarget.closest('form');
 
-                    const email_value = emailInputValidate({
-                            type: 'blur',
-                            currentTarget: form.querySelector('#email-input'),
-                        }),
-                        password_value = passwordInputValidate({
-                            type: 'change',
-                            currentTarget:
-                                form.querySelector('#password-input'),
-                        }),
-                        password_confirm_value = passwordConfirmInputValidate({
-                            type: 'change',
-                            currentTarget: form.querySelector(
-                                '#password-confirm-input'
-                            ),
-                        }),
-                        region_value = regionInputValidate({
-                            type: 'change',
-                            currentTarget: form.querySelector('#region-input'),
-                        }),
-                        gender_value = genderInputValidate({
-                            type: 'click',
-                            currentTarget: form.querySelector('#gender-male'),
-                        }),
-                        agreement_value = agreementInputValidate({
-                            type: 'click',
-                            currentTarget: form.querySelector('#tos-checkbox'),
-                        }),
-                        is_success =
-                            email_value &&
-                            password_value &&
-                            password_confirm_value &&
-                            region_value &&
-                            gender_value &&
-                            agreement_value;
+                        const email_value = emailInputValidate({
+                                type: 'blur',
+                                currentTarget:
+                                    form.querySelector('#email-input'),
+                            }),
+                            password_value = passwordInputValidate({
+                                type: 'change',
+                                currentTarget:
+                                    form.querySelector('#password-input'),
+                            }),
+                            password_confirm_value =
+                                passwordConfirmInputValidate({
+                                    type: 'change',
+                                    currentTarget: form.querySelector(
+                                        '#password-confirm-input'
+                                    ),
+                                }),
+                            region_value = regionInputValidate({
+                                type: 'change',
+                                currentTarget:
+                                    form.querySelector('#region-input'),
+                            }),
+                            gender_value = genderInputValidate({
+                                type: 'click',
+                                currentTarget:
+                                    form.querySelector('#gender-male'),
+                            }),
+                            agreement_value = agreementInputValidate({
+                                type: 'click',
+                                currentTarget:
+                                    form.querySelector('#tos-checkbox'),
+                            }),
+                            is_success =
+                                email_value &&
+                                password_value &&
+                                password_confirm_value &&
+                                region_value &&
+                                gender_value &&
+                                agreement_value;
 
-                    console.log(
-                        is_success
-                            ? {
-                                  email: email_value,
-                                  password: password_value,
-                                  region: region_value,
-                                  gender: gender_value,
-                                  subscribeNews: agreement_value.find(
-                                      (element) =>
-                                          element.id == 'newsletters-checkbox'
-                                  ).value,
-                              }
-                            : 'Validation failed.'
-                    );
+                        console.log(
+                            is_success
+                                ? {
+                                      email: email_value,
+                                      password: password_value,
+                                      region: region_value,
+                                      gender: gender_value,
+                                      subscribeNews: agreement_value.find(
+                                          (element) =>
+                                              element.id ==
+                                              'newsletters-checkbox'
+                                      ).value,
+                                  }
+                                : 'Validation failed.'
+                        );
+                    },
+                    style: { marginTop: '4px' },
                 }}
-                style={{ marginTop: '4px' }}
             >
                 Sign Up
-            </button>
+            </Button>
         </form>
     );
 }
+
+export default SignupForm;

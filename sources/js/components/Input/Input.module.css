@@ -1,8 +1,3 @@
-/**
- * @file input.css
- * @description Input styles.
- */
-
 div.input-wrapper {
     --input-text-color-default: var(--color-white);
     --input-text-color-hover: var(--input-text-color-default);

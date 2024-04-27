@@ -11,11 +11,12 @@ import * as functions from './function';
 import * as helper from './helper';
 import { createRoot } from 'react-dom/client';
 import { useEffect } from 'react';
-import { GlobalContextProvider } from './components/context/global_context';
-import { Header } from './components/header';
-import { Content } from './components/content';
-import { Footer } from './components/footer';
-import { SignupForm } from './components/signup_form';
+import { GlobalContextProvider } from './components/Context/Global';
+import Header from './components/Header';
+import Content from './components/Content';
+import Footer from './components/Footer';
+import SignupForm from './components/SignupForm';
+import EnableTest, { TestContent } from './test'; // TODO:To be removed.
 window.React = React;
 window.ReactDOM = ReactDOM;
 window.helper = helper;
@@ -32,7 +33,8 @@ const $ = document.querySelector.bind(document);
             <GlobalContextProvider>
                 <div id="app">
                     <Header />
-                    <Content />
+                    {/*TODO: To be removed.*/}
+                    {EnableTest ? <TestContent /> : <Content />}
                     <Footer />
                     <style>
                         {`  #custom-modal-window-1,

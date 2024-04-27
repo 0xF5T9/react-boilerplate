@@ -1,6 +1,6 @@
 /**
- * @file form.js
- * @description Form components.
+ * @file index.js
+ * @description Form group components.
  */
 
 'use strict';
@@ -13,7 +13,7 @@
  * @param {String} props.formMessage The form group message (optional)
  * @returns Returns the component.
  */
-export function FormGroup({ id, children, formMessage }) {
+function FormGroup({ id, children, formMessage }) {
     return (
         <div
             id={id}
@@ -34,3 +34,5 @@ export function FormGroup({ id, children, formMessage }) {
         </div>
     );
 }
+
+export default FormGroup;

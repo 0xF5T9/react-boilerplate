@@ -1,12 +1,12 @@
 /**
- * @file header.js
+ * @file index.js
  * @description The header component.
  */
 
 'use strict';
-import * as commonComponents from './common';
-import * as buttonComponents from './button';
-import * as inputComponents from './input';
+import * as Common from '../Common';
+import Button from '../Button';
+import Input from '../Input';
 const $ = document.querySelector.bind(document);
 
 /************************
@@ -203,16 +203,14 @@ function HeaderNavbar() {
         <nav id="navbar">
             <ul>
                 <li id="navbar-item-1">
-                    <commonComponents.Anchor href="/">
-                        Home
-                    </commonComponents.Anchor>
+                    <Common.Anchor href="/">Home</Common.Anchor>
                 </li>
 
                 <li id="navbar-item-2">
-                    <commonComponents.Anchor href="#" noDefault>
+                    <Common.Anchor href="#" noDefault>
                         <i className="fas fa-caret-down"></i>
                         Samples
-                    </commonComponents.Anchor>
+                    </Common.Anchor>
                     <ul>
                         <li>
                             <a
@@ -254,89 +252,83 @@ function HeaderNavbar() {
                 </li>
 
                 <li id="navbar-item-3">
-                    <commonComponents.Anchor href="#" noDefault>
+                    <Common.Anchor href="#" noDefault>
                         <i className="fas fa-caret-down"></i>
                         Downloads
-                    </commonComponents.Anchor>
+                    </Common.Anchor>
                     <ul>
                         <li>
-                            <commonComponents.Anchor href="#" noDefault>
+                            <Common.Anchor href="#" noDefault>
                                 Shutdown Timer
-                            </commonComponents.Anchor>
+                            </Common.Anchor>
                         </li>
                         <li>
-                            <commonComponents.Anchor href="#" noDefault>
+                            <Common.Anchor href="#" noDefault>
                                 ASC File Cryptor
-                            </commonComponents.Anchor>
+                            </Common.Anchor>
                         </li>
                     </ul>
                 </li>
 
                 <li id="navbar-item-4">
-                    <commonComponents.Anchor href="#" noDefault>
+                    <Common.Anchor href="#" noDefault>
                         <i className="fas fa-caret-down"></i>
                         Profiles
-                    </commonComponents.Anchor>
+                    </Common.Anchor>
                     <ul>
                         <li>
-                            <commonComponents.Anchor href="#" noDefault>
+                            <Common.Anchor href="#" noDefault>
                                 Subitem 1
-                            </commonComponents.Anchor>
+                            </Common.Anchor>
                         </li>
                         <li>
-                            <commonComponents.Anchor href="#" noDefault>
+                            <Common.Anchor href="#" noDefault>
                                 Subitem 2
-                            </commonComponents.Anchor>
+                            </Common.Anchor>
                             <ul>
                                 <li>
-                                    <commonComponents.Anchor href="#" noDefault>
+                                    <Common.Anchor href="#" noDefault>
                                         Subitem 1
-                                    </commonComponents.Anchor>
+                                    </Common.Anchor>
                                 </li>
                                 <li>
-                                    <commonComponents.Anchor href="#" noDefault>
+                                    <Common.Anchor href="#" noDefault>
                                         Subitem 2
-                                    </commonComponents.Anchor>
+                                    </Common.Anchor>
                                     <ul>
                                         <li>
-                                            <commonComponents.Anchor
-                                                href="#"
-                                                noDefault
-                                            >
+                                            <Common.Anchor href="#" noDefault>
                                                 Subitem 1
-                                            </commonComponents.Anchor>
+                                            </Common.Anchor>
                                         </li>
                                         <li>
-                                            <commonComponents.Anchor
-                                                href="#"
-                                                noDefault
-                                            >
+                                            <Common.Anchor href="#" noDefault>
                                                 Subitem 2
-                                            </commonComponents.Anchor>
+                                            </Common.Anchor>
                                             <ul>
                                                 <li>
-                                                    <commonComponents.Anchor
+                                                    <Common.Anchor
                                                         href="#"
                                                         noDefault
                                                     >
                                                         Subitem 1
-                                                    </commonComponents.Anchor>
+                                                    </Common.Anchor>
                                                 </li>
                                                 <li>
-                                                    <commonComponents.Anchor
+                                                    <Common.Anchor
                                                         href="#"
                                                         noDefault
                                                     >
                                                         Subitem 2
-                                                    </commonComponents.Anchor>
+                                                    </Common.Anchor>
                                                 </li>
                                                 <li>
-                                                    <commonComponents.Anchor
+                                                    <Common.Anchor
                                                         href="#"
                                                         noDefault
                                                     >
                                                         Subitem 3
-                                                    </commonComponents.Anchor>
+                                                    </Common.Anchor>
                                                 </li>
                                             </ul>
                                         </li>
@@ -345,14 +337,14 @@ function HeaderNavbar() {
                             </ul>
                         </li>
                         <li>
-                            <commonComponents.Anchor href="#" noDefault>
+                            <Common.Anchor href="#" noDefault>
                                 Subitem 3
-                            </commonComponents.Anchor>
+                            </Common.Anchor>
                         </li>
                         <li>
-                            <commonComponents.Anchor href="#" noDefault>
+                            <Common.Anchor href="#" noDefault>
                                 Subitem 4
-                            </commonComponents.Anchor>
+                            </Common.Anchor>
                         </li>
                     </ul>
                 </li>
@@ -369,7 +361,7 @@ function HeaderNavbar() {
  * Header component.
  * @returns Returns the header component.
  */
-export function Header() {
+function Header() {
     return (
         <header id="header">
             {/* Left content box */}
@@ -399,77 +391,75 @@ export function Header() {
             {/* Right content box */}
             <div id="header-right-content-box">
                 {/* Search input */}
-                <inputComponents.Input
-                    type="text"
-                    placeholder="Search"
-                    transparent
-                    icon={{
-                        iconPosition: 'icon-right',
-                        iconClass: 'fa-solid fa-search',
-                    }}
-                    inputProps={{ style: { width: '200px' } }}
-                />
-
+                <div className="header-input" style={{ marginRight: '10px' }}>
+                    <Input
+                        type="text"
+                        placeholder="Search"
+                        transparent
+                        icon={{
+                            iconPosition: 'right',
+                            iconClass: 'fa-solid fa-search',
+                        }}
+                        inputProps={{ style: { width: '200px' } }}
+                    />
+                </div>
                 {/* Buttons */}
-                <div className="header-button">
-                    <buttonComponents.Button outline whiteOnly>
+                <div className="header-button" style={{ marginRight: '10px' }}>
+                    <Button outline whiteOnly>
                         Button 1
-                    </buttonComponents.Button>
+                    </Button>
                 </div>
-                <div className="header-button">
-                    <buttonComponents.Button outline whiteOnly>
+                <div className="header-button" style={{ marginRight: '10px' }}>
+                    <Button outline whiteOnly>
                         Button 2
-                    </buttonComponents.Button>
+                    </Button>
                 </div>
-                <div className="header-button">
-                    <buttonComponents.Button outline whiteOnly>
+                <div className="header-button" style={{ marginRight: '10px' }}>
+                    <Button outline whiteOnly>
                         Button 3
-                    </buttonComponents.Button>
+                    </Button>
                 </div>
-
                 {/* Mobile menu button */}
                 <div id="mobile-menu-icon" className="header-icon-button">
-                    <commonComponents.Anchor
+                    <Common.Anchor
                         className="header-icon-button-icon"
                         href="#"
                         noDefault
                         onClick={handleMobileMenuIconClick}
                     >
                         <i className="fas fa-bars"></i>
-                    </commonComponents.Anchor>
+                    </Common.Anchor>
 
                     <div id="mobile-menu-dropdown" className="dropdown-window">
                         <ul id="mobile-menu-dropdown-list">
                             <MobileMenuListItem
                                 listItemProps={{ style: { display: 'none' } }}
                             >
-                                <commonComponents.Anchor href="#" noDefault>
+                                <Common.Anchor href="#" noDefault>
                                     <i className="fas fa-user-circle"></i> User
                                     Center
-                                </commonComponents.Anchor>
+                                </Common.Anchor>
                             </MobileMenuListItem>
 
                             <MobileMenuListItem
                                 listItemProps={{ style: { display: 'none' } }}
                             >
-                                <commonComponents.Anchor href="#" noDefault>
+                                <Common.Anchor href="#" noDefault>
                                     <i className="fas fa-bell"></i> Alerts
-                                </commonComponents.Anchor>
+                                </Common.Anchor>
                             </MobileMenuListItem>
 
                             <hr style={{ display: 'none' }} />
 
                             <MobileMenuListItem>
-                                <commonComponents.Anchor href="/">
-                                    Home
-                                </commonComponents.Anchor>
+                                <Common.Anchor href="/">Home</Common.Anchor>
                             </MobileMenuListItem>
 
                             <MobileMenuListItem>
-                                <commonComponents.Anchor href="#" noDefault>
+                                <Common.Anchor href="#" noDefault>
                                     <i className="fas fa-caret-right"></i>
                                     Samples
-                                </commonComponents.Anchor>
+                                </Common.Anchor>
                                 <MobileMenuList>
                                     <MobileMenuListItem>
                                         <a
@@ -511,110 +501,98 @@ export function Header() {
                             </MobileMenuListItem>
 
                             <MobileMenuListItem>
-                                <commonComponents.Anchor href="#" noDefault>
+                                <Common.Anchor href="#" noDefault>
                                     <i className="fas fa-caret-right"></i>
                                     Downloads
-                                </commonComponents.Anchor>
+                                </Common.Anchor>
                                 <MobileMenuList>
                                     <MobileMenuListItem>
-                                        <commonComponents.Anchor
-                                            href="#"
-                                            noDefault
-                                        >
+                                        <Common.Anchor href="#" noDefault>
                                             Shutdown Timer
-                                        </commonComponents.Anchor>
+                                        </Common.Anchor>
                                     </MobileMenuListItem>
                                     <MobileMenuListItem>
-                                        <commonComponents.Anchor
-                                            href="#"
-                                            noDefault
-                                        >
+                                        <Common.Anchor href="#" noDefault>
                                             ASC File Cryptor
-                                        </commonComponents.Anchor>
+                                        </Common.Anchor>
                                     </MobileMenuListItem>
                                 </MobileMenuList>
                             </MobileMenuListItem>
 
                             <MobileMenuListItem>
-                                <commonComponents.Anchor href="#" noDefault>
+                                <Common.Anchor href="#" noDefault>
                                     <i className="fas fa-caret-right"></i>
                                     Profiles
-                                </commonComponents.Anchor>
+                                </Common.Anchor>
                                 <MobileMenuList>
                                     <MobileMenuListItem>
-                                        <commonComponents.Anchor
-                                            href="#"
-                                            noDefault
-                                        >
+                                        <Common.Anchor href="#" noDefault>
                                             Subitem 1
-                                        </commonComponents.Anchor>
+                                        </Common.Anchor>
                                     </MobileMenuListItem>
                                     <MobileMenuListItem>
-                                        <commonComponents.Anchor
-                                            href="#"
-                                            noDefault
-                                        >
+                                        <Common.Anchor href="#" noDefault>
                                             <i className="fas fa-caret-right"></i>
                                             Subitem 2
-                                        </commonComponents.Anchor>
+                                        </Common.Anchor>
                                         <MobileMenuList>
                                             <MobileMenuListItem>
-                                                <commonComponents.Anchor
+                                                <Common.Anchor
                                                     href="#"
                                                     noDefault
                                                 >
                                                     Subitem 1
-                                                </commonComponents.Anchor>
+                                                </Common.Anchor>
                                             </MobileMenuListItem>
                                             <MobileMenuListItem>
-                                                <commonComponents.Anchor
+                                                <Common.Anchor
                                                     href="#"
                                                     noDefault
                                                 >
                                                     <i className="fas fa-caret-right"></i>
                                                     Subitem 2
-                                                </commonComponents.Anchor>
+                                                </Common.Anchor>
                                                 <MobileMenuList>
                                                     <MobileMenuListItem>
-                                                        <commonComponents.Anchor
+                                                        <Common.Anchor
                                                             href="#"
                                                             noDefault
                                                         >
                                                             Subitem 1
-                                                        </commonComponents.Anchor>
+                                                        </Common.Anchor>
                                                     </MobileMenuListItem>
                                                     <MobileMenuListItem>
-                                                        <commonComponents.Anchor
+                                                        <Common.Anchor
                                                             href="#"
                                                             noDefault
                                                         >
                                                             <i className="fas fa-caret-right"></i>
                                                             Subitem 2
-                                                        </commonComponents.Anchor>
+                                                        </Common.Anchor>
                                                         <MobileMenuList>
                                                             <MobileMenuListItem>
-                                                                <commonComponents.Anchor
+                                                                <Common.Anchor
                                                                     href="#"
                                                                     noDefault
                                                                 >
                                                                     Subitem 1
-                                                                </commonComponents.Anchor>
+                                                                </Common.Anchor>
                                                             </MobileMenuListItem>
                                                             <MobileMenuListItem>
-                                                                <commonComponents.Anchor
+                                                                <Common.Anchor
                                                                     href="#"
                                                                     noDefault
                                                                 >
                                                                     Subitem 2
-                                                                </commonComponents.Anchor>
+                                                                </Common.Anchor>
                                                             </MobileMenuListItem>
                                                             <MobileMenuListItem>
-                                                                <commonComponents.Anchor
+                                                                <Common.Anchor
                                                                     href="#"
                                                                     noDefault
                                                                 >
                                                                     Subitem 3
-                                                                </commonComponents.Anchor>
+                                                                </Common.Anchor>
                                                             </MobileMenuListItem>
                                                         </MobileMenuList>
                                                     </MobileMenuListItem>
@@ -624,27 +602,20 @@ export function Header() {
                                     </MobileMenuListItem>
 
                                     <MobileMenuListItem>
-                                        <commonComponents.Anchor
-                                            href="#"
-                                            noDefault
-                                        >
+                                        <Common.Anchor href="#" noDefault>
                                             Subitem 3
-                                        </commonComponents.Anchor>
+                                        </Common.Anchor>
                                     </MobileMenuListItem>
                                     <MobileMenuListItem>
-                                        <commonComponents.Anchor
-                                            href="#"
-                                            noDefault
-                                        >
+                                        <Common.Anchor href="#" noDefault>
                                             Subitem 4
-                                        </commonComponents.Anchor>
+                                        </Common.Anchor>
                                     </MobileMenuListItem>
                                 </MobileMenuList>
                             </MobileMenuListItem>
                         </ul>
                     </div>
                 </div>
-
                 {/* Alert button */}
                 <div id="alert-icon" className="header-icon-button">
                     <a
@@ -710,13 +681,12 @@ export function Header() {
                             </section>
                         </div>
                         <div className="alert-footer">
-                            <commonComponents.Anchor href="#" noDefault>
+                            <Common.Anchor href="#" noDefault>
                                 View all alerts
-                            </commonComponents.Anchor>
+                            </Common.Anchor>
                         </div>
                     </div>
                 </div>
-
                 {/* User button */}
                 <div id="user-icon" className="header-icon-button">
                     <a
@@ -736,3 +706,6 @@ export function Header() {
         </header>
     );
 }
+
+// Exports:
+export default Header;

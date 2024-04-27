@@ -1,8 +1,3 @@
-/**
- * @file button.css
- * @description Button styles.
- */
-
 .button {
     --button-text-color-default: var(--color-white);
     --button-text-color-hover: var(--color-white);

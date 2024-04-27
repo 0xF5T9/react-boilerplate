@@ -1,5 +1,5 @@
 /**
- * @file common.js
+ * @file index.js
  * @description Common components.
  */
 

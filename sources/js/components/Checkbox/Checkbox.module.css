@@ -1,8 +1,3 @@
-/**
- * @file checkbox.css
- * @description Checkbox styles.
- */
-
 div.checkbox-wrapper {
     --checkbox-symbol-color-default: transparent;
     --checkbox-symbol-color-hover: var(--checkbox-symbol-color-default);
@@ -120,6 +115,7 @@ div.checkbox-wrapper {
             --checkbox-background-color-checked: transparent !important;
             --checkbox-border-color-default: var(--color-white) !important;
             --checkbox-border-color-hover: var(--color-white) !important;
+
             --checkbox-border-color-active: var(--color-white) !important;
             --checkbox-border-color-checked: var(--color-white) !important;
             --checkbox-focus-border-color: var(--color-primary) !important;

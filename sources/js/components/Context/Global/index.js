@@ -1,5 +1,5 @@
 /**
- * @file global_context.js
+ * @file index.js
  * @description Global context for all react components.
  */
 
