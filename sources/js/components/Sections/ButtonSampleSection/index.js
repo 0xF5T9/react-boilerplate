@@ -1,0 +1,299 @@
+/**
+ * @file index.js
+ * @description Button sample section.
+ */
+
+'use strict';
+
+import { useContext } from 'react';
+
+import { openModalWindow } from '../../ModalOverlay';
+import { GlobalContext } from '../../Context/Global';
+import ContentSection from '../../Content/ContentSection';
+import Button from '../../Button';
+import { showToast } from '../../ToastOverlay';
+
+/**
+ * The button sample section.
+ */
+function ButtonSampleSection() {
+    const {
+        isHeaderVisible,
+        setHeaderVisibility,
+        isFooterVisible,
+        setFooterVisibility,
+    } = useContext(GlobalContext);
+
+    function handleToggleHeader() {
+        if (isHeaderVisible) {
+            setHeaderVisibility(false);
+            showToast('Info', 'The header has been hidden.', 'info', 1000);
+        } else {
+            setHeaderVisibility(true);
+            showToast('Info', 'The header has been shown.', 'info', 1000);
+        }
+    }
+
+    function handleToggleFooter() {
+        if (isFooterVisible) {
+            setFooterVisibility(false);
+            showToast('Info', 'The footer has been hidden.', 'info', 1000);
+        } else {
+            setFooterVisibility(true);
+            showToast('Info', 'The footer has been shown.', 'info', 1000);
+        }
+    }
+
+    function handlePlayClickSound() {
+        const audio = new Audio('/assets/static/sound/ClickSoundEffect.wav');
+        audio.play();
+    }
+
+    return (
+        <ContentSection id="button-sample-section" flexCenter textCenter>
+            <h1>Default Buttons</h1>
+            <Button>Primary</Button> <Button color="red">Red</Button>{' '}
+            <Button color="orange">Orange</Button>{' '}
+            <Button color="yellow">Yellow</Button>{' '}
+            <Button color="green">Green</Button>{' '}
+            <Button color="blue">Blue</Button>{' '}
+            <Button color="purple">Purple</Button>
+            <h1 style={{ marginTop: '26px' }}>Default White Buttons</h1>
+            <Button white>Primary</Button>{' '}
+            <Button color="red" white>
+                Red
+            </Button>{' '}
+            <Button color="orange" white>
+                Orange
+            </Button>{' '}
+            <Button color="yellow" white>
+                Yellow
+            </Button>{' '}
+            <Button color="green" white>
+                Green
+            </Button>{' '}
+            <Button color="blue" white>
+                Blue
+            </Button>{' '}
+            <Button color="purple" white>
+                Purple
+            </Button>
+            <h1 style={{ marginTop: '26px' }}>Outline Buttons</h1>
+            <Button outline>Primary</Button>{' '}
+            <Button color="red" outline>
+                Red
+            </Button>{' '}
+            <Button color="orange" outline>
+                Orange
+            </Button>{' '}
+            <Button color="yellow" outline>
+                Yellow
+            </Button>{' '}
+            <Button color="green" outline>
+                Green
+            </Button>{' '}
+            <Button color="blue" outline>
+                Blue
+            </Button>{' '}
+            <Button color="purple" outline>
+                Purple
+            </Button>
+            <h1 style={{ marginTop: '26px' }}>Outline White Buttons</h1>
+            <Button outline white>
+                Primary
+            </Button>{' '}
+            <Button color="red" outline white>
+                Red
+            </Button>{' '}
+            <Button color="orange" outline white>
+                Orange
+            </Button>{' '}
+            <Button color="yellow" outline white>
+                Yellow
+            </Button>{' '}
+            <Button color="green" outline white>
+                Green
+            </Button>{' '}
+            <Button color="blue" outline white>
+                Blue
+            </Button>{' '}
+            <Button color="purple" outline white>
+                Purple
+            </Button>
+            <h1 style={{ marginTop: '26px' }}>White-Only Buttons</h1>
+            <Button whiteOnly>Default</Button>{' '}
+            <Button outline whiteOnly>
+                Outline
+            </Button>
+            <h1 style={{ marginTop: '26px' }}>Disabled Buttons</h1>
+            <Button disabled>Primary</Button>{' '}
+            <Button disabled color="red">
+                Red
+            </Button>{' '}
+            <Button disabled color="orange">
+                Orange
+            </Button>{' '}
+            <Button disabled color="yellow">
+                Yellow
+            </Button>{' '}
+            <Button disabled color="green">
+                Green
+            </Button>{' '}
+            <Button disabled color="blue">
+                Blue
+            </Button>{' '}
+            <Button disabled color="purple">
+                Purple
+            </Button>
+            <br />
+            <Button disabled white>
+                Primary
+            </Button>{' '}
+            <Button disabled color="red" white>
+                Red
+            </Button>{' '}
+            <Button disabled color="orange" white>
+                Orange
+            </Button>{' '}
+            <Button disabled color="yellow" white>
+                Yellow
+            </Button>{' '}
+            <Button disabled color="green" white>
+                Green
+            </Button>{' '}
+            <Button disabled color="blue" white>
+                Blue
+            </Button>{' '}
+            <Button disabled color="purple" white>
+                Purple
+            </Button>
+            <br />
+            <Button disabled outline>
+                Primary
+            </Button>{' '}
+            <Button disabled color="red" outline>
+                Red
+            </Button>{' '}
+            <Button disabled color="orange" outline>
+                Orange
+            </Button>{' '}
+            <Button disabled color="yellow" outline>
+                Yellow
+            </Button>{' '}
+            <Button disabled color="green" outline>
+                Green
+            </Button>{' '}
+            <Button disabled color="blue" outline>
+                Blue
+            </Button>{' '}
+            <Button disabled color="purple" outline>
+                Purple
+            </Button>
+            <br />
+            <Button disabled outline white>
+                Primary
+            </Button>{' '}
+            <Button disabled color="red" outline white>
+                Red
+            </Button>{' '}
+            <Button disabled color="orange" outline white>
+                Orange
+            </Button>{' '}
+            <Button disabled color="yellow" outline white>
+                Yellow
+            </Button>{' '}
+            <Button disabled color="green" outline white>
+                Green
+            </Button>{' '}
+            <Button disabled color="blue" outline white>
+                Blue
+            </Button>{' '}
+            <Button disabled color="purple" outline white>
+                Purple
+            </Button>
+            <br />
+            <Button disabled whiteOnly>
+                Default
+            </Button>{' '}
+            <Button disabled outline whiteOnly>
+                Outline
+            </Button>
+            <h1 style={{ marginTop: '26px' }}>Icon Buttons</h1>
+            <Button>
+                <i className="fa-solid fa-magnifying-glass"></i> Search
+            </Button>{' '}
+            <Button white>
+                <i className="fa-solid fa-folder-open"></i> Open Folder
+            </Button>{' '}
+            <Button outline>
+                <i className="fa-solid fa-gear"></i> Settings
+            </Button>{' '}
+            <Button outline white>
+                <i className="fa-solid fa-right-to-bracket"></i> Sign Up
+            </Button>{' '}
+            <Button whiteOnly>
+                <i className="fa-solid fa-play"></i> Play
+            </Button>{' '}
+            <Button outline whiteOnly>
+                <i className="fa-solid fa-pause"></i> Pause
+            </Button>{' '}
+            <h1 style={{ marginTop: '26px' }}>Sized Buttons</h1>
+            <Button size="small" outline whiteOnly>
+                Small
+            </Button>{' '}
+            <Button outline whiteOnly>
+                Default
+            </Button>{' '}
+            <Button size="large" outline whiteOnly>
+                Large
+            </Button>
+            <h1 style={{ marginTop: '26px' }}>Functional Buttons</h1>
+            <Button
+                id="modal-window-sample-button-1"
+                buttonProps={{
+                    onClick: () => openModalWindow('custom-modal-window-1'),
+                }}
+                outline
+                whiteOnly
+            >
+                Modal Window 1
+            </Button>{' '}
+            <Button
+                id="modal-window-sample-button-2"
+                buttonProps={{
+                    onClick: () => openModalWindow('custom-modal-window-2'),
+                }}
+                outline
+                whiteOnly
+            >
+                Modal Window 2
+            </Button>{' '}
+            <Button
+                id="toggle-header-button"
+                buttonProps={{ onClick: handleToggleHeader }}
+                outline
+                whiteOnly
+            >
+                Toggle Header
+            </Button>{' '}
+            <Button
+                id="toggle-footer-button"
+                buttonProps={{ onClick: handleToggleFooter }}
+                outline
+                whiteOnly
+            >
+                Toggle Footer
+            </Button>{' '}
+            <Button
+                id="click-sound-button"
+                buttonProps={{ onClick: handlePlayClickSound }}
+                outline
+                whiteOnly
+            >
+                Click Sound
+            </Button>
+        </ContentSection>
+    );
+}
+
+export default ButtonSampleSection;

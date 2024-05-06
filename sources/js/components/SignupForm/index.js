@@ -1,6 +1,7 @@
 /**
  * @file index.js
  * @description Signup form component.
+ * @todo TODO: To be removed.
  */
 
 'use strict';
@@ -10,7 +11,37 @@ import Button from '../Button';
 import Input from '../Input';
 import Checkbox from '../Checkbox';
 import Radio from '../Radio';
-import FormGroup from '../FormGroup';
+import Select from '../Select';
+
+/**
+ * The form group component.
+ * @param {Object} props Component properties.
+ * @param {String} props.id The form group id (optional)
+ * @param {*} props.children The form child components (optional)
+ * @param {String} props.formMessage The form group message (optional)
+ * @returns Returns the component.
+ */
+function FormGroup({ id, children, formMessage }) {
+    return (
+        <div
+            id={id}
+            className="form-group"
+            style={{
+                display: 'flex',
+                flexFlow: 'column nowrap',
+                rowGap: '4px',
+            }}
+        >
+            {children}
+            <span
+                className="form-message"
+                style={{ color: 'var(--color-red)', textAlign: 'left' }}
+            >
+                {formMessage}
+            </span>
+        </div>
+    );
+}
 
 /**
  * Sign up form component.
@@ -330,17 +361,18 @@ function SignupForm() {
                 >
                     Select Region
                 </label>
-                <select
+                <Select
                     id="region-input"
                     name="select-region"
-                    className="select"
-                    onBlur={regionInputValidate}
-                    onChange={regionInputValidate}
+                    selectProps={{
+                        onBlur: regionInputValidate,
+                        onChange: regionInputValidate,
+                    }}
                 >
                     <option value="none">-- Select --</option>
                     <option value="sea">South East Asia</option>
                     <option value="na">North America</option>
-                </select>
+                </Select>
             </FormGroup>
             <FormGroup
                 id="signup-form-gender-group"

@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description Button components.
+ * @description Button component.
  */
 
 'use strict';

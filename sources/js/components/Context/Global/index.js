@@ -1,9 +1,9 @@
 /**
  * @file index.js
- * @description Global context for all react components.
+ * @description Global context for the application.
  */
 
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState } from 'react';
 
 // The global context.
 const GlobalContext = createContext();
@@ -14,12 +14,20 @@ const GlobalContext = createContext();
  * @param {*} props.children Context children.
  */
 function GlobalContextProvider({ children }) {
-    const [theme, setTheme] = useState('dark'),
-        global = { theme, setTheme };
-
-    useEffect(() => {
-        // console.log(`Theme context updated. (${theme})`);
-    }, [theme]);
+    const [isHeaderVisible, setHeaderVisibility] = useState(true),
+        [isFooterVisible, setFooterVisibility] = useState(true),
+        [headerHeight, setHeaderHeight] = useState('56.8px'),
+        [footerHeight, setFooterHeight] = useState('140px');
+    global = {
+        isHeaderVisible,
+        setHeaderVisibility,
+        isFooterVisible,
+        setFooterVisibility,
+        headerHeight,
+        setHeaderHeight,
+        footerHeight,
+        setFooterHeight,
+    };
 
     return (
         <GlobalContext.Provider value={global}>

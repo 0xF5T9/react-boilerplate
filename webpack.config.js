@@ -4,7 +4,7 @@
  */
 
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // HtmlWebpackPlugin: Generate HTML files from template files.
 
 console.log('Using Webpack development configuration ...');
 
@@ -12,11 +12,11 @@ module.exports = {
     entry: {
         style: './sources/js/style.js',
         index: './sources/js/entry.js',
-        index404: './sources/js/entry404.js',
     },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'build'),
+        publicPath: '/',
         clean: true,
     },
     mode: 'development',
@@ -50,7 +50,7 @@ module.exports = {
     },
     devServer: {
         static: {
-            directory: path.join(__dirname, 'public'),
+            directory: path.join(__dirname, 'sources/static'),
         },
         port: 8080,
         hot: true,
@@ -58,18 +58,15 @@ module.exports = {
         devMiddleware: {
             writeToDisk: false,
         },
-        watchFiles: ['sources/**/*'],
+        watchFiles: ['sources/**/*'], // Rebuild on source file changes.
+        historyApiFallback: true, // Enable 'historyApiFallback' or react router won't work.
     },
     plugins: [
+        // Generate 'index.html' file.
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './sources/html/index.html',
             chunks: ['index', 'style'],
-        }),
-        new HtmlWebpackPlugin({
-            template: './sources/html/404.html',
-            filename: '404.html',
-            chunks: ['index404', 'style'],
         }),
     ],
 };

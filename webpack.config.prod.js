@@ -4,7 +4,8 @@
  */
 
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin'); // CopyPlugin: Copy files.
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // HtmlWebpackPlugin: Generate HTML files from template files.
 
 console.log('Using Webpack production configuration ...');
 
@@ -12,14 +13,14 @@ module.exports = {
     entry: {
         style: './sources/js/style.js',
         index: './sources/js/entry.js',
-        index404: './sources/js/entry404.js',
     },
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'public/assets/generated'), // *
+        path: path.resolve(__dirname, 'public'), // Build directly to 'public' folder.
+        publicPath: '/',
         clean: true,
     },
-    mode: 'production', // *
+    mode: 'production',
     module: {
         rules: [
             {
@@ -47,7 +48,7 @@ module.exports = {
         ],
     },
     plugins: [
-        // Enable minify for generated html files.
+        // Generate 'index.html' file.
         new HtmlWebpackPlugin({
             filename: `${path.resolve(__dirname, 'public')}\\index.html`,
             template: './sources/html/index.html',
@@ -62,19 +63,9 @@ module.exports = {
                 useShortDoctype: false,
             },
         }),
-        new HtmlWebpackPlugin({
-            filename: `${path.resolve(__dirname, 'public')}\\404.html`,
-            template: './sources/html/404.html',
-            chunks: ['index404', 'style'],
-            minify: {
-                collapseWhitespace: true,
-                keepClosingSlash: false,
-                removeComments: true,
-                removeRedundantAttributes: false,
-                removeScriptTypeAttributes: false,
-                removeStyleLinkTypeAttributes: false,
-                useShortDoctype: false,
-            },
+        // Copy static assets to 'public' folder.
+        new CopyPlugin({
+            patterns: [{ from: 'sources/static' }],
         }),
     ],
     // Optimizations:
@@ -85,7 +76,6 @@ module.exports = {
     },
     optimization: {
         // Enable chunk spliting.
-
         splitChunks: {
             maxSize: 250000,
             chunks: 'all',

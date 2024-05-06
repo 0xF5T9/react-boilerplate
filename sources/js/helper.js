@@ -1,6 +1,7 @@
 /**
  * @file helper.js
  * @description Helper function definitions.
+ * @todo TODO: To be removed.
  */
 
 'use strict';

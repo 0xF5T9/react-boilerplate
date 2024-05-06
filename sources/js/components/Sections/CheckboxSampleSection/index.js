@@ -1,0 +1,417 @@
+/**
+ * @file index.js
+ * @description Checkbox sample section.
+ */
+
+'use strict';
+import ContentSection from '../../Content/ContentSection';
+import Checkbox from '../../Checkbox';
+
+/**
+ * The checkbox sample section.
+ */
+function CheckboxSampleSection() {
+    return (
+        <ContentSection id="checkbox-sample-section" flexCenter textCenter>
+            <h1>Default Checkboxes</h1>
+            <Checkbox
+                labelText="Primary"
+                id="cb-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Red"
+                color="red"
+                id="cb-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Orange"
+                color="orange"
+                id="cb-3"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Yellow"
+                color="yellow"
+                id="cb-4"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Green"
+                color="green"
+                id="cb-5"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Blue"
+                color="blue"
+                id="cb-6"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox labelText="Purple" color="purple" id="cb-7" />
+            <h1 style={{ marginTop: '26px' }}>Alternative Checkboxes 1</h1>
+            <Checkbox
+                labelText="Primary"
+                id="cba-1"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Red"
+                color="red"
+                id="cba-2"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Orange"
+                color="orange"
+                id="cba-3"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Yellow"
+                color="yellow"
+                id="cba-4"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Green"
+                color="green"
+                id="cba-5"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Blue"
+                color="blue"
+                id="cba-6"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Purple"
+                color="purple"
+                id="cba-7"
+                altStyle="alt-1"
+            />
+            <h1 style={{ marginTop: '26px' }}>Alternative Checkboxes 2</h1>
+            <Checkbox
+                labelText="Primary"
+                id="cba2-1"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Red"
+                color="red"
+                id="cba2-2"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Orange"
+                color="orange"
+                id="cba2-3"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Yellow"
+                color="yellow"
+                id="cba2-4"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Green"
+                color="green"
+                id="cba2-5"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Blue"
+                color="blue"
+                id="cba2-6"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />{' '}
+            <Checkbox
+                labelText="Purple"
+                color="purple"
+                id="cba2-7"
+                altStyle="alt-2"
+            />
+            <h1 style={{ marginTop: '26px' }}>White-Only Checkboxes</h1>
+            <Checkbox
+                labelText="Primary"
+                id="wcb-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+            />{' '}
+            <Checkbox
+                labelText="Red"
+                color="red"
+                id="wcb-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+            />{' '}
+            <Checkbox
+                labelText="Orange"
+                color="orange"
+                id="wcb-3"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+            />{' '}
+            <Checkbox
+                labelText="Yellow"
+                color="yellow"
+                id="wcb-4"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+            />{' '}
+            <Checkbox
+                labelText="Green"
+                color="green"
+                id="wcb-5"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+            />{' '}
+            <Checkbox
+                labelText="Blue"
+                color="blue"
+                id="wcb-6"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+            />{' '}
+            <Checkbox labelText="Purple" color="purple" id="wcb-7" whiteOnly />
+            <h1 style={{ marginTop: '26px' }}>Disabled Checkboxes</h1>
+            <Checkbox
+                labelText="Primary"
+                id="dcb-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Red"
+                color="red"
+                id="dcb-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Orange"
+                color="orange"
+                id="dcb-3"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Yellow"
+                color="yellow"
+                id="dcb-4"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Green"
+                color="green"
+                id="dcb-5"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Blue"
+                color="blue"
+                id="dcb-6"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox labelText="Purple" color="purple" id="dcb-7" disabled />
+            <br />
+            <Checkbox
+                labelText="Primary"
+                id="dcba-1"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Red"
+                color="red"
+                id="dcba-2"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Orange"
+                color="orange"
+                id="dcba-3"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Yellow"
+                color="yellow"
+                id="dcba-4"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Green"
+                color="green"
+                id="dcba-5"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Blue"
+                color="blue"
+                id="dcba-6"
+                altStyle="alt-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Purple"
+                color="purple"
+                id="dcba-7"
+                altStyle="alt-1"
+                disabled
+            />
+            <br />
+            <Checkbox
+                labelText="Primary"
+                id="dcba2-1"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Red"
+                color="red"
+                id="dcba2-2"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Orange"
+                color="orange"
+                id="dcba2-3"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Yellow"
+                color="yellow"
+                id="dcba2-4"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Green"
+                color="green"
+                id="dcba2-5"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Blue"
+                color="blue"
+                id="dcba2-6"
+                altStyle="alt-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Purple"
+                color="purple"
+                id="dcba2-7"
+                altStyle="alt-2"
+                disabled
+            />
+            <br />
+            <Checkbox
+                labelText="Primary"
+                id="dwcb-1"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Red"
+                color="red"
+                id="dwcb-2"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Orange"
+                color="orange"
+                id="dwcb-3"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Yellow"
+                color="yellow"
+                id="dwcb-4"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Green"
+                color="green"
+                id="dwcb-5"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Blue"
+                color="blue"
+                id="dwcb-6"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+                whiteOnly
+                disabled
+            />{' '}
+            <Checkbox
+                labelText="Purple"
+                color="purple"
+                id="dwcb-7"
+                whiteOnly
+                disabled
+            />
+            <h1 style={{ marginTop: '26px' }}>Sized Checkboxes</h1>
+            <Checkbox
+                labelText="Small"
+                size="small"
+                id="scb-small"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />
+            <Checkbox
+                labelText="Default"
+                id="scb-default"
+                checkboxWrapperProps={{ style: { marginRight: '10px' } }}
+            />
+            <Checkbox labelText="Large" size="large" id="scb-large" />
+        </ContentSection>
+    );
+}
+
+export default CheckboxSampleSection;

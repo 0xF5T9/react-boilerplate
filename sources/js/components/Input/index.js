@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description Input components.
+ * @description Input component.
  */
 
 'use strict';

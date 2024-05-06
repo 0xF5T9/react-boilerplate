@@ -4,86 +4,32 @@
  */
 
 'use strict';
+import { useContext, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { GlobalContext } from '../Context/Global';
 import * as Common from '../Common';
 import Button from '../Button';
 import Input from '../Input';
+import './Header.css';
 const $ = document.querySelector.bind(document);
 
-/************************
- * CUSTOM EVENT HANDLES *
- ************************/
+/**
+ * Check if the header is visible.
+ * @returns {boolean} Returns true if the header is visible, otherwise returns false.
+ */
+export function isHeaderComponentVisible() {
+    const header = $('#header');
+    if (!header) throw `'#header' element not found.`;
 
-function scrollToButtonSection(event) {
-    const button_section = $('#button-sample-section');
-    if (button_section) {
-        button_section.scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
-    }
+    return getComputedStyle(header).getPropertyValue('display') != 'none'
+        ? true
+        : false;
 }
 
-function scrollToInputSection(event) {
-    event.preventDefault();
-    const input_section = $('#input-sample-section');
-    if (input_section) {
-        $('#input-sample-section').scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
-    }
-}
-
-function scrollToCheckboxSection(event) {
-    event.preventDefault();
-    const checkbox_section = $('#checkbox-sample-section');
-    if (checkbox_section) {
-        checkbox_section.scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
-    }
-}
-
-function scrollToRadioSection(event) {
-    event.preventDefault();
-    const radio_section = $('#radio-sample-section');
-    if (radio_section) {
-        radio_section.scrollIntoView();
-        global.lastHeaderHeightValue = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue('--header-height');
-        let lastHeaderHeightValue = parseInt(global.lastHeaderHeightValue, 10);
-        lastHeaderHeightValue = -lastHeaderHeightValue;
-        window.scrollBy({
-            top: lastHeaderHeightValue,
-            behavior: 'instant',
-        });
-    }
-}
-
-/***************************
- * COMPONENT EVENT HANDLES *
- ***************************/
-
+/**
+ * Mobile menu icon on click handler.
+ * @param {Object} event Event object.
+ */
 function handleMobileMenuIconClick(event) {
     event.preventDefault();
     const icon_button = $('#mobile-menu-icon');
@@ -98,6 +44,10 @@ function handleMobileMenuIconClick(event) {
     } else console.warn('Mobile menu icon button not found.');
 }
 
+/**
+ * Mobile menu list item on click handler.
+ * @param {Object} event Event object.
+ */
 function handleMobileMenuListItemOnClick(event) {
     const inner_list = event.currentTarget.querySelector('&>ul');
     if (inner_list) {
@@ -115,6 +65,10 @@ function handleMobileMenuListItemOnClick(event) {
     }
 }
 
+/**
+ * Alert icon on click handler.
+ * @param {Object} event Event object.
+ */
 function handleAlertIconClick(event) {
     event.preventDefault();
     const icon_button = $('#alert-icon');
@@ -133,6 +87,10 @@ function handleAlertIconClick(event) {
     } else console.warn('Alert icon button not found.');
 }
 
+/**
+ * User icon on click handler.
+ * @param {Object} event Event object.
+ */
 function handleUserIconClick(event) {
     event.preventDefault();
     const icon_button = $('#user-icon');
@@ -145,10 +103,6 @@ function handleUserIconClick(event) {
         }
     } else console.warn('User icon button not found.');
 }
-
-/***************************
- * HEADER CHILD COMPONENTS *
- ***************************/
 
 /**
  * Mobile menu item list component.
@@ -199,11 +153,12 @@ function MobileMenuListItem({ children, id, className = '', listItemProps }) {
  * @returns Returns the header navigation bar component.
  */
 function HeaderNavbar() {
+    const navigate = useNavigate();
     return (
         <nav id="navbar">
             <ul>
                 <li id="navbar-item-1">
-                    <Common.Anchor href="/">Home</Common.Anchor>
+                    <Link to="/">Home</Link>
                 </li>
 
                 <li id="navbar-item-2">
@@ -213,40 +168,36 @@ function HeaderNavbar() {
                     </Common.Anchor>
                     <ul>
                         <li>
-                            <a
-                                href="#"
+                            <div
                                 id="navbar-item-2-buttons"
-                                onClick={scrollToButtonSection}
+                                onClick={() => navigate('/samples/button')}
                             >
                                 Buttons
-                            </a>
+                            </div>
                         </li>
                         <li>
-                            <a
-                                href="#"
+                            <div
                                 id="navbar-item-2-inputs"
-                                onClick={scrollToInputSection}
+                                onClick={() => navigate('/samples/input')}
                             >
                                 Inputs
-                            </a>
+                            </div>
                         </li>
                         <li>
-                            <a
-                                href="#"
+                            <div
                                 id="navbar-item-2-checkboxes"
-                                onClick={scrollToCheckboxSection}
+                                onClick={() => navigate('samples/checkbox')}
                             >
                                 Checkboxes
-                            </a>
+                            </div>
                         </li>
                         <li>
-                            <a
-                                href="#"
+                            <div
                                 id="navbar-item-2-radios"
-                                onClick={scrollToRadioSection}
+                                onClick={() => navigate('samples/radio')}
                             >
                                 Radios
-                            </a>
+                            </div>
                         </li>
                     </ul>
                 </li>
@@ -353,17 +304,43 @@ function HeaderNavbar() {
     );
 }
 
-/********************
- * HEADER COMPONENT *
- *********************/
-
 /**
  * Header component.
  * @returns Returns the header component.
  */
 function Header() {
+    const { isHeaderVisible, headerHeight } = useContext(GlobalContext);
+
+    useEffect(() => {
+        if (!isHeaderVisible) {
+            // let scroll_value = parseFloat(headerHeight, 1);
+            // scroll_value = -scroll_value;
+            // window.scrollBy({
+            //     top: scroll_value,
+            //     behavior: 'instant',
+            // });
+            document.documentElement.style.setProperty(
+                '--header-height',
+                '0px'
+            );
+        } else {
+            document.documentElement.style.setProperty(
+                '--header-height',
+                headerHeight
+            );
+            // let scroll_value = parseFloat(headerHeight, 1);
+            // window.scrollBy({
+            //     top: scroll_value,
+            //     behavior: 'instant',
+            // });
+        }
+    }, [isHeaderVisible]);
+
     return (
-        <header id="header">
+        <header
+            id="header"
+            style={{ display: isHeaderVisible ? 'flex' : 'none' }}
+        >
             {/* Left content box */}
             <div id="header-left-content-box">
                 {/* Brand logo */}
@@ -452,7 +429,7 @@ function Header() {
                             <hr style={{ display: 'none' }} />
 
                             <MobileMenuListItem>
-                                <Common.Anchor href="/">Home</Common.Anchor>
+                                <Link to="/">Home</Link>
                             </MobileMenuListItem>
 
                             <MobileMenuListItem>
@@ -462,40 +439,18 @@ function Header() {
                                 </Common.Anchor>
                                 <MobileMenuList>
                                     <MobileMenuListItem>
-                                        <a
-                                            href="#"
-                                            id="mobile-menu-buttons"
-                                            onClick={scrollToButtonSection}
-                                        >
-                                            Buttons
-                                        </a>
+                                        <Link to="/samples/button">Button</Link>
                                     </MobileMenuListItem>
                                     <MobileMenuListItem>
-                                        <a
-                                            href="#"
-                                            id="mobile-menu-inputs"
-                                            onClick={scrollToInputSection}
-                                        >
-                                            Inputs
-                                        </a>
+                                        <Link to="/samples/input">Input</Link>
                                     </MobileMenuListItem>
                                     <MobileMenuListItem>
-                                        <a
-                                            href="#"
-                                            id="mobile-menu-checkboxes"
-                                            onClick={scrollToCheckboxSection}
-                                        >
-                                            Checkboxes
-                                        </a>
+                                        <Link to="/samples/checkbox">
+                                            Checkbox
+                                        </Link>
                                     </MobileMenuListItem>
                                     <MobileMenuListItem>
-                                        <a
-                                            href="#"
-                                            id="mobile-menu-radios"
-                                            onClick={scrollToRadioSection}
-                                        >
-                                            Radios
-                                        </a>
+                                        <Link to="/samples/radio">Radio</Link>
                                     </MobileMenuListItem>
                                 </MobileMenuList>
                             </MobileMenuListItem>

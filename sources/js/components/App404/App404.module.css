@@ -1,0 +1,26 @@
+.title-404 {
+    color: var(--color-primary);
+    font-size: 100px !important;
+    font-weight: 300;
+    transform: translateY(var(--value));
+}
+
+.subtitle-404 {
+    color: var(--color-white);
+    font-weight: 200;
+    transform: translateY(var(--value));
+}
+
+.homepage-link-404 button {
+    display: block;
+    margin: 24px auto 0px;
+    color: var(--color-white);
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: initial;
+    transform: translateY(var(--value));
+    & a {
+        color: var(--color-white);
+        text-decoration: none;
+    }
+}

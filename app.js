@@ -3,38 +3,21 @@
  * @description Start the web-server using Express.
  */
 
-'use strict';
-
-const express = require('express');
-const path = require('path');
-const app = express();
-const fs = require('fs');
-const port = 80;
+const express = require('express'),
+    // fs = require('fs'),
+    path = require('path'),
+    app = express(),
+    port = 80;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Handle 404
-app.use(function (req, res) {
-    // Search for 404.html
-    fs.readFile(
-        path.join(__dirname, 'public', '404.html'),
-        'utf8',
-        function (err, data) {
-            if (err) {
-                // 404.html not found, send simple error message
-                res.status(404).send('404: Page Not Found');
-            } else {
-                // Redirect 404 to root
-                // res.redirect('/');
-
-                // Or show 404.html
-                res.status(404).send(data);
-            }
-        }
-    );
+// Path configuration to respond to a request to static route request by serving 'index.html'
+// React router won't work without this.
+// https://stackoverflow.com/questions/44491184/react-router-does-not-work-in-production-and-surge-deployments
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Handle 500
 app.use(function (error, req, res, next) {
     res.status(500).send('500: Internal Server Error');
 });

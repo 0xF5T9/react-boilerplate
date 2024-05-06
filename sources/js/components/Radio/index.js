@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description Radio components.
+ * @description Radio component.
  */
 
 'use strict';

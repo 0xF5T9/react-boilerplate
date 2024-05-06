@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description Checkbox components.
+ * @description Checkbox component.
  */
 
 'use strict';

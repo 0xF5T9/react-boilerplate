@@ -1,0 +1,99 @@
+#modal-overlay {
+    --modal-overlay-background-color: rgba(45, 42, 46, 0.9);
+    --modal-window-margin: 50px;
+    --modal-window-width: 700px;
+    --modal-window-height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(45, 42, 46, 0);
+    z-index: 100;
+    visibility: collapse;
+    transition: all 0.1s;
+
+    &:has(.modal-window.is-open) {
+        background-color: var(--modal-overlay-background-color);
+        visibility: visible;
+    }
+
+    & > .modal-window {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: var(--modal-window-width);
+        height: var(--modal-window-height);
+        max-width: calc(100% - var(--modal-window-margin));
+        max-height: calc(100% - var(--modal-window-margin));
+        margin: auto;
+        border: 1px solid var(--color-gray-darker);
+        background-color: var(--color-black);
+        overflow: hidden;
+        will-change: opacity, transform;
+
+        &:empty {
+            display: none;
+            width: max-content;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        &:empty::before {
+            content: 'This modal window is empty.';
+            color: var(--color-gray);
+        }
+
+        &.is-open {
+            animation: modal-window-fade-in 0.1s ease forwards;
+            display: block;
+        }
+    }
+}
+
+#custom-modal-window-1,
+#custom-modal-window-2 {
+    --modal-window-width: 400px;
+    padding: 20px;
+    text-align: center;
+
+    & > *:not(:first-child) {
+        margin-top: 10px;
+    }
+}
+
+#signup-form-modal-window {
+    --modal-window-width: 310px;
+    padding: 20px;
+    overflow: auto !important;
+}
+
+@keyframes modal-window-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modal-window-fade-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}

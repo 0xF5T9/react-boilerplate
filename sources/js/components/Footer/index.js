@@ -4,25 +4,52 @@
  */
 
 'use strict';
+import { useContext, useEffect } from 'react';
+import { GlobalContext } from '../Context/Global';
 import * as Common from '../Common';
+import './Footer.css';
+const $ = document.querySelector.bind(document);
 
-/***************************
- * FOOTER CHILD COMPONENTS *
- ***************************/
+/**
+ * Check if the footer is visible.
+ * @returns {boolean} Returns true if the footer is visible, otherwise returns false.
+ */
+function isFooterComponentVisible() {
+    const footer = $('#footer');
+    if (!footer) throw `'#footer' element not found.`;
 
-// ...
-
-/********************
- * FOOTER COMPONENT *
- ********************/
+    return getComputedStyle(footer).getPropertyValue('display') != 'none'
+        ? true
+        : false;
+}
 
 /**
  * Footer component.
  * @returns Returns the footer component.
  */
 function Footer() {
+    const { isFooterVisible, footerHeight } = useContext(GlobalContext);
+
+    useEffect(() => {
+        if (!isFooterVisible) {
+            document.documentElement.style.setProperty(
+                '--footer-height',
+                '0px'
+            );
+        } else {
+            document.documentElement.style.setProperty(
+                '--footer-height',
+                footerHeight
+            );
+        }
+    }, [isFooterVisible]);
+
     return (
-        <footer id="footer" className="top-border">
+        <footer
+            id="footer"
+            className="top-border"
+            style={{ display: isFooterVisible ? 'flex' : 'none' }}
+        >
             <div id="social-link-wrapper">
                 <Common.Anchor noDefault>
                     <i className="fa-brands fa-github"></i>
@@ -59,5 +86,5 @@ function Footer() {
     );
 }
 
-// Exports:
 export default Footer;
+export { isFooterComponentVisible };
