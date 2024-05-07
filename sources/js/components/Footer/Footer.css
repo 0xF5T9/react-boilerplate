@@ -1,3 +1,8 @@
+/**
+ * @file Footer.css
+ * @description Footer component style sheet file.
+ */
+
 #footer {
     display: flex;
     flex-direction: column;

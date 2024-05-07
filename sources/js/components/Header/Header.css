@@ -1,3 +1,8 @@
+/**
+ * @file Header.css
+ * @description Header component style sheet file.
+ */
+
 #header {
     position: fixed;
     top: 0;

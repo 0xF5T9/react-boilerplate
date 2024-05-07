@@ -1,6 +1,6 @@
 /**
  * @file style.js
- * @description Main style script.
+ * @description Global style script.
  */
 
 import '../css/style.css';
