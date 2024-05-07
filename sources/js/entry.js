@@ -1,6 +1,7 @@
 /**
  * @file entry.js
  * @description Application entry.
+ * @todo TODO: Break down Header to smaller components.
  */
 
 'use strict';
