@@ -30,7 +30,7 @@ function NavbarList({ children }) {
 function NavbarItem({ id, text = '', icon = '', to = '#', children }) {
     return (
         <li id={id}>
-            <Link to={to}>
+            <Link to={to} tabIndex={-1}>
                 {icon ? <i className={icon}></i> : null}
                 {text}
             </Link>

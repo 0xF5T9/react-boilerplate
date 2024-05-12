@@ -13,7 +13,7 @@ import * as styles from './BrandLogo.module.css';
  */
 function BrandLogo() {
     return (
-        <Link className={styles['header-brand-logo']} to="/">
+        <Link className={styles['header-brand-logo']} to="/" tabIndex={-1}>
             <img src="/assets/static/img/brand-logo.png" alt="Brand Logo" />
         </Link>
     );

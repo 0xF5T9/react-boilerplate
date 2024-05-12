@@ -84,7 +84,11 @@ function IconButton({
             className={`${styles['header-icon-button']} ${className ? className : ''}`}
             onClick={handleClick}
         >
-            <Link className={styles['header-icon-button-icon']} to={to}>
+            <Link
+                className={styles['header-icon-button-icon']}
+                to={to}
+                tabIndex={-1}
+            >
                 {icon ? (
                     <i
                         className={

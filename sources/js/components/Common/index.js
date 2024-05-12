@@ -37,6 +37,7 @@ export function Anchor({
             href={href}
             className={className}
             onClick={!noDefault ? () => {} : onClick}
+            tabIndex={-1}
             {...anchorProps}
         >
             {children}

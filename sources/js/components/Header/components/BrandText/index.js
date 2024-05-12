@@ -11,7 +11,7 @@ import * as styles from './BrandText.module.css';
  */
 function BrandText() {
     return (
-        <Link className={styles['header-brand-text']} to="/">
+        <Link className={styles['header-brand-text']} to="/" tabIndex={-1}>
             <div>
                 <h1>Boilerplate Project</h1>
             </div>
