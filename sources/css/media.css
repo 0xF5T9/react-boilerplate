@@ -1,132 +1,26 @@
 /**
  * @file media.css
  * @description Media queries styles.
- * @todo TODO: Clean media queries.
  */
 
 /* Desktop */
 @media only screen and (min-width: 1024px) {
-    @media only screen and (max-device-width: 1477px),
-        only screen and (max-width: 1477px) {
-        #header {
-            & .header-input {
-                display: none !important;
-            }
-        }
-    }
-
-    @media only screen and (max-device-width: 1266px),
-        only screen and (max-width: 1266px) {
-        #header {
-            & .header-button {
-                display: none !important;
-            }
-        }
-    }
 }
 
 /* Tablet */
 @media only screen and (max-device-width: 1024px) and (min-device-width: 741px),
     only screen and (max-width: 1024px) and (min-width: 741px) {
-    #header {
-        & .header-input {
-            display: none !important;
-        }
-
-        & .header-button {
-            display: none !important;
-        }
-    }
-
-    @media only screen and (max-device-width: 964px),
-        only screen and (max-width: 964px) {
-        #header {
-            & #navbar {
-                display: none;
-            }
-
-            & div#mobile-menu-icon {
-                display: flex;
-            }
-        }
-    }
 }
 
 /* Mobile */
 @media only screen and (max-device-width: 740px),
     only screen and (max-width: 740px) {
-    #header {
-        & .header-input {
-            display: none !important;
-        }
-
-        & .header-button {
-            display: none !important;
-        }
-    }
-
-    #header {
-        & #navbar {
-            display: none;
-        }
-
-        & #user-icon {
-            display: none;
-        }
-
-        & #alert-icon {
-            display: none;
-        }
-
-        & div#mobile-menu-icon {
-            display: flex;
-
-            & li {
-                display: flex !important;
-            }
-
-            & hr {
-                display: block !important;
-            }
-        }
-    }
-
-    @media only screen and (max-device-width: 359px),
-        only screen and (max-width: 359px) {
-        #header {
-            & #header-left-content-box {
-                margin-right: 0;
-            }
-
-            & .header-icon-button,
-            & #header-right-content-box {
-                display: none !important;
-            }
-        }
-    }
-
     @media only screen and (max-device-width: 240px),
         only screen and (max-width: 240px) {
         html,
         body,
         #root {
             overflow: hidden !important;
-        }
-
-        #header {
-            height: 100% !important;
-
-            & div {
-                display: none !important;
-            }
-
-            &::before {
-                display: block;
-                content: 'The current device viewport dimension is unsupported.';
-                font-size: 0.8rem;
-                opacity: 0.1;
-                text-align: center;
-            }
         }
     }
 }

@@ -1,0 +1,19 @@
+.header-brand-text {
+    height: 100%;
+    color: var(--color-white);
+    text-decoration: none;
+
+    & > div {
+        width: auto;
+        height: 100%;
+        padding-right: 10px;
+        line-height: var(--header-height);
+        user-select: none;
+
+        & > h1 {
+            font-weight: 300;
+            font-size: larger;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,7 +1,6 @@
 /**
  * @file entry.js
  * @description Application entry.
- * @todo TODO: Break down Header to smaller components.
  */
 
 'use strict';
@@ -11,7 +10,6 @@ import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import * as functions from './function';
 import * as helper from './helper';
 
 import { GlobalContextProvider } from './components/Context/Global';
@@ -25,7 +23,6 @@ window.React = React;
 window.ReactDOM = ReactDOM;
 window.helper = helper;
 const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
 
 (() => {
     // Create the browser router.
@@ -148,20 +145,6 @@ window.onkeydown = function (event) {
         }
         default:
             break;
-    }
-};
-
-// Browser window click events.
-window.onclick = function (event) {
-    // Close dropdown windows on background click.
-    for (const dropdown of $$('.dropdown-window.is-open')) {
-        if (
-            !dropdown.contains(event.target) &&
-            !dropdown.parentNode.contains(event.target)
-        ) {
-            dropdown.classList.remove('is-open');
-            functions.validateAllDropdownWindows();
-        }
     }
 };
 
