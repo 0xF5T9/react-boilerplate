@@ -17,111 +17,110 @@ function InputSampleSection() {
             <Input
                 type="text"
                 placeholder="Primary"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />{' '}
             <Input
                 type="text"
-                altStyle="alt"
+                altStyle
                 placeholder="Primary"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />
             <br />
             <Input
                 type="text"
                 color="red"
                 placeholder="Red"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />{' '}
             <Input
                 type="text"
                 color="red"
-                altStyle="alt"
+                altStyle
                 placeholder="Red"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />
             <br />
             <Input
                 type="text"
                 color="orange"
                 placeholder="Orange"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />{' '}
             <Input
                 type="text"
                 color="orange"
-                altStyle="alt"
+                altStyle
                 placeholder="Orange"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />
             <br />
             <Input
                 type="text"
                 color="yellow"
                 placeholder="Yellow"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />{' '}
             <Input
                 type="text"
                 color="yellow"
-                altStyle="alt"
+                altStyle
                 placeholder="Yellow"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />
             <br />
             <Input
                 type="text"
                 color="green"
                 placeholder="Green"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />{' '}
             <Input
                 type="text"
                 color="green"
-                altStyle="alt"
+                altStyle
                 placeholder="Green"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />
             <br />
             <Input
                 type="text"
                 color="blue"
                 placeholder="Blue"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />{' '}
             <Input
                 type="text"
                 color="blue"
-                altStyle="alt"
+                altStyle
                 placeholder="Blue"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />
             <br />
             <Input
                 type="text"
                 color="purple"
                 placeholder="Purple"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />{' '}
             <Input
                 type="text"
                 color="purple"
-                altStyle="alt"
+                altStyle
                 placeholder="Purple"
-                inputProps={{ style: { width: '250px' } }}
-                disabled
+                inputStyle={{ width: '250px' }}
             />
             <h1 style={{ marginTop: '26px' }}>Disabled Input</h1>
             <Input
                 type="text"
                 placeholder="This input is disabled"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
                 disabled
             />{' '}
             <Input
                 type="text"
-                altStyle="alt"
+                altStyle
                 placeholder="This input is disabled"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
                 disabled
             />
             <h1 style={{ marginTop: '26px' }}>Icon Input</h1>
@@ -132,7 +131,7 @@ function InputSampleSection() {
                     iconClass: 'fa-solid fa-envelope',
                 }}
                 placeholder="Email"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />{' '}
             <Input
                 type="password"
@@ -141,7 +140,7 @@ function InputSampleSection() {
                     iconClass: 'fa-solid fa-lock',
                 }}
                 placeholder="Password"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />
             <br />
             <Input
@@ -151,7 +150,7 @@ function InputSampleSection() {
                     iconClass: 'fa-solid fa-search',
                 }}
                 placeholder="Search"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />{' '}
             <Input
                 type="text"
@@ -160,25 +159,25 @@ function InputSampleSection() {
                     iconClass: 'fa-solid fa-address-book',
                 }}
                 placeholder="Phone Number"
-                inputProps={{ style: { width: '250px' } }}
+                inputStyle={{ width: '250px' }}
             />
             <h1 style={{ marginTop: '26px' }}>Sized Input</h1>
             <Input
                 type="text"
                 size="small"
                 placeholder="Small"
-                inputProps={{ style: { width: '100px' } }}
+                inputStyle={{ width: '100px' }}
             />{' '}
             <Input
                 type="text"
                 placeholder="Default"
-                inputProps={{ style: { width: '100px' } }}
+                inputStyle={{ width: '100px' }}
             />{' '}
             <Input
                 type="text"
                 size="large"
                 placeholder="Large"
-                inputProps={{ style: { width: '100px' } }}
+                inputStyle={{ width: '100px' }}
             />
             <br />
             <Input
@@ -189,7 +188,7 @@ function InputSampleSection() {
                     iconClass: 'fa-solid fa-info-circle',
                 }}
                 placeholder="Small"
-                inputProps={{ style: { width: '100px' } }}
+                inputStyle={{ width: '100px' }}
             />{' '}
             <Input
                 type="text"
@@ -198,7 +197,7 @@ function InputSampleSection() {
                     iconClass: 'fa-solid fa-info-circle',
                 }}
                 placeholder="Default"
-                inputProps={{ style: { width: '100px' } }}
+                inputStyle={{ width: '100px' }}
             />{' '}
             <Input
                 type="text"
@@ -208,7 +207,7 @@ function InputSampleSection() {
                     iconClass: 'fa-solid fa-info-circle',
                 }}
                 placeholder="Large"
-                inputProps={{ style: { width: '100px' } }}
+                inputStyle={{ width: '100px' }}
             />
         </ContentSection>
     );

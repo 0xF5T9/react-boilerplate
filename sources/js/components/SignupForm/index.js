@@ -295,12 +295,10 @@ function SignupForm() {
                         iconPosition: 'left',
                         iconClass: 'fa-solid fa-envelope',
                     }}
-                    inputProps={{
-                        id: 'email-input',
-                        placeholder: 'Email',
-                        onBlur: emailInputValidate,
-                        onChange: emailInputValidate,
-                    }}
+                    id="email-input"
+                    placeholder="Email"
+                    onBlur={emailInputValidate}
+                    onChange={emailInputValidate}
                 />
             </FormGroup>
             <FormGroup
@@ -319,12 +317,10 @@ function SignupForm() {
                         iconPosition: 'left',
                         iconClass: 'fa-solid fa-lock',
                     }}
-                    inputProps={{
-                        id: 'password-input',
-                        placeholder: 'Password',
-                        onBlur: passwordInputValidate,
-                        onChange: passwordInputValidate,
-                    }}
+                    id="password-input"
+                    placeholder="Password"
+                    onBlur={passwordInputValidate}
+                    onChange={passwordInputValidate}
                 />
             </FormGroup>
             <FormGroup
@@ -343,12 +339,10 @@ function SignupForm() {
                         iconPosition: 'left',
                         iconClass: 'fa-solid fa-lock',
                     }}
-                    inputProps={{
-                        id: 'password-confirm-input',
-                        placeholder: 'Password',
-                        onBlur: passwordConfirmInputValidate,
-                        onChange: passwordConfirmInputValidate,
-                    }}
+                    id="password-confirm-input"
+                    placeholder="Password"
+                    onBlur={passwordConfirmInputValidate}
+                    onChange={passwordConfirmInputValidate}
                 />
             </FormGroup>
             <FormGroup
