@@ -27,7 +27,7 @@ function ListItem({
     className = '',
     text = '',
     icon = '',
-    to = '#',
+    to,
     children,
     listItemProps,
 }) {
@@ -56,7 +56,10 @@ function ListItem({
             onClick={handleClick}
             {...listItemProps}
         >
-            <Link to={to}>
+            <Link
+                to={to}
+                onClick={!to ? (event) => event.preventDefault() : undefined}
+            >
                 {icon ? <i className={icon}></i> : null}
                 {text}
             </Link>
