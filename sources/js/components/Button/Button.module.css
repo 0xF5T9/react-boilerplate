@@ -384,8 +384,12 @@
 a.button {
     display: inline-block;
     text-decoration: none;
+    line-height: normal;
+    user-select: none;
 }
 
 div.button {
     display: inline-block;
+    line-height: normal;
+    user-select: none;
 }
