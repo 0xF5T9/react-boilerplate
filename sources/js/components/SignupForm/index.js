@@ -391,7 +391,7 @@ function SignupForm() {
                         name="gender-radio-group"
                         value="male"
                         altStyle="alt-1"
-                        radioProps={{ onClick: genderInputValidate }}
+                        onClick={genderInputValidate}
                     />
                     <Radio
                         labelText="Female"
@@ -399,7 +399,8 @@ function SignupForm() {
                         name="gender-radio-group"
                         value="female"
                         altStyle="alt-1"
-                        radioProps={{ onClick: genderInputValidate }}
+                        onClick={genderInputValidate}
+                        wrapperStyle={{ marginLeft: '0px' }}
                     />
                 </div>
             </FormGroup>

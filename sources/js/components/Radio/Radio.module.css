@@ -94,6 +94,10 @@ div.radio-wrapper {
         }
     }
 
+    & + & {
+        margin-left: 10px;
+    }
+
     & input[type='radio']:disabled ~ label > span {
         filter: brightness(0.6);
     }
