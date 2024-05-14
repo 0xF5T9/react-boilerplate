@@ -27,10 +27,14 @@ function NavbarList({ children }) {
  * @param {*} props.children <NavbarItem /> component(s).
  * @returns Returns the navbar item component.
  */
-function NavbarItem({ id, text = '', icon = '', to = '#', children }) {
+function NavbarItem({ id, text = '', icon = '', to, children }) {
     return (
         <li id={id}>
-            <Link to={to} tabIndex={-1}>
+            <Link
+                to={to}
+                onClick={!to ? (event) => event.preventDefault() : undefined}
+                tabIndex={-1}
+            >
                 {icon ? <i className={icon}></i> : null}
                 {text}
             </Link>
