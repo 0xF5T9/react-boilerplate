@@ -9,30 +9,34 @@ import * as styles from './Button.module.css';
 /**
  * Button component.
  * @param {Object} props Component properties.
- * @param {String} props.color Button color (optional: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param {String} props.size Button size (optional: 'small' | 'large')
- * @param {Boolean} props.outline Use button outline style (optional: false)
- * @param {Boolean} props.white Use white button style (optional: false)
- * @param {Boolean} props.whiteOnly Use white only button style (optional: false)
- * @param {String} props.id The button id (optional)
- * @param {String} props.value The button value (optional)
- * @param {Boolean} props.disabled Disable the button (optional: true | false)
+ * @param {String} props.color Button color. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
+ * @param {String} props.size Button size. ('small' | 'large')
+ * @param {Boolean} props.outline Use button outline style.
+ * @param {Boolean} props.white Use white button style.
+ * @param {Boolean} props.whiteOnly Use white only button style.
+ * @param {String} props.id Button id.
+ * @param {String} props.className Additional button class names.
+ * @param {String} props.value Button value.
+ * @param {Function} props.onClick Button on-click callback.
+ * @param {Boolean} props.disabled Disable the button.
+ * @param {Object} props.style Additional button styles.
  * @param {*} props.children Button children.
- * @param {*} props.buttonProps Additional button element properties (optional)
- * @param {String} props.elementType Element type (optional: 'button' | 'a' | 'div')
+ * @param {String} props.elementType Element type ('button' | 'a' | 'div')
  * @returns Returns the component.
  */
 function Button({
-    color = '',
-    size = '',
-    outline = false,
-    white = false,
-    whiteOnly = false,
+    color,
+    size,
+    outline,
+    white,
+    whiteOnly,
     id,
+    className,
     value,
-    disabled = false,
+    onClick,
+    disabled,
+    style,
     children,
-    buttonProps,
     elementType = 'button',
 }) {
     const classes = `${styles.button}
@@ -40,49 +44,22 @@ function Button({
                      ${styles[size] || ''}
                      ${outline ? styles.outline : ''}
                      ${white ? styles.white : ''}
-                     ${whiteOnly ? styles['white-only'] : ''}`;
-    switch (elementType) {
-        case 'a': {
-            return (
-                <a
-                    id={id}
-                    value={value}
-                    className={classes}
-                    disabled={disabled}
-                    {...buttonProps}
-                >
-                    {children}
-                </a>
-            );
-        }
-        case 'div': {
-            return (
-                <div
-                    id={id}
-                    value={value}
-                    className={classes}
-                    disabled={disabled}
-                    {...buttonProps}
-                >
-                    {children}
-                </div>
-            );
-        }
-        case 'button':
-        default: {
-            return (
-                <button
-                    id={id}
-                    value={value}
-                    className={classes}
-                    disabled={disabled}
-                    {...buttonProps}
-                >
-                    {children}
-                </button>
-            );
-        }
-    }
+                     ${whiteOnly ? styles['white-only'] : ''}
+                     ${className || ''}`,
+        Component = elementType;
+
+    return (
+        <Component
+            id={id}
+            value={value}
+            className={classes}
+            onClick={onClick}
+            disabled={disabled}
+            style={style}
+        >
+            {children}
+        </Component>
+    );
 }
 
 export default Button;

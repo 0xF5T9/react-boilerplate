@@ -250,9 +250,7 @@ function ButtonSampleSection() {
             <h1 style={{ marginTop: '26px' }}>Functional Buttons</h1>
             <Button
                 id="modal-window-sample-button-1"
-                buttonProps={{
-                    onClick: () => openModalWindow('custom-modal-window-1'),
-                }}
+                onClick={() => openModalWindow('custom-modal-window-1')}
                 outline
                 whiteOnly
             >
@@ -260,9 +258,7 @@ function ButtonSampleSection() {
             </Button>{' '}
             <Button
                 id="modal-window-sample-button-2"
-                buttonProps={{
-                    onClick: () => openModalWindow('custom-modal-window-2'),
-                }}
+                onClick={() => openModalWindow('custom-modal-window-2')}
                 outline
                 whiteOnly
             >
@@ -270,7 +266,7 @@ function ButtonSampleSection() {
             </Button>{' '}
             <Button
                 id="toggle-header-button"
-                buttonProps={{ onClick: handleToggleHeader }}
+                onClick={handleToggleHeader}
                 outline
                 whiteOnly
             >
@@ -278,7 +274,7 @@ function ButtonSampleSection() {
             </Button>{' '}
             <Button
                 id="toggle-footer-button"
-                buttonProps={{ onClick: handleToggleFooter }}
+                onClick={handleToggleFooter}
                 outline
                 whiteOnly
             >
@@ -286,7 +282,7 @@ function ButtonSampleSection() {
             </Button>{' '}
             <Button
                 id="click-sound-button"
-                buttonProps={{ onClick: handlePlayClickSound }}
+                onClick={handlePlayClickSound}
                 outline
                 whiteOnly
             >

@@ -445,68 +445,60 @@ function SignupForm() {
             </FormGroup>
 
             <Button
-                buttonProps={{
-                    onClick: (event) => {
-                        event.preventDefault();
-                        const form = event.currentTarget.closest('form');
+                style={{ marginTop: '4px' }}
+                onClick={(event) => {
+                    event.preventDefault();
+                    const form = event.currentTarget.closest('form');
 
-                        const email_value = emailInputValidate({
-                                type: 'blur',
-                                currentTarget:
-                                    form.querySelector('#email-input'),
-                            }),
-                            password_value = passwordInputValidate({
-                                type: 'change',
-                                currentTarget:
-                                    form.querySelector('#password-input'),
-                            }),
-                            password_confirm_value =
-                                passwordConfirmInputValidate({
-                                    type: 'change',
-                                    currentTarget: form.querySelector(
-                                        '#password-confirm-input'
-                                    ),
-                                }),
-                            region_value = regionInputValidate({
-                                type: 'change',
-                                currentTarget:
-                                    form.querySelector('#region-input'),
-                            }),
-                            gender_value = genderInputValidate({
-                                type: 'click',
-                                currentTarget:
-                                    form.querySelector('#gender-male'),
-                            }),
-                            agreement_value = agreementInputValidate({
-                                type: 'click',
-                                currentTarget:
-                                    form.querySelector('#tos-checkbox'),
-                            }),
-                            is_success =
-                                email_value &&
-                                password_value &&
-                                password_confirm_value &&
-                                region_value &&
-                                gender_value &&
-                                agreement_value;
+                    const email_value = emailInputValidate({
+                            type: 'blur',
+                            currentTarget: form.querySelector('#email-input'),
+                        }),
+                        password_value = passwordInputValidate({
+                            type: 'change',
+                            currentTarget:
+                                form.querySelector('#password-input'),
+                        }),
+                        password_confirm_value = passwordConfirmInputValidate({
+                            type: 'change',
+                            currentTarget: form.querySelector(
+                                '#password-confirm-input'
+                            ),
+                        }),
+                        region_value = regionInputValidate({
+                            type: 'change',
+                            currentTarget: form.querySelector('#region-input'),
+                        }),
+                        gender_value = genderInputValidate({
+                            type: 'click',
+                            currentTarget: form.querySelector('#gender-male'),
+                        }),
+                        agreement_value = agreementInputValidate({
+                            type: 'click',
+                            currentTarget: form.querySelector('#tos-checkbox'),
+                        }),
+                        is_success =
+                            email_value &&
+                            password_value &&
+                            password_confirm_value &&
+                            region_value &&
+                            gender_value &&
+                            agreement_value;
 
-                        console.log(
-                            is_success
-                                ? {
-                                      email: email_value,
-                                      password: password_value,
-                                      region: region_value,
-                                      gender: gender_value,
-                                      subscribeNews: agreement_value.find(
-                                          (element) =>
-                                              element.id ==
-                                              'newsletters-checkbox'
-                                      ).value,
-                                  }
-                                : 'Validation failed.'
-                        );
-                    },
-                    style: { marginTop: '4px' },
+                    console.log(
+                        is_success
+                            ? {
+                                  email: email_value,
+                                  password: password_value,
+                                  region: region_value,
+                                  gender: gender_value,
+                                  subscribeNews: agreement_value.find(
+                                      (element) =>
+                                          element.id == 'newsletters-checkbox'
+                                  ).value,
+                              }
+                            : 'Validation failed.'
+                    );
                 }}
             >
                 Sign Up
