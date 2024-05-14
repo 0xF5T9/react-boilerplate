@@ -430,10 +430,9 @@ function SignupForm() {
                         labelText="Agree to the Term of Services."
                         id="tos-checkbox"
                         altStyle="alt-1"
-                        checkboxProps={{
-                            onClick: agreementInputValidate,
-                            required: true,
-                        }}
+                        onClick={agreementInputValidate}
+                        wrapperStyle={{ marginLeft: '0px' }}
+                        required
                     />
                 </div>
             </FormGroup>

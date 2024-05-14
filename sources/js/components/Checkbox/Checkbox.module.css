@@ -70,6 +70,10 @@ div.checkbox-wrapper {
         }
     }
 
+    & + & {
+        margin-left: 10px;
+    }
+
     & > label {
         display: flex;
         cursor: pointer;
