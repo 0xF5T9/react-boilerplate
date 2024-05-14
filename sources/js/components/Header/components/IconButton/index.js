@@ -24,8 +24,8 @@ function IconButton({
     className,
     icon = '',
     iconDropdown = '',
-    to = '#',
-    onClick = null,
+    to,
+    onClick = undefined,
     children,
 }) {
     // Track the dropdown state to render the correct icon.
@@ -87,6 +87,7 @@ function IconButton({
             <Link
                 className={styles['header-icon-button-icon']}
                 to={to}
+                onClick={!to ? (event) => event.preventDefault() : undefined}
                 tabIndex={-1}
             >
                 {icon ? (
