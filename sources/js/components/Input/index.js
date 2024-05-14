@@ -62,7 +62,7 @@ function Input({
                 placeholder={placeholder}
                 onBlur={onBlur}
                 onChange={onChange}
-                disabled={disabled ? true : false}
+                disabled={disabled}
                 style={inputStyle}
             />
         </div>
