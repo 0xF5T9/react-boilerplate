@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import ContentSection from '../../Content/ContentSection';
+import ContentSection from '../../Content/components/ContentSection';
 import Radio from '../../Radio';
 
 /**

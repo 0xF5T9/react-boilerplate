@@ -1,11 +1,17 @@
+/**
+ * @file index.js
+ * @description App404 component.
+ */
+
 import { useRouteError, Link, ScrollRestoration } from 'react-router-dom';
 import Content from '../Content';
-import ContentSection from '../Content/ContentSection';
+import ContentSection from '../Content/components/ContentSection';
 import Button from '../Button';
 import * as styles from './App404.module.css';
 
 /**
- * 404 App component.
+ * App404 component.
+ * @returns Returns the component.
  */
 function App404() {
     const error = useRouteError();
@@ -24,13 +30,10 @@ function App404() {
             <div id="app">
                 <Content>
                     <ContentSection
-                        innerSectionProps={{
-                            style: {
-                                '--value': '-12px',
-                                textAlign: 'center',
-                                padding: '20px 20px',
-                                userSelect: 'none',
-                            },
+                        innerSectionStyle={{
+                            '--value': '-12px',
+                            padding: '20px 20px',
+                            userSelect: 'none',
                         }}
                         flexCenter
                         textCenter

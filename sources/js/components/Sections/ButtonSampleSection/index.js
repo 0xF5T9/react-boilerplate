@@ -9,7 +9,7 @@ import { useContext } from 'react';
 
 import { openModalWindow } from '../../ModalOverlay';
 import { GlobalContext } from '../../Context/Global';
-import ContentSection from '../../Content/ContentSection';
+import ContentSection from '../../Content/components/ContentSection';
 import Button from '../../Button';
 import { showToast } from '../../ToastOverlay';
 

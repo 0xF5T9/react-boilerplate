@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description The content component.
+ * @description Content component.
  */
 
 'use strict';
@@ -9,8 +9,8 @@ import './Content.css';
 /**
  * Content component.
  * @param {Object} props Component properties.
- * @param {*} props.children Component children.
- * @returns Returns the content component.
+ * @param {*} props.children Content children.
+ * @returns Returns the component.
  */
 function Content({ children }) {
     return <div id="content-wrapper">{children}</div>;
