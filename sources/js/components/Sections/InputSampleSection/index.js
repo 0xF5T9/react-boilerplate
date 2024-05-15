@@ -8,7 +8,8 @@ import ContentSection from '../../Content/components/ContentSection';
 import Input from '../../Input';
 
 /**
- * The input sample section.
+ * Input sample section.
+ * @returns Returns the component.
  */
 function InputSampleSection() {
     return (

@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description The debug overlay component.
+ * @description Debug overlay component.
  */
 
 'use strict';
@@ -8,7 +8,8 @@ import { useEffect, useState } from 'react';
 import './DebugOverlay.css';
 
 /**
- * The debug overlay component.
+ * Debug overlay component.
+ * @returns Returns the component.
  */
 function DebugOverlay() {
     const [windowSizeInfo, setWindowSizeInfo] = useState(() => {

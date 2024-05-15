@@ -1,6 +1,7 @@
 /**
  * @file index.js
  * @description Header icon button with dropdown window (optional).
+ * @note This is a sub-component of the <Header /> component.
  */
 'use strict';
 import { useState, useEffect, useRef } from 'react';
@@ -11,21 +12,22 @@ import * as dropdownWindowStyles from '../../../DropdownWindow/DropdownWindow.mo
 /**
  * Header icon button with dropdown window (optional).
  * @param {Object} props Component properties.
- * @param {String} props.id Element id. (optional)
- * @param {String} props.className Additional element class names. (optional)
+ * @param {String} props.id Button id.
+ * @param {String} props.className Additional button class names.
  * @param {String} props.icon Icon classes.
- * @param {String} props.iconDropdown Icon classes to be used when the dropdown window is revealed (if exist). (optional)
- * @param {String} props.to React router dom 'to' attribute value of the 'Link' component. (optional)
- * @param {Function} props.onClick Callback function that will be invoked on button click. (optional)
- * @param {*} props.children <DropdownWindow> component. (optional)
+ * @param {String} props.iconDropdown Icon classes to be used when the dropdown window is revealed (if exist).
+ * @param {String} props.to React router dom 'to' attribute value of the 'Link' component.
+ * @param {Function} props.onClick Button on-click callback.
+ * @param {*} props.children <DropdownWindow> component.
+ * @returns Returns the component.
  */
 function IconButton({
     id,
     className,
-    icon = '',
-    iconDropdown = '',
+    icon,
+    iconDropdown,
     to,
-    onClick = undefined,
+    onClick,
     children,
 }) {
     // Track the dropdown state to render the correct icon.

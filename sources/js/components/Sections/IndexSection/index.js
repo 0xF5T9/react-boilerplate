@@ -7,7 +7,8 @@
 import ContentSection from '../../Content/components/ContentSection';
 
 /**
- * The index section.
+ * Index section.
+ * @returns Returns the component.
  */
 function IndexSection() {
     return (

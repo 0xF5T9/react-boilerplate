@@ -1,6 +1,7 @@
 /**
  * @file index.js
  * @description Header navigation bar component.
+ * @note This is a sub-component of the <Header /> component>
  */
 
 'use strict';
@@ -11,7 +12,7 @@ import * as styles from './Navbar.module.css';
  * Navbar list component.
  * @param {Object} props Component properties.
  * @param {*} props.children <NavbarItem /> component(s).
- * @returns Returns the navbar list component.
+ * @returns Returns the component.
  */
 function NavbarList({ children }) {
     return <ul>{children}</ul>;
@@ -25,9 +26,9 @@ function NavbarList({ children }) {
  * @param {string} props.icon  Navbar item icon classes.
  * @param {string} props.to React router dom 'to' attribute value of the 'Link' component. (optional)
  * @param {*} props.children <NavbarItem /> component(s).
- * @returns Returns the navbar item component.
+ * @returns Returns the component.
  */
-function NavbarItem({ id, text = '', icon = '', to, children }) {
+function NavbarItem({ id, text, icon, to, children }) {
     return (
         <li id={id}>
             <Link
@@ -45,7 +46,7 @@ function NavbarItem({ id, text = '', icon = '', to, children }) {
 
 /**
  * Header navigation bar component.
- * @returns Returns the header navigation bar component.
+ * @returns Returns the component.
  */
 function Navbar() {
     return (

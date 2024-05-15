@@ -8,7 +8,8 @@ import ContentSection from '../../Content/components/ContentSection';
 import Radio from '../../Radio';
 
 /**
- * The radio sample section.
+ * Radio sample section.
+ * @returns Returns the component.
  */
 function RadioSampleSection() {
     return (

@@ -9,29 +9,44 @@ import * as styles from './Select.module.css';
 /**
  * Select input component.
  * @param {Object} props Component properties.
- * @param {String} props.id Select id. (optional)
- * @param {String} props.name Select name (optional)
- * @param {String} props.color Select color. (optional: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param {String} props.size Select size. (optional: 'small' | 'large')
- * @param {altStyle} props.altStyle Specifies whether to use alternative style. (optional)
+ * @param {String} props.id Select id.
+ * @param {String} props.className Select additional class names.
+ * @param {String} props.name Select group name.
+ * @param {String} props.color Select color. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
+ * @param {String} props.size Select size. ('small' | 'large')
+ * @param {Boolean} props.altStyle Specifies whether to use alternative style.
+ * @param {Function} props.onBlur Select on-blur callback.
+ * @param {Function} props.onChange Select on-change callback.
+ * @param {Boolean} props.disabled Disable the select.
  * @param {*} props.children Select children.
- * @param {*} props.selectProps Additional select element properties (optional)
+ * @returns Returns the component.
  */
 function Select({
     id,
+    className,
     name,
-    color = '',
-    size = '',
-    altStyle = false,
+    color,
+    size,
+    altStyle,
+    onBlur,
+    onChange,
+    disabled,
     children,
-    selectProps,
 }) {
     const classes = `${styles.select}
                      ${color ? styles[color] : ''}
                      ${size ? styles[size] : ''}
-                     ${altStyle ? styles.alt : ''}`;
+                     ${altStyle ? styles.alt : ''}
+                     ${className || ''}`;
     return (
-        <select className={classes} id={id} name={name} {...selectProps}>
+        <select
+            className={classes}
+            id={id}
+            name={name}
+            onBlur={onBlur}
+            onChange={onChange}
+            disabled={disabled}
+        >
             {children}
         </select>
     );

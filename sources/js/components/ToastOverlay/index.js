@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description The toast overlay component.
+ * @description Toast overlay component.
  */
 
 'use strict';
@@ -9,16 +9,16 @@ const $ = document.querySelector.bind(document);
 
 /**
  * Show a notification toast.
- * @param {String} title Specifies the toast title. (optional - default:<empty string>)
- * @param {String} message Specifies the toast message. (optional - default:<empty string>)
- * @param {String} type Specifies the toast type. (optional - default:'message') | Available types: 'message', 'info', 'success', 'error'.
- * @param {Number} duration Specifies the toast duration in milliseconds. (optional - default:3000)
- * @param {Object} animationDuration Specifies the toast animation duration in milliseconds. (optional - default:{fadeIn: 300, fadeOut: 300})
+ * @param {String} title Specifies the toast title.
+ * @param {String} message Specifies the toast message.
+ * @param {String} type Specifies the toast type. ('message' | 'info' | 'success' | 'error' - default: 'message')
+ * @param {Number} duration Specifies the toast duration in milliseconds. (default: 3000)
+ * @param {Object} animationDuration Specifies the toast animation duration in milliseconds. (default: {fadeIn: 300, fadeOut: 300})
  * @note For 'title' and 'message' parameters, escape characters like '\n' or html tags can be used.
  */
 function showToast(
-    title = '',
-    message = '',
+    title,
+    message,
     type = 'message',
     duration = 3000,
     animationDuration = { fadeIn: 300, fadeOut: 300 }
@@ -84,17 +84,17 @@ function showToast(
 
 /**
  * Show a custom notification toast.
- * @param {String} title Specifies the toast title. (optional - default:<empty string>)
- * @param {String} message Specifies the toast message. (optional - default:<empty string>)
- * @param {String} colors Specifies the toast colors. (optional - default:{titleColor: '#fcfcfa', descColor: '#fcfcfa', backgroundColor: '#2d2a2e', borderColor: '#2d2a2e', iconColor: '#fcfcfa', closeIconColor: '#fcfcfa'})
- * @param {String} iconClasses Specifies the toast icon classes. (optional - default:'fa-solid fa-message')
- * @param {Number} duration Specifies the toast duration in milliseconds. (optional - default:3000)
- * @param {Object} animationDuration Specifies the toast animation duration in milliseconds. (optional - default:{fadeIn: 300, fadeOut: 300})
+ * @param {String} title Specifies the toast title.
+ * @param {String} message Specifies the toast message.
+ * @param {String} colors Specifies the toast colors. (default: {titleColor: '#fcfcfa', descColor: '#fcfcfa', backgroundColor: '#2d2a2e', borderColor: '#2d2a2e', iconColor: '#fcfcfa', closeIconColor: '#fcfcfa'})
+ * @param {String} iconClasses Specifies the toast icon classes. (default: 'fa-solid fa-message')
+ * @param {Number} duration Specifies the toast duration in milliseconds. (default: 3000)
+ * @param {Object} animationDuration Specifies the toast animation duration in milliseconds. (default: {fadeIn: 300, fadeOut: 300})
  * @note For 'title' and 'message' parameters, escape characters like '\n' or html tags can be used.
  */
 function showCustomToast(
-    title = '',
-    message = '',
+    title,
+    message,
     colors = {
         titleColor: '#fcfcfa',
         descColor: '#fcfcfa',
@@ -182,7 +182,8 @@ function showCustomToast(
 }
 
 /**
- * The toast overlay component.
+ * Toast overlay component.
+ * @returns Returns the component.
  */
 function ToastOverlay() {
     return <div id="toast-overlay"></div>;

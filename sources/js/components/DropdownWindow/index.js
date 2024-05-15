@@ -12,10 +12,10 @@ import * as styles from './DropdownWindow.module.css';
  * Dropdown window component.
  * @param {Object} props Component properties.
  * @param {String} props.id Dropdown window element id.
- * @param {String} props.className Dropdown window element additional classes.
+ * @param {String} props.className Additional dropdown window element classes.
  * @param {*} props.children Dropdown window children. (Content)
  * @note Hidden by default, revealed with 'is-open' class.
- * @returns Returns the dropdown window component.
+ * @returns Returns the component.
  */
 function DropdownWindow({ id, className, children }) {
     // Close all drop-down window on background-click.

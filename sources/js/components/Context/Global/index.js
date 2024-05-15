@@ -9,9 +9,10 @@ import { createContext, useState } from 'react';
 const GlobalContext = createContext();
 
 /**
- * The global context provider component.
+ * Global context provider component.
  * @param {Object} props Component properties.
  * @param {*} props.children Context children.
+ * @returns Returns the component.
  */
 function GlobalContextProvider({ children }) {
     const [isHeaderVisible, setHeaderVisibility] = useState(true),

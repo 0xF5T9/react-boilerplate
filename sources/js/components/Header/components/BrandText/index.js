@@ -1,13 +1,14 @@
 /**
  * @file index.js
- * @description The brand text component.
+ * @description Header brand text component.
+ * @note This is a sub-component of the <Header /> component.
  */
 import { Link } from 'react-router-dom';
 import * as styles from './BrandText.module.css';
 
 /**
- * The header brand text component.
- * @returns Returns the header brand text component.
+ * Header brand text component.
+ * @returns Returns the component.
  */
 function BrandText() {
     return (

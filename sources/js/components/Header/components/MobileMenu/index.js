@@ -2,6 +2,7 @@
  * @file index.js
  * @description Header mobile menu icon button component. (with dropdown window)
  * @note This component use <IconButton /> and <DropdownWindow /> components.
+ * @note This is a sub-component of the <Header /> component.
  */
 
 'use strict';
@@ -13,24 +14,15 @@ import * as styles from './MobileMenu.module.css';
 /**
  * Mobile menu list item component.
  * @param {Object} props Component properties.
- * @param {String} props.id List item id. (optional)
- * @param {String} props.className List item additional class names. (optional)
+ * @param {String} props.id List item id.
+ * @param {String} props.className List item additional class names.
  * @param {String} props.text List item text.
  * @param {String} props.icon List item icon classes.
- * @param {String} props.to React router dom 'to' attribute value of the 'Link' component. (optional)
- * @param {*} props.children List item children <ListItem />. (optional)
- * @param {*} props.listItemProps Additional list item element properties (optional)
- * @returns Returns the list item component.
+ * @param {String} props.to React router dom 'to' attribute value of the 'Link' component.
+ * @param {*} props.children List item children <ListItem />.
+ * @returns Returns the component.
  */
-function ListItem({
-    id,
-    className = '',
-    text = '',
-    icon = '',
-    to,
-    children,
-    listItemProps,
-}) {
+function ListItem({ id, className, text, icon, to, children }) {
     // Check if the list item have an inner list. If so reveal it.
     function handleClick(event) {
         const inner_list = event.currentTarget.querySelector('&>ul');
@@ -50,12 +42,7 @@ function ListItem({
     }
 
     return (
-        <li
-            id={id}
-            className={className}
-            onClick={handleClick}
-            {...listItemProps}
-        >
+        <li id={id} className={className} onClick={handleClick}>
             <Link
                 to={to}
                 onClick={!to ? (event) => event.preventDefault() : undefined}
@@ -71,19 +58,17 @@ function ListItem({
 /**
  * Mobile menu item list component.
  * @param {Object} props Component properties.
- * @param {String} props.id Item list id (optional)
- * @param {String} props.className Item list class names (optional)
- * @param {*} props.children Item list children <ListItem /> (required)
- * @param {*} props.listProps Additional item list element properties (optional)
- * @returns Returns the list component.
+ * @param {String} props.id Item list id.
+ * @param {String} props.className Item list class names.
+ * @param {*} props.children Item list children <ListItem />.
+ * @returns Returns the component.
  */
-function List({ id, className = '', children, listProps }) {
+function List({ id, className, children }) {
     return (
         <ul
             id={id}
             className={className}
             onClick={(event) => event.stopPropagation()}
-            {...listProps}
         >
             {children}
         </ul>
@@ -92,7 +77,7 @@ function List({ id, className = '', children, listProps }) {
 
 /**
  * Header mobile menu icon button (with dropdown window).
- * @returns Returns the header mobile menu icon button component.
+ * @returns Returns the component.
  */
 function MobileMenu() {
     return (

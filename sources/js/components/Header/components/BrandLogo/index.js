@@ -1,6 +1,7 @@
 /**
  * @file index.js
  * @description Header brand logo component.
+ * @note This is a sub-component of the <Header /> component.
  */
 
 'use strict';
@@ -8,8 +9,8 @@ import { Link } from 'react-router-dom';
 import * as styles from './BrandLogo.module.css';
 
 /**
- * The header brand logo component.
- * @returns Returns the header brand logo component.
+ * Header brand logo component.
+ * @returns Returns the component.
  */
 function BrandLogo() {
     return (

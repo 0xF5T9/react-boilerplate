@@ -14,7 +14,8 @@ import Button from '../../Button';
 import { showToast } from '../../ToastOverlay';
 
 /**
- * The button sample section.
+ * Button sample section.
+ * @returns Returns the component.
  */
 function ButtonSampleSection() {
     const {

@@ -1,11 +1,12 @@
 /**
  * @file index.js
- * @description The header component.
+ * @description Header component.
  */
 
 'use strict';
 import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../Context/Global';
+
 import BrandLogo from './components/BrandLogo';
 import BrandText from './components/BrandText';
 import Navbar from './components/Navbar';
@@ -17,7 +18,7 @@ const $ = document.querySelector.bind(document);
 
 /**
  * Check if the header is visible.
- * @returns {boolean} Returns true if the header is visible, otherwise returns false.
+ * @returns {Boolean} Returns true if the header is visible, otherwise returns false.
  */
 function isHeaderComponentVisible() {
     const header = $('#header');
@@ -30,7 +31,7 @@ function isHeaderComponentVisible() {
 
 /**
  * Header component.
- * @returns Returns the header component.
+ * @returns Returns the component.
  */
 function Header() {
     const { isHeaderVisible, headerHeight } = useContext(GlobalContext);

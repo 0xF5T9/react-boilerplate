@@ -8,7 +8,8 @@ import ContentSection from '../../Content/components/ContentSection';
 import Checkbox from '../../Checkbox';
 
 /**
- * The checkbox sample section.
+ * Checkbox sample section.
+ * @returns Returns the component.
  */
 function CheckboxSampleSection() {
     return (

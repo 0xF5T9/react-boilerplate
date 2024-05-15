@@ -14,11 +14,11 @@ import Radio from '../Radio';
 import Select from '../Select';
 
 /**
- * The form group component.
+ * Form group component.
  * @param {Object} props Component properties.
- * @param {String} props.id The form group id (optional)
- * @param {*} props.children The form child components (optional)
- * @param {String} props.formMessage The form group message (optional)
+ * @param {String} props.id The form group id.
+ * @param {*} props.children The form child components.
+ * @param {String} props.formMessage The form group message.
  * @returns Returns the component.
  */
 function FormGroup({ id, children, formMessage }) {
@@ -358,10 +358,8 @@ function SignupForm() {
                 <Select
                     id="region-input"
                     name="select-region"
-                    selectProps={{
-                        onBlur: regionInputValidate,
-                        onChange: regionInputValidate,
-                    }}
+                    onBlur={regionInputValidate}
+                    onChange={regionInputValidate}
                 >
                     <option value="none">-- Select --</option>
                     <option value="sea">South East Asia</option>

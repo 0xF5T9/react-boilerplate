@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description The modal overlay component.
+ * @description Modal overlay component.
  */
 
 'use strict';
@@ -12,7 +12,7 @@ const $ = document.querySelector.bind(document);
 /**
  * Check if the modal overlay is visible.
  * The modal overlay becomes visible when a modal window is open.
- * @returns {boolean} Returns true if the modal overlay is visible, otherwise returns false.
+ * @returns {Boolean} Returns true if the modal overlay is visible, otherwise returns false.
  */
 function isModalOverlayVisible() {
     const modal_overlay = $('#modal-overlay');
@@ -63,7 +63,8 @@ function openModalWindow(modalWindowId = '') {
 }
 
 /**
- * The modal overlay component.
+ * Modal overlay component.
+ * @returns Returns the component.
  */
 function ModalOverlay() {
     const modal_overlay = useRef();
