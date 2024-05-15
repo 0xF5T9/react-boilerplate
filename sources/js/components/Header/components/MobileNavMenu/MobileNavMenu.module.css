@@ -1,7 +1,7 @@
-.mobile-menu-icon {
+.mobile-nav-menu-icon {
     display: none !important;
 
-    & > .mobile-menu-dropdown {
+    & > .mobile-nav-menu-dropdown {
         --dropdown-window-background-color: var(--header-background-color);
         --dropdown-window-border-color: var(--color-primary);
         position: fixed;
@@ -226,7 +226,7 @@
     only screen and (max-width: 1024px) and (min-width: 741px) {
     @media only screen and (max-device-width: 964px),
         only screen and (max-width: 964px) {
-        .mobile-menu-icon {
+        .mobile-nav-menu-icon {
             display: flex !important;
         }
     }
@@ -235,7 +235,7 @@
 /* Mobile */
 @media only screen and (max-device-width: 740px),
     only screen and (max-width: 740px) {
-    .mobile-menu-icon {
+    .mobile-nav-menu-icon {
         display: flex !important;
     }
 }

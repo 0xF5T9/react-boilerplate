@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description Header mobile menu icon button component. (with dropdown window)
+ * @description Header mobile navigation menu icon button component. (with dropdown window)
  * @note This component use <IconButton /> and <DropdownWindow /> components.
  * @note This is a sub-component of the <Header /> component.
  */
@@ -9,10 +9,10 @@
 import { Link } from 'react-router-dom';
 import IconButton from '../IconButton';
 import DropdownWindow from '../../../DropdownWindow';
-import * as styles from './MobileMenu.module.css';
+import * as styles from './MobileNavMenu.module.css';
 
 /**
- * Mobile menu list item component.
+ * Mobile navigation menu list item component.
  * @param {Object} props Component properties.
  * @param {String} props.id List item id.
  * @param {String} props.className List item additional class names.
@@ -56,7 +56,7 @@ function ListItem({ id, className, text, icon, to, children }) {
 }
 
 /**
- * Mobile menu item list component.
+ * Mobile navigation menu item list component.
  * @param {Object} props Component properties.
  * @param {String} props.id Item list id.
  * @param {String} props.className Item list class names.
@@ -76,17 +76,17 @@ function List({ id, className, children }) {
 }
 
 /**
- * Header mobile menu icon button (with dropdown window).
+ * Header mobile navigation menu icon button (with dropdown window).
  * @returns Returns the component.
  */
-function MobileMenu() {
+function MobileNavMenu() {
     return (
         <IconButton
             icon="fas fa-bars"
             iconDropdown="fas fa-bars-staggered"
-            className={styles['mobile-menu-icon']}
+            className={styles['mobile-nav-menu-icon']}
         >
-            <DropdownWindow className={styles['mobile-menu-dropdown']}>
+            <DropdownWindow className={styles['mobile-nav-menu-dropdown']}>
                 <ul>
                     <ListItem to="/" text="Home" />
 
@@ -112,4 +112,4 @@ function MobileMenu() {
     );
 }
 
-export default MobileMenu;
+export default MobileNavMenu;

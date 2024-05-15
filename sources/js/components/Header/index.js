@@ -12,7 +12,7 @@ import BrandText from './components/BrandText';
 import Navbar from './components/Navbar';
 import IconButton from './components/IconButton';
 import DropdownWindow from '../DropdownWindow';
-import MobileMenu from './components/MobileMenu';
+import MobileNavMenu from './components/MobileNavMenu';
 import './Header.css';
 const $ = document.querySelector.bind(document);
 
@@ -82,8 +82,8 @@ function Header() {
 
             {/* Right content box */}
             <div id="header-right-content-box">
-                {/* Mobile menu */}
-                <MobileMenu />
+                {/* Mobile navigation menu */}
+                <MobileNavMenu />
 
                 {/* Alert icon */}
                 <IconButton icon="far fa-bell" iconDropdown="fas fa-bell">
