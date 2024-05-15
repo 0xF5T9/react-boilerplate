@@ -12,6 +12,10 @@ import ModalOverlay from '../ModalOverlay';
 import ToastOverlay from '../ToastOverlay';
 import DebugOverlay from '../DebugOverlay';
 
+/**
+ * App component loader.
+ * @returns Returns the loader data.
+ */
 async function loader() {
     // Fetch data ...
     return {}; // Return data ...
@@ -19,6 +23,7 @@ async function loader() {
 
 /**
  * App component.
+ * @returns Returns the component.
  */
 function App() {
     // Use the data to render ...
