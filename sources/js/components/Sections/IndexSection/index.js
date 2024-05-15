@@ -17,7 +17,7 @@ function IndexSection() {
                 flexCenter
                 textCenter
                 fixedHeight
-                sectionProps={{ style: { height: '300px' } }}
+                sectionStyle={{ height: '300px' }}
             >
                 <h1>Fixed Height Section</h1>
                 <p>This content section has a fixed height of 300 pixels.</p>
