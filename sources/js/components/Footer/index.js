@@ -1,18 +1,18 @@
 /**
  * @file index.js
- * @description The footer component.
+ * @description Footer component.
  */
 
 'use strict';
 import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../Context/Global';
-import * as Common from '../Common';
+import Anchor from '../Anchor';
 import './Footer.css';
 const $ = document.querySelector.bind(document);
 
 /**
  * Check if the footer is visible.
- * @returns {boolean} Returns true if the footer is visible, otherwise returns false.
+ * @returns {Boolean} Returns true if the footer is visible, otherwise returns false.
  */
 function isFooterComponentVisible() {
     const footer = $('#footer');
@@ -25,7 +25,7 @@ function isFooterComponentVisible() {
 
 /**
  * Footer component.
- * @returns Returns the footer component.
+ * @returns Returns the component.
  */
 function Footer() {
     const { isFooterVisible, footerHeight } = useContext(GlobalContext);
@@ -51,36 +51,39 @@ function Footer() {
             style={{ display: isFooterVisible ? 'flex' : 'none' }}
         >
             <div id="social-link-wrapper">
-                <Common.Anchor noDefault>
+                <Anchor>
                     <i className="fa-brands fa-github"></i>
-                </Common.Anchor>
+                </Anchor>
 
-                <Common.Anchor noDefault>
+                <Anchor>
                     <i className="fa-brands fa-facebook"></i>
-                </Common.Anchor>
+                </Anchor>
 
-                <Common.Anchor noDefault>
+                <Anchor>
                     <i className="fa-brands fa-instagram"></i>
-                </Common.Anchor>
+                </Anchor>
 
-                <Common.Anchor noDefault>
+                <Anchor>
                     <i className="fa-brands fa-snapchat"></i>
-                </Common.Anchor>
+                </Anchor>
 
-                <Common.Anchor noDefault>
+                <Anchor>
                     <i className="fa-brands fa-pinterest-p"></i>
-                </Common.Anchor>
+                </Anchor>
 
-                <Common.Anchor noDefault>
+                <Anchor>
                     <i className="fa-brands fa-twitter"></i>
-                </Common.Anchor>
+                </Anchor>
 
-                <Common.Anchor noDefault>
+                <Anchor>
                     <i className="fa-brands fa-linkedin-in"></i>
-                </Common.Anchor>
+                </Anchor>
             </div>
             <p id="powered-text">
-                Powered by <Common.Anchor noDefault>0xF5T9</Common.Anchor>
+                Powered by{' '}
+                <Anchor href="https://github.com/0xF5T9" newTab>
+                    0xF5T9
+                </Anchor>
             </p>
         </footer>
     );
