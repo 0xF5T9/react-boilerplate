@@ -14,7 +14,7 @@ import DebugOverlay from '../DebugOverlay';
 
 /**
  * App component loader.
- * @returns Returns the loader data.
+ * @returns {*} Returns the loader data.
  */
 async function loader() {
     // Fetch data ...
