@@ -13,11 +13,12 @@ import * as styles from './DropdownWindow.module.css';
  * @param {Object} props Component properties.
  * @param {String} props.id Dropdown window element id.
  * @param {String} props.className Additional dropdown window element classes.
+ * @param {Function} props.onClose Function that will be invoked after the dropdown window is closed.
  * @param {*} props.children Dropdown window children. (Content)
  * @note Hidden by default, revealed with 'is-open' class.
  * @returns Returns the component.
  */
-function DropdownWindow({ id, className, children }) {
+function DropdownWindow({ id, className, onClose, children }) {
     // Close all drop-down window on background-click.
     useEffect(() => {
         function handleBackgroundClick(event) {
@@ -29,6 +30,7 @@ function DropdownWindow({ id, className, children }) {
                     !dropdown.parentNode.contains(event.target)
                 ) {
                     dropdown.classList.remove('is-open');
+                    dropdown.classList.add('is-close');
                 }
             }
         }
@@ -42,6 +44,14 @@ function DropdownWindow({ id, className, children }) {
             className={`${styles['dropdown-window']} 
                         ${className ? className : ''}`}
             onClick={(e) => e.stopPropagation()}
+            onAnimationEnd={(event) => {
+                if (
+                    onClose &&
+                    event.currentTarget.classList.contains('is-close')
+                ) {
+                    onClose();
+                }
+            }}
         >
             {children}
         </div>

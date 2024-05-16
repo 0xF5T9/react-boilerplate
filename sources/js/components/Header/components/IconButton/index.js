@@ -62,10 +62,12 @@ function IconButton({
             );
             if (dropdown_window) {
                 if (!dropdown_window.classList.contains('is-open')) {
+                    dropdown_window.classList.remove('is-close');
                     dropdown_window.classList.add('is-open');
                     setDropdownVisibility(true);
                 } else {
                     dropdown_window.classList.remove('is-open');
+                    dropdown_window.classList.add('is-close');
                     setDropdownVisibility(false);
                 }
             }

@@ -13,6 +13,7 @@ import Navbar from './components/Navbar';
 import IconButton from './components/IconButton';
 import DropdownWindow from '../DropdownWindow';
 import MobileNavMenu from './components/MobileNavMenu';
+import IconButtonMenu from './components/IconButtonMenu';
 import './Header.css';
 const $ = document.querySelector.bind(document);
 
@@ -91,9 +92,45 @@ function Header() {
                 </IconButton>
 
                 {/* User icon */}
-                <IconButton icon="fas fa-circle-user">
-                    <DropdownWindow></DropdownWindow>
-                </IconButton>
+                <IconButtonMenu
+                    icon="fas fa-circle-user"
+                    menus={[
+                        {
+                            id: 'default',
+                            menu: [
+                                {
+                                    text: 'Log In',
+                                    icon: 'fas fa-right-to-bracket',
+                                    to: 'login',
+                                },
+                                {
+                                    text: 'Sign Up',
+                                    icon: 'fas fa-user-plus',
+                                    onClick: () =>
+                                        console.log('This is a test.'),
+                                },
+                                {
+                                    text: 'Settings',
+                                    icon: 'fas fa-gear',
+                                    gotoMenu: 'settings',
+                                },
+                            ],
+                        },
+                        {
+                            id: 'settings',
+                            menu: [
+                                {
+                                    text: 'No option availables.',
+                                },
+                                {
+                                    text: 'Back',
+                                    icon: 'fas fa-arrow-left',
+                                    gotoMenu: 'default',
+                                },
+                            ],
+                        },
+                    ]}
+                />
             </div>
         </header>
     );
