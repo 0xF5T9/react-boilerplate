@@ -7,6 +7,7 @@
         height: 100%;
         background-color: transparent;
         list-style-type: none;
+        user-select: none;
 
         & > li {
             position: relative;
