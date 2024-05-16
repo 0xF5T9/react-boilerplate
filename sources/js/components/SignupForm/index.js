@@ -16,9 +16,9 @@ import Select from '../Select';
 /**
  * Form group component.
  * @param {Object} props Component properties.
- * @param {String} props.id The form group id.
- * @param {*} props.children The form child components.
- * @param {String} props.formMessage The form group message.
+ * @param {String} props.id Form group id.
+ * @param {*} props.children Form child components.
+ * @param {String} props.formMessage Form group message.
  * @returns Returns the component.
  */
 function FormGroup({ id, children, formMessage }) {
