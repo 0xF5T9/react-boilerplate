@@ -1,6 +1,7 @@
 /**
  * @file index.js
  * @description Modal overlay component.
+ * @todo TODO: Rework ...
  */
 
 'use strict';
@@ -26,22 +27,17 @@ function isModalOverlayVisible() {
 
 /**
  * Close the modal overlay.
- * @param {Boolean} skipAnimation Specifies whether to skip the modal window close animation.
  */
-function closeModalOverlay(skipAnimation = false) {
+function closeModalOverlay() {
     if (!isModalOverlayVisible()) return;
-    for (const window of $('#modal-overlay').querySelectorAll(
+    const modal_overlay = $('#modal-overlay');
+    for (const modal_window of modal_overlay.querySelectorAll(
         '.modal-window.is-open'
     )) {
-        if (!skipAnimation) {
-            window.style.animation = `modal-window-fade-out 0.1s ease forwards`;
-            setTimeout(function () {
-                window.classList.remove('is-open');
-                window.removeAttribute('style');
-            }, 100);
-        } else {
-            window.classList.remove('is-open');
-        }
+        modal_overlay.classList.remove('is-open');
+        modal_overlay.classList.add('is-close');
+        modal_window.classList.remove('is-open');
+        modal_window.classList.add('is-close');
     }
 }
 
@@ -50,15 +46,21 @@ function closeModalOverlay(skipAnimation = false) {
  * @param {String} modalWindowId The modal window id.
  */
 function openModalWindow(modalWindowId = '') {
-    if (isModalOverlayVisible()) closeModalOverlay(true);
+    if (isModalOverlayVisible()) closeModalOverlay();
     const modal_overlay = $('#modal-overlay');
     if (modal_overlay) {
+        if (!modal_overlay.classList.contains('is-open')) {
+            modal_overlay.classList.remove('is-close');
+            modal_overlay.classList.add('is-open');
+        }
+
         const modal_window = modal_overlay.querySelector(`#${modalWindowId}`);
         if (!modal_window) {
             console.log(`'#${modalWindowId}' modal window not found.`);
             return;
         }
         modal_window.classList.add('is-open');
+        modal_window.classList.remove('is-close');
     }
 }
 
