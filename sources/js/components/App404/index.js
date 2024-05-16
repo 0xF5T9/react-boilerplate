@@ -22,8 +22,8 @@ function App404() {
             <style>
                 {`
                     :root {
-                    --header-height: 0px;
-                    --footer-height: 0px;
+                    --header-height: 0px !important;
+                    --footer-height: 0px !important;
                     }
                 `}
             </style>
