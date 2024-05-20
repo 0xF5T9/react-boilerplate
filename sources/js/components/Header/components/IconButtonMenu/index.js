@@ -28,7 +28,12 @@ function ListItem({ text, icon, to, onClick }) {
             className={styles['list-item']}
             onClick={!to ? onClick : () => navigate(to)}
         >
-            <Link className={styles['list-item-link']} to={to} tabIndex={-1}>
+            <Link
+                className={styles['list-item-link']}
+                to={to}
+                onClick={!to ? (event) => event.preventDefault() : null}
+                tabIndex={-1}
+            >
                 {icon ? (
                     <i
                         className={`${styles['list-item-icon'] || ''} ${icon}`}
@@ -73,14 +78,16 @@ function IconButtonMenu({ icon, iconDropdown, menus }) {
                                 to={item.to}
                                 onClick={
                                     item.gotoMenu
-                                        ? () =>
+                                        ? (event) => {
+                                              event.preventDefault();
                                               setRender(
                                                   menus.find(
                                                       (element) =>
                                                           element.id ===
                                                           item.gotoMenu
                                                   )
-                                              )
+                                              );
+                                          }
                                         : item.onClick
                                 }
                             />
