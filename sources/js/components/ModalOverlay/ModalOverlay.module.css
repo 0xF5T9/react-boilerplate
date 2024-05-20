@@ -1,8 +1,29 @@
+@keyframes modal-overlay-fade-in {
+    from {
+        visibility: collapse;
+        background-color: transparent;
+    }
+    to {
+        visibility: visible;
+        background-color: var(--modal-overlay-background-color);
+    }
+}
+
+@keyframes modal-overlay-fade-out {
+    from {
+        visibility: visible;
+        background-color: var(--modal-overlay-background-color);
+    }
+    to {
+        visibility: collapse;
+        background-color: transparent;
+    }
+}
+
 @keyframes modal-window-fade-in {
     from {
         opacity: 0;
         visibility: collapse;
-        display: none;
     }
 
     to {
@@ -20,14 +41,13 @@
     to {
         opacity: 0;
         visibility: collapse;
-        display: none;
     }
 }
 
-#modal-overlay {
+.modal-overlay {
     --modal-overlay-background-color: rgba(45, 42, 46, 0.9);
     --modal-window-margin: 50px;
-    --modal-window-width: 700px;
+    --modal-window-width: auto;
     --modal-window-height: auto;
     display: flex;
     flex-flow: column nowrap;
@@ -41,15 +61,21 @@
     background-color: rgba(45, 42, 46, 0);
     z-index: 100;
     visibility: collapse;
-    transition: all ease 0.1s;
 
     &.is-open {
-        background-color: var(--modal-overlay-background-color);
-        visibility: visible;
+        animation: modal-overlay-fade-in 0.1s linear forwards;
+    }
+
+    &.is-close {
+        animation: modal-overlay-fade-out 0.1s linear forwards;
+    }
+
+    &.is-hidden {
+        display: none !important;
     }
 
     & > .modal-window {
-        display: none;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -77,30 +103,15 @@
         }
 
         &.is-open {
-            animation: modal-window-fade-in 0.1s ease forwards;
-            display: block;
+            animation: modal-window-fade-in 0.1s linear forwards;
         }
 
         &.is-close {
-            animation: modal-window-fade-out 0.1s ease forwards;
-            display: block;
+            animation: modal-window-fade-out 0.1s linear forwards;
+        }
+
+        &.is-hidden {
+            display: none !important;
         }
     }
-}
-
-#custom-modal-window-1,
-#custom-modal-window-2 {
-    --modal-window-width: 400px;
-    padding: 20px;
-    text-align: center;
-
-    & > *:not(:first-child) {
-        margin-top: 10px;
-    }
-}
-
-#signup-form-modal-window {
-    --modal-window-width: 310px;
-    padding: 20px;
-    overflow: auto !important;
 }
