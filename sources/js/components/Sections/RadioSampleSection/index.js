@@ -15,21 +15,64 @@ function RadioSampleSection() {
     return (
         <ContentSection id="radio-sample-section" flexCenter textCenter>
             <h1>Default Radios</h1>
-            <Radio labelText="Primary" id="r-1" name="rg-1" />
-            <Radio labelText="Red" color="red" id="r-2" name="rg-1" />
-            <Radio labelText="Orange" color="orange" id="r-3" name="rg-1" />
-            <Radio labelText="Yellow" color="yellow" id="r-4" name="rg-1" />
-            <Radio labelText="Green" color="green" id="r-5" name="rg-1" />
-            <Radio labelText="Blue" color="blue" id="r-6" name="rg-1" />
-            <Radio labelText="Purple" color="purple" id="r-7" name="rg-1" />
+            <Radio labelText="Primary" id="r-1" name="rg-1" value="r1" />
+            <Radio
+                labelText="Red"
+                color="red"
+                id="r-2"
+                name="rg-1"
+                value="r2"
+            />
+            <Radio
+                labelText="Orange"
+                color="orange"
+                id="r-3"
+                name="rg-1"
+                value="r3"
+            />
+            <Radio
+                labelText="Yellow"
+                color="yellow"
+                id="r-4"
+                name="rg-1"
+                value="r4"
+            />
+            <Radio
+                labelText="Green"
+                color="green"
+                id="r-5"
+                name="rg-1"
+                value="r5"
+            />
+            <Radio
+                labelText="Blue"
+                color="blue"
+                id="r-6"
+                name="rg-1"
+                value="r6"
+            />
+            <Radio
+                labelText="Purple"
+                color="purple"
+                id="r-7"
+                name="rg-1"
+                value="r7"
+            />
             <h1 style={{ marginTop: '26px' }}>Alternative Radios 1</h1>
-            <Radio labelText="Primary" altStyle="alt-1" id="ra-1" name="rg-2" />
+            <Radio
+                labelText="Primary"
+                altStyle="alt-1"
+                id="ra-1"
+                name="rg-2"
+                value="ra1"
+            />
             <Radio
                 labelText="Red"
                 color="red"
                 altStyle="alt-1"
                 id="ra-2"
                 name="rg-2"
+                value="ra2"
             />
             <Radio
                 labelText="Orange"
@@ -37,6 +80,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="ra-3"
                 name="rg-2"
+                value="ra3"
             />
             <Radio
                 labelText="Yellow"
@@ -44,6 +88,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="ra-4"
                 name="rg-2"
+                value="ra4"
             />
             <Radio
                 labelText="Green"
@@ -51,6 +96,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="ra-5"
                 name="rg-2"
+                value="ra5"
             />
             <Radio
                 labelText="Blue"
@@ -58,6 +104,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="ra-6"
                 name="rg-2"
+                value="ra6"
             />
             <Radio
                 labelText="Purple"
@@ -65,6 +112,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="ra-7"
                 name="rg-2"
+                value="ra7"
             />
             <h1 style={{ marginTop: '26px' }}>Alternative Radios 2</h1>
             <Radio
@@ -72,6 +120,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="ra2-1"
                 name="rg-3"
+                value="ra21"
             />
             <Radio
                 labelText="Red"
@@ -79,6 +128,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="ra2-2"
                 name="rg-3"
+                value="ra22"
             />
             <Radio
                 labelText="Orange"
@@ -86,6 +136,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="ra2-3"
                 name="rg-3"
+                value="ra23"
             />
             <Radio
                 labelText="Yellow"
@@ -93,6 +144,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="ra2-4"
                 name="rg-3"
+                value="ra24"
             />
             <Radio
                 labelText="Green"
@@ -100,6 +152,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="ra2-5"
                 name="rg-3"
+                value="ra25"
             />
             <Radio
                 labelText="Blue"
@@ -107,6 +160,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="ra2-6"
                 name="rg-3"
+                value="ra26"
             />
             <Radio
                 labelText="Purple"
@@ -114,14 +168,22 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="ra2-7"
                 name="rg-3"
+                value="ra27"
             />
             <h1 style={{ marginTop: '26px' }}>White-Only Radios</h1>
-            <Radio labelText="Primary" id="wr-1" name="rg-4" whiteOnly />
+            <Radio
+                labelText="Primary"
+                id="wr-1"
+                name="rg-4"
+                value="wr1"
+                whiteOnly
+            />
             <Radio
                 labelText="Red"
                 color="red"
                 id="wr-2"
                 name="rg-4"
+                value="wr2"
                 whiteOnly
             />
             <Radio
@@ -129,6 +191,7 @@ function RadioSampleSection() {
                 color="orange"
                 id="wr-3"
                 name="rg-4"
+                value="wr3"
                 whiteOnly
             />
             <Radio
@@ -136,6 +199,7 @@ function RadioSampleSection() {
                 color="yellow"
                 id="wr-4"
                 name="rg-4"
+                value="wr4"
                 whiteOnly
             />
             <Radio
@@ -143,6 +207,7 @@ function RadioSampleSection() {
                 color="green"
                 id="wr-5"
                 name="rg-4"
+                value="wr5"
                 whiteOnly
             />
             <Radio
@@ -150,6 +215,7 @@ function RadioSampleSection() {
                 color="blue"
                 id="wr-6"
                 name="rg-4"
+                value="wr6"
                 whiteOnly
             />
             <Radio
@@ -157,15 +223,23 @@ function RadioSampleSection() {
                 color="purple"
                 id="wr-7"
                 name="rg-4"
+                value="wr7"
                 whiteOnly
             />
             <h1 style={{ marginTop: '26px' }}>Disabled Radios</h1>
-            <Radio labelText="Primary" id="dr-1" name="drg-1" disabled />
+            <Radio
+                labelText="Primary"
+                id="dr-1"
+                name="drg-1"
+                value="dr1"
+                disabled
+            />
             <Radio
                 labelText="Red"
                 color="red"
                 id="dr-2"
                 name="drg-1"
+                value="dr2"
                 disabled
             />
             <Radio
@@ -173,6 +247,7 @@ function RadioSampleSection() {
                 color="orange"
                 id="dr-3"
                 name="drg-1"
+                value="dr3"
                 disabled
             />
             <Radio
@@ -180,6 +255,7 @@ function RadioSampleSection() {
                 color="yellow"
                 id="dr-4"
                 name="drg-1"
+                value="dr4"
                 disabled
             />
             <Radio
@@ -187,6 +263,7 @@ function RadioSampleSection() {
                 color="green"
                 id="dr-5"
                 name="drg-1"
+                value="dr5"
                 disabled
             />
             <Radio
@@ -194,6 +271,7 @@ function RadioSampleSection() {
                 color="blue"
                 id="dr-6"
                 name="drg-1"
+                value="dr6"
                 disabled
             />
             <Radio
@@ -201,6 +279,7 @@ function RadioSampleSection() {
                 color="purple"
                 id="dr-7"
                 name="drg-1"
+                value="dr7"
                 disabled
             />
             <br />
@@ -209,6 +288,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="dra-1"
                 name="drg-2"
+                value="dra1"
                 disabled
             />
             <Radio
@@ -217,6 +297,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="dra-2"
                 name="drg-2"
+                value="dra2"
                 disabled
             />
             <Radio
@@ -225,6 +306,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="dra-3"
                 name="drg-2"
+                value="dra3"
                 disabled
             />
             <Radio
@@ -233,6 +315,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="dra-4"
                 name="drg-2"
+                value="dra4"
                 disabled
             />
             <Radio
@@ -241,6 +324,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="dra-5"
                 name="drg-2"
+                value="dra5"
                 disabled
             />
             <Radio
@@ -249,6 +333,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="dra-6"
                 name="drg-2"
+                value="dra6"
                 disabled
             />
             <Radio
@@ -257,6 +342,7 @@ function RadioSampleSection() {
                 altStyle="alt-1"
                 id="dra-7"
                 name="drg-2"
+                value="dra7"
                 disabled
             />
             <br />
@@ -265,6 +351,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="dra2-1"
                 name="drg-3"
+                value="dra21"
                 disabled
             />
             <Radio
@@ -273,6 +360,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="dra2-2"
                 name="drg-3"
+                value="dra22"
                 disabled
             />
             <Radio
@@ -281,6 +369,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="dra2-3"
                 name="drg-3"
+                value="dra23"
                 disabled
             />
             <Radio
@@ -289,6 +378,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="dra2-4"
                 name="drg-3"
+                value="dra24"
                 disabled
             />
             <Radio
@@ -297,6 +387,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="dra2-5"
                 name="drg-3"
+                value="dra25"
                 disabled
             />
             <Radio
@@ -305,6 +396,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="dra2-6"
                 name="drg-3"
+                value="dra26"
                 disabled
             />
             <Radio
@@ -313,6 +405,7 @@ function RadioSampleSection() {
                 altStyle="alt-2"
                 id="dra2-7"
                 name="drg-3"
+                value="dra27"
                 disabled
             />
             <br />
@@ -320,6 +413,7 @@ function RadioSampleSection() {
                 labelText="Primary"
                 id="dwr-1"
                 name="drg-4"
+                value="dwr1"
                 whiteOnly
                 disabled
             />
@@ -328,6 +422,7 @@ function RadioSampleSection() {
                 color="red"
                 id="dwr-2"
                 name="drg-4"
+                value="dwr2"
                 whiteOnly
                 disabled
             />
@@ -336,6 +431,7 @@ function RadioSampleSection() {
                 color="orange"
                 id="dwr-3"
                 name="drg-4"
+                value="dwr3"
                 whiteOnly
                 disabled
             />
@@ -344,6 +440,7 @@ function RadioSampleSection() {
                 color="yellow"
                 id="dwr-4"
                 name="drg-4"
+                value="dwr4"
                 whiteOnly
                 disabled
             />
@@ -352,6 +449,7 @@ function RadioSampleSection() {
                 color="green"
                 id="dwr-5"
                 name="drg-4"
+                value="dwr5"
                 whiteOnly
                 disabled
             />
@@ -360,6 +458,7 @@ function RadioSampleSection() {
                 color="blue"
                 id="dwr-6"
                 name="drg-4"
+                value="dwr6"
                 whiteOnly
                 disabled
             />
@@ -368,13 +467,31 @@ function RadioSampleSection() {
                 color="purple"
                 id="dwr-7"
                 name="drg-4"
+                value="dwr7"
                 whiteOnly
                 disabled
             />
             <h1 style={{ marginTop: '26px' }}>Sized Radios</h1>
-            <Radio labelText="Small" id="sr-small" size="small" name="srg" />
-            <Radio labelText="Default" id="sr-default" name="srg" />
-            <Radio labelText="Large" id="sr-large" size="large" name="srg" />
+            <Radio
+                labelText="Small"
+                id="sr-small"
+                size="small"
+                name="srg"
+                value="srsmall"
+            />
+            <Radio
+                labelText="Default"
+                id="sr-default"
+                name="srg"
+                value="srdefault"
+            />
+            <Radio
+                labelText="Large"
+                id="sr-large"
+                size="large"
+                name="srg"
+                value="srlarge"
+            />
         </ContentSection>
     );
 }
