@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import PropTypes from 'prop-types';
 import * as styles from './Button.module.css';
 
 /**
@@ -61,5 +62,28 @@ function Button({
         </Component>
     );
 }
+
+Button.propTypes = {
+    color: PropTypes.oneOf([
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'purple',
+    ]),
+    size: PropTypes.oneOf(['small', 'large']),
+    outline: PropTypes.bool,
+    white: PropTypes.bool,
+    whiteOnly: PropTypes.bool,
+    id: PropTypes.string,
+    className: PropTypes.string,
+    value: PropTypes.string,
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool,
+    style: PropTypes.object,
+    children: PropTypes.node,
+    elementType: PropTypes.oneOf(['button', 'a', 'div']),
+};
 
 export default Button;
