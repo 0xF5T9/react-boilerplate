@@ -4,6 +4,7 @@
  */
 
 import { useRouteError, Link, ScrollRestoration } from 'react-router-dom';
+import configs from '../../../configs';
 import Content from '../Content';
 import ContentSection from '../Content/components/ContentSection';
 import Button from '../Button';
@@ -44,7 +45,7 @@ function App404() {
                         </h1>
                         <div className={styles['homepage-link-404']}>
                             <Button>
-                                <Link to="/">
+                                <Link to={configs.routes.home}>
                                     <i className="fa-solid fa-arrow-left"></i>{' '}
                                     Back To Homepage
                                 </Link>{' '}

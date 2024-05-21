@@ -7,6 +7,7 @@
 
 'use strict';
 import { Link } from 'react-router-dom';
+import configs from '../../../../../configs';
 import IconButton from '../IconButton';
 import DropdownWindow from '../../../DropdownWindow';
 import * as styles from './MobileNavMenu.module.css';
@@ -88,13 +89,25 @@ function MobileNavMenu() {
         >
             <DropdownWindow className={styles['mobile-nav-menu-dropdown']}>
                 <ul>
-                    <ListItem to="/" text="Home" />
+                    <ListItem to={configs.routes.home} text="Home" />
 
                     <ListItem icon="fas fa-caret-right" text="Samples">
-                        <ListItem to="/samples/button" text="Button" />
-                        <ListItem to="/samples/input" text="Input" />
-                        <ListItem to="/samples/checkbox" text="Checkbox" />
-                        <ListItem to="/samples/radio" text="Radio" />
+                        <ListItem
+                            to={configs.routes.samples.button}
+                            text="Button"
+                        />
+                        <ListItem
+                            to={configs.routes.samples.input}
+                            text="Input"
+                        />
+                        <ListItem
+                            to={configs.routes.samples.checkbox}
+                            text="Checkbox"
+                        />
+                        <ListItem
+                            to={configs.routes.samples.radio}
+                            text="Radio"
+                        />
                     </ListItem>
 
                     <ListItem icon="fas fa-caret-right" text="Downloads">

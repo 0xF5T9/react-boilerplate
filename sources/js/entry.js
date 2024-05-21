@@ -12,6 +12,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import * as helper from './helper';
 
+import configs from '../configs';
 import { GlobalContextProvider } from './components/Context/Global';
 import App, { loader as appLoader } from './components/App';
 import App404 from './components/App404';
@@ -28,7 +29,7 @@ const $ = document.querySelector.bind(document);
     // Create the browser router.
     const BrowserRouter = createBrowserRouter([
         {
-            path: '/',
+            path: configs.routes.home,
             element: (
                 <GlobalContextProvider>
                     <App />
@@ -49,19 +50,19 @@ const $ = document.querySelector.bind(document);
                             element: <Sections.IndexSection />,
                         },
                         {
-                            path: 'samples/button',
+                            path: configs.routes.samples.button,
                             element: <Sections.ButtonSampleSection />,
                         },
                         {
-                            path: 'samples/input',
+                            path: configs.routes.samples.input,
                             element: <Sections.InputSampleSection />,
                         },
                         {
-                            path: 'samples/checkbox',
+                            path: configs.routes.samples.checkbox,
                             element: <Sections.CheckboxSampleSection />,
                         },
                         {
-                            path: 'samples/radio',
+                            path: configs.routes.samples.radio,
                             element: <Sections.RadioSampleSection />,
                         },
                     ],

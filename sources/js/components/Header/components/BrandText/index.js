@@ -4,6 +4,7 @@
  * @note This is a sub-component of the <Header /> component.
  */
 import { Link } from 'react-router-dom';
+import configs from '../../../../../configs';
 import * as styles from './BrandText.module.css';
 
 /**
@@ -12,7 +13,11 @@ import * as styles from './BrandText.module.css';
  */
 function BrandText() {
     return (
-        <Link className={styles['header-brand-text']} to="/" tabIndex={-1}>
+        <Link
+            className={styles['header-brand-text']}
+            to={configs.routes.home}
+            tabIndex={-1}
+        >
             <div>
                 <h1>Boilerplate Project</h1>
             </div>

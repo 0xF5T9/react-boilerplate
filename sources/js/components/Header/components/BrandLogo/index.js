@@ -6,6 +6,7 @@
 
 'use strict';
 import { Link } from 'react-router-dom';
+import configs from '../../../../../configs';
 import * as styles from './BrandLogo.module.css';
 
 /**
@@ -14,7 +15,11 @@ import * as styles from './BrandLogo.module.css';
  */
 function BrandLogo() {
     return (
-        <Link className={styles['header-brand-logo']} to="/" tabIndex={-1}>
+        <Link
+            className={styles['header-brand-logo']}
+            to={configs.routes.home}
+            tabIndex={-1}
+        >
             <img src="/assets/static/img/brand-logo.png" alt="Brand Logo" />
         </Link>
     );

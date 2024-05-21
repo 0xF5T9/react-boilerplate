@@ -6,6 +6,7 @@
 
 'use strict';
 import { Link } from 'react-router-dom';
+import configs from '../../../../../configs';
 import * as styles from './Navbar.module.css';
 
 /**
@@ -52,13 +53,25 @@ function Navbar() {
     return (
         <nav id="header-navbar" className={styles['navbar']}>
             <NavbarList>
-                <NavbarItem text="Home" to="/" />
+                <NavbarItem text="Home" to={configs.routes.home} />
 
                 <NavbarItem text="Samples" icon="fas fa-caret-down">
-                    <NavbarItem text="Buttons" to="/samples/button" />
-                    <NavbarItem text="Inputs" to="/samples/input" />
-                    <NavbarItem text="Checkboxes" to="/samples/checkbox" />
-                    <NavbarItem text="Radios" to="/samples/radio" />
+                    <NavbarItem
+                        text="Buttons"
+                        to={configs.routes.samples.button}
+                    />
+                    <NavbarItem
+                        text="Inputs"
+                        to={configs.routes.samples.input}
+                    />
+                    <NavbarItem
+                        text="Checkboxes"
+                        to={configs.routes.samples.checkbox}
+                    />
+                    <NavbarItem
+                        text="Radios"
+                        to={configs.routes.samples.radio}
+                    />
                 </NavbarItem>
 
                 <NavbarItem text="Downloads" icon="fas fa-caret-down">
