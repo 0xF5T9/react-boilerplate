@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import PropTypes from 'prop-types';
 import * as styles from './Checkbox.module.css';
 
 /**
@@ -59,5 +60,27 @@ function Checkbox({
         </div>
     );
 }
+
+Checkbox.propTypes = {
+    labelText: PropTypes.string,
+    color: PropTypes.oneOf([
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'purple',
+    ]),
+    size: PropTypes.oneOf(['small', 'large']),
+    altStyle: PropTypes.oneOf(['alt-1', 'alt-2']),
+    whiteOnly: PropTypes.bool,
+    id: PropTypes.string,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    required: PropTypes.bool,
+    disabled: PropTypes.bool,
+    wrapperStyle: PropTypes.object,
+    checkboxStyle: PropTypes.object,
+};
 
 export default Checkbox;
