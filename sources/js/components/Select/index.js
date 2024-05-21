@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import PropTypes from 'prop-types';
 import * as styles from './Select.module.css';
 
 /**
@@ -51,5 +52,25 @@ function Select({
         </select>
     );
 }
+
+Select.propTypes = {
+    id: PropTypes.string,
+    className: PropTypes.string,
+    name: PropTypes.string,
+    color: PropTypes.oneOf([
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'purple',
+    ]),
+    size: PropTypes.oneOf(['small', 'large']),
+    altStyle: PropTypes.bool,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    disabled: PropTypes.bool,
+    children: PropTypes.node,
+};
 
 export default Select;
