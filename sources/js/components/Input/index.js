@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import PropTypes from 'prop-types';
 import * as styles from './Input.module.css';
 
 /**
@@ -14,7 +15,7 @@ import * as styles from './Input.module.css';
  * @param {String} props.size Input size. ('small' | 'large')
  * @param {Boolean} props.transparent Make the input background transparent.
  * @param {Boolean} props.altStyle Use input alternative style.
- * @param {Object} props.icon Input icon. ({iconPosition: 'icon-left' | 'icon-right', iconClass: '<icon classses>'})
+ * @param {Object} props.icon Input icon. ({iconPosition: 'left' | 'right', iconClass: '<icon classses>'})
  * @param {String} props.placeholder Input placeholder.
  * @param {String} props.id Input id. (This applies to the input element)
  * @param {String} props.className Additional input class names. (This applies to the wrapper element)
@@ -68,5 +69,32 @@ function Input({
         </div>
     );
 }
+
+Input.propTypes = {
+    type: PropTypes.oneOf(['text', 'email', 'password']),
+    color: PropTypes.oneOf([
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'purple',
+    ]),
+    size: PropTypes.oneOf(['small', 'large']),
+    transparent: PropTypes.bool,
+    altStyle: PropTypes.bool,
+    icon: PropTypes.shape({
+        iconPosition: PropTypes.oneOf(['left', 'right']).isRequired,
+        iconClass: PropTypes.string.isRequired,
+    }),
+    placeholder: PropTypes.string,
+    id: PropTypes.string,
+    className: PropTypes.string,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    disabled: PropTypes.bool,
+    wrapperStyle: PropTypes.object,
+    inputStyle: PropTypes.object,
+};
 
 export default Input;
