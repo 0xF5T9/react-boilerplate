@@ -6,6 +6,7 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin'); // CopyPlugin: Copy files.
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // HtmlWebpackPlugin: Generate HTML files from template files.
+const Dotenv = require('dotenv-webpack'); // Dotenv: Enable support for environment files.
 
 console.log('Using Webpack production configuration ...');
 
@@ -66,6 +67,10 @@ module.exports = {
         // Copy static assets to 'public' folder.
         new CopyPlugin({
             patterns: [{ from: 'sources/static' }],
+        }),
+        // Enable support for environment files.
+        new Dotenv({
+            path: './.env.production',
         }),
     ],
     // Optimizations:

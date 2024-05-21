@@ -149,5 +149,8 @@ window.onkeydown = function (event) {
 };
 
 console.log(
-    `All operations completed successfully.\nReact version: ${React.version}\nReact DOM version: ${ReactDOM.version}`
+    `All operations completed successfully.`,
+    `\nReact version: ${React.version}`,
+    `\nReact DOM version: ${ReactDOM.version}`,
+    `\n${process.env.WELCOME_MESSAGE}`
 );

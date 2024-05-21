@@ -5,6 +5,7 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // HtmlWebpackPlugin: Generate HTML files from template files.
+const Dotenv = require('dotenv-webpack'); // Dotenv: Enable support for environment files.
 
 console.log('Using Webpack development configuration ...');
 
@@ -67,6 +68,10 @@ module.exports = {
             filename: 'index.html',
             template: './sources/html/index.html',
             chunks: ['index', 'style'],
+        }),
+        // Enable support for environment files.
+        new Dotenv({
+            path: './.env.development',
         }),
     ],
 };
