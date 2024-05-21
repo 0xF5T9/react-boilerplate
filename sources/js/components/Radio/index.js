@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import PropTypes from 'prop-types';
 import * as styles from './Radio.module.css';
 
 /**
@@ -62,5 +63,28 @@ function Radio({
         </div>
     );
 }
+
+Radio.propTypes = {
+    labelText: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    color: PropTypes.oneOf([
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'purple',
+    ]),
+    size: PropTypes.oneOf(['small', 'large']),
+    altStyle: PropTypes.oneOf(['alt-1', 'alt-2']),
+    whiteOnly: PropTypes.bool,
+    id: PropTypes.string,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool,
+    wrapperStyle: PropTypes.object,
+    radioStyle: PropTypes.object,
+};
 
 export default Radio;
