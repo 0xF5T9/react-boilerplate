@@ -8,7 +8,8 @@
         "build-prod": "webpack --config ./webpack.config.prod.js",
         "start-live-server": "live-server ./public",
         "start-webpack": "webpack-dev-server --config ./webpack.config.js",
-        "start-express": "node ./app.js"
+        "start-express": "node ./app.js",
+        "start-json-server": "json-server ./json-server/database.json"
     },
     "keywords": [],
     "author": "",
@@ -33,6 +34,7 @@
     },
     "dependencies": {
         "@tippyjs/react": "^4.2.6",
+        "json-server": "^1.0.0-beta.0",
         "prop-types": "^15.8.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

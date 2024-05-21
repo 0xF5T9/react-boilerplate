@@ -83,5 +83,21 @@
                 "clear": true
             },
         },
+        {
+            "label": "Start json-server",
+            "detail": "Start the json-server (Fake API) for testings.",
+            "type": "shell",
+            "command": "npm run start-json-server",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "revealProblems": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+        },
     ]
 }
