@@ -10,7 +10,7 @@ import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import * as helper from './helper';
+import helper from './helper.js';
 import apis from '../apis';
 import configs from '../configs';
 
