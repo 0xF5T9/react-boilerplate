@@ -11,8 +11,9 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import * as helper from './helper';
-
+import apis from '../apis';
 import configs from '../configs';
+
 import { GlobalContextProvider } from './components/Context/Global';
 import App, { loader as appLoader } from './components/App';
 import App404 from './components/App404';
@@ -142,6 +143,15 @@ window.onkeydown = function (event) {
         }
         case 'F1': {
             openModalWindow('signup-form-modal-window');
+            break;
+        }
+        case 'F2': {
+            // TODO: To be removed.
+            apis.jsonServer.get(
+                apis.jsonServer.getEndpoints().posts,
+                (result) => console.log(result)
+            );
+
             break;
         }
         default:
