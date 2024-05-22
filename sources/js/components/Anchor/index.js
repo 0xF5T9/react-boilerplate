@@ -3,7 +3,8 @@
  * @description Anchor component.
  */
 
-'use strict';
+import PropTypes from 'prop-types';
+('use strict');
 
 /**
  * Anchor component.
@@ -39,5 +40,15 @@ function Anchor({ id, className, href, newTab, onClick, style, children }) {
         </a>
     );
 }
+
+Anchor.propTypes = {
+    id: PropTypes.string,
+    className: PropTypes.string,
+    href: PropTypes.string,
+    newTab: PropTypes.bool,
+    onClick: PropTypes.func,
+    style: PropTypes.object,
+    children: PropTypes.node,
+};
 
 export default Anchor;

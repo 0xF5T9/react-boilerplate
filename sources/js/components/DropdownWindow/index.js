@@ -5,6 +5,7 @@
  */
 
 'use strict';
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import * as styles from './DropdownWindow.module.css';
 
@@ -57,5 +58,12 @@ function DropdownWindow({ id, className, onClose, children }) {
         </div>
     );
 }
+
+DropdownWindow.propTypes = {
+    id: PropTypes.string,
+    className: PropTypes.string,
+    onClose: PropTypes.func,
+    children: PropTypes.node,
+};
 
 export default DropdownWindow;

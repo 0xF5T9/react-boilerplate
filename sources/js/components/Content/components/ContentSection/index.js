@@ -5,6 +5,7 @@
  */
 
 'use strict';
+import PropTypes from 'prop-types';
 import * as styles from './ContentSection.module.css';
 
 /**
@@ -59,5 +60,19 @@ function ContentSection({
         </section>
     );
 }
+
+ContentSection.propTypes = {
+    id: PropTypes.string,
+    className: PropTypes.string,
+    noPadding: PropTypes.bool,
+    textCenter: PropTypes.bool,
+    flexCenter: PropTypes.bool,
+    fixedHeight: PropTypes.bool,
+    topBorder: PropTypes.bool,
+    noChildDefaultMargin: PropTypes.bool,
+    children: PropTypes.node,
+    sectionStyle: PropTypes.object,
+    innerSectionStyle: PropTypes.object,
+};
 
 export default ContentSection;

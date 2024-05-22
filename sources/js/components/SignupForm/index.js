@@ -6,6 +6,7 @@
 
 'use strict';
 
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Button from '../Button';
 import Input from '../Input';
@@ -17,11 +18,11 @@ import Select from '../Select';
  * Form group component.
  * @param {Object} props Component properties.
  * @param {String} props.id Form group id.
- * @param {*} props.children Form child components.
  * @param {String} props.formMessage Form group message.
+ * @param {*} props.children Form child components.
  * @returns Returns the component.
  */
-function FormGroup({ id, children, formMessage }) {
+function FormGroup({ id, formMessage, children }) {
     return (
         <div
             id={id}
@@ -42,6 +43,12 @@ function FormGroup({ id, children, formMessage }) {
         </div>
     );
 }
+
+FormGroup.propTypes = {
+    id: PropTypes.string,
+    formMessage: PropTypes.string,
+    children: PropTypes.node,
+};
 
 /**
  * Sign up form component.

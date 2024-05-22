@@ -3,6 +3,8 @@
  * @description Global context for the application.
  */
 
+'use strict';
+import PropTypes from 'prop-types';
 import { createContext, useState } from 'react';
 
 // The global context.
@@ -36,5 +38,9 @@ function GlobalContextProvider({ children }) {
         </GlobalContext.Provider>
     );
 }
+
+GlobalContextProvider.propTypes = {
+    children: PropTypes.node,
+};
 
 export { GlobalContext, GlobalContextProvider };

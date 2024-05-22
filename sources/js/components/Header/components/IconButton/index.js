@@ -4,8 +4,10 @@
  * @note This is a sub-component of the <Header /> component.
  */
 'use strict';
+import PropTypes from 'prop-types';
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import DropdownWindow from '../../../DropdownWindow';
 import * as styles from './IconButton.module.css';
 import * as dropdownWindowStyles from '../../../DropdownWindow/DropdownWindow.module.css';
 
@@ -108,5 +110,53 @@ function IconButton({
         </div>
     );
 }
+
+IconButton.propTypes = {
+    id: PropTypes.string,
+    className: PropTypes.string,
+    icon: PropTypes.string.isRequired,
+    iconDropdown: PropTypes.string,
+    to: PropTypes.string,
+    onClick: PropTypes.func,
+    children: function (props, propName, componentName) {
+        let children_value = props[propName],
+            child_component_name;
+        if (children_value) {
+            if (
+                children_value.length > 1 &&
+                typeof children_value.every === 'function'
+            ) {
+                if (
+                    children_value.every((element) => {
+                        if (element.type.name !== DropdownWindow.name)
+                            return false;
+                    })
+                ) {
+                    child_component_name = DropdownWindow.name;
+                }
+            } else {
+                child_component_name =
+                    children_value.type && children_value.type.name
+                        ? children_value.type.name
+                        : children_value.type;
+            }
+        }
+
+        if (
+            (child_component_name &&
+                child_component_name !== DropdownWindow.name) ||
+            typeof children_value === 'string'
+        ) {
+            return new Error(
+                'Invalid prop `' +
+                    propName +
+                    '` supplied to' +
+                    ' `' +
+                    componentName +
+                    `\`. This component only accept ${DropdownWindow.name} component nas children.`
+            );
+        }
+    },
+};
 
 export default IconButton;

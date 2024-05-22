@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import IconButton from '../IconButton';
@@ -44,6 +45,13 @@ function ListItem({ text, icon, to, onClick }) {
         </li>
     );
 }
+
+ListItem.propTypes = {
+    text: PropTypes.string,
+    icon: PropTypes.string,
+    to: PropTypes.string,
+    onClick: PropTypes.func,
+};
 
 /**
  * Header icon button with dropdown window (Menu list item variant).
@@ -98,5 +106,11 @@ function IconButtonMenu({ icon, iconDropdown, menus }) {
         </IconButton>
     );
 }
+
+IconButtonMenu.propTypes = {
+    icon: PropTypes.string,
+    iconDropdown: PropTypes.string,
+    menus: PropTypes.array,
+};
 
 export default IconButtonMenu;

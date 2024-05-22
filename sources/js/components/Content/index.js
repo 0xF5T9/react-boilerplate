@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import PropTypes from 'prop-types';
 import './Content.css';
 
 /**
@@ -15,5 +16,9 @@ import './Content.css';
 function Content({ children }) {
     return <div id="content-wrapper">{children}</div>;
 }
+
+Content.propTypes = {
+    children: PropTypes.node,
+};
 
 export default Content;

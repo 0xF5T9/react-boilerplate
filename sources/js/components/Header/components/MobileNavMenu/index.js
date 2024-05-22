@@ -6,6 +6,7 @@
  */
 
 'use strict';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import configs from '../../../../../configs';
 import IconButton from '../IconButton';
@@ -56,6 +57,51 @@ function ListItem({ id, className, text, icon, to, children }) {
     );
 }
 
+ListItem.propTypes = {
+    id: PropTypes.string,
+    className: PropTypes.string,
+    text: PropTypes.string,
+    icon: PropTypes.string,
+    to: PropTypes.string,
+    children: function (props, propName, componentName) {
+        let children_value = props[propName],
+            child_component_name;
+        if (children_value) {
+            if (
+                children_value.length > 1 &&
+                typeof children_value.every === 'function'
+            ) {
+                if (
+                    children_value.every((element) => {
+                        if (element.type.name !== ListItem.name) return false;
+                    })
+                ) {
+                    child_component_name = ListItem.name;
+                }
+            } else {
+                child_component_name =
+                    children_value.type && children_value.type.name
+                        ? children_value.type.name
+                        : children_value.type;
+            }
+        }
+
+        if (
+            (child_component_name && child_component_name !== ListItem.name) ||
+            typeof children_value === 'string'
+        ) {
+            return new Error(
+                'Invalid prop `' +
+                    propName +
+                    '` supplied to' +
+                    ' `' +
+                    componentName +
+                    `\`. This component only accept ${ListItem.name} component nas children.`
+            );
+        }
+    },
+};
+
 /**
  * Mobile navigation menu item list component.
  * @param {Object} props Component properties.
@@ -75,6 +121,48 @@ function List({ id, className, children }) {
         </ul>
     );
 }
+
+List.propTypes = {
+    id: PropTypes.string,
+    className: PropTypes.string,
+    children: function (props, propName, componentName) {
+        let children_value = props[propName],
+            child_component_name;
+        if (children_value) {
+            if (
+                children_value.length > 1 &&
+                typeof children_value.every === 'function'
+            ) {
+                if (
+                    children_value.every((element) => {
+                        if (element.type.name !== ListItem.name) return false;
+                    })
+                ) {
+                    child_component_name = ListItem.name;
+                }
+            } else {
+                child_component_name =
+                    children_value.type && children_value.type.name
+                        ? children_value.type.name
+                        : children_value.type;
+            }
+        }
+
+        if (
+            (child_component_name && child_component_name !== ListItem.name) ||
+            typeof children_value === 'string'
+        ) {
+            return new Error(
+                'Invalid prop `' +
+                    propName +
+                    '` supplied to' +
+                    ' `' +
+                    componentName +
+                    `\`. This component only accept ${ListItem.name} component nas children.`
+            );
+        }
+    },
+};
 
 /**
  * Header mobile navigation menu icon button (with dropdown window).
