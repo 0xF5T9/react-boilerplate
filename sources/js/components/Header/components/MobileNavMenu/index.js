@@ -206,6 +206,8 @@ function MobileNavMenu() {
                     <ListItem icon="fas fa-caret-right" text="Dependencies">
                         <ListItem text="React v18.2.0" />
                         <ListItem text="React Router v6.23.0" />
+                        <ListItem text="TippyJS v4.2.6" />
+                        <ListItem text="PropTypes v15.8.1" />
                     </ListItem>
                 </ul>
             </DropdownWindow>

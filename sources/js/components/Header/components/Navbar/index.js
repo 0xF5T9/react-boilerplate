@@ -169,6 +169,8 @@ function Navbar() {
                 <NavbarItem text="Dependencies" icon="fas fa-caret-down">
                     <NavbarItem text="React v18.2.0" />
                     <NavbarItem text="React Router v6.23.0" />
+                    <NavbarItem text="TippyJS v4.2.6" />
+                    <NavbarItem text="PropTypes v15.8.1" />
                 </NavbarItem>
             </NavbarList>
         </nav>
