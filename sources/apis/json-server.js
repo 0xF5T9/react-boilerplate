@@ -27,21 +27,19 @@ async function get(endpoint, finallyCallback) {
     let result;
     try {
         if (!Object.values(configs.jsdbEndpoints).includes(endpoint)) {
-            throw { errorMessage: 'Unexpected endpoint.' };
+            throw 'Unexpected endpoint.';
         }
 
         const response = await fetch(`http://localhost:3000/${endpoint}`);
         if (!response.ok) {
-            throw { errorMessage: 'Endpoint not found.', response };
+            throw 'Endpoint not found.';
         }
 
         const json = await response.json();
         result = json;
-
         return result;
     } catch (error) {
-        console.error(error);
-        throw error.errorMessage;
+        throw error;
     } finally {
         if (typeof finallyCallback === 'function' && result)
             finallyCallback(result);
