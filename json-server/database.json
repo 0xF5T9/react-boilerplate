@@ -1,7 +1,15 @@
 {
     "posts": [
-        { "id": "1", "title": "a title", "views": 100 },
-        { "id": "2", "title": "another title", "views": 200 }
+        {
+            "id": "1",
+            "title": "Title 1",
+            "text": "This post is loaded from json-server database."
+        },
+        {
+            "id": "2",
+            "title": "Title 2",
+            "text": "This post is loaded from json-server database."
+        }
     ],
     "comments": [
         { "id": "1", "text": "a comment about post 1", "postId": "1" },
