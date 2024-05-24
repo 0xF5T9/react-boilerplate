@@ -88,6 +88,7 @@
         background-color: var(--color-black);
         overflow: hidden;
         will-change: opacity, transform;
+        -webkit-filter: blur(0);
 
         &:empty {
             display: none;
