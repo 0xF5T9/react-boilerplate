@@ -18,6 +18,7 @@ import { GlobalContextProvider } from './components/Context/Global';
 import App, { loader as appLoader } from './components/App';
 import App404 from './components/App404';
 import * as Sections from './components/Sections/';
+import { loader as indexSectionLoader } from './components/Sections/IndexSection';
 import { openModalWindow } from './components/ModalOverlay';
 import { showToast, showCustomToast } from './components/ToastOverlay';
 
@@ -49,6 +50,7 @@ const $ = document.querySelector.bind(document);
                         {
                             index: true,
                             element: <Sections.IndexSection />,
+                            loader: indexSectionLoader,
                         },
                         {
                             path: configs.routes.samples.button,
