@@ -250,6 +250,30 @@
     }
 }
 
+.mobile-nav-menu-dropdown > ul > li > a.is-active,
+.mobile-nav-menu-dropdown > ul > li:has(.is-active) > a {
+    color: var(--color-yellow) !important;
+    background-color: #383539 !important;
+}
+
+.mobile-nav-menu-dropdown > ul > li > ul a.is-active,
+.mobile-nav-menu-dropdown > ul > li > ul li:has(a.is-active) {
+    color: var(--color-yellow) !important;
+    background-color: #383539 !important;
+}
+
+.mobile-nav-menu-dropdown > ul > li > a.is-pending,
+.mobile-nav-menu-dropdown > ul > li:has(.is-pending) > a {
+    color: var(--color-yellow) !important;
+    background-color: #383539 !important;
+}
+
+.mobile-nav-menu-dropdown > ul > li > ul a.is-pending,
+.mobile-nav-menu-dropdown > ul > li > ul li:has(a.is-pending) {
+    color: var(--color-yellow) !important;
+    background-color: #383539 !important;
+}
+
 /* Tablet */
 @media only screen and (max-device-width: 1024px) and (min-device-width: 741px),
     only screen and (max-width: 1024px) and (min-width: 741px) {

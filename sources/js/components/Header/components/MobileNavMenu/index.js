@@ -7,7 +7,7 @@
 
 'use strict';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import configs from '../../../../../configs';
 import IconButton from '../IconButton';
 import DropdownWindow from '../../../DropdownWindow';
@@ -25,6 +25,8 @@ import * as styles from './MobileNavMenu.module.css';
  * @returns Returns the component.
  */
 function ListItem({ id, className, text, icon, to, children }) {
+    const Component = to ? NavLink : 'a';
+
     // Check if the list item have an inner list. If so reveal it.
     function handleClick(event) {
         const inner_list = event.currentTarget.querySelector('&>ul');
@@ -45,13 +47,23 @@ function ListItem({ id, className, text, icon, to, children }) {
 
     return (
         <li id={id} className={className} onClick={handleClick}>
-            <Link
+            <Component
                 to={to}
                 onClick={!to ? (event) => event.preventDefault() : undefined}
+                className={
+                    to
+                        ? ({ isActive, isPending }) =>
+                              isPending
+                                  ? styles['is-pending']
+                                  : isActive
+                                    ? styles['is-active']
+                                    : ''
+                        : ''
+                }
             >
                 {icon ? <i className={icon}></i> : null}
                 {text}
-            </Link>
+            </Component>
             {children ? <List>{children}</List> : null}
         </li>
     );
