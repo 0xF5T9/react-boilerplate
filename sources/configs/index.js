@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import routes, { appRouter } from './routes.js';
+import routes, { appRouter } from './router.js';
 import jsdbEndpoints from './jsdb-endpoints.js';
 
 const configs = {

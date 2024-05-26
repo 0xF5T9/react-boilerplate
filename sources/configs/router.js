@@ -10,7 +10,7 @@ import App404 from '../js/components/App404';
 import * as Sections from '../js/components/Sections';
 import { loader as indexSectionLoader } from '../js/components/Sections/IndexSection';
 
-// React router routes paths.
+// React router route paths.
 const routes = {
     home: '/',
     samples: {
