@@ -4,7 +4,13 @@
  */
 
 'use strict';
+import { GlobalContextProvider } from '../js/components/Context/Global';
+import App, { loader as appLoader } from '../js/components/App';
+import App404 from '../js/components/App404';
+import * as Sections from '../js/components/Sections';
+import { loader as indexSectionLoader } from '../js/components/Sections/IndexSection';
 
+// React router routes paths.
 const routes = {
     home: '/',
     samples: {
@@ -15,4 +21,51 @@ const routes = {
     },
 };
 
+// App router.
+const appRouter = [
+    {
+        path: routes.home,
+        element: (
+            <GlobalContextProvider>
+                <App />
+            </GlobalContextProvider>
+        ),
+        errorElement: (
+            <GlobalContextProvider>
+                <App404 />
+            </GlobalContextProvider>
+        ),
+        loader: appLoader,
+        children: [
+            {
+                errorElement: <div>Error Section Here</div>, // TODO: add error section.
+                children: [
+                    {
+                        index: true,
+                        element: <Sections.IndexSection />,
+                        loader: indexSectionLoader,
+                    },
+                    {
+                        path: routes.samples.button,
+                        element: <Sections.ButtonSampleSection />,
+                    },
+                    {
+                        path: routes.samples.input,
+                        element: <Sections.InputSampleSection />,
+                    },
+                    {
+                        path: routes.samples.checkbox,
+                        element: <Sections.CheckboxSampleSection />,
+                    },
+                    {
+                        path: routes.samples.radio,
+                        element: <Sections.RadioSampleSection />,
+                    },
+                ],
+            },
+        ],
+    },
+];
+
 export default routes;
+export { appRouter };

@@ -14,11 +14,6 @@ import helper from './helper.js';
 import apis from '../apis';
 import configs from '../configs';
 
-import { GlobalContextProvider } from './components/Context/Global';
-import App, { loader as appLoader } from './components/App';
-import App404 from './components/App404';
-import * as Sections from './components/Sections/';
-import { loader as indexSectionLoader } from './components/Sections/IndexSection';
 import { openModalWindow } from './components/ModalOverlay';
 import { showToast, showCustomToast } from './components/ToastOverlay';
 
@@ -29,50 +24,7 @@ const $ = document.querySelector.bind(document);
 
 (() => {
     // Create the browser router.
-    const BrowserRouter = createBrowserRouter([
-        {
-            path: configs.routes.home,
-            element: (
-                <GlobalContextProvider>
-                    <App />
-                </GlobalContextProvider>
-            ),
-            errorElement: (
-                <GlobalContextProvider>
-                    <App404 />
-                </GlobalContextProvider>
-            ),
-            loader: appLoader,
-            children: [
-                {
-                    errorElement: <div>Error Section Here</div>, // TODO: add error section.
-                    children: [
-                        {
-                            index: true,
-                            element: <Sections.IndexSection />,
-                            loader: indexSectionLoader,
-                        },
-                        {
-                            path: configs.routes.samples.button,
-                            element: <Sections.ButtonSampleSection />,
-                        },
-                        {
-                            path: configs.routes.samples.input,
-                            element: <Sections.InputSampleSection />,
-                        },
-                        {
-                            path: configs.routes.samples.checkbox,
-                            element: <Sections.CheckboxSampleSection />,
-                        },
-                        {
-                            path: configs.routes.samples.radio,
-                            element: <Sections.RadioSampleSection />,
-                        },
-                    ],
-                },
-            ],
-        },
-    ]);
+    const BrowserRouter = createBrowserRouter(configs.appRouter);
 
     // Render the application.
     const render = createRoot($('#root'));
