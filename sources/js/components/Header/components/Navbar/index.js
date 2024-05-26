@@ -6,7 +6,7 @@
 
 'use strict';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import configs from '../../../../../configs';
 import * as styles from './Navbar.module.css';
 
@@ -72,16 +72,27 @@ NavbarList.propTypes = {
  * @returns Returns the component.
  */
 function NavbarItem({ id, text, icon, to, children }) {
+    const Component = to ? NavLink : 'a';
     return (
         <li id={id}>
-            <Link
+            <Component
                 to={to}
                 onClick={!to ? (event) => event.preventDefault() : undefined}
+                className={
+                    to
+                        ? ({ isActive, isPending }) =>
+                              isPending
+                                  ? styles['is-pending']
+                                  : isActive
+                                    ? styles['is-active']
+                                    : ''
+                        : ''
+                }
                 tabIndex={-1}
             >
                 {icon ? <i className={icon}></i> : null}
                 {text}
-            </Link>
+            </Component>
             {children ? <NavbarList>{children}</NavbarList> : null}
         </li>
     );

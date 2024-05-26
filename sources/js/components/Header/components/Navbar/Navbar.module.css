@@ -253,6 +253,21 @@
     }
 }
 
+.navbar .is-pending {
+    color: blue !important;
+}
+
+.navbar > ul > li > a.is-active,
+.navbar > ul > li:has(.is-active) > a {
+    color: var(--nav-top-item-text-color-active);
+    background-color: var(--nav-top-item-background-color-active);
+}
+
+.navbar > ul > li > ul a.is-active {
+    color: var(--nav-sub-item-text-color-active);
+    background-color: var(--nav-sub-item-background-color-active);
+}
+
 /* Tablet */
 @media only screen and (max-device-width: 1024px) and (min-device-width: 741px),
     only screen and (max-width: 1024px) and (min-width: 741px) {
