@@ -1,6 +1,7 @@
 /**
  * @file index.js
  * @description Checkbox component.
+ * @todo Update focus border styles.
  */
 
 'use strict';

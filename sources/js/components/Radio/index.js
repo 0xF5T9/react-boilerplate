@@ -1,6 +1,7 @@
 /**
  * @file index.js
  * @description Radio component.
+ * @todo Update focus border styles.
  */
 
 'use strict';
