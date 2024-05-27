@@ -14,6 +14,8 @@ import IconButton from './components/IconButton';
 import DropdownWindow from '../DropdownWindow';
 import MobileNavMenu from './components/MobileNavMenu';
 import IconButtonMenu from './components/IconButtonMenu';
+import Button from '../Button';
+import { showToast } from '../ToastOverlay';
 import './Header.css';
 const $ = document.querySelector.bind(document);
 
@@ -83,6 +85,29 @@ function Header() {
 
             {/* Right content box */}
             <div id="header-right-content-box">
+                {/* Connect button */}
+                <Button
+                    outline
+                    style={{ marginRight: '5px' }}
+                    onClick={() => {
+                        const audio = new Audio(
+                            '/assets/static/sound/ClickSoundEffect.wav'
+                        );
+                        audio.play();
+                        showToast(
+                            'Error',
+                            'Unable to connect to the remote server.',
+                            'error'
+                        );
+                    }}
+                >
+                    <i
+                        className="fa-solid fa-ethernet"
+                        style={{ marginRight: '8px' }}
+                    ></i>
+                    Connect
+                </Button>
+
                 {/* Mobile navigation menu */}
                 <MobileNavMenu />
 
