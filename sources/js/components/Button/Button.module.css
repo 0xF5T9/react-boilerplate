@@ -92,7 +92,7 @@
         --button-border-color-default: var(--color-white);
         --button-border-color-hover: var(--color-primary);
         --button-border-color-active: var(--color-primary);
-        --button-focus-border-color: var(--color-primary);
+        --button-focus-border-color: var(--color-orange-darker);
     }
 
     &.outline {
