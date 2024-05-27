@@ -6,7 +6,7 @@
 
 'use strict';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigation } from 'react-router-dom';
 import configs from '../../../../../configs';
 import * as styles from './Navbar.module.css';
 
@@ -16,8 +16,10 @@ import * as styles from './Navbar.module.css';
  * @param {*} props.children <NavbarItem /> component(s).
  * @returns Returns the component.
  */
-function NavbarList({ children }) {
-    return <ul>{children}</ul>;
+function NavbarList({ children, className }) {
+    const classes = `${styles['navbar-list']}
+                     ${className ? className : ''}`;
+    return <ul className={classes}>{children}</ul>;
 }
 
 NavbarList.propTypes = {
@@ -72,25 +74,34 @@ NavbarList.propTypes = {
  * @returns Returns the component.
  */
 function NavbarItem({ id, text, icon, to, children }) {
-    const Component = to ? NavLink : 'a';
+    const Component = to ? NavLink : 'a',
+        navigation = useNavigation();
+
     return (
-        <li id={id}>
+        <li id={id} className={styles['navbar-item']}>
             <Component
                 to={to}
-                onClick={!to ? (event) => event.preventDefault() : undefined}
+                onClick={
+                    !to || navigation.state === 'loading'
+                        ? (event) => event.preventDefault()
+                        : undefined
+                }
                 className={
                     to
-                        ? ({ isActive, isPending }) =>
-                              isPending
-                                  ? styles['is-pending']
+                        ? ({ isActive, isPending }) => {
+                              return isPending
+                                  ? `${styles['navbar-item-link']} ${styles['is-pending']}`
                                   : isActive
-                                    ? styles['is-active']
-                                    : ''
-                        : ''
+                                    ? `${styles['navbar-item-link']} ${styles['is-active']}`
+                                    : `${styles['navbar-item-link']}`;
+                          }
+                        : `${styles['navbar-item-link']}`
                 }
                 tabIndex={-1}
             >
-                {icon ? <i className={icon}></i> : null}
+                {icon ? (
+                    <i className={`${styles['navbar-item-icon']} ${icon}`}></i>
+                ) : null}
                 {text}
             </Component>
             {children ? <NavbarList>{children}</NavbarList> : null}
@@ -150,7 +161,7 @@ NavbarItem.propTypes = {
 function Navbar() {
     return (
         <nav id="header-navbar" className={styles['navbar']}>
-            <NavbarList>
+            <NavbarList className={styles['navbar-list-parent']}>
                 <NavbarItem text="Home" to={configs.routes.home} />
 
                 <NavbarItem text="Samples" icon="fas fa-caret-down">
