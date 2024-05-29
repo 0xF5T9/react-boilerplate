@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './Button.module.css';
 
@@ -25,22 +26,26 @@ import * as styles from './Button.module.css';
  * @param {String} props.elementType Element type ('button' | 'a' | 'div')
  * @returns Returns the component.
  */
-function Button({
-    color,
-    size,
-    outline,
-    white,
-    whiteOnly,
-    id,
-    className,
-    value,
-    onClick,
-    disabled,
-    style,
-    children,
-    elementType = 'button',
-}) {
+const Button = forwardRef(function Button(
+    {
+        color,
+        size,
+        outline,
+        white,
+        whiteOnly,
+        id,
+        className,
+        value,
+        onClick,
+        disabled,
+        style,
+        children,
+        elementType = 'button',
+    },
+    ref
+) {
     const classes = `${styles.button}
+
                      ${styles[color] || ''}
                      ${styles[size] || ''}
                      ${outline ? styles.outline : ''}
@@ -51,6 +56,7 @@ function Button({
 
     return (
         <Component
+            ref={ref}
             id={id}
             value={value}
             className={classes}
@@ -61,7 +67,7 @@ function Button({
             {children}
         </Component>
     );
-}
+});
 
 Button.propTypes = {
     color: PropTypes.oneOf([
