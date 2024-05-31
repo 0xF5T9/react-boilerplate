@@ -1,7 +1,6 @@
 /**
  * @file index.js
  * @description Toast overlay component.
- * @todo TODO: fix blurry on chrome.
  */
 
 'use strict';
