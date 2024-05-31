@@ -225,8 +225,8 @@
 }
 
 /* Mobile */
-@media only screen and (max-device-width: 740px),
-    only screen and (max-width: 740px) {
+@media only screen and (max-device-width: 741px),
+    only screen and (max-width: 741px) {
     .navbar {
         display: none !important;
     }
