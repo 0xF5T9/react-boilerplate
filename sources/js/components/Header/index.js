@@ -4,16 +4,15 @@
  */
 
 'use strict';
-import { useContext, useEffect } from 'react';
-import { GlobalContext } from '../Context/Global';
+import { useEffect, useContext } from 'react';
 
+import { GlobalContext } from '../Context/Global';
 import BrandLogo from './components/BrandLogo';
 import BrandText from './components/BrandText';
 import Navbar from './components/Navbar';
-import IconButton from './components/IconButton';
-import DropdownWindow from '../DropdownWindow';
-import MobileNavMenu from './components/MobileNavMenu';
-import IconButtonMenu from './components/IconButtonMenu';
+import MobileNavMenuIcon from './components/MobileNavMenuIcon';
+import AlertIcon from './components/AlertIcon';
+import UserIcon from './components/UserIcon';
 import Button from '../Button';
 import { showToast } from '../ToastOverlay';
 import './Header.css';
@@ -109,16 +108,13 @@ function Header() {
                 </Button>
 
                 {/* Mobile navigation menu */}
-                <MobileNavMenu />
+                <MobileNavMenuIcon />
 
                 {/* Alert icon */}
-                <IconButton icon="far fa-bell" iconDropdown="fas fa-bell">
-                    <DropdownWindow></DropdownWindow>
-                </IconButton>
+                <AlertIcon />
 
                 {/* User icon */}
-                <IconButtonMenu
-                    icon="fas fa-circle-user"
+                <UserIcon
                     menus={[
                         {
                             id: 'default',
