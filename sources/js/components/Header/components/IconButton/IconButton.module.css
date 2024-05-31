@@ -1,4 +1,4 @@
-& div.header-icon-button {
+.header-icon-button {
     --header-icon-button-icon-color-default: var(--color-gray);
     --header-icon-button-background-color-default: var(
         --header-background-color
@@ -43,7 +43,7 @@
         }
     }
 
-    &:has(:global(div.is-open)) {
+    &.is-popup-open {
         & > .header-icon-button-icon {
             color: var(--header-icon-button-icon-color-open);
             background-color: var(--header-icon-button-background-color-hover);
