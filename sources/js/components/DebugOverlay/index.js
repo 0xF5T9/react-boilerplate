@@ -4,7 +4,9 @@
  */
 
 'use strict';
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
+import { GlobalContext } from '../Context/Global';
 import './DebugOverlay.css';
 
 /**
@@ -12,20 +14,9 @@ import './DebugOverlay.css';
  * @returns Returns the component.
  */
 function DebugOverlay() {
-    const [windowSizeInfo, setWindowSizeInfo] = useState(() => {
-            return {
-                deviceType:
-                    window.innerWidth >= 1024
-                        ? 'Desktop'
-                        : window.innerWidth >= 741
-                          ? 'Tablet'
-                          : 'Mobile',
-                deviceWidth: window.innerWidth,
-                deviceHeight: window.innerHeight,
-            };
-        }),
+    const { deviceType } = useContext(GlobalContext),
         [backgroundColor, setBackgroundColor] = useState(() => {
-            switch (windowSizeInfo.deviceType) {
+            switch (deviceType.deviceType) {
                 case 'Tablet':
                     return 'var(--color-red)';
                 case 'Mobile':
@@ -37,25 +28,7 @@ function DebugOverlay() {
         });
 
     useEffect(() => {
-        window.addEventListener('resize', handleUpdateWindowSizeInfo);
-        return () => {
-            window.removeEventListener('resize', handleUpdateWindowSizeInfo);
-        };
-    }, []);
-
-    function handleUpdateWindowSizeInfo() {
-        const device_type =
-            window.innerWidth >= 1024
-                ? 'Desktop'
-                : window.innerWidth >= 741
-                  ? 'Tablet'
-                  : 'Mobile';
-        setWindowSizeInfo({
-            deviceType: device_type,
-            deviceWidth: window.innerWidth,
-            deviceHeight: window.innerHeight,
-        });
-        switch (device_type) {
+        switch (deviceType.deviceType) {
             case 'Tablet':
                 setBackgroundColor('var(--color-red)');
                 break;
@@ -66,13 +39,13 @@ function DebugOverlay() {
             default:
                 setBackgroundColor('var(--color-orange)');
         }
-    }
+    }, [deviceType.deviceType]);
 
     return (
         <>
             <div id="debug-overlay">
                 <h5 style={{ backgroundColor: backgroundColor }}>
-                    {`${windowSizeInfo.deviceWidth}x${windowSizeInfo.deviceHeight} (${windowSizeInfo.deviceType})`}
+                    {`${deviceType.deviceWidth}x${deviceType.deviceHeight} (${deviceType.deviceType})`}
                 </h5>
             </div>
         </>

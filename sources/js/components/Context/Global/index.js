@@ -4,8 +4,8 @@
  */
 
 'use strict';
+import { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { createContext, useState } from 'react';
 
 // The global context.
 const GlobalContext = createContext();
@@ -20,7 +20,39 @@ function GlobalContextProvider({ children }) {
     const [isHeaderVisible, setHeaderVisibility] = useState(true),
         [isFooterVisible, setFooterVisibility] = useState(true),
         [headerHeight, setHeaderHeight] = useState('56.8px'),
-        [footerHeight, setFooterHeight] = useState('140px');
+        [footerHeight, setFooterHeight] = useState('140px'),
+        [deviceType, setDeviceType] = useState(() => ({
+            deviceType:
+                window.innerWidth >= 1024
+                    ? 'Desktop'
+                    : window.innerWidth >= 741
+                      ? 'Tablet'
+                      : 'Mobile',
+            deviceWidth: window.innerWidth,
+            deviceHeight: window.innerHeight,
+        }));
+
+    useEffect(() => {
+        window.addEventListener('resize', handleUpdateDeviceType);
+        return () => {
+            window.removeEventListener('resize', handleUpdateDeviceType);
+        };
+    }, []);
+
+    function handleUpdateDeviceType() {
+        const device_type =
+            window.innerWidth >= 1024
+                ? 'Desktop'
+                : window.innerWidth >= 741
+                  ? 'Tablet'
+                  : 'Mobile';
+        setDeviceType({
+            deviceType: device_type,
+            deviceWidth: window.innerWidth,
+            deviceHeight: window.innerHeight,
+        });
+    }
+
     global = {
         isHeaderVisible,
         setHeaderVisibility,
@@ -30,6 +62,7 @@ function GlobalContextProvider({ children }) {
         setHeaderHeight,
         footerHeight,
         setFooterHeight,
+        deviceType,
     };
 
     return (
