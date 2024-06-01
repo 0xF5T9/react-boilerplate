@@ -21,7 +21,7 @@ async function loader() {
 
     // Test code:
     try {
-        let result = await apis.jsonServer.get(configs.jsdbEndpoints.posts);
+        let result = await apis.jsonServer.aget(configs.jsdbEndpoints.posts);
         showToast('Success', 'Successfully fetched the posts data.', 'success');
         return { posts: result };
     } catch (error) {
