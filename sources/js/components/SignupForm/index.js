@@ -6,8 +6,9 @@
 
 'use strict';
 
-import PropTypes from 'prop-types';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import Button from '../Button';
 import Input from '../Input';
 import Checkbox from '../Checkbox';

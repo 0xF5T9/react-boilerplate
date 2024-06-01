@@ -6,6 +6,7 @@
 
 'use strict';
 import PropTypes from 'prop-types';
+
 import * as styles from './ContentSection.module.css';
 
 /**

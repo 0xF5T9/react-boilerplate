@@ -3,8 +3,8 @@
  * @description Anchor component.
  */
 
+'use strict';
 import PropTypes from 'prop-types';
-('use strict');
 
 /**
  * Anchor component.

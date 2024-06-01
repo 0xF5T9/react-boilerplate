@@ -4,7 +4,8 @@
  */
 
 'use strict';
-import { useContext, useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+
 import { GlobalContext } from '../Context/Global';
 import Anchor from '../Anchor';
 import './Footer.css';

@@ -1,6 +1,7 @@
 /**
  * @file index.js
  * @description Header user icon button, with popup window.
+ * @note This is a sub-component of the <Header /> component.
  */
 
 'use strict';

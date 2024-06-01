@@ -7,7 +7,9 @@
 'use strict';
 import PropTypes from 'prop-types';
 import { NavLink, useNavigation } from 'react-router-dom';
+
 import configs from '../../../../../configs';
+
 import * as styles from './Navbar.module.css';
 
 /**

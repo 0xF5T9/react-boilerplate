@@ -6,7 +6,9 @@
 
 'use strict';
 import { Link } from 'react-router-dom';
+
 import configs from '../../../../../configs';
+
 import * as styles from './BrandLogo.module.css';
 
 /**

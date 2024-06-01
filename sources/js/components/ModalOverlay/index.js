@@ -5,6 +5,7 @@
 
 'use strict';
 import { useEffect, useRef } from 'react';
+
 import SignupForm from '../SignupForm';
 import * as styles from './ModalOverlay.module.css';
 const $ = document.querySelector.bind(document);

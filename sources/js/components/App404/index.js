@@ -3,8 +3,10 @@
  * @description App404 component.
  */
 
-import { useRouteError, Link, ScrollRestoration } from 'react-router-dom';
+import { Link, ScrollRestoration, useRouteError } from 'react-router-dom';
+
 import configs from '../../../configs';
+
 import Content from '../Content';
 import ContentSection from '../Content/components/ContentSection';
 import Button from '../Button';

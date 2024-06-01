@@ -5,6 +5,7 @@
 
 'use strict';
 import PropTypes from 'prop-types';
+
 import * as styles from './Input.module.css';
 
 /**

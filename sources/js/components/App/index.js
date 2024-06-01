@@ -5,6 +5,7 @@
 
 'use strict';
 import { Outlet, ScrollRestoration, useLoaderData } from 'react-router-dom';
+
 import Header from '../Header';
 import Content from '../Content';
 import Footer from '../Footer';
