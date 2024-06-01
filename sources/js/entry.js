@@ -1,7 +1,6 @@
 /**
  * @file entry.js
  * @description Application entry.
- * @todo Update comments for all files.
  */
 
 'use strict';
