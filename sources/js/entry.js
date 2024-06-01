@@ -12,7 +12,6 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import helper from './helper.js';
-import apis from '../apis';
 import configs from '../configs';
 
 import { openModalWindow } from './components/ModalOverlay';
@@ -98,15 +97,6 @@ window.onkeydown = function (event) {
         }
         case 'F1': {
             openModalWindow('signup-form-modal-window');
-            break;
-        }
-        case 'F2': {
-            // TODO: To be removed.
-            apis.jsonServer.get(
-                apis.jsonServer.getEndpoints().posts,
-                (result) => console.log(result)
-            );
-
             break;
         }
         default:
