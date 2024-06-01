@@ -50,7 +50,7 @@
     font-size: var(--general-font-size-small);
     text-align: center;
     overflow: auto;
-    /*will-change: opacity;*/
+    will-change: opacity;
 
     & i {
         margin-right: 4px;
