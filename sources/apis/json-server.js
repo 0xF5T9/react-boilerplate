@@ -4,6 +4,8 @@
  */
 
 'use strict';
+import axios from 'axios';
+
 import configs from '../configs';
 
 /**
@@ -46,4 +48,33 @@ async function get(endpoint, finallyCallback) {
     }
 }
 
-export { getEndpoints, get };
+/**
+ * Get data from the json-server database. (Axios)
+ * @param {String} endpoint Database endpoint.
+ * @param {Function} finallyCallback Finally callback function.
+ *                                   The fetched data will be passed to the callback as the first argument.
+ *                                   e.g: "(data) => console.log(data)"
+ *                                   (optional)
+ * @returns {Object} Returns the fetched data.
+ */
+async function aget(endpoint, finallyCallback) {
+    let result;
+    try {
+        if (!Object.values(configs.jsdbEndpoints).includes(endpoint)) {
+            throw 'Unexpected endpoint.';
+        }
+
+        const url = `http://localhost:3000/${endpoint}`,
+            response = await axios.get(url);
+
+        result = response.data;
+        return result;
+    } catch (error) {
+        throw error;
+    } finally {
+        if (typeof finallyCallback === 'function' && result)
+            finallyCallback(result);
+    }
+}
+
+export { getEndpoints, get, aget };
