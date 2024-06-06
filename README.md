@@ -2,10 +2,6 @@
 
 HTML website deployment boilerplate.
 
-# Git Clone Command
-
-`git clone https://0xF5T9@github.com/0xF5T9/html-boilerplate.git`
-
 # Install the project packages
 
 1. Run `npm install` to install the packages.
