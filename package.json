@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "HTML website deployment boilerplate.",
     "scripts": {
+        "start": "webpack-dev-server --config ./webpack.config.js",
         "build": "webpack --config ./webpack.config.js",
         "build-dev": "webpack --config ./webpack.config.js",
         "build-prod": "webpack --config ./webpack.config.prod.js",
