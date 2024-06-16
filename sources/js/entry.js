@@ -94,7 +94,7 @@ window.onkeydown = function (event) {
             showToast('Message', 'You have new message(s).', 'message');
             break;
         }
-        case 'F1': {
+        case 'Digit7': {
             openModalWindow('signup-form-modal-window');
             break;
         }
