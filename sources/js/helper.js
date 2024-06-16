@@ -16,6 +16,20 @@ const helper = {
             return true;
         return false;
     },
+    /**
+     * Parse a JSON string into object.
+     * @param {String} string JSON string.
+     * @returns {Object | Boolean} Returns the parsed JSON object if the string
+     *                             is a valid JSON string, otherwise returns false.
+     */
+    parseJSON(string) {
+        try {
+            const result = JSON.parse(string);
+            return result;
+        } catch (error) {
+            return false;
+        }
+    },
 };
 
 export default helper;
