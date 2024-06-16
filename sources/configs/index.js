@@ -4,12 +4,11 @@
  */
 
 'use strict';
-import routes, { appRouter } from './router.js';
+import reactRouter from './react-router.js';
 import mysqlServer from './mysql-server.js';
 
 const configs = {
-    routes,
-    appRouter,
+    reactRouter,
     mysqlServer,
 };
 

@@ -1,5 +1,5 @@
 /**
- * @file routes.js
+ * @file react-router.js
  * @description React router configurations.
  */
 
@@ -9,7 +9,7 @@ import App, { loader as appLoader } from '../js/components/App';
 import App404 from '../js/components/App404';
 import * as Sections from '../js/components/Sections';
 
-// React router route paths.
+// Routes path.
 const routes = {
     home: '/',
     samples: {
@@ -20,7 +20,7 @@ const routes = {
     },
 };
 
-// App router.
+// Application router.
 const appRouter = [
     {
         path: routes.home,
@@ -65,5 +65,10 @@ const appRouter = [
     },
 ];
 
-export default routes;
-export { appRouter };
+const config = {
+    routes,
+    appRouter,
+};
+
+export default config;
+export { routes, appRouter };
