@@ -4,9 +4,6 @@
  */
 
 'use strict';
-import apis from '../../../../apis';
-import configs from '../../../../configs';
-
 import ContentSection from '../../Content/components/ContentSection';
 
 /**

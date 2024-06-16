@@ -23,7 +23,7 @@ const $ = document.querySelector.bind(document);
 
 (() => {
     // Create the browser router.
-    const BrowserRouter = createBrowserRouter(configs.appRouter);
+    const BrowserRouter = createBrowserRouter(configs.reactRouter.appRouter);
 
     // Render the application.
     const render = createRoot($('#root'));

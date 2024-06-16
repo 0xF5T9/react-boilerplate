@@ -9,7 +9,7 @@ import { useState, useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import configs from '../../../../../configs';
+import { routes } from '../../../../../configs/react-router';
 
 import { GlobalContext } from '../../../Context/Global';
 import IconButton, { IconButtonStyles } from '../IconButton';
@@ -224,23 +224,23 @@ function MobileNavMenuIcon() {
                         className={`${styles['mobile-nav-menu-popup']} ${PopupStyles['popup-window']}`}
                     >
                         <ul>
-                            <ListItem to={configs.routes.home} text="Home" />
+                            <ListItem to={routes.home} text="Home" />
 
                             <ListItem icon="fas fa-caret-right" text="Samples">
                                 <ListItem
-                                    to={configs.routes.samples.button}
+                                    to={routes.samples.button}
                                     text="Button"
                                 />
                                 <ListItem
-                                    to={configs.routes.samples.input}
+                                    to={routes.samples.input}
                                     text="Input"
                                 />
                                 <ListItem
-                                    to={configs.routes.samples.checkbox}
+                                    to={routes.samples.checkbox}
                                     text="Checkbox"
                                 />
                                 <ListItem
-                                    to={configs.routes.samples.radio}
+                                    to={routes.samples.radio}
                                     text="Radio"
                                 />
                             </ListItem>
