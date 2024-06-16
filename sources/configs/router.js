@@ -1,6 +1,6 @@
 /**
  * @file routes.js
- * @description React router routes.
+ * @description React router configurations.
  */
 
 'use strict';
@@ -8,7 +8,6 @@ import { GlobalContextProvider } from '../js/components/Context/Global';
 import App, { loader as appLoader } from '../js/components/App';
 import App404 from '../js/components/App404';
 import * as Sections from '../js/components/Sections';
-import { loader as indexSectionLoader } from '../js/components/Sections/IndexSection';
 
 // React router route paths.
 const routes = {
@@ -43,7 +42,6 @@ const appRouter = [
                     {
                         index: true,
                         element: <Sections.IndexSection />,
-                        loader: indexSectionLoader,
                     },
                     {
                         path: routes.samples.button,
