@@ -4,10 +4,10 @@
  */
 
 'use strict';
-import * as jsonServer from './json-server.js';
+import * as mysqlServer from './mysql-server.js';
 
 const apis = {
-    jsonServer,
+    mysqlServer,
 };
 
 export default apis;

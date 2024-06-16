@@ -5,12 +5,12 @@
 
 'use strict';
 import routes, { appRouter } from './router.js';
-import jsdbEndpoints from './jsdb-endpoints.js';
+import mysqlServer from './mysql-server.js';
 
 const configs = {
     routes,
     appRouter,
-    jsdbEndpoints,
+    mysqlServer,
 };
 
 export default configs;
