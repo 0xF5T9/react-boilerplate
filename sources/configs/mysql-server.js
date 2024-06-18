@@ -4,7 +4,7 @@
  */
 
 const config = {
-    url: `http://localhost:8081`,
+    url: process.env.BACKEND_API,
     endpoints: {
         posts: '/test/posts',
     },
