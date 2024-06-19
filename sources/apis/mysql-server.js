@@ -9,9 +9,13 @@ import axios from 'axios';
 import config from '../configs/mysql-server';
 const { url, endpoints } = config;
 
-async function getTestPosts() {
+async function getTestPosts(page = 1) {
     try {
-        const result = await axios.get(`${url}${endpoints.posts}`);
+        const result = await axios.get(`${url}${endpoints.posts}`, {
+            params: {
+                page,
+            },
+        });
         const { posts, meta } = result.data.data;
         return { posts, meta };
     } catch (error) {
