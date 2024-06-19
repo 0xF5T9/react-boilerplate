@@ -17,7 +17,7 @@
                 "panel": "shared",
                 "showReuseMessage": false,
                 "clear": true
-            },
+            }
         },
         {
             "label": "Build (Production)",
@@ -33,23 +33,7 @@
                 "panel": "shared",
                 "showReuseMessage": false,
                 "clear": true
-            },
-        },
-        {
-            "label": "Start (live-server)",
-            "detail": "Start the web-server using live-server. (Development)",
-            "type": "shell",
-            "command": "npm run start-live-server",
-            "problemMatcher": [],
-            "presentation": {
-                "echo": false,
-                "reveal": "always",
-                "revealProblems": "never",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": true
-            },
+            }
         },
         {
             "label": "Start (webpack)",
@@ -65,7 +49,7 @@
                 "panel": "shared",
                 "showReuseMessage": false,
                 "clear": true
-            },
+            }
         },
         {
             "label": "Start (express)",
@@ -81,23 +65,8 @@
                 "panel": "shared",
                 "showReuseMessage": false,
                 "clear": true
-            },
-        },
-        {
-            "label": "Start json-server",
-            "detail": "Start the json-server (Fake API) for testings.",
-            "type": "shell",
-            "command": "npm run start-json-server",
-            "problemMatcher": [],
-            "presentation": {
-                "echo": false,
-                "reveal": "always",
-                "revealProblems": "never",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": true
-            },
-        },
+            }
+        }
     ]
 }
+
