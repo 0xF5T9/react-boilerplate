@@ -7,10 +7,8 @@
         "build": "webpack --config ./webpack.config.js",
         "build-dev": "webpack --config ./webpack.config.js",
         "build-prod": "webpack --config ./webpack.config.prod.js",
-        "start-live-server": "live-server ./public",
         "start-webpack": "webpack-dev-server --config ./webpack.config.js",
-        "start-express": "node ./app.js",
-        "start-json-server": "json-server ./json-server/database.json"
+        "start-express": "node ./app.js"
     },
     "keywords": [],
     "author": "",
@@ -26,7 +24,6 @@
         "dotenv-webpack": "^8.1.0",
         "express": "^4.19.2",
         "html-webpack-plugin": "^5.6.0",
-        "live-server": "^1.2.2",
         "prettier": "3.2.5",
         "style-loader": "^4.0.0",
         "webpack": "^5.91.0",
