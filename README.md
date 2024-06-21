@@ -12,8 +12,7 @@ npm install
 
 ## 2. Set environment variables.
 ```
-BACKEND_API=
-WELCOME_MESSAGE=
+DATABASE_API=
 ```
 
 # Usage

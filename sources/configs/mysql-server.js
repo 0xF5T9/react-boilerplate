@@ -4,7 +4,7 @@
  */
 
 const config = {
-    url: process.env.BACKEND_API,
+    url: process.env.DATABASE_API,
     endpoints: {
         posts: '/test/posts',
     },
