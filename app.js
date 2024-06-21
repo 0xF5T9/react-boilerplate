@@ -7,7 +7,7 @@ const express = require('express'),
     // fs = require('fs'),
     path = require('path'),
     app = express(),
-    port = 80;
+    port = 8317;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
