@@ -12,6 +12,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import helper from './helper.js';
 import configs from '../configs';
+import apis from '../apis';
 
 import { openModalWindow } from './components/ModalOverlay';
 import { showToast, showCustomToast } from './components/ToastOverlay';
@@ -98,14 +99,13 @@ window.onkeydown = function (event) {
             openModalWindow('signup-form-modal-window');
             break;
         }
+        case 'Digit8': {
+            (async () => {
+                console.log(await apis.mysqlServer.getTestPosts(2));
+            })();
+            break;
+        }
         default:
             break;
     }
 };
-
-console.log(
-    `All operations completed successfully.`,
-    `\nReact version: ${React.version}`,
-    `\nReact DOM version: ${ReactDOM.version}`,
-    `\n${process.env.WELCOME_MESSAGE}`
-);
