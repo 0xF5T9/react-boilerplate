@@ -70,7 +70,7 @@ module.exports = {
         }),
         // Enable support for environment files.
         new Dotenv({
-            path: './.env.production',
+            // path: './.env.production', // Use specific environment file.
         }),
     ],
     // Optimizations:
