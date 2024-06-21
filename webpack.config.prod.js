@@ -16,7 +16,7 @@ module.exports = {
         index: './sources/js/entry.js',
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].[contenthash].bundle.js', // [contenthash] used to purge caches on file content changes.
         path: path.resolve(__dirname, 'public'), // Build directly to 'public' folder.
         publicPath: '/',
         clean: true,
