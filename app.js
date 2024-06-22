@@ -13,13 +13,11 @@ const express = require('express');
 
 // Express configurations.
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // Serves static files from '/public'
 
 // Routes:
 app.get('/*', (request, result) => {
-    // Path configuration to respond to a request to static route request by serving 'index.html'
-    // React router won't work without this.
-    // https://stackoverflow.com/questions/44491184/react-router-does-not-work-in-production-and-surge-deployments
+    // Passes routes to React Router.
     result.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
