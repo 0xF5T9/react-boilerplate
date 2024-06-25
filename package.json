@@ -8,7 +8,7 @@
         "build-dev": "webpack --config ./webpack.config.js",
         "build-prod": "webpack --config ./webpack.config.prod.js",
         "start-webpack": "webpack-dev-server --config ./webpack.config.js",
-        "start-express": "node ./app.js"
+        "start-express": "node ./expressjs/server.js"
     },
     "keywords": [],
     "author": "",

@@ -1,24 +1,25 @@
 /**
- * @file app.js
+ * @file server.js
  * @description Start the application using Express.
  */
 
 'use strict';
 
 // Built-in module(s).
-const path = require('path');
+const path = require('path'),
+    rootPath = path.resolve(process.cwd());
 
 // External module(s).
 const express = require('express');
 
 // Express configurations.
 const app = express();
-app.use(express.static(path.join(__dirname, 'public'))); // Serves static files from '/public'
+app.use(express.static(path.join(rootPath, 'public'))); // Serves static files from '/public'
 
 // Routes:
 app.get('/*', (request, result) => {
     // Passes routes to React Router.
-    result.sendFile(path.join(__dirname, 'public', 'index.html'));
+    result.sendFile(path.join(rootPath, 'public', 'index.html'));
 });
 
 // Error-handling middleware.
@@ -33,5 +34,6 @@ app.use((error, request, result, next) => {
 // Launch server.
 const port = 8317;
 app.listen(port, function () {
+    console.log(`Root directory: ${rootPath}`);
     console.log(`Application is listening on port ${port}.`);
 });
