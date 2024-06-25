@@ -1,0 +1,23 @@
+.login-form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 250px;
+    text-align: left;
+}
+
+.login-form *:not(:first-child) {
+    margin-top: 6px;
+}
+
+.login-button {
+    margin-top: 10px !important;
+}
+
+.message {
+    color: var(--color-red);
+}
+
+.input-label {
+    font-weight: bold;
+}
