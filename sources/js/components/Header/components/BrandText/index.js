@@ -5,7 +5,7 @@
  */
 import { Link } from 'react-router-dom';
 
-import { routes } from '../../../../../configs/react-router';
+import { routes } from '../../../../configs/react-router';
 
 import * as styles from './BrandText.module.css';
 

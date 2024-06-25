@@ -10,16 +10,15 @@ import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import helper from './helper.js';
-import configs from '../configs';
-import apis from '../apis';
+import './utility/helper.js';
+import configs from './configs/index.js';
+import apis from './apis/index.js';
 
 import { openModalWindow } from './components/ModalOverlay';
 import { showToast, showCustomToast } from './components/ToastOverlay';
 
 window.React = React;
 window.ReactDOM = ReactDOM;
-window.helper = helper;
 const $ = document.querySelector.bind(document);
 
 (() => {

@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import { NavLink, useNavigation } from 'react-router-dom';
 
-import { routes } from '../../../../../configs/react-router';
+import { routes } from '../../../../configs/react-router';
 
 import * as styles from './Navbar.module.css';
 

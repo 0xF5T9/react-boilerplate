@@ -9,7 +9,7 @@ import { useState, useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { routes } from '../../../../../configs/react-router';
+import { routes } from '../../../../configs/react-router';
 
 import { GlobalContext } from '../../../Context/Global';
 import IconButton, { IconButtonStyles } from '../IconButton';

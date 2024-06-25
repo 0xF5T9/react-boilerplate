@@ -5,7 +5,7 @@
 
 import { Link, ScrollRestoration, useRouteError } from 'react-router-dom';
 
-import { routes } from '../../../configs/react-router';
+import { routes } from '../../configs/react-router';
 
 import Content from '../Content';
 import ContentSection from '../Content/components/ContentSection';
