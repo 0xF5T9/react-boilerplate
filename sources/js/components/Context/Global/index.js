@@ -7,7 +7,7 @@
 import { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-// The global context.
+// Global context.
 const GlobalContext = createContext();
 
 /**
@@ -16,7 +16,7 @@ const GlobalContext = createContext();
  * @param {*} props.children Context children.
  * @returns Returns the component.
  */
-function GlobalContextProvider({ children }) {
+function GlobalProvider({ children }) {
     const [isHeaderVisible, setHeaderVisibility] = useState(true),
         [isFooterVisible, setFooterVisibility] = useState(true),
         [headerHeight, setHeaderHeight] = useState('56.8px'),
@@ -72,8 +72,8 @@ function GlobalContextProvider({ children }) {
     );
 }
 
-GlobalContextProvider.propTypes = {
+GlobalProvider.propTypes = {
     children: PropTypes.node,
 };
 
-export { GlobalContext, GlobalContextProvider };
+export { GlobalContext, GlobalProvider };
