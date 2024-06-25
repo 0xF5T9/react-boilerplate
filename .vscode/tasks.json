@@ -5,7 +5,7 @@
     "tasks": [
         {
             "label": "Build (Development)",
-            "detail": "Build the bundle.js using Webpack in development mode.",
+            "detail": "Build the project using Webpack in development mode.",
             "type": "shell",
             "command": "npm run build-dev",
             "problemMatcher": [],
@@ -21,7 +21,7 @@
         },
         {
             "label": "Build (Production)",
-            "detail": "Build the bundle.js using Webpack in production mode.",
+            "detail": "Build the project using Webpack in production mode.",
             "type": "shell",
             "command": "npm run build-prod",
             "problemMatcher": [],
