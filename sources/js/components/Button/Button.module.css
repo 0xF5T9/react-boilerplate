@@ -11,11 +11,11 @@
     --button-focus-border-color: var(--color-white);
     --button-border-width: 2px;
     --button-border-radius: 8px;
-    --button-padding-left-right: 4px;
-    --button-padding-top-bottom: 10px;
+    --button-padding-left-right: 10px;
+    --button-padding-top-bottom: 4px;
     position: relative;
-    padding: calc(var(--button-padding-left-right) + var(--button-border-width))
-        calc(var(--button-padding-top-bottom) + var(--button-border-width));
+    padding: calc(var(--button-padding-top-bottom) + var(--button-border-width))
+        calc(var(--button-padding-left-right) + var(--button-border-width));
     border: 0;
     font-size: 1rem;
     font-weight: bold;
