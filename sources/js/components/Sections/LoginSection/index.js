@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 
+import { routes } from '../../../configs/react-router';
 import apis from '../../../apis';
 
 import ContentSection from '../../Content/components/ContentSection';
@@ -28,7 +29,7 @@ function LoginSection() {
         { authSession, login } = useAuth();
 
     if (authSession) {
-        return <Navigate to="/secret" />;
+        return <Navigate to={routes.profile} />;
     }
 
     async function handleLogin(event) {

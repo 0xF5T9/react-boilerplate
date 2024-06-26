@@ -6,6 +6,7 @@
 
 'use strict';
 import { useState, useEffect, useContext } from 'react';
+import { useAuth } from '../../../../hooks/useAuth';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -186,6 +187,7 @@ List.propTypes = {
 function MobileNavMenuIcon() {
     const { deviceType } = useContext(GlobalContext);
     const [showPopup, setShowPopup] = useState(false);
+    const { authSession } = useAuth();
 
     useEffect(() => {
         setShowPopup(false);
@@ -262,6 +264,9 @@ function MobileNavMenuIcon() {
                                 <ListItem text="TippyJS v4.2.6" />
                                 <ListItem text="PropTypes v15.8.1" />
                             </ListItem>
+                            {authSession && (
+                                <ListItem text="Profile" to={routes.profile} />
+                            )}
                         </ul>
                     </div>
                 )}

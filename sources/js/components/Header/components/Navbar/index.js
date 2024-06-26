@@ -7,6 +7,7 @@
 'use strict';
 import PropTypes from 'prop-types';
 import { NavLink, useNavigation } from 'react-router-dom';
+import { useAuth } from '../../../../hooks/useAuth';
 
 import { routes } from '../../../../configs/react-router';
 
@@ -161,6 +162,8 @@ NavbarItem.propTypes = {
  * @returns Returns the component.
  */
 function Navbar() {
+    const { authSession } = useAuth();
+
     return (
         <nav id="header-navbar" className={styles['navbar']}>
             <NavbarList className={styles['navbar-list-parent']}>
@@ -187,6 +190,9 @@ function Navbar() {
                     <NavbarItem text="TippyJS v4.2.6" />
                     <NavbarItem text="PropTypes v15.8.1" />
                 </NavbarItem>
+                {authSession && (
+                    <NavbarItem text="Profile" to={routes.profile} />
+                )}
             </NavbarList>
         </nav>
     );

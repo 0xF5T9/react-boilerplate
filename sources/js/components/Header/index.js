@@ -5,6 +5,8 @@
 
 'use strict';
 import { useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 import { GlobalContext } from '../Context/Global';
 import BrandLogo from './components/BrandLogo';
@@ -36,7 +38,9 @@ function isHeaderComponentVisible() {
  * @returns Returns the component.
  */
 function Header() {
-    const { isHeaderVisible, headerHeight } = useContext(GlobalContext);
+    const { isHeaderVisible, headerHeight } = useContext(GlobalContext),
+        { authSession, logout } = useAuth(),
+        navigate = useNavigate();
 
     // Header visibility state is stored in the global context.
     // Track the state and adjust the stylesheet accordingly.
@@ -84,74 +88,85 @@ function Header() {
 
             {/* Right content box */}
             <div id="header-right-content-box">
-                {/* Connect button */}
-                <Button
-                    outline
-                    style={{ marginRight: '5px' }}
-                    onClick={() => {
-                        const audio = new Audio(
-                            '/assets/static/sound/ClickSoundEffect.wav'
-                        );
-                        audio.play();
-                        showToast(
-                            'Error',
-                            'Unable to connect to the remote server.',
-                            'error'
-                        );
-                    }}
-                >
-                    <i
-                        className="fa-solid fa-ethernet"
-                        style={{ marginRight: '8px' }}
-                    ></i>
-                    Connect
-                </Button>
+                {authSession ? (
+                    <>
+                        {/* Connect button */}
+                        <Button
+                            outline
+                            style={{ marginRight: '5px' }}
+                            onClick={() => {
+                                const audio = new Audio(
+                                    '/assets/static/sound/ClickSoundEffect.wav'
+                                );
+                                audio.play();
+                                showToast(
+                                    'Error',
+                                    'Unable to connect to the remote server.',
+                                    'error'
+                                );
+                            }}
+                        >
+                            <i
+                                className="fa-solid fa-ethernet"
+                                style={{ marginRight: '8px' }}
+                            ></i>
+                            Connect
+                        </Button>
 
+                        {/* Alert icon */}
+                        <AlertIcon />
+
+                        {/* User icon */}
+                        <UserIcon
+                            menus={[
+                                {
+                                    id: 'default',
+                                    menu: [
+                                        {
+                                            text: 'Profile',
+                                            icon: 'fas fa-user',
+                                            to: 'profile',
+                                        },
+                                        {
+                                            text: 'Settings',
+                                            icon: 'fas fa-gear',
+                                            gotoMenu: 'settings',
+                                        },
+                                        {
+                                            text: 'Logout',
+                                            icon: 'fas fa-right-from-bracket',
+                                            onClick: () => logout(),
+                                        },
+                                    ],
+                                },
+                                {
+                                    id: 'settings',
+                                    menu: [
+                                        {
+                                            text: 'No option availables.',
+                                        },
+                                        {
+                                            text: 'Back',
+                                            icon: 'fas fa-arrow-left',
+                                            gotoMenu: 'default',
+                                        },
+                                    ],
+                                },
+                            ]}
+                        />
+                    </>
+                ) : (
+                    <Button
+                        style={{ marginRight: '10px' }}
+                        onClick={() => navigate('/login')}
+                        elementType="div"
+                        whiteOnly
+                    >
+                        Login
+                    </Button>
+                )}
                 {/* Mobile navigation menu */}
                 <MobileNavMenuIcon />
-
-                {/* Alert icon */}
-                <AlertIcon />
-
-                {/* User icon */}
-                <UserIcon
-                    menus={[
-                        {
-                            id: 'default',
-                            menu: [
-                                {
-                                    text: 'Log In',
-                                    icon: 'fas fa-right-to-bracket',
-                                    to: 'login',
-                                },
-                                {
-                                    text: 'Sign Up',
-                                    icon: 'fas fa-user-plus',
-                                    onClick: () =>
-                                        console.log('This is a test.'),
-                                },
-                                {
-                                    text: 'Settings',
-                                    icon: 'fas fa-gear',
-                                    gotoMenu: 'settings',
-                                },
-                            ],
-                        },
-                        {
-                            id: 'settings',
-                            menu: [
-                                {
-                                    text: 'No option availables.',
-                                },
-                                {
-                                    text: 'Back',
-                                    icon: 'fas fa-arrow-left',
-                                    gotoMenu: 'default',
-                                },
-                            ],
-                        },
-                    ]}
-                />
             </div>
         </header>
     );

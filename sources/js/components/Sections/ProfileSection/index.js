@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description Secret section.
+ * @description Profile section.
  * @todo TODO: Mock component, to be removed.
  */
 
@@ -12,10 +12,10 @@ import ContentSection from '../../Content/components/ContentSection';
 import Button from '../../Button';
 
 /**
- * Secret section.
+ * Profile section.
  * @returns Returns the component.
  */
-function SecretSection() {
+function ProfileSection() {
     const { authSession, logout } = useAuth();
 
     async function handleLogout(event) {
@@ -25,7 +25,7 @@ function SecretSection() {
     return (
         <>
             <ContentSection flexCenter textCenter>
-                <h1>Secret Section</h1>
+                <h1>Profile Section</h1>
                 <h3>Logged as {authSession.username}</h3>
                 <Button onClick={handleLogout}>Logout</Button>
             </ContentSection>
@@ -33,4 +33,4 @@ function SecretSection() {
     );
 }
 
-export default SecretSection;
+export default ProfileSection;

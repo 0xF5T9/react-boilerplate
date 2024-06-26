@@ -7,16 +7,19 @@
 import { GlobalProvider } from '../components/Context/Global';
 import { AuthProvider } from '../hooks/useAuth';
 import ProtectedRoute from '../components/ProtectedRoute';
-
-import App, { loader as appLoader } from '../components/App';
-import App404 from '../components/App404';
+import {
+    DefaultLayout,
+    BlankLayout,
+    Error404Layout,
+} from '../components/Layouts';
 import * as Sections from '../components/Sections';
+import { Children } from 'react';
 
 // Routes path.
 const routes = {
     home: '/',
     login: '/login',
-    secret: '/secret',
+    profile: '/profile',
     samples: {
         button: '/samples/button',
         input: '/samples/input',
@@ -32,18 +35,17 @@ const appRouter = [
         element: (
             <GlobalProvider>
                 <AuthProvider>
-                    <App />
+                    <DefaultLayout />
                 </AuthProvider>
             </GlobalProvider>
         ),
         errorElement: (
             <GlobalProvider>
                 <AuthProvider>
-                    <App404 />
+                    <Error404Layout />
                 </AuthProvider>
             </GlobalProvider>
         ),
-        loader: appLoader,
         children: [
             {
                 errorElement: <div>Error Section Here</div>, // TODO: add error section.
@@ -57,10 +59,10 @@ const appRouter = [
                         element: <Sections.LoginSection />,
                     },
                     {
-                        path: routes.secret,
+                        path: routes.profile,
                         element: (
                             <ProtectedRoute>
-                                <Sections.SecretSection />
+                                <Sections.ProfileSection />
                             </ProtectedRoute>
                         ),
                     },

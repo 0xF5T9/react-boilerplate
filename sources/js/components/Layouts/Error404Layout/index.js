@@ -1,22 +1,26 @@
 /**
  * @file index.js
- * @description App404 component.
+ * @description Error 404 layout component.
  */
 
+'use strict';
 import { Link, ScrollRestoration, useRouteError } from 'react-router-dom';
 
-import { routes } from '../../configs/react-router';
+import { routes } from '../../../configs/react-router';
 
-import Content from '../Content';
-import ContentSection from '../Content/components/ContentSection';
-import Button from '../Button';
-import * as styles from './App404.module.css';
+import Content from '../../Content';
+import ContentSection from '../../Content/components/ContentSection';
+import ModalOverlay from '../../ModalOverlay';
+import ToastOverlay from '../../ToastOverlay';
+// import DebugOverlay from '../../DebugOverlay';
+import Button from '../../Button';
+import * as styles from './Error404Layout.module.css';
 
 /**
- * App404 component.
+ * Error 404 layout component.
  * @returns Returns the component.
  */
-function App404() {
+function Error404Layout() {
     const error = useRouteError();
     console.warn(error);
 
@@ -55,10 +59,13 @@ function App404() {
                         </div>
                     </ContentSection>
                 </Content>
+                <ModalOverlay />
+                <ToastOverlay />
+                {/* <DebugOverlay /> */}
             </div>
             <ScrollRestoration />
         </>
     );
 }
 
-export default App404;
+export default Error404Layout;

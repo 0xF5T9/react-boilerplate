@@ -7,6 +7,7 @@
 import { useContext, useMemo, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from './useLocalStorage';
+import { routes } from '../configs/react-router';
 import PropTypes from 'prop-types';
 
 // Authentication context.
@@ -26,16 +27,16 @@ function AuthProvider({ children }) {
         const { username, token } = sessionData;
         if (!username || !token) {
             console.error('Invalid session data.');
-            navigate('/');
+            navigate(routes.home);
         }
 
         setAuthSession(sessionData);
-        navigate('/secret'); // Redirect to secret route on successful login. [MOCK]
+        navigate(routes.profile); // Redirect to secret route on successful login. [MOCK]
     }
 
     async function logout() {
         setAuthSession(null);
-        navigate('/', { replace: true });
+        navigate(routes.home, { replace: true });
     }
 
     const value = useMemo(
