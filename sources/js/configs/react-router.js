@@ -55,10 +55,6 @@ const appRouter = [
                         element: <Sections.IndexSection />,
                     },
                     {
-                        path: routes.login,
-                        element: <Sections.LoginSection />,
-                    },
-                    {
                         path: routes.profile,
                         element: (
                             <ProtectedRoute>
@@ -83,6 +79,22 @@ const appRouter = [
                         element: <Sections.RadioSampleSection />,
                     },
                 ],
+            },
+        ],
+    },
+    {
+        path: routes.login,
+        element: (
+            <GlobalProvider>
+                <AuthProvider>
+                    <BlankLayout />
+                </AuthProvider>
+            </GlobalProvider>
+        ),
+        children: [
+            {
+                index: true,
+                element: <Sections.LoginSection />,
             },
         ],
     },

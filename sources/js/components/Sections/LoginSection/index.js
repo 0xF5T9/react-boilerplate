@@ -5,8 +5,8 @@
  */
 
 'use strict';
-import { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 
 import { routes } from '../../../configs/react-router';
@@ -15,6 +15,7 @@ import apis from '../../../apis';
 import ContentSection from '../../Content/components/ContentSection';
 import Input from '../../Input';
 import Button from '../../Button';
+import ServerMessage from './components/ServerMessage';
 
 import * as styles from './LoginSection.module.css';
 
@@ -23,10 +24,11 @@ import * as styles from './LoginSection.module.css';
  * @returns Returns the component.
  */
 function LoginSection() {
-    const [username, setUsername] = useState(''),
-        [password, setPassword] = useState(''),
-        [message, setMessage] = useState(''),
-        { authSession, login } = useAuth();
+    const { authSession, login } = useAuth(),
+        [pending, setPending] = useState(false),
+        [serverMessage, setServerMessage] = useState(null), // { message, type }
+        [username, setUsername] = useState(''),
+        [password, setPassword] = useState('');
 
     if (authSession) {
         return <Navigate to={routes.profile} />;
@@ -34,6 +36,16 @@ function LoginSection() {
 
     async function handleLogin(event) {
         event.preventDefault();
+        if (!username) {
+            document.getElementById('username-input').focus();
+            return;
+        }
+        if (!password) {
+            document.getElementById('password-input').focus();
+            return;
+        }
+
+        setPending(true);
 
         const { message, success, data } = await apis.mysqlServer.authorize(
             username,
@@ -41,52 +53,96 @@ function LoginSection() {
         );
         if (!success) {
             console.warn(message);
-            setMessage(message);
+            setServerMessage({ message: message, type: 'error' });
+            setPassword('');
+            setPending(false);
             return;
         }
 
-        await login({ username: data.username, token: data.token });
-        setMessage(message);
-        console.log('Login successfully.');
+        setServerMessage({ message: 'Redirecting...', type: 'success' });
+        setTimeout(
+            async () =>
+                await login({ username: data.username, token: data.token }),
+            300
+        );
     }
 
     return (
         <>
-            <ContentSection flexCenter textCenter>
-                <h1>Login Section</h1>
-                <div className={styles['login-form']}>
-                    <label
-                        htmlFor="username-input"
-                        className={styles['input-label']}
-                    >
-                        Username
-                    </label>
-                    <Input
-                        id="username-input"
-                        value={username}
-                        placeholder="Username"
-                        onChange={(event) => setUsername(event.target.value)}
+            <ContentSection flexCenter textCenter noChildDefaultMargin>
+                {serverMessage && (
+                    <ServerMessage
+                        message={serverMessage.message}
+                        onClick={() => setServerMessage(null)}
+                        type={serverMessage.type}
                     />
-                    <label
-                        htmlFor="password-input"
-                        className={styles['input-label']}
-                    >
-                        Password
-                    </label>
-                    <Input
-                        id="password-input"
-                        value={password}
-                        type="password"
-                        placeholder="Password"
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
-                    <Button
-                        className={styles['login-button']}
-                        onClick={handleLogin}
-                    >
-                        Login
-                    </Button>
-                    <span className={styles['message']}>{message}</span>
+                )}
+                <div className={styles['wrapper']}>
+                    <h1 className={styles['title']}>Login</h1>
+
+                    <form className={styles['form']}>
+                        <div className={styles['form-group']}>
+                            <label
+                                htmlFor="username-input"
+                                className={styles['label']}
+                            >
+                                Username
+                            </label>
+                            <Input
+                                id="username-input"
+                                value={username}
+                                placeholder="Username"
+                                onChange={(event) =>
+                                    setUsername(event.target.value)
+                                }
+                                icon={{
+                                    iconPosition: 'left',
+                                    iconClass: 'fas fa-user',
+                                }}
+                            />
+                        </div>
+
+                        <div className={styles['form-group']}>
+                            <label
+                                htmlFor="password-input"
+                                className={styles['label']}
+                            >
+                                Password
+                            </label>
+                            <Input
+                                id="password-input"
+                                value={password}
+                                type="password"
+                                placeholder="Password"
+                                onChange={(event) =>
+                                    setPassword(event.target.value)
+                                }
+                                icon={{
+                                    iconPosition: 'left',
+                                    iconClass: 'fas fa-lock',
+                                }}
+                            />
+                        </div>
+
+                        <Button
+                            className={styles['submit']}
+                            onClick={(event) => handleLogin(event)}
+                            disabled={pending ? true : false}
+                        >
+                            {pending ? 'Authenticating...' : 'Login'}
+                        </Button>
+
+                        <Link
+                            className={styles['back']}
+                            to="/"
+                            onClick={(event) => {
+                                if (pending) event.preventDefault();
+                            }}
+                        >
+                            <i className="fa-solid fa-arrow-left"></i> Back to
+                            Homepage
+                        </Link>
+                    </form>
                 </div>
             </ContentSection>
         </>

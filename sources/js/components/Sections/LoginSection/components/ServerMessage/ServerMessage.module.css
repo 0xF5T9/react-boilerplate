@@ -1,0 +1,47 @@
+.server-message-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 288px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid var(--color-blue);
+    border-radius: 10px;
+    background-color: rgb(120, 221, 232, 0.1);
+
+    &.error {
+        border-color: var(--color-red);
+        background-color: rgb(255, 97, 136, 0.1);
+
+        & .server-message-delete:hover {
+            color: var(--color-red);
+        }
+    }
+
+    &.success {
+        border-color: var(--color-green);
+        background-color: rgb(168, 219, 117, 0.1);
+
+        & .server-message-delete:hover {
+            color: var(--color-green);
+        }
+    }
+}
+
+.server-message {
+    margin-right: 5px;
+    color: var(--color-white);
+    text-align: left;
+}
+
+.server-message-delete {
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-blue);
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+}
