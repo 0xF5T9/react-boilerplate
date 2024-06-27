@@ -19,6 +19,7 @@ import * as styles from './Input.module.css';
  * @param {Object} props.icon Input icon. ({iconPosition: 'left' | 'right', iconClass: '<icon classses>'})
  * @param {String} props.placeholder Input placeholder.
  * @param {String} props.id Input id. (This applies to the input element)
+ * @param {String} props.value Input value.
  * @param {String} props.className Additional input class names. (This applies to the wrapper element)
  * @param {Function} props.onBlur Input on-blur callback.
  * @param {Function} props.onChange Input on-change callback.
@@ -36,6 +37,7 @@ function Input({
     icon = { iconPosition: '', iconClass: '' },
     placeholder,
     id,
+    value,
     className,
     onBlur,
     onChange,
@@ -61,6 +63,7 @@ function Input({
             <input
                 id={id}
                 type={type}
+                value={value}
                 placeholder={placeholder}
                 onBlur={onBlur}
                 onChange={onChange}
@@ -90,6 +93,7 @@ Input.propTypes = {
     }),
     placeholder: PropTypes.string,
     id: PropTypes.string,
+    value: PropTypes.string,
     className: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
