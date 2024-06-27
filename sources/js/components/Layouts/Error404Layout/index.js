@@ -14,6 +14,8 @@ import ModalOverlay from '../../ModalOverlay';
 import ToastOverlay from '../../ToastOverlay';
 // import DebugOverlay from '../../DebugOverlay';
 import Button from '../../Button';
+
+import * as layoutStyles from '../Layout.module.css';
 import * as styles from './Error404Layout.module.css';
 
 /**
@@ -62,6 +64,7 @@ function Error404Layout() {
                 <ModalOverlay />
                 <ToastOverlay />
                 {/* <DebugOverlay /> */}
+                <div className={layoutStyles['background']} />
             </div>
             <ScrollRestoration />
         </>
