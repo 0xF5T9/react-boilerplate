@@ -1,0 +1,12 @@
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--general-body-background-gradient-color),
+        var(--general-body-background-image-url);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: blur(6px);
+    z-index: -1;
+}

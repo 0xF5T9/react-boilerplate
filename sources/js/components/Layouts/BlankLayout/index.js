@@ -11,6 +11,8 @@ import ModalOverlay from '../../ModalOverlay';
 import ToastOverlay from '../../ToastOverlay';
 import DebugOverlay from '../../DebugOverlay';
 
+import * as styles from '../Layout.module.css';
+
 /**
  * Loader component.
  * @returns {*} Returns the loader data.
@@ -41,6 +43,7 @@ function BlankLayout() {
                 <ModalOverlay />
                 <ToastOverlay />
                 <DebugOverlay />
+                <div className={styles['background']} />
             </div>
             <ScrollRestoration />
         </>
