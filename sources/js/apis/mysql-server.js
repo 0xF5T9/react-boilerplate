@@ -26,8 +26,43 @@ async function getTestPosts(page = 1) {
 
         return new Response(message, true, data);
     } catch (error) {
-        console.error(error);
-        return new Response('Unexpected server error occurred.');
+        if (error.response && error.response.status < 500) {
+            return new Response(error.response.data.message);
+        } else {
+            console.error(error);
+            return new Response('Unexpected server error occurred.');
+        }
+    }
+}
+
+/**
+ * Register a user.
+ * @param {String} email Email.
+ * @param {String} username Username.
+ * @param {String} password Password.
+ * @returns {Promise<APIResponse>} Returns the API response object.
+ */
+async function register(email, username, password) {
+    try {
+        const result = await axios.post(`${url}${endpoints.register}`, {
+            email,
+            username,
+            password,
+        });
+        const { message } = result.data;
+        if (result.status !== 201)
+            throw new Error(
+                `Expected a successful status code '201' but got a status code '${result.status}'.`
+            );
+
+        return new Response(message, true);
+    } catch (error) {
+        if (error.response && error.response.status < 500) {
+            return new Response(error.response.data.message);
+        } else {
+            console.error(error);
+            return new Response('Unexpected server error occurred.');
+        }
     }
 }
 
@@ -57,6 +92,10 @@ async function authorize(username, password) {
     } catch (error) {
         if (error.response && error.response.status === 401) {
             return new Response('Invalid username or password.');
+        }
+
+        if (error.response && error.response.status < 500) {
+            return new Response(error.response.data.message);
         } else {
             console.error(error);
             return new Response('Unexpected server error occurred.');
@@ -64,4 +103,4 @@ async function authorize(username, password) {
     }
 }
 
-export { getTestPosts, authorize };
+export { getTestPosts, register, authorize };
