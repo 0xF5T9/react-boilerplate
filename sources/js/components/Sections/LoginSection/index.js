@@ -56,6 +56,9 @@ function LoginSection() {
             setServerMessage({ message: message, type: 'error' });
             setPassword('');
             setPending(false);
+            setTimeout(() => {
+                document.getElementById('password-input').focus();
+            }, 10);
             return;
         }
 
@@ -99,6 +102,7 @@ function LoginSection() {
                                     iconPosition: 'left',
                                     iconClass: 'fas fa-user',
                                 }}
+                                disabled={pending ? true : false}
                             />
                         </div>
                         <div className={styles['form-group']}>
@@ -120,6 +124,7 @@ function LoginSection() {
                                     iconPosition: 'left',
                                     iconClass: 'fas fa-lock',
                                 }}
+                                disabled={pending ? true : false}
                             />
                         </div>
                         <Button
