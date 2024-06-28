@@ -4,7 +4,7 @@ select.select {
     --select-border-color-default: var(--color-white);
     --select-border-color-focus: var(--color-primary);
     --select-border-width: 2px;
-    --select-border-radius: 4px;
+    --select-border-radius: 6px;
     padding: 4px 8px;
     border: var(--select-border-width) solid var(--select-border-color-default);
     border-radius: var(--select-border-radius);
@@ -20,7 +20,7 @@ select.select {
     }
 
     &:disabled {
-        filter: brightness(0.6);
+        filter: brightness(0.65);
     }
 
     &.alt {

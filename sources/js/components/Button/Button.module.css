@@ -10,7 +10,7 @@
     --button-border-color-active: var(--color-primary);
     --button-focus-border-color: var(--color-white);
     --button-border-width: 2px;
-    --button-border-radius: 8px;
+    --button-border-radius: 6px;
     --button-padding-left-right: 10px;
     --button-padding-top-bottom: 4px;
     position: relative;
@@ -376,7 +376,7 @@
     /* State overrides */
 
     &:disabled {
-        filter: brightness(0.6);
+        filter: brightness(0.65);
         cursor: not-allowed;
         pointer-events: none;
     }

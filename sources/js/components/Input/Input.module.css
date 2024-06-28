@@ -12,7 +12,7 @@ div.input-wrapper {
     --input-border-color-active: var(--input-border-color-default);
     --input-border-color-focus: var(--color-primary);
     --input-border-width: 2px;
-    --input-border-radius: 4px;
+    --input-border-radius: 6px;
     --input-padding-left-right: 4px;
     --input-padding-top-bottom: 4px;
     --input-icon-extra-padding: 4px;
@@ -92,7 +92,7 @@ div.input-wrapper {
         }
 
         &:disabled {
-            filter: brightness(0.6);
+            filter: brightness(0.65);
         }
     }
 

@@ -78,7 +78,7 @@ div.radio-wrapper {
         }
 
         &:disabled {
-            filter: brightness(0.6);
+            filter: brightness(0.65);
         }
     }
 
@@ -99,7 +99,7 @@ div.radio-wrapper {
     }
 
     & input[type='radio']:disabled ~ label > span {
-        filter: brightness(0.6);
+        filter: brightness(0.65);
     }
 
     /* Modifier classes */

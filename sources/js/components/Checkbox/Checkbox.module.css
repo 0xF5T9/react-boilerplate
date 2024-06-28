@@ -66,7 +66,7 @@ div.checkbox-wrapper {
         }
 
         &:disabled {
-            filter: brightness(0.6);
+            filter: brightness(0.65);
         }
     }
 
@@ -87,7 +87,7 @@ div.checkbox-wrapper {
     }
 
     & input[type='checkbox']:disabled ~ label > span {
-        filter: brightness(0.6);
+        filter: brightness(0.65);
     }
 
     /* Modifier classes */
