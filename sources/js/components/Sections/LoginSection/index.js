@@ -101,7 +101,6 @@ function LoginSection() {
                                 }}
                             />
                         </div>
-
                         <div className={styles['form-group']}>
                             <label
                                 htmlFor="password-input"
@@ -123,7 +122,6 @@ function LoginSection() {
                                 }}
                             />
                         </div>
-
                         <Button
                             className={styles['submit']}
                             onClick={(event) => handleLogin(event)}
@@ -131,17 +129,26 @@ function LoginSection() {
                         >
                             {pending ? 'Authenticating...' : 'Login'}
                         </Button>
-
-                        <Link
-                            className={styles['back']}
-                            to="/"
-                            onClick={(event) => {
-                                if (pending) event.preventDefault();
-                            }}
-                        >
-                            <i className="fa-solid fa-arrow-left"></i> Back to
-                            Homepage
-                        </Link>
+                        <div className={styles['links']}>
+                            <Link
+                                className={styles['link']}
+                                to="/"
+                                onClick={(event) => {
+                                    if (pending) event.preventDefault();
+                                }}
+                            >
+                                <i className="fa-solid fa-arrow-left"></i> Back
+                            </Link>
+                            <Link
+                                className={styles['link']}
+                                to="/register"
+                                onClick={(event) => {
+                                    if (pending) event.preventDefault();
+                                }}
+                            >
+                                Register
+                            </Link>
+                        </div>{' '}
                     </form>
                 </div>
             </ContentSection>

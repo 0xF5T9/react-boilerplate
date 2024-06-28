@@ -39,7 +39,13 @@
     margin-top: 5px;
 }
 
-.back {
+.links {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.link {
     margin-top: 6px;
     color: var(--color-gray);
     text-decoration: none;
