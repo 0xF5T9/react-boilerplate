@@ -54,6 +54,7 @@
     transition: color 0.15s;
 
     &:hover {
+        text-decoration: underline;
         color: var(--color-gray-bright);
     }
 
