@@ -35,7 +35,19 @@
 }
 
 .server-message-delete {
+    position: relative;
     cursor: pointer;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -6px;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 3px 6px;
+    }
 
     &:hover {
         color: var(--color-blue);
