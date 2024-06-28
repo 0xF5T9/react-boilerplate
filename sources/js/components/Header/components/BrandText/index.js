@@ -21,7 +21,7 @@ function BrandText() {
             tabIndex={-1}
         >
             <div>
-                <h1>Boilerplate Project</h1>
+                <h1>React Project</h1>
             </div>
         </Link>
     );
