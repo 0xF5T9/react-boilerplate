@@ -19,6 +19,7 @@ import { Children } from 'react';
 const routes = {
     home: '/',
     login: '/login',
+    register: '/register',
     profile: '/profile',
     samples: {
         button: '/samples/button',
@@ -95,6 +96,22 @@ const appRouter = [
             {
                 index: true,
                 element: <Sections.LoginSection />,
+            },
+        ],
+    },
+    {
+        path: routes.register,
+        element: (
+            <GlobalProvider>
+                <AuthProvider>
+                    <BlankLayout />
+                </AuthProvider>
+            </GlobalProvider>
+        ),
+        children: [
+            {
+                index: true,
+                element: <Sections.RegisterSection />,
             },
         ],
     },
