@@ -78,6 +78,7 @@ module.exports = {
         // Increase entry point size.
         maxEntrypointSize: 512000,
         maxAssetSize: 512000,
+        hints: false, // Disable hints for now.
     },
     optimization: {
         // Enable chunk spliting.
