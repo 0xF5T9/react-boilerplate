@@ -5,8 +5,10 @@
 
 'use strict';
 import { useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+
+import { routes } from '../../configs/react-router';
 
 import { GlobalContext } from '../Context/Global';
 import BrandLogo from './components/BrandLogo';
@@ -16,6 +18,7 @@ import MobileNavMenuIcon from './components/MobileNavMenuIcon';
 import AlertIcon from './components/AlertIcon';
 import UserIcon from './components/UserIcon';
 import Button from '../Button';
+import Anchor from '../Anchor';
 import { showToast } from '../ToastOverlay';
 import './Header.css';
 const $ = document.querySelector.bind(document);
@@ -156,14 +159,18 @@ function Header() {
                         />
                     </>
                 ) : (
-                    <Button
-                        style={{ marginRight: '10px' }}
-                        onClick={() => navigate('/login')}
-                        elementType="div"
-                        whiteOnly
-                    >
-                        Login
-                    </Button>
+                    <>
+                        <Link className="login-link" to={routes.login}>
+                            Login
+                        </Link>{' '}
+                        <Button
+                            style={{ marginRight: '10px' }}
+                            onClick={() => navigate(routes.register)}
+                            elementType="div"
+                        >
+                            Register
+                        </Button>
+                    </>
                 )}
                 {/* Mobile navigation menu */}
                 <MobileNavMenuIcon />
