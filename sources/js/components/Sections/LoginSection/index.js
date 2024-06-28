@@ -137,7 +137,7 @@ function LoginSection() {
                         <div className={styles['links']}>
                             <Link
                                 className={styles['link']}
-                                to="/"
+                                to={routes.home}
                                 onClick={(event) => {
                                     if (pending) event.preventDefault();
                                 }}
@@ -146,7 +146,7 @@ function LoginSection() {
                             </Link>
                             <Link
                                 className={styles['link']}
-                                to="/register"
+                                to={routes.register}
                                 onClick={(event) => {
                                     if (pending) event.preventDefault();
                                 }}
