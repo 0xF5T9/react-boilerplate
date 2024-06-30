@@ -4,9 +4,15 @@
  */
 
 'use strict';
+import { useAuth } from '../../hooks/useAuth';
+import { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useAuth } from '../../hooks/useAuth';
+
+import apis from '../../apis';
+import { routes } from '../../configs/react-router';
+import { showToast } from '../ToastOverlay';
+import ContentSection from '../Content/components/ContentSection';
 
 /**
  * This component is used to prevent unauthenticated users from accessing private routes.
@@ -15,11 +21,41 @@ import { useAuth } from '../../hooks/useAuth';
  * @returns Returns the component.
  */
 function ProtectedRoute({ children }) {
-    const { authSession } = useAuth();
+    const { authSession, logout } = useAuth(),
+        [isVerifying, setIsVerifying] = useState(true);
 
+    // Redirect to login route if no authentication session found.
     if (!authSession) {
-        return <Navigate to="/login" />; // Redirect to login route if no authentication session found. [MOCK]
+        return <Navigate to={routes.login} />;
     }
+
+    // Verify the authentication session. (Check if token is still valid.)
+    useEffect(() => {
+        verifySession();
+    }, [authSession]);
+
+    // If the session token is invalid (expired, tampered) redirect to login page.
+    // If the verification failed due to server error, redirect to homepage instead.
+    async function verifySession() {
+        const result = await apis.mysqlServer.verifySession(authSession),
+            { message, success, invalidToken } = result;
+        if (!success) {
+            setTimeout(() => showToast('Error', message, 'error', 5000), 100);
+            logout(invalidToken ? routes.login : routes.home);
+        }
+        setIsVerifying(false);
+    }
+
+    // Display loading component while verifying the session.
+    if (isVerifying)
+        return (
+            <ContentSection flexCenter textCenter>
+                <i
+                    className="fa-solid fa-spinner fa-spin-pulse"
+                    style={{ fontSize: '30px' }}
+                ></i>
+            </ContentSection>
+        );
 
     return children;
 }
