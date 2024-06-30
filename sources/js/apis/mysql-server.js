@@ -26,8 +26,14 @@ async function getTestPosts(page = 1) {
 
         return new Response(message, true, data);
     } catch (error) {
-        if (error.response && error.response.status < 500) {
-            return new Response(error.response.data.message);
+        if (error.response) {
+            const status_code = error.response.status;
+            return new Response(
+                error.response.data.message,
+                false,
+                null,
+                status_code === 401
+            );
         } else {
             console.error(error);
             return new Response('Unexpected server error occurred.');
@@ -57,8 +63,14 @@ async function register(email, username, password) {
 
         return new Response(message, true);
     } catch (error) {
-        if (error.response && error.response.status < 500) {
-            return new Response(error.response.data.message);
+        if (error.response) {
+            const status_code = error.response.status;
+            return new Response(
+                error.response.data.message,
+                false,
+                null,
+                status_code === 401
+            );
         } else {
             console.error(error);
             return new Response('Unexpected server error occurred.');
@@ -90,12 +102,14 @@ async function authorize(username, password) {
 
         return new Response(message, true, { username, token });
     } catch (error) {
-        if (error.response && error.response.status === 401) {
-            return new Response('Invalid username or password.');
-        }
-
-        if (error.response && error.response.status < 500) {
-            return new Response(error.response.data.message);
+        if (error.response) {
+            const status_code = error.response.status;
+            return new Response(
+                error.response.data.message,
+                false,
+                null,
+                status_code === 401
+            );
         } else {
             console.error(error);
             return new Response('Unexpected server error occurred.');
@@ -103,4 +117,71 @@ async function authorize(username, password) {
     }
 }
 
-export { getTestPosts, register, authorize };
+/**
+ * Get user information.
+ * @param {String} username Username.
+ * @param {String} token Access token.
+ * @returns {Promise<APIResponse>} Returns the API response object.
+ */
+async function getUserInfo(username, token) {
+    try {
+        const result = await axios.get(`${url}${endpoints.user}/${username}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        const { message, data } = result.data;
+
+        return new Response(message, true, data);
+    } catch (error) {
+        if (error.response) {
+            const status_code = error.response.status;
+            return new Response(
+                error.response.data.message,
+                false,
+                null,
+                status_code === 401
+            );
+        } else {
+            console.error(error);
+            return new Response('Unexpected server error occurred.');
+        }
+    }
+}
+
+/**
+ * Verify user authentication session.
+ * @param {Object} sessionData Session data.
+ * @returns {Promise<APIResponse>} Returns the API response object.
+ */
+async function verifySession(sessionData) {
+    try {
+        const result = await axios.post(
+            `${url}${endpoints.verifySession}`,
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${sessionData.token}`,
+                },
+            }
+        );
+        const { message, data } = result.data;
+
+        return new Response(message, true, data);
+    } catch (error) {
+        if (error.response) {
+            const status_code = error.response.status;
+            return new Response(
+                error.response.data.message,
+                false,
+                null,
+                status_code === 401
+            );
+        } else {
+            console.error(error);
+            return new Response('Unexpected server error occurred.');
+        }
+    }
+}
+
+export { getTestPosts, register, authorize, getUserInfo, verifySession };
