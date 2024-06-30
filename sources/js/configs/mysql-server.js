@@ -9,6 +9,8 @@ const config = {
         posts: '/test/posts',
         register: '/register',
         authorize: '/authorize',
+        verifySession: '/authorize/verifyToken',
+        user: '/user',
     },
 };
 
