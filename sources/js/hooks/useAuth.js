@@ -34,9 +34,9 @@ function AuthProvider({ children }) {
         navigate(routes.profile); // Redirect to secret route on successful login. [MOCK]
     }
 
-    async function logout() {
+    async function logout(route = routes.home) {
         setAuthSession(null);
-        navigate(routes.home, { replace: true });
+        navigate(route, { replace: true });
     }
 
     const value = useMemo(
@@ -64,4 +64,21 @@ function useAuth() {
     return useContext(AuthContext);
 }
 
-export { useAuth, AuthProvider };
+/**
+ * Get the authentication session data directly from the local storage.
+ * Use this when we can't use the `useAuth()` hook, such as outside a component function.
+ * @returns {*} Returns the authentication session data.
+ */
+function getAuthSession() {
+    try {
+        const value = window.localStorage.getItem('authSession');
+        if (!value) return null;
+        const parsedValue = JSON.parse(value);
+        return parsedValue;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
+export { useAuth, AuthProvider, getAuthSession };
