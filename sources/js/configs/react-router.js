@@ -13,7 +13,6 @@ import {
     Error404Layout,
 } from '../components/Layouts';
 import * as Sections from '../components/Sections';
-import { Children } from 'react';
 
 // Routes path.
 const routes = {
@@ -49,7 +48,7 @@ const appRouter = [
         ),
         children: [
             {
-                errorElement: <div>Error Section Here</div>, // TODO: add error section.
+                // errorElement: <div>Error Section Here</div>,
                 children: [
                     {
                         index: true,
@@ -62,6 +61,7 @@ const appRouter = [
                                 <Sections.ProfileSection />
                             </ProtectedRoute>
                         ),
+                        loader: Sections.ProfileSectionLoader,
                     },
                     {
                         path: routes.samples.button,
