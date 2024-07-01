@@ -1,7 +1,7 @@
 /**
  * @file index.js
  * @description Register section.
- * @todo TODO: Mock component, to be removed.
+ * TEST: Test component, subject to changes.
  */
 
 'use strict';

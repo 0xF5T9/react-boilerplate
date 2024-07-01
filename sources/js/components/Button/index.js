@@ -1,7 +1,6 @@
 /**
  * @file index.js
  * @description Button component.
- * @todo TODO: fix css text not centering correctly.
  */
 
 'use strict';

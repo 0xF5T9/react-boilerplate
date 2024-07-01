@@ -1,7 +1,7 @@
 /**
  * @file index.js
  * @description Error 404 layout component.
- * @todo TODO: Update layout to handle more errors than just 404.
+ * TODO: Convert the layout component to handle all errors rather than just 404.
  */
 
 'use strict';
