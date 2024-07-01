@@ -94,10 +94,6 @@ window.onkeydown = function (event) {
             showToast('Message', 'You have new message(s).', 'message');
             break;
         }
-        case 'Digit7': {
-            openModalWindow('signup-form-modal-window');
-            break;
-        }
         case 'Digit8': {
             (async () => {
                 console.log(await apis.mysqlServer.getTestPosts(2));

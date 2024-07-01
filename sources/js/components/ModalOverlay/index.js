@@ -6,7 +6,6 @@
 'use strict';
 import { useEffect, useRef } from 'react';
 
-import SignupForm from '../SignupForm';
 import * as styles from './ModalOverlay.module.css';
 const $ = document.querySelector.bind(document);
 
@@ -148,19 +147,6 @@ function ModalOverlay() {
                 >
                     <h3>Modal Window 2</h3>
                     <p style={{ marginTop: '10px' }}>Modal window contents.</p>
-                </div>
-                <div
-                    id="signup-form-modal-window"
-                    className={`${styles['modal-window']}  ${styles['is-close']} ${styles['is-hidden']}`}
-                    style={{
-                        '--modal-window-width': '310px',
-                        display: 'block',
-                        padding: '20px',
-                        overflow: 'auto',
-                    }}
-                    onClick={(event) => event.stopPropagation()}
-                >
-                    <SignupForm />
                 </div>
             </div>
         </>
