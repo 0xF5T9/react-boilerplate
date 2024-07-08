@@ -12,7 +12,7 @@ import { useAuth } from '../../../hooks/useAuth';
 import { routes } from '../../../configs/react-router';
 import apis from '../../../apis';
 
-import ContentSection from '../../Content/components/ContentSection';
+import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
 import Button from '../../Button';
 import ServerMessage from './components/ServerMessage';
@@ -132,7 +132,15 @@ function RegisterSection() {
 
     return (
         <>
-            <ContentSection flexCenter textCenter noChildDefaultMargin>
+            <FlexibleSection
+                style={{
+                    display: 'flex',
+                    flexFlow: 'column nowrap',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: '50px 0px',
+                }}
+            >
                 {serverMessage && (
                     <ServerMessage
                         message={serverMessage.message}
@@ -260,7 +268,7 @@ function RegisterSection() {
                         </div>{' '}
                     </form>
                 </div>
-            </ContentSection>
+            </FlexibleSection>
         </>
     );
 }

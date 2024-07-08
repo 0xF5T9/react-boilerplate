@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import apis from '../../apis';
 import { routes } from '../../configs/react-router';
 import { showToast } from '../ToastOverlay';
-import ContentSection from '../Content/components/ContentSection';
+import { FlexibleSection } from '../Content/components/GridSection';
 
 /**
  * This component is used to prevent unauthenticated users from accessing private routes.
@@ -49,12 +49,21 @@ function ProtectedRoute({ children }) {
     // Display loading component while verifying the session.
     if (isVerifying)
         return (
-            <ContentSection flexCenter textCenter>
+            <FlexibleSection
+                style={{
+                    display: 'flex',
+                    flexFlow: 'columm nowrap',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: '50px 0px',
+                    textAlign: 'center',
+                }}
+            >
                 <i
                     className="fa-solid fa-spinner fa-spin-pulse"
                     style={{ fontSize: '30px' }}
                 ></i>
-            </ContentSection>
+            </FlexibleSection>
         );
 
     return children;

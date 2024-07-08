@@ -10,7 +10,7 @@ import { Link, ScrollRestoration, useRouteError } from 'react-router-dom';
 import { routes } from '../../../configs/react-router';
 
 import Content from '../../Content';
-import ContentSection from '../../Content/components/ContentSection';
+import { FlexibleSection } from '../../Content/components/GridSection';
 import ModalOverlay from '../../ModalOverlay';
 import ToastOverlay from '../../ToastOverlay';
 // import DebugOverlay from '../../DebugOverlay';
@@ -39,14 +39,17 @@ function Error404Layout() {
             </style>
             <div id="app">
                 <Content>
-                    <ContentSection
-                        innerSectionStyle={{
+                    <FlexibleSection
+                        style={{
+                            display: 'flex',
+                            flexFlow: 'column nowrap',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            padding: '50px 0px',
                             '--value': '-12px',
                             padding: '20px 20px',
                             userSelect: 'none',
                         }}
-                        flexCenter
-                        textCenter
                     >
                         <h1 className={styles['title-404']}>404</h1>
                         <h1 className={styles['subtitle-404']}>
@@ -60,7 +63,7 @@ function Error404Layout() {
                                 </Link>{' '}
                             </Button>
                         </div>
-                    </ContentSection>
+                    </FlexibleSection>
                 </Content>
                 <ModalOverlay />
                 <ToastOverlay />

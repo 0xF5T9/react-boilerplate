@@ -12,7 +12,7 @@ import { useAuth, getAuthSession } from '../../../hooks/useAuth';
 import apis from '../../../apis';
 import { routes } from '../../../configs/react-router';
 
-import ContentSection from '../../Content/components/ContentSection';
+import { FlexibleSection } from '../../Content/components/GridSection';
 import Button from '../../Button';
 import { showToast } from '../../ToastOverlay';
 
@@ -66,7 +66,15 @@ function ProfileSection() {
 
     return (
         <>
-            <ContentSection flexCenter textCenter>
+            <FlexibleSection
+                style={{
+                    display: 'flex',
+                    flexFlow: 'column nowrap',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: '50px 0px',
+                }}
+            >
                 {userInfo && (
                     <>
                         <h1>Profile Section</h1>
@@ -95,7 +103,7 @@ function ProfileSection() {
                         </Button>
                     </>
                 )}
-            </ContentSection>
+            </FlexibleSection>
         </>
     );
 }

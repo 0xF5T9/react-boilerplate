@@ -4,7 +4,11 @@
  */
 
 'use strict';
-import ContentSection from '../../Content/components/ContentSection';
+import {
+    DynamicSection,
+    FixedSection,
+    FlexibleSection,
+} from '../../Content/components/GridSection';
 
 /**
  * Index section.
@@ -13,20 +17,50 @@ import ContentSection from '../../Content/components/ContentSection';
 function IndexSection() {
     return (
         <>
-            <ContentSection
-                flexCenter
-                textCenter
-                fixedHeight
-                sectionStyle={{ height: '300px' }}
+            <DynamicSection
+                style={{
+                    display: 'flex',
+                    flexFlow: 'column nowrap',
+                    justifyContent: 'center',
+                    padding: '50px 0px',
+                    alignItems: 'center',
+                }}
             >
-                <h1>Fixed Height Section</h1>
-                <p>This content section has a fixed height of 300 pixels.</p>
-            </ContentSection>
+                <h1>Dynamic Section</h1>
+                <p>This section's height is determined by its content.</p>
+            </DynamicSection>
 
-            <ContentSection flexCenter textCenter topBorder>
-                <h1>Default Section</h1>
-                <p>This content section's height is automatically scaled.</p>
-            </ContentSection>
+            <FixedSection
+                height={300}
+                style={{
+                    display: 'flex',
+                    flexFlow: 'column nowrap',
+                    justifyContent: 'center',
+                    padding: '50px 0px',
+                    alignItems: 'center',
+                    borderTop: '2px solid var(--color-white)',
+                }}
+            >
+                <h1>Fixed Section</h1>
+                <p>This section has a fixed height of 300 pixels.</p>
+            </FixedSection>
+
+            <FlexibleSection
+                style={{
+                    display: 'flex',
+                    flexFlow: 'column nowrap',
+                    justifyContent: 'center',
+                    padding: '50px 0px',
+                    alignItems: 'center',
+                    borderTop: '2px solid var(--color-white)',
+                }}
+            >
+                <h1>Flexible Section</h1>
+                <p>
+                    This section's height is automatically scaled to fit the
+                    remaining space.
+                </p>
+            </FlexibleSection>
         </>
     );
 }
