@@ -42,7 +42,7 @@ function PopupWindow({
             }
         });
 
-        if (onMount) onMount();
+        if (onMount) onMount(instance);
     }
 
     function onPopupHide(instance) {
@@ -78,7 +78,7 @@ function PopupWindow({
         }
         popup.addEventListener('animationend', handleAnimationEnd);
 
-        if (onHide) onHide();
+        if (onHide) onHide(instance);
     }
 
     return (
