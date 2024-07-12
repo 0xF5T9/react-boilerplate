@@ -53,7 +53,7 @@ function GlobalProvider({ children }) {
         });
     }
 
-    global = {
+    const global = {
         isHeaderVisible,
         setHeaderVisibility,
         isFooterVisible,
