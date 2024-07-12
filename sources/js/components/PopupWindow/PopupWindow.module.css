@@ -33,6 +33,15 @@
     color: var(--popup-window-text-color);
     background-color: var(--popup-window-background-color);
 
+    &.no-default {
+        padding: unset;
+        border: unset;
+        border-radius: unset;
+        font-size: unset;
+        color: unset;
+        background-color: unset;
+    }
+
     &:empty {
         &:before {
             content: 'This drop-down window is empty.';
