@@ -13,7 +13,7 @@ import apis from '../../apis';
 import { routes } from '../../configs/react-router';
 import { showToast } from '../ToastOverlay';
 import { FlexibleSection } from '../Content/components/GridSection';
-
+import { MLLoading } from '../Icons/MLLoading';
 /**
  * This component is used to prevent unauthenticated users from accessing private routes.
  * @param {Object} props Component properties.
@@ -59,10 +59,7 @@ function ProtectedRoute({ children }) {
                     textAlign: 'center',
                 }}
             >
-                <i
-                    className="fa-solid fa-spinner fa-spin-pulse"
-                    style={{ fontSize: '30px' }}
-                ></i>
+                <MLLoading style={{ width: '30px' }} />
             </FlexibleSection>
         );
 
