@@ -80,23 +80,45 @@
     /* Header variables */
     --header-height: 56.8px;
     --header-background-color: #221f22;
-    --nav-top-item-background-color-default: #221f22;
-    --nav-top-item-background-color-hover: #333234;
-    --nav-top-item-background-color-active: #333234;
-    --nav-top-item-text-color-default: #898889;
-    --nav-top-item-text-color-hover: var(--color-white);
-    --nav-top-item-text-color-active: var(--color-white);
 
-    --nav-sub-item-background-color-default: #2d2a2e;
-    --nav-sub-item-background-color-hover: #383539;
-    --nav-sub-item-background-color-active: #383539;
-    --nav-sub-item-text-color-default: var(--color-white);
-    --nav-sub-item-text-color-hover: var(--color-yellow);
-    --nav-sub-item-text-color-active: var(--color-yellow);
-    --nav-sub-menu-border-color: #221f22;
-    --nav-sub-menu-border-width: 0px;
-    --nav-sub-menu-border-radius: 10px;
-    --nav-sub-menu-distance: 4px;
+    /* Header navigation bar variables */
+    --navbar-item-background-color-default: #221f22;
+    --navbar-item-background-color-hover: #333234;
+    --navbar-item-background-color-active: #333234;
+    --navbar-item-background-color-link-active: var(
+        --navbar-item-background-color-hover
+    );
+    --navbar-item-background-color-link-pending: var(
+        --navbar-item-background-color-hover
+    );
+
+    --navbar-item-text-color-default: #898889;
+    --navbar-item-text-color-hover: var(--color-white);
+    --navbar-item-text-color-active: var(--color-white);
+    --navbar-item-text-color-link-active: var(--color-yellow);
+    --navbar-item-text-color-link-pending: var(--navbar-item-text-color-hover);
+
+    --navbar-subitem-background-color-default: #2d2a2e;
+    --navbar-subitem-background-color-hover: #383539;
+    --navbar-subitem-background-color-active: #383539;
+    --navbar-subitem-background-color-link-active: var(
+        --navbar-subitem-background-color-hover
+    );
+    --navbar-subitem-background-color-link-pending: var(
+        --navbar-subitem-background-color-hover
+    );
+    --navbar-subitem-text-color-default: var(--color-white);
+    --navbar-subitem-text-color-hover: var(--color-yellow);
+    --navbar-subitem-text-color-active: var(--color-yellow);
+    --navbar-subitem-text-color-link-active: var(--color-yellow);
+    --navbar-subitem-text-color-link-pending: var(
+        --navbar-subitem-text-color-hover
+    );
+
+    --navbar-sublist-background-color: #2d2a2e;
+    --navbar-sublist-border-color: #221f22;
+    --navbar-sublist-border-width: 0px;
+    --navbar-sublist-border-radius: 10px;
 
     /* Footer variables */
     --footer-height: 140px;
