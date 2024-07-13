@@ -122,6 +122,7 @@ function NavbarItem({ text, to, href, target, icon, onClick, children }) {
                         : onClick
                 }
             >
+                {/* FIX: Loading icon causing flicks as the width is not fixed */}
                 <MLLoading className={styles['navbar-item-loading-icon']} />
                 {icon && <Icon className={styles['navbar-item-icon']} />}
                 {text}
