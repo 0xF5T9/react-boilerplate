@@ -1,6 +1,7 @@
 /**
  * @file index.js
  * @description Header component.
+ * TODO: Make new mobile menu component.
  */
 
 'use strict';
@@ -18,7 +19,6 @@ import MobileNavMenuIcon from './components/MobileNavMenuIcon';
 import AlertIcon from './components/AlertIcon';
 import UserIcon from './components/UserIcon';
 import Button from '../Button';
-import Anchor from '../Anchor';
 import { showToast } from '../ToastOverlay';
 import './Header.css';
 const $ = document.querySelector.bind(document);
@@ -172,6 +172,7 @@ function Header() {
                         </Button>
                     </>
                 )}
+
                 {/* Mobile navigation menu */}
                 <MobileNavMenuIcon />
             </div>
