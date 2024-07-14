@@ -7,6 +7,8 @@
 import { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import Themes from '../../Theme';
+
 // Global context.
 const GlobalContext = createContext();
 
@@ -17,7 +19,8 @@ const GlobalContext = createContext();
  * @returns Returns the component.
  */
 function GlobalProvider({ children }) {
-    const [isHeaderVisible, setHeaderVisibility] = useState(true),
+    const [theme, setTheme] = useState('monokai-pro'),
+        [isHeaderVisible, setHeaderVisibility] = useState(true),
         [isFooterVisible, setFooterVisibility] = useState(true),
         [headerHeight, setHeaderHeight] = useState('56.8px'),
         [footerHeight, setFooterHeight] = useState('140px'),
@@ -31,6 +34,20 @@ function GlobalProvider({ children }) {
             deviceWidth: window.innerWidth,
             deviceHeight: window.innerHeight,
         }));
+
+    let Theme;
+    switch (theme) {
+        case 'monokai-pro':
+            Theme = Themes['MonokaiPro'];
+            break;
+        case 'monokai-spectrum':
+            Theme = Themes['MonokaiSpectrum'];
+            break;
+    }
+
+    useEffect(() => {
+        // TEST: Theme subscribers ?
+    }, [theme]);
 
     useEffect(() => {
         window.addEventListener('resize', handleUpdateDeviceType);
@@ -54,6 +71,8 @@ function GlobalProvider({ children }) {
     }
 
     const global = {
+        theme,
+        setTheme,
         isHeaderVisible,
         setHeaderVisibility,
         isFooterVisible,
@@ -67,6 +86,7 @@ function GlobalProvider({ children }) {
 
     return (
         <GlobalContext.Provider value={global}>
+            {Theme && <Theme />}
             {children}
         </GlobalContext.Provider>
     );
