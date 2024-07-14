@@ -288,6 +288,7 @@
     max-width: 390px;
     margin-top: 6px;
     font-size: small;
+    font-weight: 500;
     white-space: nowrap;
     color: var(--color-gray);
     overflow: hidden;
