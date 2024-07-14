@@ -21,11 +21,24 @@ import * as styles from './ButtonSampleSection.module.css';
  */
 function ButtonSampleSection() {
     const {
+        theme,
+        setTheme,
         isHeaderVisible,
         setHeaderVisibility,
         isFooterVisible,
         setFooterVisibility,
     } = useContext(GlobalContext);
+
+    function handleToggleTheme() {
+        switch (theme) {
+            case 'monokai-pro':
+                setTheme('monokai-spectrum');
+                break;
+            default:
+                setTheme('monokai-pro');
+                break;
+        }
+    }
 
     function handleToggleHeader() {
         if (isHeaderVisible) {
@@ -256,6 +269,14 @@ function ButtonSampleSection() {
                     whiteOnly
                 >
                     Modal Window 2
+                </Button>{' '}
+                <Button
+                    id="toggle-theme-button"
+                    onClick={handleToggleTheme}
+                    outline
+                    whiteOnly
+                >
+                    Theme: {theme}
                 </Button>{' '}
                 <Button
                     id="toggle-header-button"
