@@ -45,7 +45,7 @@
 }
 
 .modal-overlay {
-    --modal-overlay-background-color: rgba(45, 42, 46, 0.9);
+    --modal-overlay-background-color: var(--color-background-secondary-opa-09);
     --modal-window-margin: 50px;
     --modal-window-width: auto;
     --modal-window-height: auto;
@@ -58,7 +58,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(45, 42, 46, 0);
+    background-color: var(--color-background-secondary-opa-0);
     z-index: 100;
     visibility: collapse;
 
@@ -84,10 +84,11 @@
         max-width: calc(100% - var(--modal-window-margin));
         max-height: calc(100% - var(--modal-window-margin));
         margin: auto;
-        border: 1px solid var(--color-gray-darker);
-        background-color: var(--color-black);
+        border: 1px solid var(--color-gray);
+        background-color: var(--color-background-secondary);
         overflow: hidden;
         will-change: opacity, transform;
+        filter: blur(0);
         -webkit-filter: blur(0);
 
         &:empty {

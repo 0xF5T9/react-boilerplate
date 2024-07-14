@@ -1,3 +1,112 @@
 :root {
-    /* TODO: Implementation */
+    /* Predefined color variables */
+    --color-white: #fcfcfa;
+    --color-black: #2d2a2e;
+    --color-gray: #766d78;
+    --color-gray-bright: #908792;
+    --color-gray-darker: #5c555e;
+    --color-red: #ff6188;
+    --color-red-bright: #ff7093;
+    --color-red-darker: #e5577a;
+    --color-red-vibrant: #ff144f;
+    --color-orange: #fc9a69;
+    --color-orange-bright: #fca478;
+    --color-orange-darker: #e28a5e;
+    --color-orange-vibrant: #fa681e;
+    --color-yellow: #ffd966;
+    --color-yellow-bright: #ffdc75;
+    --color-yellow-darker: #e5c35b;
+    --color-yellow-vibrant: #ffc61a;
+    --color-green: #a8db75;
+    --color-green-bright: #b0de82;
+    --color-green-darker: #97c569;
+    --color-green-vibrant: #82cc38;
+    --color-blue: #78dde8;
+    --color-blue-bright: #85e0ea;
+    --color-blue-darker: #6cc6d0;
+    --color-blue-vibrant: #36ccdd;
+    --color-purple: #aa9cf2;
+    --color-purple-bright: #b2a5f3;
+    --color-purple-darker: #998cd9;
+    --color-purple-vibrant: #7058e9;
+
+    --color-primary: var(--color-orange);
+    --color-success: var(--color-green);
+    --color-warning: var(--color-yellow);
+    --color-danger: var(--color-red);
+    --color-text: var(--color-white);
+    --color-background-primary: #221f22;
+    --color-background-primary-highlight: #333234;
+    --color-background-secondary: #2d2a2e;
+    --color-background-secondary-opa-0: rgba(45, 42, 46, 0);
+    --color-background-secondary-opa-08: rgba(45, 42, 46, 0.8);
+    --color-background-secondary-opa-09: rgba(45, 42, 46, 0.9);
+    --color-background-secondary-highlight: #383539;
+    --color-scrollbar-background: var(--color-background-secondary);
+    --color-scrollbar-thumb-background-default: var(--color-gray);
+    --color-scrollbar-thumb-background-hover: var(--color-gray-bright);
+    --color-scrollbar-thumb-background-active: var(--color-gray-darker);
+
+    /* Component variables */
+    --header-height: 56.8px;
+    --header-background-color: var(--color-background-primary);
+
+    --footer-height: 140px;
+    --footer-background-color: var(--color-background-primary);
+
+    --navbar-item-background-color-default: var(--color-background-primary);
+    --navbar-item-background-color-hover: var(
+        --color-background-primary-highlight
+    );
+    --navbar-item-background-color-active: var(
+        --color-background-primary-highlight
+    );
+    --navbar-item-background-color-link-active: var(
+        --navbar-item-background-color-hover
+    );
+    --navbar-item-background-color-link-pending: var(
+        --navbar-item-background-color-hover
+    );
+
+    --navbar-item-text-color-default: var(--color-gray);
+    --navbar-item-text-color-hover: var(--color-white);
+    --navbar-item-text-color-active: var(--color-white);
+    --navbar-item-text-color-link-active: var(--color-yellow);
+    --navbar-item-text-color-link-pending: var(--navbar-item-text-color-hover);
+
+    --navbar-subitem-background-color-default: var(
+        --color-background-secondary
+    );
+    --navbar-subitem-background-color-hover: var(
+        --color-background-secondary-highlight
+    );
+    --navbar-subitem-background-color-active: var(
+        --color-background-secondary-highlight
+    );
+    --navbar-subitem-background-color-link-active: var(
+        --navbar-subitem-background-color-hover
+    );
+    --navbar-subitem-background-color-link-pending: var(
+        --navbar-subitem-background-color-hover
+    );
+    --navbar-subitem-text-color-default: var(--color-white);
+    --navbar-subitem-text-color-hover: var(--color-yellow);
+    --navbar-subitem-text-color-active: var(--color-yellow);
+    --navbar-subitem-text-color-link-active: var(--color-yellow);
+    --navbar-subitem-text-color-link-pending: var(
+        --navbar-subitem-text-color-hover
+    );
+
+    --navbar-sublist-background-color: var(--color-background-secondary);
+    --navbar-sublist-border-color: transparent;
+    --navbar-sublist-border-width: 0px;
+    --navbar-sublist-border-radius: 10px;
+    --navbar-sublist-shadow-color: rgba(34, 31, 34, 0.4);
+
+    --popup-window-text-color: var(--color-text);
+    --popup-window-background-color: var(--color-background-secondary);
+    --popup-window-padding: 10px;
+    --popup-window-border-color: var(--color-gray);
+    --popup-window-border-width: 1px;
+    --popup-window-border-radius: 4px;
 }
