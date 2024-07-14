@@ -4,9 +4,6 @@
  */
 
 'use strict';
-import { useState, useEffect, useContext } from 'react';
-import { GlobalContext } from '../../Context/Global';
-import Button from '../../Button';
 import {
     DynamicSection,
     FixedSection,
@@ -18,19 +15,6 @@ import {
  * @returns Returns the component.
  */
 function IndexSection() {
-    const { theme, setTheme } = useContext(GlobalContext);
-
-    function handleClick() {
-        switch (theme) {
-            case 'monokai-pro':
-                setTheme('monokai-spectrum');
-                break;
-            default:
-                setTheme('monokai-pro');
-                break;
-        }
-    }
-
     return (
         <>
             <DynamicSection
@@ -40,22 +24,6 @@ function IndexSection() {
                     justifyContent: 'center',
                     padding: '50px 0px',
                     alignItems: 'center',
-                }}
-            >
-                <h1>Test Section</h1>
-                <Button whiteOnly onClick={handleClick}>
-                    Theme: {theme}
-                </Button>
-            </DynamicSection>
-
-            <DynamicSection
-                style={{
-                    display: 'flex',
-                    flexFlow: 'column nowrap',
-                    justifyContent: 'center',
-                    padding: '50px 0px',
-                    alignItems: 'center',
-                    borderTop: '2px solid var(--color-white)',
                 }}
             >
                 <h1>Dynamic Section</h1>
