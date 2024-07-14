@@ -48,7 +48,7 @@ function Footer() {
     return (
         <footer
             id="footer"
-            className="top-border"
+            // className="top-border"
             style={{ display: isFooterVisible ? 'flex' : 'none' }}
         >
             <div id="social-link-wrapper">

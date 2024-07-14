@@ -36,6 +36,7 @@
     --color-danger: var(--color-red);
     --color-text: var(--color-white);
     --color-background-primary: #191919;
+    --color-background-primary-opa-04: rgba(25, 25, 25, 0.4);
     --color-background-primary-highlight: #2d2e2e;
     --color-background-secondary: #222222;
     --color-background-secondary-opa-0: rgba(34, 34, 34, 0);
