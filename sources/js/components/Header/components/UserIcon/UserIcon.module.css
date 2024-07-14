@@ -50,7 +50,8 @@
     align-items: center;
     width: auto;
     padding: 12px;
-    background-color: var(--color-black);
+    background-color: var(--color-background-secondary);
+    filter: brightness(1);
     font-size: 1rem;
     font-weight: 700;
     text-align: center;
@@ -75,12 +76,12 @@
 
     &:hover {
         color: var(--color-yellow);
-        background-color: #383539;
+        background-color: var(--color-background-secondary-highlight);
     }
 
     &:active {
         color: var(--color-yellow);
-        background-color: #4b494c;
+        filter: brightness(1.2);
         transition: all 0.1s;
     }
 

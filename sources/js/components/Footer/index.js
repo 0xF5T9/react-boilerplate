@@ -81,8 +81,12 @@ function Footer() {
                 </Anchor>
             </div>
             <p id="powered-text">
-                Powered by{' '}
-                <Anchor href="https://github.com/0xF5T9" newTab>
+                <span className="powered-by">Powered by</span>{' '}
+                <Anchor
+                    className="powered-link"
+                    href="https://github.com/0xF5T9"
+                    newTab
+                >
                     0xF5T9
                 </Anchor>
             </p>

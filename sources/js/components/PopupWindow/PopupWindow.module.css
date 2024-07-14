@@ -19,12 +19,6 @@
 }
 
 .popup-window {
-    --popup-window-text-color: var(--color-white);
-    --popup-window-background-color: var(--color-black);
-    --popup-window-padding: 10px;
-    --popup-window-border-color: var(--color-gray-darker);
-    --popup-window-border-width: 1px;
-    --popup-window-border-radius: 4px;
     padding: var(--popup-window-padding);
     border: var(--popup-window-border-width) solid
         var(--popup-window-border-color);

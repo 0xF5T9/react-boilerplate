@@ -16,7 +16,7 @@
         }
 
         & > a {
-            color: var(--general-text-color);
+            color: var(--color-text);
             text-decoration: none;
 
             & > i {
@@ -28,16 +28,22 @@
     & > #powered-text {
         margin-top: 13px;
         font-size: small;
-        color: var(--color-gray-darker);
         transition: all 0.1s;
 
-        & > a {
+        & > .powered-by {
+            color: var(--color-gray);
+            filter: brightness(0.9);
+        }
+
+        & > .powered-link {
             color: var(--color-gray);
             text-decoration: underline;
+            font-weight: bold;
+            filter: brightness(1);
             transition: all 0.1s;
 
             &:hover {
-                color: var(--color-gray-bright);
+                filter: brightness(1.2);
             }
         }
     }

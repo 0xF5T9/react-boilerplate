@@ -29,7 +29,7 @@
 }
 
 .mobile-nav-menu-popup {
-    --popup-window-background-color: var(--header-background-color);
+    --popup-window-background-color: transparent;
     --popup-window-border-color: var(--color-primary);
     --popup-window-padding: 0px;
     position: fixed;
@@ -79,7 +79,7 @@
                 padding: 10px;
                 font-size: 1.3em;
                 font-weight: bold;
-                color: var(--general-text-color);
+                color: var(--color-text);
                 text-decoration: none;
                 user-select: none;
                 transition: all 0.1s;
@@ -105,7 +105,7 @@
                         margin-left: var(--margin-left);
                         font-size: 1.1em;
                         font-weight: bold;
-                        color: var(--general-text-color);
+                        color: var(--color-text);
                         text-decoration: none;
                         user-select: none;
                         transition: all 0.1s;
@@ -150,7 +150,7 @@
                                 margin-left: var(--margin-left);
                                 font-size: 1.1em;
                                 font-weight: bold;
-                                color: var(--general-text-color);
+                                color: var(--color-text);
                                 text-decoration: none;
                                 user-select: none;
                                 transition: all 0.1s;

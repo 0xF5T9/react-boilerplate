@@ -49,9 +49,10 @@
             font-weight: bold;
             text-decoration: none;
             color: var(--color-gray);
+            filter: brightness(1);
             cursor: pointer;
             user-select: none;
-            transition: color 0.1s;
+            transition: filter 0.1s;
 
             &::before {
                 content: '';
@@ -65,8 +66,8 @@
             }
 
             &:hover {
-                color: var(--color-gray-bright) !important;
                 text-decoration: underline;
+                filter: brightness(1.2);
             }
         }
     }

@@ -7,84 +7,63 @@
     /* Predefined color variables */
     --color-white: #fcfcfa;
     --color-black: #2d2a2e;
-    --color-black-bright: #575558;
-    --color-black-bright-intense: #817f82;
-    --color-black-darker: #242225;
-    --color-black-darker-intense: #1b191c;
-    --color-black-tone-1: #3e3b3e;
     --color-gray: #766d78;
-    --color-gray-bright: #918a93;
-    --color-gray-bright-intense: #ada7ae;
-    --color-gray-darker: #5e5760;
-    --color-gray-darker-intense: #474148;
+    --color-gray-bright: #908792;
+    --color-gray-darker: #5c555e;
     --color-red: #ff6188;
-    --color-red-bright: #ff81a0;
-    --color-red-bright-intense: #ffa0b8;
-    --color-red-darker: #cc4e6d;
-    --color-red-darker-intense: #993a52;
+    --color-red-bright: #ff7093;
+    --color-red-darker: #e5577a;
     --color-red-vibrant: #ff144f;
     --color-orange: #fc9a69;
-    --color-orange-bright: #fdae87;
-    --color-orange-bright-intense: #fdc2a5;
-    --color-orange-darker: #ca7b54;
-    --color-orange-darker-intense: #975c3f;
+    --color-orange-bright: #fca478;
+    --color-orange-darker: #e28a5e;
     --color-orange-vibrant: #fa681e;
     --color-yellow: #ffd966;
-    --color-yellow-bright: #ffe185;
-    --color-yellow-bright-intense: #ffe8a3;
-    --color-yellow-darker: #ccae52;
-    --color-yellow-darker-intense: #99823d;
+    --color-yellow-bright: #ffdc75;
+    --color-yellow-darker: #e5c35b;
     --color-yellow-vibrant: #ffc61a;
     --color-green: #a8db75;
-    --color-green-bright: #b9e291;
-    --color-green-bright-intense: #cbe9ac;
-    --color-green-darker: #86af5e;
-    --color-green-darker-intense: #769952;
+    --color-green-bright: #b0de82;
+    --color-green-darker: #97c569;
     --color-green-vibrant: #82cc38;
     --color-blue: #78dde8;
-    --color-blue-bright: #93e4ed;
-    --color-blue-bright-intense: #aeebf1;
-    --color-blue-darker: #60b1ba;
-    --color-blue-darker-intense: #48858b;
+    --color-blue-bright: #85e0ea;
+    --color-blue-darker: #6cc6d0;
     --color-blue-vibrant: #36ccdd;
     --color-purple: #aa9cf2;
-    --color-purple-bright: #bbb0f5;
-    --color-purple-bright-intense: #ccc4f7;
-    --color-purple-darker: #887dc2;
-    --color-purple-darker-intense: #665e91;
+    --color-purple-bright: #b2a5f3;
+    --color-purple-darker: #998cd9;
     --color-purple-vibrant: #7058e9;
+
     --color-primary: var(--color-orange);
+    --color-success: var(--color-green);
+    --color-warning: var(--color-yellow);
+    --color-danger: var(--color-red);
+    --color-text: var(--color-white);
+    --color-background-primary: #221f22;
+    --color-background-primary-highlight: #333234;
+    --color-background-secondary: #2d2a2e;
+    --color-background-secondary-opa-08: rgba(45, 42, 46, 0.8);
+    --color-background-secondary-highlight: #383539;
+    --color-scrollbar-background: var(--color-background-secondary);
+    --color-scrollbar-thumb-background-default: var(--color-gray);
+    --color-scrollbar-thumb-background-hover: var(--color-gray-bright);
+    --color-scrollbar-thumb-background-active: var(--color-gray-darker);
 
-    /* General variables */
-    --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
-        'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-        'Segoe UI Emoji';
-    --general-text-color: var(--color-white);
-    --general-font-size-normal: 1rem;
-    --general-font-size-small: calc(1rem * 0.8333333);
-    --general-font-size-large: calc(1rem * 1.17);
-    --general-body-background-color: var(--color-black);
-    --general-body-background-gradient-color: linear-gradient(
-        to bottom,
-        rgba(45, 42, 46, 0.8),
-        rgba(45, 42, 46, 0.8)
-    );
-    --general-body-background-image-url: url('../img/background.jpg');
-    --general-scrollbar-background-color: var(--color-black);
-    --general-scrollbar-thumb-background-color-default: var(--color-gray);
-    --general-scrollbar-thumb-background-color-hover: var(--color-gray-bright);
-    --general-scrollbar-thumb-background-color-active: var(
-        --color-gray-bright-intense
-    );
-
-    /* Header variables */
+    /* Component variables */
     --header-height: 56.8px;
-    --header-background-color: #221f22;
+    --header-background-color: var(--color-background-primary);
 
-    /* Header navigation bar variables */
-    --navbar-item-background-color-default: #221f22;
-    --navbar-item-background-color-hover: #333234;
-    --navbar-item-background-color-active: #333234;
+    --footer-height: 140px;
+    --footer-background-color: var(--color-background-primary);
+
+    --navbar-item-background-color-default: var(--color-background-primary);
+    --navbar-item-background-color-hover: var(
+        --color-background-primary-highlight
+    );
+    --navbar-item-background-color-active: var(
+        --color-background-primary-highlight
+    );
     --navbar-item-background-color-link-active: var(
         --navbar-item-background-color-hover
     );
@@ -92,15 +71,21 @@
         --navbar-item-background-color-hover
     );
 
-    --navbar-item-text-color-default: #898889;
+    --navbar-item-text-color-default: var(--color-gray);
     --navbar-item-text-color-hover: var(--color-white);
     --navbar-item-text-color-active: var(--color-white);
     --navbar-item-text-color-link-active: var(--color-yellow);
     --navbar-item-text-color-link-pending: var(--navbar-item-text-color-hover);
 
-    --navbar-subitem-background-color-default: #2d2a2e;
-    --navbar-subitem-background-color-hover: #383539;
-    --navbar-subitem-background-color-active: #383539;
+    --navbar-subitem-background-color-default: var(
+        --color-background-secondary
+    );
+    --navbar-subitem-background-color-hover: var(
+        --color-background-secondary-highlight
+    );
+    --navbar-subitem-background-color-active: var(
+        --color-background-secondary-highlight
+    );
     --navbar-subitem-background-color-link-active: var(
         --navbar-subitem-background-color-hover
     );
@@ -115,14 +100,33 @@
         --navbar-subitem-text-color-hover
     );
 
-    --navbar-sublist-background-color: #2d2a2e;
-    --navbar-sublist-border-color: #221f22;
+    --navbar-sublist-background-color: var(--color-background-secondary);
+    --navbar-sublist-border-color: transparent;
     --navbar-sublist-border-width: 0px;
     --navbar-sublist-border-radius: 10px;
+    --navbar-sublist-shadow-color: rgba(34, 31, 34, 0.4);
 
-    /* Footer variables */
-    --footer-height: 140px;
-    --footer-background-color: transparent;
+    --popup-window-text-color: var(--color-text);
+    --popup-window-background-color: var(--color-background-secondary);
+    --popup-window-padding: 10px;
+    --popup-window-border-color: var(--color-gray);
+    --popup-window-border-width: 1px;
+    --popup-window-border-radius: 4px;
+
+    /* General variables */
+    --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
+        'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji';
+    --general-font-size-normal: 1rem;
+    --general-font-size-small: calc(1rem * 0.8333333);
+    --general-font-size-large: calc(1rem * 1.17);
+    --general-body-background-color: var(--color-background-secondary);
+    --general-body-background-gradient-color: linear-gradient(
+        to bottom,
+        var(--color-background-secondary-opa-08),
+        var(--color-background-secondary-opa-08)
+    );
+    --general-body-background-image-url: url('../img/background.jpg');
 }
 
 * {
@@ -136,7 +140,7 @@ html {
     height: 100vh;
     max-width: 100%;
     overflow: auto;
-    color: var(--general-text-color);
+    color: var(--color-text);
     background-color: var(--general-body-background-color);
     font-family: var(--general-font-family);
     font-size: 87.5%;
@@ -162,20 +166,20 @@ select {
 
 ::-webkit-scrollbar {
     width: 10px;
-    background: var(--general-scrollbar-background-color);
+    background: var(--color-scrollbar-background);
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 0px;
-    background: var(--general-scrollbar-thumb-background-color-default);
+    background: var(--color-scrollbar-thumb-background-default);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--general-scrollbar-thumb-background-color-hover);
+    background: var(--color-scrollbar-thumb-background-hover);
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: var(--general-scrollbar-thumb-background-color-active);
+    background: var(--color-scrollbar-thumb-background-active);
 }
 
 ::placeholder {
