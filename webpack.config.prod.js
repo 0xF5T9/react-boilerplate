@@ -13,7 +13,7 @@ console.log('Using Webpack production configuration ...');
 module.exports = {
     entry: {
         style: './sources/js/style.js',
-        index: './sources/js/entry.js',
+        index: './sources/js/entry.jsx',
     },
     output: {
         filename: '[name].[contenthash].bundle.js', // [contenthash] used to purge caches on file content changes.
@@ -25,7 +25,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -47,6 +47,9 @@ module.exports = {
                 ],
             },
         ],
+    },
+    resolve: {
+        extensions: ['.js', '.jsx'],
     },
     plugins: [
         // Generate 'index.html' file.

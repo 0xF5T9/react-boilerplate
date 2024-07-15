@@ -12,7 +12,7 @@ console.log('Using Webpack development configuration ...');
 module.exports = {
     entry: {
         style: './sources/js/style.js',
-        index: './sources/js/entry.js',
+        index: './sources/js/entry.jsx',
     },
     output: {
         filename: '[name].bundle.js',
@@ -24,7 +24,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -48,6 +48,9 @@ module.exports = {
                 ],
             },
         ],
+    },
+    resolve: {
+        extensions: ['.js', '.jsx'],
     },
     devServer: {
         static: {
