@@ -121,8 +121,10 @@
     opacity: 0;
     z-index: 1;
     transition:
-        opacity 0.15s,
-        visibility 0.15s;
+        opacity 0s,
+        visibility 0s;
+    will-change: opacity, visibility;
+    /* BUG: Fix animation */
 }
 
 .navbar-sublist {
@@ -213,12 +215,20 @@
         & .navbar-subitem-title {
             color: var(--navbar-subitem-text-color-hover);
         }
+
+        & .navbar-subitem-icon {
+            color: var(--navbar-subitem-text-color-link-active);
+        }
     }
 
     &:has(.is-active) {
         background-color: var(--navbar-subitem-background-color-link-active);
 
         & .navbar-subitem-title {
+            color: var(--navbar-subitem-text-color-link-active);
+        }
+
+        & .navbar-subitem-icon {
             color: var(--navbar-subitem-text-color-link-active);
         }
     }
@@ -234,6 +244,10 @@
         }
 
         & .navbar-subitem-title {
+            color: var(--navbar-subitem-text-color-link-pending);
+        }
+
+        & .navbar-subitem-icon {
             color: var(--navbar-subitem-text-color-link-pending);
         }
     }
@@ -261,6 +275,7 @@
     width: 35px;
     height: 35px;
     margin-right: 15px;
+
     & > i {
         font-size: 30px;
     }
