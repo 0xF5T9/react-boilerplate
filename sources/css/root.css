@@ -40,8 +40,10 @@
     --color-warning: var(--color-yellow);
     --color-danger: var(--color-red);
     --color-text: var(--color-white);
+    --color-text-dim: var(--color-gray);
     --color-background-primary: #221f22;
     --color-background-primary-opa-04: rgba(34, 31, 34, 0.4);
+    --color-background-primary-opa-08: rgba(34, 31, 34, 0.8);
     --color-background-primary-highlight: #333234;
     --color-background-secondary: #2d2a2e;
     --color-background-secondary-opa-0: rgba(45, 42, 46, 0);
@@ -130,6 +132,7 @@
         var(--color-background-secondary-opa-08)
     );
     --general-body-background-image-url: url('../img/background.jpg');
+    --general-html-overflow: auto;
 }
 
 * {
@@ -142,7 +145,7 @@ html {
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-    overflow: auto;
+    overflow: var(--general-html-overflow);
     color: var(--color-text);
     background-color: var(--general-body-background-color);
     font-family: var(--general-font-family);
