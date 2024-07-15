@@ -41,7 +41,7 @@ function AlertIcon() {
                 }}
                 render={(attrs) => (
                     <div
-                        className={`${styles['alert-popup']} ${PopupStyles['popup-window']}`}
+                        className={`${styles['alert-popup']} ${PopupStyles['popup-window']} ${PopupStyles['default-style']}`}
                     ></div>
                 )}
             >
