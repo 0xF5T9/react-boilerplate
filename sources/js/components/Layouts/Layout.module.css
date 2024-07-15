@@ -7,6 +7,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    filter: blur(6px);
     z-index: -1;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(6px);
+    }
 }
