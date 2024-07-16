@@ -1,7 +1,6 @@
 /**
  * @file index.jsx
- * @description Error 404 layout component.
- * TODO: Convert the layout component to handle all errors rather than just 404.
+ * @description Error layout component.
  */
 
 'use strict';
@@ -17,13 +16,13 @@ import ToastOverlay from '../../ToastOverlay';
 import Button from '../../Button';
 
 import * as layoutStyles from '../Layout.module.css';
-import * as styles from './Error404Layout.module.css';
+import * as styles from './ErrorLayout.module.css';
 
 /**
- * Error 404 layout component.
+ * Error layout component.
  * @returns Returns the component.
  */
-function Error404Layout() {
+function ErrorLayout() {
     const error = useRouteError();
     console.warn(error);
 
@@ -51,11 +50,27 @@ function Error404Layout() {
                             userSelect: 'none',
                         }}
                     >
-                        <h1 className={styles['title-404']}>404</h1>
-                        <h1 className={styles['subtitle-404']}>
-                            {`Page Not Found`}
-                        </h1>
-                        <div className={styles['homepage-link-404']}>
+                        {error.status ? (
+                            <>
+                                <h1
+                                    className={styles['error-status-code']}
+                                >{`${error.status}`}</h1>
+                                <div className={styles['error-data']}>
+                                    <span>{`${error.statusText}`}</span>
+                                    <span>{`${error.data}`}</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <h1 className={styles['error-status-code']}>
+                                    500
+                                </h1>
+                                <div className={styles['error-data']}>
+                                    <span>{error.message}</span>
+                                </div>
+                            </>
+                        )}
+                        <div className={styles['homepage-link']}>
                             <Button>
                                 <Link to={routes.home}>
                                     <i className="fa-solid fa-arrow-left"></i>{' '}
@@ -75,4 +90,4 @@ function Error404Layout() {
     );
 }
 
-export default Error404Layout;
+export default ErrorLayout;

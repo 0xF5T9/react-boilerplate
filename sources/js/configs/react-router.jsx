@@ -7,11 +7,7 @@
 import { GlobalProvider } from '../components/Context/Global';
 import { AuthProvider } from '../hooks/useAuth';
 import ProtectedRoute from '../components/ProtectedRoute';
-import {
-    DefaultLayout,
-    BlankLayout,
-    Error404Layout,
-} from '../components/Layouts';
+import { DefaultLayout, BlankLayout, ErrorLayout } from '../components/Layouts';
 import * as Sections from '../components/Sections';
 
 // Routes path.
@@ -42,7 +38,7 @@ const appRouter = [
         errorElement: (
             <GlobalProvider>
                 <AuthProvider>
-                    <Error404Layout />
+                    <ErrorLayout />
                 </AuthProvider>
             </GlobalProvider>
         ),

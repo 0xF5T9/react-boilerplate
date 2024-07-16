@@ -1,17 +1,23 @@
-.title-404 {
+.error-status-code {
     color: var(--color-primary);
     font-size: 100px !important;
     font-weight: 300;
     transform: translateY(var(--value));
 }
 
-.subtitle-404 {
+.error-data {
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 600px;
+    line-height: normal;
     color: var(--color-white);
+    text-align: center;
+    font-size: 21px;
     font-weight: 200;
     transform: translateY(var(--value));
 }
 
-.homepage-link-404 button {
+.homepage-link button {
     display: block;
     margin: 24px auto 0px;
     color: var(--color-white);

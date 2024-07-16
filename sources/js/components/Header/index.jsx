@@ -1,7 +1,6 @@
 /**
  * @file index.jsx
  * @description Header component.
- * TODO: Make new mobile menu component.
  */
 
 'use strict';
