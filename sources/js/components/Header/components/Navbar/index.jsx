@@ -286,7 +286,7 @@ function GetNavbarItems() {
         {
             text: 'Softwares',
             icon: Fa6SolidCaretDown,
-            children: [
+            items: [
                 {
                     title: 'Shutdown Timer',
                     desc: 'A simple PC shutdown timer',
@@ -305,7 +305,7 @@ function GetNavbarItems() {
             text: 'Components',
             icon: Fa6SolidCaretDown,
             layout: 'full-4',
-            children: [
+            items: [
                 {
                     title: 'Button',
                     to: routes.samples.button,
@@ -346,44 +346,47 @@ function Navbar() {
     return (
         <nav id="header-navbar" className={styles['navbar']}>
             <NavbarList>
-                {GetNavbarItems().map((element, index) => {
+                {GetNavbarItems().map((topItem, index) => {
                     // Check if the item is require the user to be authenticated.
-                    if (element.authOnly && !authSession) return null;
+                    if (topItem.authOnly && !authSession) return null;
 
                     return (
                         <NavbarItemProvider key={index}>
                             <NavbarItem
-                                text={element.text}
-                                to={element.to}
-                                href={element.href}
-                                target={element.target}
-                                icon={element.icon}
-                                onClick={element.onClick}
+                                text={topItem.text}
+                                to={topItem.to}
+                                href={topItem.href}
+                                target={topItem.target}
+                                icon={topItem.icon}
+                                onClick={topItem.onClick}
                             >
-                                {element.children && (
-                                    <NavbarSublist layout={element.layout}>
-                                        {element.children.map(
-                                            (element, index) => {
-                                                return (
-                                                    <NavbarSubitem
-                                                        key={index}
-                                                        title={element.title}
-                                                        desc={element.desc}
-                                                        icon={element.icon}
-                                                        image={element.image}
-                                                        to={element.to}
-                                                        href={element.href}
-                                                        target={element.target}
-                                                        hideOnClick={
-                                                            element.hideOnClick
-                                                        }
-                                                        onClick={
-                                                            element.onClick
-                                                        }
-                                                    />
-                                                );
-                                            }
-                                        )}
+                                {topItem.items && (
+                                    <NavbarSublist layout={topItem.layout}>
+                                        {topItem.items.map((subItem, index) => {
+                                            // Check if the item is require the user to be authenticated.
+                                            if (
+                                                subItem.authOnly &&
+                                                !authSession
+                                            )
+                                                return null;
+
+                                            return (
+                                                <NavbarSubitem
+                                                    key={index}
+                                                    title={subItem.title}
+                                                    desc={subItem.desc}
+                                                    icon={subItem.icon}
+                                                    image={subItem.image}
+                                                    to={subItem.to}
+                                                    href={subItem.href}
+                                                    target={subItem.target}
+                                                    hideOnClick={
+                                                        subItem.hideOnClick
+                                                    }
+                                                    onClick={subItem.onClick}
+                                                />
+                                            );
+                                        })}
                                     </NavbarSublist>
                                 )}
                             </NavbarItem>
