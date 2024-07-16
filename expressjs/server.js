@@ -10,11 +10,21 @@ const path = require('path'),
     rootPath = path.resolve(process.cwd());
 
 // External module(s).
-const express = require('express');
+const express = require('express'),
+    rateLimit = require('express-rate-limit');
 
 // Express configurations.
 const app = express();
 app.use(express.static(path.join(rootPath, 'public'))); // Serves static files from '/public'
+
+// Rate limiter configurations.
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+    standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
+    legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+});
+app.use(limiter);
 
 // FIX: Add rate limiting.
 // https://www.npmjs.com/package/express-rate-limit
