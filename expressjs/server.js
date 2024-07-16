@@ -26,8 +26,6 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-// FIX: Add rate limiting.
-// https://www.npmjs.com/package/express-rate-limit
 // Routes:
 app.get('/*', (request, result) => {
     // Passes routes to React Router.
