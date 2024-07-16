@@ -16,6 +16,8 @@ const express = require('express');
 const app = express();
 app.use(express.static(path.join(rootPath, 'public'))); // Serves static files from '/public'
 
+// FIX: Add rate limiting.
+// https://www.npmjs.com/package/express-rate-limit
 // Routes:
 app.get('/*', (request, result) => {
     // Passes routes to React Router.
