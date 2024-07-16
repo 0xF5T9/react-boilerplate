@@ -79,6 +79,9 @@ function Header() {
         >
             {/* Left content box */}
             <div id="header-left-content-box">
+                {/* Mobile navigation menu */}
+                <MobileNavMenuIcon />
+
                 {/* Brand logo and brand text */}
                 <BrandLogo />
                 <BrandText />
@@ -172,9 +175,6 @@ function Header() {
                         </Button>
                     </>
                 )}
-
-                {/* Mobile navigation menu */}
-                <MobileNavMenuIcon />
             </div>
         </header>
     );

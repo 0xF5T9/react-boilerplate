@@ -73,44 +73,47 @@
     }
 }
 
+/* Tablet & Mobile */
+@media only screen and (width < 1024px) {
+}
+
+/* Tablet */
+@media only screen and (740px < width < 1024px) {
+}
+
 /* Mobile */
-@media only screen and (max-device-width: 741px),
-    only screen and (max-width: 741px) {
+@media only screen and (width <= 740px) {
     #header {
         & button {
             display: none !important;
         }
     }
+}
 
-    @media only screen and (max-device-width: 359px),
-        only screen and (max-width: 359px) {
-        #header {
-            & #header-left-content-box {
-                margin-right: 0 !important;
-            }
-
-            & #header-right-content-box {
-                display: none !important;
-            }
+/* Mini Mobile */
+@media only screen and (width < 371px) {
+    #header {
+        & #header-right-content-box {
+            display: none !important;
         }
     }
+}
 
-    @media only screen and (max-device-width: 240px),
-        only screen and (max-width: 240px) {
-        #header {
-            height: 100% !important;
+/* Unsupported */
+@media only screen and (width < 260px) {
+    #header {
+        height: 100% !important;
 
-            & div {
-                display: none !important;
-            }
+        & div {
+            display: none !important;
+        }
 
-            &::before {
-                display: block;
-                content: 'The current device viewport dimension is unsupported.';
-                font-size: 0.8rem;
-                opacity: 0.1;
-                text-align: center;
-            }
+        &::before {
+            display: block;
+            content: 'The current device viewport dimension is unsupported.';
+            font-size: 0.8rem;
+            opacity: 0.1;
+            text-align: center;
         }
     }
 }

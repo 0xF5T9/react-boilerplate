@@ -5,9 +5,9 @@
  */
 
 'use strict';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef, createContext } from 'react';
+import { NavLink, useNavigation } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
-import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { routes } from '../../../../configs/react-router';
@@ -15,180 +15,271 @@ import { routes } from '../../../../configs/react-router';
 import { GlobalContext } from '../../../Context/Global';
 import IconButton, { IconButtonStyles } from '../IconButton';
 import PopupWindow, { PopupStyles } from '../../../PopupWindow';
+import { Fa6SolidHouse } from '../../../Icons/FAHome';
+import { Fa6SolidUser } from '../../../Icons/FAUser';
+import { Fa6SolidCode } from '../../../Icons/FACode';
+import { Fa6SolidSquareXmark } from '../../../Icons/FASquareXMark';
+import { showToast } from '../../../ToastOverlay';
 import * as styles from './MobileNavMenuIcon.module.css';
 
+const MobileNavMenuContext = createContext();
+
 /**
- * Mobile navigation menu list item component.
+ * Mobile navigation menu context.
+ * @note The context is singular, and its purpose is to share the close button element's reference to the <NavItem /> component.
+ *       The <NavItem /> component uses the reference ('ref.current.click()') to close the menu if needed ('hideOnClick').
  * @param {Object} props Component properties.
- * @param {String} props.id List item id.
- * @param {String} props.className List item additional class names.
- * @param {String} props.text List item text.
- * @param {String} props.icon List item icon classes.
- * @param {String} props.to React router dom 'to' attribute value of the 'Link' component.
- * @param {*} props.children List item children <ListItem />.
+ * @param {*} props.children <NavCloseButton /> && <NavbarItem />.
  * @returns Returns the component.
  */
-function ListItem({ id, className, text, icon, to, children }) {
-    const Component = to ? NavLink : 'a';
+function MobileNavMenuContextProvider({ children }) {
+    const [closeButtonRef, setCloseButtonRef] = useState();
 
-    // Check if the list item have an inner list. If so reveal it.
-    function handleClick(event) {
-        const inner_list = event.currentTarget.querySelector('&>ul');
-        if (inner_list) {
-            if (event.currentTarget.classList.contains(styles['is-open'])) {
-                event.currentTarget.classList.remove(styles['is-open']);
-                const icon = event.currentTarget.querySelector('a>i');
-                icon.classList.remove('fa-caret-down');
-                icon.classList.add('fa-caret-right');
-            } else {
-                event.currentTarget.classList.add(styles['is-open']);
-                const icon = event.currentTarget.querySelector('a>i');
-                icon.classList.remove('fa-caret-right');
-                icon.classList.add('fa-caret-down');
-            }
-        }
-    }
+    const value = {
+        closeButtonRef,
+        setCloseButtonRef,
+    };
 
     return (
-        <li id={id} className={className} onClick={handleClick}>
-            <Component
-                to={to}
-                onClick={!to ? (event) => event.preventDefault() : undefined}
+        <MobileNavMenuContext.Provider value={value}>
+            {children}
+        </MobileNavMenuContext.Provider>
+    );
+}
+
+MobileNavMenuContextProvider.propTypes = {
+    children: PropTypes.node,
+};
+
+/**
+ * Navbar section.
+ * @param {Object} props Component properties.
+ * @param {String} props.title Section title.
+ * @param {*} props.children <NavItem />
+ * @returns Returns the component.
+ */
+function NavSection({ title, children }) {
+    return (
+        <div className={styles['nav-section']}>
+            <span className={styles['nav-section-title']}>{title}</span>
+            <ul className={styles['nav-list']}>{children}</ul>
+        </div>
+    );
+}
+
+NavSection.propTypes = {
+    title: PropTypes.string,
+    children: PropTypes.node,
+};
+
+/**
+ * Navbar item.
+ * @param {Object} props Component properties.
+ * @param {String} props.text Item text.
+ * @param {String} props.desc Item description.
+ * @param {*} props.icon Item icon.
+ * @param {String} props.image Item image.
+ * @param {String} props.to React router route.
+ * @param {String} props.href href value.
+ * @param {String} props.target target value.
+ * @param {Boolean} props.hideOnClick Specifies whether to hide the mobile navbar menu on-click.
+ * @param {Function} props.onClick Item on-click callback.
+ * @returns Returns the component.
+ */
+function NavItem({
+    text,
+    desc,
+    icon,
+    image,
+    to,
+    href,
+    target,
+    hideOnClick = true,
+    onClick,
+}) {
+    const { closeButtonRef } = useContext(MobileNavMenuContext),
+        navigation = useNavigation();
+
+    const LinkComponent = to ? NavLink : 'a',
+        Icon = icon;
+
+    return (
+        <li className={styles['nav-item']}>
+            <LinkComponent
                 className={
                     to
-                        ? ({ isActive, isPending }) =>
-                              isPending
-                                  ? styles['is-pending']
+                        ? ({ isActive, isPending }) => {
+                              return isPending
+                                  ? `${styles['nav-item-link']} ${styles['is-pending']}`
                                   : isActive
-                                    ? styles['is-active']
-                                    : ''
-                        : ''
+                                    ? `${styles['nav-item-link']} ${styles['is-active']}`
+                                    : `${styles['nav-item-link']}`;
+                          }
+                        : `${styles['nav-item-link']}`
+                }
+                to={to}
+                href={href}
+                target={target}
+                tabIndex={-1}
+                onClick={
+                    navigation.state === 'loading'
+                        ? (event) => {
+                              event.preventDefault();
+                          }
+                        : (event) => {
+                              if (onClick) onClick(event);
+                              if (hideOnClick && closeButtonRef.current)
+                                  closeButtonRef.current.click();
+                          }
                 }
             >
-                {icon ? <i className={icon}></i> : null}
-                {text}
-            </Component>
-            {children ? <List>{children}</List> : null}
+                <div className={styles['nav-item-icon']}>
+                    {icon ? <Icon /> : image ? <img src={image} /> : null}
+                </div>
+                <div className={styles['nav-item-info']}>
+                    <span className={styles['nav-item-text']}>{text}</span>
+                    {desc && (
+                        <span className={styles['nav-item-desc']}>{desc}</span>
+                    )}
+                </div>
+            </LinkComponent>
         </li>
     );
 }
 
-ListItem.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
+NavItem.propTypes = {
     text: PropTypes.string,
-    icon: PropTypes.string,
+    desc: PropTypes.string,
+    icon: PropTypes.func,
+    image: PropTypes.string,
     to: PropTypes.string,
-    children: function (props, propName, componentName) {
-        let children_value = props[propName],
-            child_component_name;
-        if (children_value) {
-            if (
-                children_value.length > 1 &&
-                typeof children_value.every === 'function'
-            ) {
-                if (
-                    children_value.every((element) => {
-                        if (element.type.name !== ListItem.name) return false;
-                    })
-                ) {
-                    child_component_name = ListItem.name;
-                }
-            } else {
-                child_component_name =
-                    children_value.type && children_value.type.name
-                        ? children_value.type.name
-                        : children_value.type;
-            }
-        }
-
-        if (
-            (child_component_name && child_component_name !== ListItem.name) ||
-            typeof children_value === 'string'
-        ) {
-            return new Error(
-                'Invalid prop `' +
-                    propName +
-                    '` supplied to' +
-                    ' `' +
-                    componentName +
-                    `\`. This component only accept ${ListItem.name} component nas children.`
-            );
-        }
-    },
+    href: PropTypes.string,
+    target: PropTypes.string,
+    hideOnClick: PropTypes.bool,
+    onClick: PropTypes.func,
 };
 
 /**
- * Mobile navigation menu item list component.
+ * Navbar close button.
  * @param {Object} props Component properties.
- * @param {String} props.id Item list id.
- * @param {String} props.className Item list class names.
- * @param {*} props.children Item list children <ListItem />.
+ * @param {Function} props.onClick On-click callback that close the mobile navbar.
  * @returns Returns the component.
  */
-function List({ id, className, children }) {
+function NavCloseButton({ onClick }) {
+    const { setCloseButtonRef } = useContext(MobileNavMenuContext),
+        closeButton = useRef();
+
+    useEffect(() => {
+        setCloseButtonRef(closeButton);
+    }, []);
+
     return (
-        <ul
-            id={id}
-            className={className}
-            onClick={(event) => event.stopPropagation()}
+        <div
+            ref={closeButton}
+            className={styles['nav-close-button']}
+            onClick={onClick}
         >
-            {children}
-        </ul>
+            <Fa6SolidSquareXmark className={styles['nav-close-button-icon']} />
+        </div>
     );
 }
 
-List.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
-    children: function (props, propName, componentName) {
-        let children_value = props[propName],
-            child_component_name;
-        if (children_value) {
-            if (
-                children_value.length > 1 &&
-                typeof children_value.every === 'function'
-            ) {
-                if (
-                    children_value.every((element) => {
-                        if (element.type.name !== ListItem.name) return false;
-                    })
-                ) {
-                    child_component_name = ListItem.name;
-                }
-            } else {
-                child_component_name =
-                    children_value.type && children_value.type.name
-                        ? children_value.type.name
-                        : children_value.type;
-            }
-        }
-
-        if (
-            (child_component_name && child_component_name !== ListItem.name) ||
-            typeof children_value === 'string'
-        ) {
-            return new Error(
-                'Invalid prop `' +
-                    propName +
-                    '` supplied to' +
-                    ' `' +
-                    componentName +
-                    `\`. This component only accept ${ListItem.name} component nas children.`
-            );
-        }
-    },
+NavCloseButton.propTypes = {
+    onClick: PropTypes.func,
 };
 
 /**
- * Mobile navigation menu icon button, with popup window.
+ * Get navbar sections as an array.
+ * @note The array is wrapped inside a getter function.
+ *       Otherwise, the imported variables are undefined at runtime.
+ * @returns {Array} Navbar sections.
+ */
+function GetNavbarSections() {
+    return [
+        {
+            title: 'Navigation',
+            items: [
+                {
+                    text: 'Home',
+                    to: routes.home,
+                    icon: Fa6SolidHouse,
+                },
+                {
+                    text: 'Profile',
+                    to: routes.profile,
+                    icon: Fa6SolidUser,
+                    authOnly: true,
+                },
+            ],
+        },
+        {
+            title: 'Softwares',
+            items: [
+                {
+                    text: 'Shutdown Timer',
+                    desc: 'A simple PC shutdown timer',
+                    image: '/assets/static/img/shutdowntimer.png',
+                    hideOnClick: false,
+                    onClick: () =>
+                        showToast(
+                            'Info',
+                            'This application is currently unavailable.',
+                            'info'
+                        ),
+                },
+                {
+                    text: 'ASC File Cryptor',
+                    desc: 'Private file cryptor',
+                    image: '/assets/static/img/ascfilecryptor.png',
+                    hideOnClick: false,
+                    onClick: () =>
+                        showToast(
+                            'Info',
+                            'This application is currently unavailable.',
+                            'info'
+                        ),
+                },
+            ],
+        },
+        {
+            title: 'Components',
+            items: [
+                {
+                    text: 'Button',
+                    to: routes.samples.button,
+                    icon: Fa6SolidCode,
+                },
+                {
+                    text: 'Input',
+                    to: routes.samples.input,
+                    icon: Fa6SolidCode,
+                },
+                {
+                    text: 'Checkbox',
+                    to: routes.samples.checkbox,
+                    icon: Fa6SolidCode,
+                },
+                {
+                    text: 'Radio',
+                    to: routes.samples.radio,
+                    icon: Fa6SolidCode,
+                },
+            ],
+        },
+    ];
+}
+
+/**
+ * Mobile navigation menu icon with popup menu.
  * @returns Returns the component.
  */
 function MobileNavMenuIcon() {
-    const { deviceType } = useContext(GlobalContext);
-    const [showPopup, setShowPopup] = useState(false);
     const { authSession } = useAuth();
 
+    const { deviceType } = useContext(GlobalContext),
+        [showPopup, setShowPopup] = useState(false);
+
+    // Close the menu when the screen width changes.
     useEffect(() => {
         setShowPopup(false);
     }, [deviceType.deviceWidth]);
@@ -223,51 +314,95 @@ function MobileNavMenuIcon() {
                 }}
                 render={(attrs) => (
                     <div
-                        className={`${styles['mobile-nav-menu-popup']} ${PopupStyles['popup-window']}`}
+                        className={`${styles['blur-layer']} ${PopupStyles['popup-window']}`}
+                        onClick={handleBackgroundClick}
                     >
-                        <ul>
-                            <ListItem to={routes.home} text="Home" />
+                        {/* TODO: Figure out a better way to disable html scrolling */}
+                        <style>
+                            {`
+                                :root {
+                                    --general-html-overflow: ${showPopup ? 'clip' : 'var(--general-html-overflow)'};
+                                }
+                            `}
+                        </style>
 
-                            <ListItem icon="fas fa-caret-right" text="Samples">
-                                <ListItem
-                                    to={routes.samples.button}
-                                    text="Button"
-                                />
-                                <ListItem
-                                    to={routes.samples.input}
-                                    text="Input"
-                                />
-                                <ListItem
-                                    to={routes.samples.checkbox}
-                                    text="Checkbox"
-                                />
-                                <ListItem
-                                    to={routes.samples.radio}
-                                    text="Radio"
-                                />
-                            </ListItem>
-
-                            <ListItem
-                                icon="fas fa-caret-right"
-                                text="Downloads"
+                        <MobileNavMenuContextProvider>
+                            <div
+                                className={`${styles['mobile-nav-menu-popup']}`}
+                                onClick={(event) => event.stopPropagation()}
                             >
-                                <ListItem text="Shutdown Timer" />
-                                <ListItem text="ASC File Cryptor" />
-                            </ListItem>
+                                <NavCloseButton
+                                    onClick={handleBackgroundClick}
+                                />
 
-                            <ListItem
-                                icon="fas fa-caret-right"
-                                text="Dependencies"
-                            >
-                                <ListItem text="React v18.2.0" />
-                                <ListItem text="React Router v6.23.0" />
-                                <ListItem text="TippyJS v4.2.6" />
-                                <ListItem text="PropTypes v15.8.1" />
-                            </ListItem>
-                            {authSession && (
-                                <ListItem text="Profile" to={routes.profile} />
-                            )}
-                        </ul>
+                                <div className={styles['nav-sections']}>
+                                    {GetNavbarSections().map(
+                                        (section, index) => {
+                                            // Check if the section is require the user to be authenticated.
+                                            if (
+                                                section.authOnly &&
+                                                !authSession
+                                            )
+                                                return null;
+
+                                            return (
+                                                <NavSection
+                                                    key={index}
+                                                    title={section.title}
+                                                >
+                                                    {section.items &&
+                                                        section.items.map(
+                                                            (item, index) => {
+                                                                // Check if the item is require the user to be authenticated.
+                                                                if (
+                                                                    item.authOnly &&
+                                                                    !authSession
+                                                                )
+                                                                    return null;
+
+                                                                return (
+                                                                    <NavItem
+                                                                        key={
+                                                                            index
+                                                                        }
+                                                                        text={
+                                                                            item.text
+                                                                        }
+                                                                        desc={
+                                                                            item.desc
+                                                                        }
+                                                                        icon={
+                                                                            item.icon
+                                                                        }
+                                                                        image={
+                                                                            item.image
+                                                                        }
+                                                                        to={
+                                                                            item.to
+                                                                        }
+                                                                        href={
+                                                                            item.href
+                                                                        }
+                                                                        target={
+                                                                            item.target
+                                                                        }
+                                                                        hideOnClick={
+                                                                            item.hideOnClick
+                                                                        }
+                                                                        onClick={
+                                                                            item.onClick
+                                                                        }
+                                                                    />
+                                                                );
+                                                            }
+                                                        )}
+                                                </NavSection>
+                                            );
+                                        }
+                                    )}
+                                </div>
+                            </div>
+                        </MobileNavMenuContextProvider>
                     </div>
                 )}
             >
