@@ -72,7 +72,7 @@ function ProfileSection() {
                     flexFlow: 'column nowrap',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    padding: '50px 0px',
+                    padding: '50px 20px',
                 }}
             >
                 {userInfo && (

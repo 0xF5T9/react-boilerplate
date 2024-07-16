@@ -45,7 +45,7 @@ function Error404Layout() {
                             flexFlow: 'column nowrap',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            padding: '50px 0px',
+                            padding: '50px 20px',
                             '--value': '-12px',
                             padding: '20px 20px',
                             userSelect: 'none',

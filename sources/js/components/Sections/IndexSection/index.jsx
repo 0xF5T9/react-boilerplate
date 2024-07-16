@@ -22,7 +22,7 @@ function IndexSection() {
                     display: 'flex',
                     flexFlow: 'column nowrap',
                     justifyContent: 'center',
-                    padding: '50px 0px',
+                    padding: '50px 20px',
                     alignItems: 'center',
                 }}
             >
@@ -36,7 +36,7 @@ function IndexSection() {
                     display: 'flex',
                     flexFlow: 'column nowrap',
                     justifyContent: 'center',
-                    padding: '50px 0px',
+                    padding: '50px 20px',
                     alignItems: 'center',
                     borderTop: '2px solid var(--color-white)',
                 }}
@@ -50,7 +50,7 @@ function IndexSection() {
                     display: 'flex',
                     flexFlow: 'column nowrap',
                     justifyContent: 'center',
-                    padding: '50px 0px',
+                    padding: '50px 20px',
                     alignItems: 'center',
                     borderTop: '2px solid var(--color-white)',
                 }}
