@@ -95,6 +95,7 @@
 
 .navbar-item-icon,
 .navbar-item-loading-icon {
+    width: 12px;
     height: 1em;
     margin-right: 6px;
 }
