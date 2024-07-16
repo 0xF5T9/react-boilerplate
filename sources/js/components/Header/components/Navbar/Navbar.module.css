@@ -121,10 +121,9 @@
     opacity: 0;
     z-index: 1;
     transition:
-        opacity 0s,
-        visibility 0s;
+        opacity 0.15s,
+        visibility 0.15s;
     will-change: opacity, visibility;
-    /* BUG: Fix animation */
 }
 
 .navbar-sublist {

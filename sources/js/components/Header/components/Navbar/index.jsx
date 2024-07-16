@@ -6,7 +6,7 @@
 
 'use strict';
 import PropTypes from 'prop-types';
-import { useState, useEffect, useContext, useRef, createContext } from 'react';
+import { useState, useContext, createContext } from 'react';
 import { NavLink, useNavigation } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
 
@@ -80,25 +80,17 @@ function NavbarItem({ text, to, href, target, icon, onClick, children }) {
         navigation = useNavigation();
 
     const LinkComponent = to ? NavLink : 'a',
-        Icon = icon,
-        navbarItem = useRef();
-
-    useEffect(() => {
-        function onMouseOver(event) {
-            setNavbarSublistVisibility(true);
-        }
-        function onMouseOut(event) {
-            setNavbarSublistVisibility(false);
-        }
-        navbarItem.current.addEventListener('mouseover', onMouseOver);
-        navbarItem.current.addEventListener('mouseout', onMouseOut);
-    }, []);
+        Icon = icon;
 
     return (
         <li
             className={`${styles['navbar-item']}
                         ${navbarSublistVisibility ? styles['is-open'] : ''}`}
-            ref={navbarItem}
+            onMouseEnter={() => setNavbarSublistVisibility(true)}
+            onMouseOver={() => {
+                if (navbarSublistVisibility) setNavbarSublistVisibility(true);
+            }}
+            onMouseLeave={() => setNavbarSublistVisibility(false)}
         >
             <LinkComponent
                 className={
@@ -150,6 +142,8 @@ NavbarItem.propTypes = {
  * @returns Returns the component.
  */
 function NavbarSublist({ layout, children }) {
+    const { setNavbarSublistVisibility } = useContext(NavbarItemContext);
+
     let listLayout = '';
     switch (layout) {
         case 'full':
@@ -167,7 +161,11 @@ function NavbarSublist({ layout, children }) {
     }
 
     return (
-        <ul className={`${styles['navbar-sublist']} ${listLayout}`}>
+        <ul
+            className={`${styles['navbar-sublist']} ${listLayout}`}
+            onMouseEnter={() => setNavbarSublistVisibility(true)}
+            onMouseLeave={() => setNavbarSublistVisibility(false)}
+        >
             {children}
         </ul>
     );
