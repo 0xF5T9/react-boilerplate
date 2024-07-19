@@ -63,7 +63,6 @@ function ProfileSection() {
             setUserInfo(data);
         })();
     }, [loaderData]);
-
     return (
         <>
             <FlexibleSection
@@ -87,6 +86,7 @@ function ProfileSection() {
                                 'en-US'
                             )}
                         </h3>
+                        <h3>Role: {userInfo.role}</h3>
                         <Button onClick={() => logout()}>Logout</Button>
                         <Button
                             onClick={() => {

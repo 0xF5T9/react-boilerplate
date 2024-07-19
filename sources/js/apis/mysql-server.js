@@ -90,7 +90,7 @@ async function authorize(username, password) {
             username,
             password,
         });
-        const { message, token } = result.data;
+        const { message, email, role, token } = result.data;
         if (result.status !== 200)
             throw new Error(
                 `Expected a successful status code '200' but got a status code '${result.status}'.`
@@ -100,7 +100,7 @@ async function authorize(username, password) {
                 `Expected a valid authentication token but got '${token}' value.`
             );
 
-        return new Response(message, true, { username, token });
+        return new Response(message, true, { username, email, role, token });
     } catch (error) {
         if (error.response) {
             const status_code = error.response.status;
@@ -184,4 +184,44 @@ async function verifySession(sessionData) {
     }
 }
 
-export { getTestPosts, register, authorize, getUserInfo, verifySession };
+/**
+ * Get chairs.
+ * @param {Number} floor Floor.
+ * @param {Number} page Pagination.
+ * @returns {Promise<APIResponse>} Returns the API response object.
+ */
+async function getChairs(floor, page = 1) {
+    try {
+        const result = await axios.get(`${url}${endpoints.chair}`, {
+            params: {
+                floor,
+                page,
+            },
+        });
+        const { message, data } = result.data;
+
+        return new Response(message, true, data);
+    } catch (error) {
+        if (error.response) {
+            const status_code = error.response.status;
+            return new Response(
+                error.response.data.message,
+                false,
+                null,
+                status_code === 401
+            );
+        } else {
+            console.error(error);
+            return new Response('Unexpected server error occurred.');
+        }
+    }
+}
+
+export {
+    getTestPosts,
+    register,
+    authorize,
+    getUserInfo,
+    verifySession,
+    getChairs,
+};

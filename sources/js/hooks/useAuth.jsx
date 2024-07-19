@@ -24,8 +24,8 @@ function AuthProvider({ children }) {
         navigate = useNavigate();
 
     async function login(sessionData) {
-        const { username, token } = sessionData;
-        if (!username || !token) {
+        const { username, email, role, token } = sessionData;
+        if (!username || !token || !email || !role) {
             console.error('Invalid session data.');
             navigate(routes.home);
         }

@@ -65,7 +65,12 @@ function LoginSection() {
         setServerMessage({ message: 'Redirecting...', type: 'success' });
         setTimeout(
             async () =>
-                await login({ username: data.username, token: data.token }),
+                await login({
+                    username: data.username,
+                    email: data.email,
+                    role: data.role,
+                    token: data.token,
+                }),
             300
         );
     }
