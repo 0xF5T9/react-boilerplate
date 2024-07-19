@@ -14,6 +14,7 @@ import * as styles from './Select.module.css';
  * @param {String} props.id Select id.
  * @param {String} props.className Select additional class names.
  * @param {String} props.name Select group name.
+ * @param {String} props.value Select value.
  * @param {String} props.color Select color. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
  * @param {String} props.size Select size. ('small' | 'large')
  * @param {Boolean} props.altStyle Specifies whether to use alternative style.
@@ -27,6 +28,7 @@ function Select({
     id,
     className,
     name,
+    value,
     color,
     size,
     altStyle,
@@ -48,6 +50,7 @@ function Select({
             onBlur={onBlur}
             onChange={onChange}
             disabled={disabled}
+            value={value}
         >
             {children}
         </select>
@@ -58,6 +61,7 @@ Select.propTypes = {
     id: PropTypes.string,
     className: PropTypes.string,
     name: PropTypes.string,
+    value: PropTypes.bool,
     color: PropTypes.oneOf([
         'red',
         'orange',
