@@ -1,0 +1,136 @@
+.input-wrapper {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row nowrap;
+    align-items: center;
+    border-radius: 4px;
+    outline: 2px solid transparent;
+    background-color: var(--color-primary);
+    font-size: 1rem;
+    transition: all 0.15s;
+
+    &.small {
+        font-size: 0.8rem;
+    }
+
+    &.large {
+        font-size: 1.2rem;
+    }
+
+    &:has(*:focus) {
+        outline: 2px solid var(--color-white);
+    }
+
+    &:has(.input:disabled) {
+        opacity: 0.7;
+        cursor: not-allowed;
+
+        & * {
+            cursor: not-allowed;
+        }
+    }
+}
+
+.input-label {
+    padding: 0px 8px;
+    font-size: 1em;
+    font-weight: 700;
+    user-select: none;
+}
+
+.input {
+    padding: 4px 8px;
+    border: 2px solid var(--color-primary);
+    border-radius: 0px 4px 4px 0px;
+    outline: 0;
+    font-size: 1em;
+}
+
+.input-wrapper > .input {
+    color: var(--color-black);
+    background-color: var(--color-white);
+    font-weight: 500;
+    transition: all 0.1s;
+
+    &::selection {
+        color: var(--color-white);
+        background-color: var(--color-black);
+    }
+
+    &:hover {
+        background-color: var(--color-white);
+    }
+
+    &:focus {
+        background-color: var(--color-white);
+    }
+}
+
+.input-wrapper.dark > .input {
+    color: var(--color-white);
+    background-color: var(--color-background-secondary);
+    transition: all 0.1s;
+
+    &::selection {
+        color: var(--color-black);
+        background-color: var(--color-white);
+    }
+
+    &:hover {
+        background-color: var(--color-background-secondary-highlight);
+    }
+
+    &:focus {
+        background-color: var(--color-background-secondary-highlight);
+    }
+}
+
+.input-wrapper {
+    &.red {
+        background-color: var(--color-red);
+
+        & .input {
+            border-color: var(--color-red);
+        }
+    }
+
+    &.orange {
+        background-color: var(--color-orange);
+
+        & .input {
+            border-color: var(--color-orange);
+        }
+    }
+
+    &.yellow {
+        background-color: var(--color-yellow);
+
+        & .input {
+            border-color: var(--color-yellow);
+        }
+    }
+
+    &.green {
+        background-color: var(--color-green);
+
+        & .input {
+            border-color: var(--color-green);
+        }
+    }
+
+    &.blue {
+        background-color: var(--color-blue);
+
+        & .input {
+            border-color: var(--color-blue);
+        }
+    }
+
+    &.purple {
+        background-color: var(--color-purple);
+
+        & .input {
+            border-color: var(--color-purple);
+        }
+    }
+}
