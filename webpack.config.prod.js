@@ -54,7 +54,7 @@ module.exports = {
     plugins: [
         // Generate 'index.html' file.
         new HtmlWebpackPlugin({
-            filename: `${path.resolve(__dirname, 'public')}\\index.html`,
+            filename: `${path.resolve(__dirname, 'public')}/index.html`,
             template: './sources/html/index.html',
             chunks: ['index', 'style'],
             minify: {
