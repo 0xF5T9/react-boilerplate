@@ -15,6 +15,7 @@ const express = require('express'),
 
 // Express configurations.
 const app = express();
+app.set('trust proxy', 1); // Trust nginx proxy so rate limiter won't complaint.
 app.use(express.static(path.join(rootPath, 'public'))); // Serves static files from '/public'
 
 // Rate limiter configurations.
