@@ -18,10 +18,11 @@ import * as styles from './IconButton.module.css';
  * @param {String} props.icon Icon classes.
  * @param {String} props.to React router dom 'to' attribute value of the 'Link' component.
  * @param {Function} props.onClick Button on-click callback.
+ * @param {Object} props.style Style object.
  * @returns Returns the component.
  */
 const IconButton = forwardRef(function IconButton(
-    { id, className, icon, to, onClick },
+    { id, className, icon, to, onClick, style },
     ref
 ) {
     return (
@@ -30,6 +31,7 @@ const IconButton = forwardRef(function IconButton(
             id={id}
             className={`${styles['header-icon-button']} ${className ? className : ''}`}
             onClick={onClick}
+            style={style}
         >
             <Link
                 className={styles['header-icon-button-icon']}
@@ -49,6 +51,7 @@ IconButton.propTypes = {
     icon: PropTypes.string,
     to: PropTypes.string,
     onClick: PropTypes.func,
+    style: PropTypes.object,
 };
 
 export default IconButton;
