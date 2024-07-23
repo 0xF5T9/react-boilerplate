@@ -38,7 +38,6 @@ function IndexSection() {
                     justifyContent: 'center',
                     padding: '50px 20px',
                     alignItems: 'center',
-                    borderTop: '2px solid var(--color-white)',
                 }}
             >
                 <h1>Fixed Section</h1>
@@ -52,7 +51,6 @@ function IndexSection() {
                     justifyContent: 'center',
                     padding: '50px 20px',
                     alignItems: 'center',
-                    borderTop: '2px solid var(--color-white)',
                 }}
             >
                 <h1>Flexible Section</h1>
