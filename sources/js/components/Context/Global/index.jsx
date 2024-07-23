@@ -19,7 +19,7 @@ const GlobalContext = createContext();
  * @returns Returns the component.
  */
 function GlobalProvider({ children }) {
-    const [theme, setTheme] = useState('monokai-pro'),
+    const [theme, setTheme] = useState('light-brown'),
         [isHeaderVisible, setHeaderVisibility] = useState(true),
         [isFooterVisible, setFooterVisibility] = useState(true),
         [headerHeight, setHeaderHeight] = useState('56.8px'),
@@ -39,6 +39,9 @@ function GlobalProvider({ children }) {
     switch (theme) {
         case 'monokai-pro':
             Theme = Themes['MonokaiPro'];
+            break;
+        case 'light-brown':
+            Theme = Themes['LightBrown'];
             break;
     }
 

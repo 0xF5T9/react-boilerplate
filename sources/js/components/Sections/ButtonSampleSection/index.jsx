@@ -32,7 +32,7 @@ function ButtonSampleSection() {
     function handleToggleTheme() {
         switch (theme) {
             case 'monokai-pro':
-                setTheme('monokai-spectrum');
+                setTheme('light-brown');
                 break;
             default:
                 setTheme('monokai-pro');
