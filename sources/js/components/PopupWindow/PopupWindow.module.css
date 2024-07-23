@@ -19,20 +19,18 @@
 }
 
 .popup-window {
-    &.default-style {
-        padding: var(--popup-window-padding);
-        border: var(--popup-window-border-width) solid
-            var(--popup-window-border-color);
-        border-radius: var(--popup-window-border-radius);
-        font-size: 1rem;
-        color: var(--popup-window-text-color);
-        background-color: var(--popup-window-background-color);
-    }
+    padding: var(--popup-window-padding);
+    border: var(--popup-window-border-width) solid
+        var(--popup-window-border-color);
+    border-radius: var(--popup-window-border-radius);
+    font-size: 1rem;
+    color: var(--popup-window-text-color);
+    background-color: var(--popup-window-background-color);
+    box-shadow: 0px 0px 8px 4px var(--popup-window-shadow-color);
 
     &:empty {
         &:before {
             content: 'This drop-down window is empty.';
-            color: var(--color-gray);
             font-size: small;
         }
     }

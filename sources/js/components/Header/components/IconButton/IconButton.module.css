@@ -1,13 +1,4 @@
 .header-icon-button {
-    --header-icon-button-icon-color-default: var(--color-gray);
-    --header-icon-button-background-color-default: var(
-        --header-background-color
-    );
-    --header-icon-button-icon-color-hover: var(--color-gray-bright);
-    --header-icon-button-background-color-hover: #333234;
-    --header-icon-button-icon-color-active: var(--color-gray-bright);
-    --header-icon-button-background-color-active: #333234;
-    --header-icon-button-icon-color-open: var(--color-white);
     position: relative;
     display: flex;
     justify-content: center;

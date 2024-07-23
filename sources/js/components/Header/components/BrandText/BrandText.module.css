@@ -1,6 +1,6 @@
 .header-brand-text {
     height: 100%;
-    color: var(--color-white);
+    color: var(--header-brand-text);
     text-decoration: none;
 
     & > div {

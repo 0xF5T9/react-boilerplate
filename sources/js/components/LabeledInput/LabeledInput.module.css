@@ -69,7 +69,7 @@
 
 .input-wrapper.dark > .input {
     color: var(--color-white);
-    background-color: var(--color-background-secondary);
+    background-color: var(--color-black);
     transition: all 0.1s;
 
     &::selection {
@@ -78,11 +78,11 @@
     }
 
     &:hover {
-        background-color: var(--color-background-secondary-highlight);
+        background-color: var(--color-black-bright);
     }
 
     &:focus {
-        background-color: var(--color-background-secondary-highlight);
+        background-color: var(--color-black-bright);
     }
 }
 

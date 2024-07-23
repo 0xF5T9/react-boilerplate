@@ -2,6 +2,7 @@
     /* Predefined color variables */
     --color-white: #fcfcfa;
     --color-black: #2d2a2e;
+    --color-black-bright: #423f42;
     --color-gray: #727072;
     --color-gray-bright: #807e80;
     --color-gray-darker: #666466;
@@ -36,6 +37,7 @@
     --text-dark-dim: var(--color-gray);
     --background-dark: #221f22;
     --background-dark-highlight: #333234;
+    --shadow-dark: rgba(34, 31, 34, 0.4);
 
     --context-text-dark: var(--color-white);
     --context-text-dark-hover: var(--color-white);
@@ -43,23 +45,14 @@
     --context-text-dark-dim: var(--color-gray);
     --context-background-dark: #2d2a2e;
     --context-background-dark-highlight: #383539;
+    --context-shadow-dark: rgba(34, 31, 34, 0.4);
 
     --color-primary: var(--color-orange);
     --color-success: var(--color-green);
     --color-warning: var(--color-yellow);
     --color-danger: var(--color-red);
-    --color-text: var(--color-white);
-    --color-text-dim: var(--color-gray);
-    --color-background-primary: #221f22;
-    --color-background-primary-opa-04: rgba(34, 31, 34, 0.4);
-    --color-background-primary-opa-08: rgba(34, 31, 34, 0.8);
-    --color-background-primary-highlight: #333234;
-    --color-background-secondary: #2d2a2e;
-    --color-background-secondary-opa-0: rgba(45, 42, 46, 0);
-    --color-background-secondary-opa-08: rgba(45, 42, 46, 0.8);
-    --color-background-secondary-opa-09: rgba(45, 42, 46, 0.9);
-    --color-background-secondary-highlight: #383539;
-    --color-scrollbar-background: var(--color-background-secondary);
+
+    --color-scrollbar-background: var(--color-black);
     --color-scrollbar-thumb-background-default: var(--color-gray);
     --color-scrollbar-thumb-background-hover: var(--color-gray-bright);
     --color-scrollbar-thumb-background-active: var(--color-gray-darker);
@@ -67,9 +60,27 @@
     /* Component variables */
     --header-height: 56.8px;
     --header-background-color: var(--background-dark);
+    --header-shadow-color: rgba(34, 31, 34, 0.4);
+    --header-text-color: var(--text-dark-dim);
+    --header-brand-text: var(--text-dark);
+
+    --header-icon-button-icon-color-default: var(--text-dark-dim);
+    --header-icon-button-background-color-default: var(
+        --header-background-color
+    );
+    --header-icon-button-icon-color-hover: var(--text-dark-hover);
+    --header-icon-button-background-color-hover: var(
+        --background-dark-highlight
+    );
+    --header-icon-button-icon-color-active: var(--text-dark-hover);
+    --header-icon-button-background-color-active: var(
+        --background-dark-highlight
+    );
+    --header-icon-button-icon-color-open: var(--text-dark-hover);
 
     --footer-height: 140px;
     --footer-background-color: var(--background-dark);
+    --footer-text-color: var(--text-dark-dim);
 
     --navbar-item-background-color-default: var(--background-dark);
     --navbar-item-background-color-hover: var(--background-dark-highlight);
@@ -136,10 +147,48 @@
     );
     --mobile-navbar-item-desc-text-color: var(--context-text-dark-dim);
 
-    --popup-window-text-color: var(--color-text);
-    --popup-window-background-color: var(--color-background-secondary);
+    --popup-window-text-color: var(--context-text-dark);
+    --popup-window-background-color: var(--context-background-dark);
     --popup-window-padding: 10px;
-    --popup-window-border-color: var(--color-gray);
-    --popup-window-border-width: 1px;
+    --popup-window-border-color: var(--context-background-dark);
+    --popup-window-border-width: 2px;
     --popup-window-border-radius: 4px;
+    --popup-window-shadow-color: var(--context-shadow-dark);
+
+    --context-item-text-color-highlight: var(--context-text-dark-highlight);
+    --context-item-background-color-highlight: var(
+        --context-background-dark-highlight
+    );
+
+    --context-text: var(--context-text-dark);
+    --context-text-hover: var(--context-text-dark-hover);
+    --context-text-highlight: var(--context-text-dark-highlight);
+    --context-text-dim: var(--context-text-dark-dim);
+    --context-background: var(--context-background-dark);
+    --context-background-highlight: var(--context-background-dark-highlight);
+    --context-shadow: var(--context-shadow-dark);
+
+    --toast-shadow-color: var(--shadow-dark);
+
+    --modal-overlay-background-color: rgba(45, 42, 46, 0.9);
+    --modal-window-margin: 50px;
+    --modal-window-width: auto;
+    --modal-window-height: auto;
+    --modal-window-border-width: 2px;
+    --modal-window-border-radius: 4px;
+    --modal-window-border-color: var(--color-gray);
+    --modal-window-text-color: var(--context-text);
+    --modal-window-background-color: var(--context-background);
+
+    /* General variables */
+    --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
+        'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji';
+    --general-text-color: var(--color-white);
+    --general-body-background-color: var(--color-black);
+    --general-body-background-gradient-color: linear-gradient(
+        to bottom,
+        rgba(45, 42, 46, 0.8),
+        rgba(45, 42, 46, 0.8)
+    );
 }

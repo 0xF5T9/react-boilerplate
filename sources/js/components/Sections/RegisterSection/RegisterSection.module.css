@@ -5,10 +5,10 @@
     align-items: center;
     width: 288px;
     padding: 16px;
-    border: 0px solid var(--color-gray-darker);
+    border: 0px solid transparent;
     border-radius: 10px;
-    background-color: var(--color-black);
-    box-shadow: 0px 0px 8px 4px var(--color-background-primary-opa-04);
+    background-color: var(--context-background);
+    box-shadow: 0px 0px 8px 4px var(--context-shadow);
 }
 
 .title {
@@ -47,23 +47,26 @@
 
 .link {
     margin-top: 6px;
-    color: var(--color-gray);
+    color: var(--context-text-dim);
     text-decoration: none;
     user-select: none;
     cursor: pointer;
-    transition: color 0.15s;
+    filter: brightness(1);
+    transition:
+        color 0.1s,
+        filter 0.1s;
 
     &:hover {
         text-decoration: underline;
-        color: var(--color-gray-bright);
+        filter: brightness(1.2);
     }
 
     &:active {
-        color: var(--color-gray-darker);
+        filter: brightness(0.9);
     }
 
     &:focus {
-        color: var(--color-gray-bright);
         outline: 0;
+        filter: brightness(1.2);
     }
 }
