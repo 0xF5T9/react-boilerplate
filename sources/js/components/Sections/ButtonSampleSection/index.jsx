@@ -228,78 +228,47 @@ function ButtonSampleSection() {
                 <Button>
                     <i className="fa-solid fa-magnifying-glass"></i> Search
                 </Button>{' '}
-                <Button white>
+                <Button>
                     <i className="fa-solid fa-folder-open"></i> Open Folder
                 </Button>{' '}
-                <Button outline>
+                <Button>
                     <i className="fa-solid fa-gear"></i> Settings
                 </Button>{' '}
-                <Button outline white>
+                <Button>
                     <i className="fa-solid fa-right-to-bracket"></i> Sign Up
                 </Button>{' '}
-                <Button whiteOnly>
+                <Button>
                     <i className="fa-solid fa-play"></i> Play
                 </Button>{' '}
-                <Button outline whiteOnly>
+                <Button>
                     <i className="fa-solid fa-pause"></i> Pause
                 </Button>{' '}
                 <h1 style={{ marginTop: '26px' }}>Sized Buttons</h1>
-                <Button size="small" outline whiteOnly>
-                    Small
-                </Button>{' '}
-                <Button outline whiteOnly>
-                    Default
-                </Button>{' '}
-                <Button size="large" outline whiteOnly>
-                    Large
-                </Button>
+                <Button size="small">Small</Button> <Button>Default</Button>{' '}
+                <Button size="large">Large</Button>
                 <h1 style={{ marginTop: '26px' }}>Functional Buttons</h1>
                 <Button
                     id="modal-window-sample-button-1"
                     onClick={() => openModalWindow('custom-modal-window-1')}
-                    outline
-                    whiteOnly
                 >
                     Modal Window 1
                 </Button>{' '}
                 <Button
                     id="modal-window-sample-button-2"
                     onClick={() => openModalWindow('custom-modal-window-2')}
-                    outline
-                    whiteOnly
                 >
                     Modal Window 2
                 </Button>{' '}
-                <Button
-                    id="toggle-theme-button"
-                    onClick={handleToggleTheme}
-                    outline
-                    whiteOnly
-                >
+                <Button id="toggle-theme-button" onClick={handleToggleTheme}>
                     Theme: {theme}
                 </Button>{' '}
-                <Button
-                    id="toggle-header-button"
-                    onClick={handleToggleHeader}
-                    outline
-                    whiteOnly
-                >
+                <Button id="toggle-header-button" onClick={handleToggleHeader}>
                     Toggle Header
                 </Button>{' '}
-                <Button
-                    id="toggle-footer-button"
-                    onClick={handleToggleFooter}
-                    outline
-                    whiteOnly
-                >
+                <Button id="toggle-footer-button" onClick={handleToggleFooter}>
                     Toggle Footer
                 </Button>{' '}
-                <Button
-                    id="click-sound-button"
-                    onClick={handlePlayClickSound}
-                    outline
-                    whiteOnly
-                >
+                <Button id="click-sound-button" onClick={handlePlayClickSound}>
                     Click Sound
                 </Button>
             </div>

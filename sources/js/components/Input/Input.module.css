@@ -75,7 +75,9 @@ div.input-wrapper {
         }
 
         &:disabled {
-            filter: brightness(0.65);
+            opacity: 0.65;
+            cursor: not-allowed;
+            pointer-events: none;
         }
     }
 

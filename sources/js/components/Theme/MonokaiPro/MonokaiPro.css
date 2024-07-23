@@ -196,6 +196,21 @@
     --modal-window-text-color: var(--context-text);
     --modal-window-background-color: var(--context-background);
 
+    --button-text-color-default: var(--color-white);
+    --button-text-color-hover: var(--color-white);
+    --button-text-color-active: var(--color-white);
+    --button-background-color-default: var(--color-primary);
+    --button-background-color-hover: var(--color-primary);
+    --button-background-color-active: var(--color-primary);
+    --button-border-color-default: var(--color-primary);
+    --button-border-color-hover: var(--color-primary);
+    --button-border-color-active: var(--color-primary);
+    --button-focus-border-color: var(--color-white);
+    --button-border-width: 2px;
+    --button-border-radius: 6px;
+    --button-padding-left-right: 10px;
+    --button-padding-top-bottom: 4px;
+
     --input-text-color-default: var(--text-dark);
     --input-text-color-hover: var(--input-text-color-default);
     --input-text-color-active: var(--input-text-color-default);
