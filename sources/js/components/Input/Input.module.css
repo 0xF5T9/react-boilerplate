@@ -1,21 +1,4 @@
 div.input-wrapper {
-    --input-text-color-default: var(--color-white);
-    --input-text-color-hover: var(--input-text-color-default);
-    --input-text-color-active: var(--input-text-color-default);
-    --input-text-color-focus: var(--input-text-color-default);
-    --input-background-color-default: var(--color-black);
-    --input-background-color-hover: var(--input-background-color-default);
-    --input-background-color-active: var(--input-background-color-default);
-    --input-background-color-focus: var(--input-background-color-default);
-    --input-border-color-default: var(--color-white);
-    --input-border-color-hover: var(--input-border-color-default);
-    --input-border-color-active: var(--input-border-color-default);
-    --input-border-color-focus: var(--color-primary);
-    --input-border-width: 2px;
-    --input-border-radius: 6px;
-    --input-padding-left-right: 4px;
-    --input-padding-top-bottom: 4px;
-    --input-icon-extra-padding: 4px;
     position: relative;
     display: inline-block;
     font-size: 1rem;
@@ -140,15 +123,6 @@ div.input-wrapper {
         }
     }
 
-    &.alt {
-        --input-text-color-default: var(--color-white);
-        --input-background-color-default: var(--color-black);
-        --input-border-color-default: var(--color-primary);
-        --input-text-color-focus: var(--input-text-color-default);
-        --input-background-color-focus: var(--input-background-color-default);
-        --input-border-color-focus: var(--color-white);
-    }
-
     &.small {
         font-size: 0.8rem;
     }
@@ -193,67 +167,25 @@ div.input-wrapper {
 
     &.red {
         --input-border-color-focus: var(--color-red);
-
-        &.alt {
-            --input-border-color-default: var(--color-red);
-            --input-border-color-hover: var(--color-red);
-            --input-border-color-active: var(--color-red);
-            --input-border-color-focus: var(--color-white);
-        }
     }
 
     &.orange {
         --input-border-color-focus: var(--color-orange);
-
-        &.alt {
-            --input-border-color-default: var(--color-orange);
-            --input-border-color-hover: var(--color-orange);
-            --input-border-color-active: var(--color-orange);
-            --input-border-color-focus: var(--color-white);
-        }
     }
 
     &.yellow {
         --input-border-color-focus: var(--color-yellow);
-
-        &.alt {
-            --input-border-color-default: var(--color-yellow);
-            --input-border-color-hover: var(--color-yellow);
-            --input-border-color-active: var(--color-yellow);
-            --input-border-color-focus: var(--color-white);
-        }
     }
 
     &.green {
         --input-border-color-focus: var(--color-green);
-
-        &.alt {
-            --input-border-color-default: var(--color-green);
-            --input-border-color-hover: var(--color-green);
-            --input-border-color-active: var(--color-green);
-            --input-border-color-focus: var(--color-white);
-        }
     }
 
     &.blue {
         --input-border-color-focus: var(--color-blue);
-
-        &.alt {
-            --input-border-color-default: var(--color-blue);
-            --input-border-color-hover: var(--color-blue);
-            --input-border-color-active: var(--color-blue);
-            --input-border-color-focus: var(--color-white);
-        }
     }
 
     &.purple {
         --input-border-color-focus: var(--color-purple);
-
-        &.alt {
-            --input-border-color-default: var(--color-purple);
-            --input-border-color-hover: var(--color-purple);
-            --input-border-color-active: var(--color-purple);
-            --input-border-color-focus: var(--color-white);
-        }
     }
 }

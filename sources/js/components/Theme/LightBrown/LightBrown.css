@@ -31,13 +31,29 @@
     --color-purple-darker: #998cd9;
     --color-purple-vibrant: #7058e9;
 
+    --text-light: #333333;
+    --text-light-hover: #333333;
+    --text-light-highlight: #231f20;
+    --text-light-dim: #333333;
+    --background-light: #ffffff;
+    --background-light-highlight: #e8ebed;
+    --shadow-light: #e8ebed;
+
+    --context-text-light: #333333;
+    --context-text-light-hover: #333333;
+    --context-text-light-highlight: var(--color-blue-vibrant);
+    --context-text-light-dim: rgb(138, 156, 164);
+    --context-background-light: #fcfcfd;
+    --context-background-light-highlight: #e8ebed;
+    --context-shadow-light: rgba(24, 24, 33, 0.09);
+
     --text-dark: var(--color-white);
     --text-dark-hover: var(--color-white);
-    --text-dark-highlight: var(--color-yellow);
-    --text-dark-dim: var(--color-gray);
-    --background-dark: #221f22;
-    --background-dark-highlight: #333234;
-    --shadow-dark: rgba(34, 31, 34, 0.4);
+    --text-dark-highlight: var(--color-blue-vibrant);
+    --text-dark-dim: rgb(169, 179, 187);
+    --background-dark: #181821;
+    --background-dark-highlight: #2f2f37;
+    --shadow-dark: rgba(24, 24, 33, 0.4);
 
     --context-text-dark: var(--color-white);
     --context-text-dark-hover: var(--color-white);
@@ -47,7 +63,7 @@
     --context-background-dark-highlight: #383539;
     --context-shadow-dark: rgba(34, 31, 34, 0.4);
 
-    --color-primary: var(--color-orange);
+    --color-primary: var(--color-blue-vibrant);
     --color-success: var(--color-green);
     --color-warning: var(--color-yellow);
     --color-danger: var(--color-red);
@@ -59,51 +75,51 @@
 
     /* Component variables */
     --header-height: 56.8px;
-    --header-background-color: var(--background-dark);
-    --header-shadow-color: rgba(34, 31, 34, 0.4);
-    --header-text-color: var(--text-dark-dim);
-    --header-brand-text: var(--text-dark);
+    --header-background-color: var(--background-light);
+    --header-shadow-color: var(--shadow-light);
+    --header-text-color: var(--text-light-dim);
+    --header-brand-text: var(--text-light);
 
-    --header-icon-button-icon-color-default: var(--text-dark-dim);
+    --header-icon-button-icon-color-default: var(--text-light-dim);
     --header-icon-button-background-color-default: var(
         --header-background-color
     );
-    --header-icon-button-icon-color-hover: var(--text-dark-hover);
+    --header-icon-button-icon-color-hover: var(--text-light-hover);
     --header-icon-button-background-color-hover: var(
-        --background-dark-highlight
+        --background-light-highlight
     );
-    --header-icon-button-icon-color-active: var(--text-dark-hover);
+    --header-icon-button-icon-color-active: var(--text-light-hover);
     --header-icon-button-background-color-active: var(
-        --background-dark-highlight
+        --background-light-highlight
     );
-    --header-icon-button-icon-color-open: var(--text-dark-hover);
+    --header-icon-button-icon-color-open: var(--text-light-hover);
 
     --footer-height: 140px;
-    --footer-background-color: var(--background-dark);
-    --footer-text-color: var(--text-dark-dim);
+    --footer-background-color: #f9f5f3;
+    --footer-text-color: var(--text-light);
 
-    --navbar-item-background-color-default: var(--background-dark);
-    --navbar-item-background-color-hover: var(--background-dark-highlight);
-    --navbar-item-background-color-active: var(--background-dark-highlight);
+    --navbar-item-background-color-default: var(--background-light);
+    --navbar-item-background-color-hover: var(--background-light-highlight);
+    --navbar-item-background-color-active: var(--background-light-highlight);
     --navbar-item-background-color-link-active: var(
-        --background-dark-highlight
+        --background-light-highlight
     );
     --navbar-item-background-color-link-pending: var(
-        --background-dark-highlight
+        --background-light-highlight
     );
 
-    --navbar-item-text-color-default: var(--text-dark-dim);
-    --navbar-item-text-color-hover: var(--text-dark);
-    --navbar-item-text-color-active: var(--text-dark);
-    --navbar-item-text-color-link-active: var(--text-dark-highlight);
+    --navbar-item-text-color-default: var(--text-light-dim);
+    --navbar-item-text-color-hover: var(--text-light);
+    --navbar-item-text-color-active: var(--text-light);
+    --navbar-item-text-color-link-active: var(--text-light-highlight);
     --navbar-item-text-color-link-pending: var(--navbar-item-text-color-hover);
 
-    --navbar-subitem-background-color-default: var(--context-background-dark);
+    --navbar-subitem-background-color-default: var(--context-background-light);
     --navbar-subitem-background-color-hover: var(
-        --context-background-dark-highlight
+        --context-background-light-highlight
     );
     --navbar-subitem-background-color-active: var(
-        --context-background-dark-highlight
+        --context-background-light-highlight
     );
     --navbar-subitem-background-color-link-active: var(
         --navbar-subitem-background-color-hover
@@ -111,62 +127,64 @@
     --navbar-subitem-background-color-link-pending: var(
         --navbar-subitem-background-color-hover
     );
-    --navbar-subitem-text-color-default: var(--context-text-dark);
-    --navbar-subitem-text-color-hover: var(--context-text-dark-highlight);
-    --navbar-subitem-text-color-active: var(--context-text-dark-highlight);
-    --navbar-subitem-text-color-link-active: var(--context-text-dark-highlight);
+    --navbar-subitem-text-color-default: var(--context-text-light);
+    --navbar-subitem-text-color-hover: var(--context-text-light-highlight);
+    --navbar-subitem-text-color-active: var(--context-text-light-highlight);
+    --navbar-subitem-text-color-link-active: var(
+        --context-text-light-highlight
+    );
     --navbar-subitem-text-color-link-pending: var(
         --navbar-subitem-text-color-hover
     );
-    --navbar-subitem-desc-text-default: var(--context-text-dark-dim);
+    --navbar-subitem-desc-text-default: var(--context-text-light-dim);
 
-    --navbar-sublist-background-color: var(--context-background-dark);
+    --navbar-sublist-background-color: var(--context-background-light);
     --navbar-sublist-border-color: transparent;
     --navbar-sublist-border-width: 0px;
     --navbar-sublist-border-radius: 10px;
-    --navbar-sublist-shadow-color: rgba(34, 31, 34, 0.4);
+    --navbar-sublist-shadow-color: var(--context-shadow-light);
 
-    --mobile-navbar-blur-layer-background-color: rgba(34, 31, 34, 0.8);
-    --mobile-navbar-background-color: var(--context-background-dark);
+    --mobile-navbar-blur-layer-background-color: #0006;
+    --mobile-navbar-background-color: var(--context-background-light);
     --mobile-navbar-shadow-color: rgba(34, 31, 34, 0.4);
-    --mobile-navbar-close-color-default: var(--context-text-dark-dim);
-    --mobile-navbar-close-color-hover: var(--context-text-dark);
+    --mobile-navbar-close-color-default: var(--context-text-light-dim);
+    --mobile-navbar-close-color-hover: var(--context-text-light);
     --mobile-navbar-close-background-color-highlight: var(
-        --context-background-dark-highlight
+        --context-background-light-highlight
     );
-    --mobile-navbar-section-title-text-color: var(--context-text-dark-dim);
-    --mobile-navbar-item-text-color-default: var(--context-text-dark);
+    --mobile-navbar-section-title-text-color: var(--context-text-light-dim);
+    --mobile-navbar-item-text-color-default: var(--context-text-light);
     --mobile-navbar-item-background-color-default: var(
-        --context-background-dark
+        --context-background-light
     );
     --mobile-navbar-item-background-color-highlight: var(
-        --context-background-dark-highlight
+        --context-background-light-highlight
     );
     --mobile-navbar-item-text-color-highlight: var(
-        --context-text-dark-highlight
+        --context-text-light-highlight
     );
-    --mobile-navbar-item-desc-text-color: var(--context-text-dark-dim);
+    --mobile-navbar-item-desc-text-color: var(--context-text-light-dim);
 
-    --popup-window-text-color: var(--context-text-dark);
-    --popup-window-background-color: var(--context-background-dark);
+    --popup-window-text-color: var(--context-text-light);
+    --popup-window-background-color: var(--context-background-light);
     --popup-window-padding: 10px;
-    --popup-window-border-color: var(--context-background-dark);
+    --popup-window-border-color: var(--context-background-light);
     --popup-window-border-width: 2px;
     --popup-window-border-radius: 4px;
-    --popup-window-shadow-color: var(--context-shadow-dark);
+    --popup-window-shadow-color: var(--context-shadow-light);
 
-    --context-item-text-color-highlight: var(--context-text-dark-highlight);
+    --context-item-text-color-highlight: var(--context-text-light-highlight);
     --context-item-background-color-highlight: var(
-        --context-background-dark-highlight
+        --context-background-light-highlight
     );
 
-    --context-text: var(--context-text-dark);
-    --context-text-hover: var(--context-text-dark-hover);
-    --context-text-highlight: var(--context-text-dark-highlight);
-    --context-text-dim: var(--context-text-dark-dim);
-    --context-background: var(--context-background-dark);
-    --context-background-highlight: var(--context-background-dark-highlight);
-    --context-shadow: var(--context-shadow-dark);
+    --context-text: var(--context-text-light);
+    --context-text-hover: var(--context-text-light-hover);
+    --context-text-highlight: var(--context-text-light-highlight);
+    --context-text-dim: var(--context-text-light-dim);
+    --context-background: var(--context-background-light);
+    --context-background-highlight: var(--context-background-light-highlight);
+    --context-shadow: var(--context-shadow-light);
 
     --toast-shadow-color: var(--shadow-dark);
 
@@ -180,15 +198,42 @@
     --modal-window-text-color: var(--context-text);
     --modal-window-background-color: var(--context-background);
 
+    --input-text-color-default: var(--text-light);
+    --input-text-color-hover: var(--input-text-color-default);
+    --input-text-color-active: var(--input-text-color-default);
+    --input-text-color-focus: var(--input-text-color-default);
+    --input-background-color-default: var(--context-background-light);
+    --input-background-color-hover: var(--input-background-color-default);
+    --input-background-color-active: var(--input-background-color-default);
+    --input-background-color-focus: var(--input-background-color-default);
+    --input-border-color-default: var(--background-dark);
+    --input-border-color-hover: var(--input-border-color-default);
+    --input-border-color-active: var(--input-border-color-default);
+    --input-border-color-focus: var(--color-primary);
+    --input-border-width: 2px;
+    --input-border-radius: 6px;
+    --input-padding-left-right: 4px;
+    --input-padding-top-bottom: 4px;
+    --input-icon-extra-padding: 4px;
+
     /* General variables */
     --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
         'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
         'Segoe UI Emoji';
-    --general-text-color: var(--color-white);
-    --general-body-background-color: var(--color-black);
+    --general-text-color: #333333;
+    --general-body-background-color: #f9f5f3;
     --general-body-background-gradient-color: linear-gradient(
         to bottom,
-        rgba(45, 42, 46, 0.8),
-        rgba(45, 42, 46, 0.8)
+        #f9f5f3,
+        #f9f5f3
     );
+}
+
+html {
+    font-weight: 500;
+}
+
+::selection {
+    color: var(--text-dark);
+    background-color: var(--background-dark);
 }

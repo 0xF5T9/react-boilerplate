@@ -32,12 +32,6 @@ function InputSampleSection() {
                     placeholder="Primary"
                     inputStyle={{ width: '250px' }}
                 />{' '}
-                <Input
-                    type="text"
-                    altStyle
-                    placeholder="Primary"
-                    inputStyle={{ width: '250px' }}
-                />
                 <br />
                 <Input
                     type="text"
@@ -45,13 +39,6 @@ function InputSampleSection() {
                     placeholder="Red"
                     inputStyle={{ width: '250px' }}
                 />{' '}
-                <Input
-                    type="text"
-                    color="red"
-                    altStyle
-                    placeholder="Red"
-                    inputStyle={{ width: '250px' }}
-                />
                 <br />
                 <Input
                     type="text"
@@ -59,13 +46,6 @@ function InputSampleSection() {
                     placeholder="Orange"
                     inputStyle={{ width: '250px' }}
                 />{' '}
-                <Input
-                    type="text"
-                    color="orange"
-                    altStyle
-                    placeholder="Orange"
-                    inputStyle={{ width: '250px' }}
-                />
                 <br />
                 <Input
                     type="text"
@@ -73,13 +53,6 @@ function InputSampleSection() {
                     placeholder="Yellow"
                     inputStyle={{ width: '250px' }}
                 />{' '}
-                <Input
-                    type="text"
-                    color="yellow"
-                    altStyle
-                    placeholder="Yellow"
-                    inputStyle={{ width: '250px' }}
-                />
                 <br />
                 <Input
                     type="text"
@@ -87,13 +60,6 @@ function InputSampleSection() {
                     placeholder="Green"
                     inputStyle={{ width: '250px' }}
                 />{' '}
-                <Input
-                    type="text"
-                    color="green"
-                    altStyle
-                    placeholder="Green"
-                    inputStyle={{ width: '250px' }}
-                />
                 <br />
                 <Input
                     type="text"
@@ -101,13 +67,6 @@ function InputSampleSection() {
                     placeholder="Blue"
                     inputStyle={{ width: '250px' }}
                 />{' '}
-                <Input
-                    type="text"
-                    color="blue"
-                    altStyle
-                    placeholder="Blue"
-                    inputStyle={{ width: '250px' }}
-                />
                 <br />
                 <Input
                     type="text"
@@ -115,13 +74,6 @@ function InputSampleSection() {
                     placeholder="Purple"
                     inputStyle={{ width: '250px' }}
                 />{' '}
-                <Input
-                    type="text"
-                    color="purple"
-                    altStyle
-                    placeholder="Purple"
-                    inputStyle={{ width: '250px' }}
-                />
                 <h1 style={{ marginTop: '26px' }}>Disabled Input</h1>
                 <Input
                     type="text"
@@ -129,13 +81,6 @@ function InputSampleSection() {
                     inputStyle={{ width: '250px' }}
                     disabled
                 />{' '}
-                <Input
-                    type="text"
-                    altStyle
-                    placeholder="This input is disabled"
-                    inputStyle={{ width: '250px' }}
-                    disabled
-                />
                 <h1 style={{ marginTop: '26px' }}>Icon Input</h1>
                 <Input
                     type="email"

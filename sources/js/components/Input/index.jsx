@@ -15,7 +15,6 @@ import * as styles from './Input.module.css';
  * @param {String} props.color Input color. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
  * @param {String} props.size Input size. ('small' | 'large')
  * @param {Boolean} props.transparent Make the input background transparent.
- * @param {Boolean} props.altStyle Use input alternative style.
  * @param {Object} props.icon Input icon. ({iconPosition: 'left' | 'right', iconClass: '<icon classses>'})
  * @param {String} props.placeholder Input placeholder.
  * @param {String} props.id Input id. (This applies to the input element)
@@ -33,7 +32,6 @@ function Input({
     color,
     size,
     transparent,
-    altStyle,
     icon = { iconPosition: '', iconClass: '' },
     placeholder,
     id,
@@ -54,7 +52,6 @@ function Input({
                    ${styles[color] || ''}
                    ${styles[size] || ''}
                    ${transparent ? styles['transparent'] : ''}
-                   ${altStyle ? styles['alt'] : ''}
                    ${icon.iconPosition ? icon_position_style : ''}
                    ${className || ''}`;
     return (
@@ -86,7 +83,6 @@ Input.propTypes = {
     ]),
     size: PropTypes.oneOf(['small', 'large']),
     transparent: PropTypes.bool,
-    altStyle: PropTypes.bool,
     icon: PropTypes.shape({
         iconPosition: PropTypes.oneOf(['left', 'right']).isRequired,
         iconClass: PropTypes.string.isRequired,
