@@ -17,6 +17,7 @@ import Navbar from './components/Navbar';
 import MobileNavMenuIcon from './components/MobileNavMenuIcon';
 import AlertIcon from './components/AlertIcon';
 import UserIcon from './components/UserIcon';
+import IconButton from './components/IconButton';
 import Button from '../Button';
 import { showToast } from '../ToastOverlay';
 import './Header.css';
@@ -40,7 +41,8 @@ function isHeaderComponentVisible() {
  * @returns Returns the component.
  */
 function Header() {
-    const { isHeaderVisible, headerHeight } = useContext(GlobalContext),
+    const { isHeaderVisible, headerHeight, theme, setTheme } =
+            useContext(GlobalContext),
         { authSession, logout } = useAuth(),
         navigate = useNavigate();
 
@@ -162,6 +164,17 @@ function Header() {
                     </>
                 ) : (
                     <>
+                        <IconButton
+                            style={{ marginRight: '10px' }}
+                            icon={`${theme === 'monokai-pro' ? 'far' : 'fas'} fa-lightbulb`}
+                            onClick={() =>
+                                setTheme(
+                                    theme === 'monokai-pro'
+                                        ? 'light-brown'
+                                        : 'monokai-pro'
+                                )
+                            }
+                        />
                         <Link className="login-link" to={routes.login}>
                             Login
                         </Link>{' '}
