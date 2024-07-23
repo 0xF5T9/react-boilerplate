@@ -52,7 +52,9 @@
     right: 0;
     bottom: 0;
     background-color: var(--mobile-navbar-blur-layer-background-color);
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(1px); Temporary disable blur effect as it cause performance issue in mobile */
+    border: 0;
+    border-radius: 0;
 }
 
 .mobile-nav-menu-popup {
