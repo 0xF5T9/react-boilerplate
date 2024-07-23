@@ -99,6 +99,7 @@
     --navbar-subitem-text-color-link-pending: var(
         --navbar-subitem-text-color-hover
     );
+    --navbar-subitem-desc-text-default: var(--color-gray);
 
     --navbar-sublist-background-color: var(--color-background-secondary);
     --navbar-sublist-border-color: transparent;

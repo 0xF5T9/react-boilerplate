@@ -264,7 +264,7 @@
 
     display: flex;
     align-items: center;
-    color: var(--color-white);
+    color: var(--navbar-subitem-text-color-default);
     text-decoration: none;
 }
 
@@ -305,7 +305,7 @@
     font-size: small;
     font-weight: 500;
     white-space: nowrap;
-    color: var(--color-gray);
+    color: var(--navbar-subitem-desc-text-default);
     overflow: hidden;
     text-overflow: ellipsis;
 }
