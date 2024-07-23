@@ -30,6 +30,20 @@
     --color-purple-darker: #998cd9;
     --color-purple-vibrant: #7058e9;
 
+    --text-dark: var(--color-white);
+    --text-dark-hover: var(--color-white);
+    --text-dark-highlight: var(--color-yellow);
+    --text-dark-dim: var(--color-gray);
+    --background-dark: #221f22;
+    --background-dark-highlight: #333234;
+
+    --context-text-dark: var(--color-white);
+    --context-text-dark-hover: var(--color-white);
+    --context-text-dark-highlight: var(--color-yellow);
+    --context-text-dark-dim: var(--color-gray);
+    --context-background-dark: #2d2a2e;
+    --context-background-dark-highlight: #383539;
+
     --color-primary: var(--color-orange);
     --color-success: var(--color-green);
     --color-warning: var(--color-yellow);
@@ -52,39 +66,33 @@
 
     /* Component variables */
     --header-height: 56.8px;
-    --header-background-color: var(--color-background-primary);
+    --header-background-color: var(--background-dark);
 
     --footer-height: 140px;
-    --footer-background-color: var(--color-background-primary);
+    --footer-background-color: var(--background-dark);
 
-    --navbar-item-background-color-default: var(--color-background-primary);
-    --navbar-item-background-color-hover: var(
-        --color-background-primary-highlight
-    );
-    --navbar-item-background-color-active: var(
-        --color-background-primary-highlight
-    );
+    --navbar-item-background-color-default: var(--background-dark);
+    --navbar-item-background-color-hover: var(--background-dark-highlight);
+    --navbar-item-background-color-active: var(--background-dark-highlight);
     --navbar-item-background-color-link-active: var(
-        --navbar-item-background-color-hover
+        --background-dark-highlight
     );
     --navbar-item-background-color-link-pending: var(
-        --navbar-item-background-color-hover
+        --background-dark-highlight
     );
 
-    --navbar-item-text-color-default: var(--color-gray);
-    --navbar-item-text-color-hover: var(--color-white);
-    --navbar-item-text-color-active: var(--color-white);
-    --navbar-item-text-color-link-active: var(--color-yellow);
+    --navbar-item-text-color-default: var(--text-dark-dim);
+    --navbar-item-text-color-hover: var(--text-dark);
+    --navbar-item-text-color-active: var(--text-dark);
+    --navbar-item-text-color-link-active: var(--text-dark-highlight);
     --navbar-item-text-color-link-pending: var(--navbar-item-text-color-hover);
 
-    --navbar-subitem-background-color-default: var(
-        --color-background-secondary
-    );
+    --navbar-subitem-background-color-default: var(--context-background-dark);
     --navbar-subitem-background-color-hover: var(
-        --color-background-secondary-highlight
+        --context-background-dark-highlight
     );
     --navbar-subitem-background-color-active: var(
-        --color-background-secondary-highlight
+        --context-background-dark-highlight
     );
     --navbar-subitem-background-color-link-active: var(
         --navbar-subitem-background-color-hover
@@ -92,20 +100,41 @@
     --navbar-subitem-background-color-link-pending: var(
         --navbar-subitem-background-color-hover
     );
-    --navbar-subitem-text-color-default: var(--color-white);
-    --navbar-subitem-text-color-hover: var(--color-yellow);
-    --navbar-subitem-text-color-active: var(--color-yellow);
-    --navbar-subitem-text-color-link-active: var(--color-yellow);
+    --navbar-subitem-text-color-default: var(--context-text-dark);
+    --navbar-subitem-text-color-hover: var(--context-text-dark-highlight);
+    --navbar-subitem-text-color-active: var(--context-text-dark-highlight);
+    --navbar-subitem-text-color-link-active: var(--context-text-dark-highlight);
     --navbar-subitem-text-color-link-pending: var(
         --navbar-subitem-text-color-hover
     );
-    --navbar-subitem-desc-text-default: var(--color-gray);
+    --navbar-subitem-desc-text-default: var(--context-text-dark-dim);
 
-    --navbar-sublist-background-color: var(--color-background-secondary);
+    --navbar-sublist-background-color: var(--context-background-dark);
     --navbar-sublist-border-color: transparent;
     --navbar-sublist-border-width: 0px;
     --navbar-sublist-border-radius: 10px;
     --navbar-sublist-shadow-color: rgba(34, 31, 34, 0.4);
+
+    --mobile-navbar-blur-layer-background-color: rgba(34, 31, 34, 0.8);
+    --mobile-navbar-background-color: var(--context-background-dark);
+    --mobile-navbar-shadow-color: rgba(34, 31, 34, 0.4);
+    --mobile-navbar-close-color-default: var(--context-text-dark-dim);
+    --mobile-navbar-close-color-hover: var(--context-text-dark);
+    --mobile-navbar-close-background-color-highlight: var(
+        --context-background-dark-highlight
+    );
+    --mobile-navbar-section-title-text-color: var(--context-text-dark-dim);
+    --mobile-navbar-item-text-color-default: var(--context-text-dark);
+    --mobile-navbar-item-background-color-default: var(
+        --context-background-dark
+    );
+    --mobile-navbar-item-background-color-highlight: var(
+        --context-background-dark-highlight
+    );
+    --mobile-navbar-item-text-color-highlight: var(
+        --context-text-dark-highlight
+    );
+    --mobile-navbar-item-desc-text-color: var(--context-text-dark-dim);
 
     --popup-window-text-color: var(--color-text);
     --popup-window-background-color: var(--color-background-secondary);

@@ -40,9 +40,6 @@ function GlobalProvider({ children }) {
         case 'monokai-pro':
             Theme = Themes['MonokaiPro'];
             break;
-        case 'monokai-spectrum':
-            Theme = Themes['MonokaiSpectrum'];
-            break;
     }
 
     useEffect(() => {
