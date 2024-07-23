@@ -42,7 +42,7 @@ function BlankLayout() {
                 </Content>
                 <ModalOverlay />
                 <ToastOverlay />
-                <DebugOverlay />
+                {process.env.NODE_ENV === 'development' && <DebugOverlay />}
                 <div className={styles['background']} />
             </div>
             <ScrollRestoration />
