@@ -78,7 +78,9 @@ div.radio-wrapper {
         }
 
         &:disabled {
-            filter: brightness(0.65);
+            opacity: 0.65;
+            cursor: not-allowed;
+            pointer-events: none;
         }
     }
 
@@ -99,7 +101,9 @@ div.radio-wrapper {
     }
 
     & input[type='radio']:disabled ~ label > span {
-        filter: brightness(0.65);
+        opacity: 0.65;
+        cursor: not-allowed;
+        pointer-events: none;
     }
 
     /* Modifier classes */
