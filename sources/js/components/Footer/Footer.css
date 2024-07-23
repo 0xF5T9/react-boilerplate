@@ -9,42 +9,27 @@
     height: var(--footer-height);
     background-color: var(--footer-background-color);
     overflow: hidden;
+}
 
-    & > #social-link-wrapper {
-        & > a:not(:last-child) {
-            margin-right: 5px;
-        }
+.footer-powered-info {
+    margin-top: 13px;
+    font-size: small;
+    transition: all 0.1s;
+}
 
-        & > a {
-            color: var(--footer-text-color);
-            text-decoration: none;
+.powered-by {
+    color: var(--footer-text-color);
+    filter: brightness(0.9);
+}
 
-            & > i {
-                font-size: 24px;
-            }
-        }
-    }
+.powered-link {
+    color: var(--footer-text-color);
+    text-decoration: underline;
+    font-weight: bold;
+    filter: brightness(1);
+    transition: all 0.1s;
 
-    & > #powered-text {
-        margin-top: 13px;
-        font-size: small;
-        transition: all 0.1s;
-
-        & > .powered-by {
-            color: var(--footer-text-color);
-            filter: brightness(0.9);
-        }
-
-        & > .powered-link {
-            color: var(--footer-text-color);
-            text-decoration: underline;
-            font-weight: bold;
-            filter: brightness(1);
-            transition: all 0.1s;
-
-            &:hover {
-                filter: brightness(1.2);
-            }
-        }
+    &:hover {
+        filter: brightness(1.2);
     }
 }

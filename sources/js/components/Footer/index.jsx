@@ -48,39 +48,9 @@ function Footer() {
     return (
         <footer
             id="footer"
-            // className="top-border"
             style={{ display: isFooterVisible ? 'flex' : 'none' }}
         >
-            <div id="social-link-wrapper">
-                <Anchor>
-                    <i className="fa-brands fa-github"></i>
-                </Anchor>
-
-                <Anchor>
-                    <i className="fa-brands fa-facebook"></i>
-                </Anchor>
-
-                <Anchor>
-                    <i className="fa-brands fa-instagram"></i>
-                </Anchor>
-
-                <Anchor>
-                    <i className="fa-brands fa-snapchat"></i>
-                </Anchor>
-
-                <Anchor>
-                    <i className="fa-brands fa-pinterest-p"></i>
-                </Anchor>
-
-                <Anchor>
-                    <i className="fa-brands fa-twitter"></i>
-                </Anchor>
-
-                <Anchor>
-                    <i className="fa-brands fa-linkedin-in"></i>
-                </Anchor>
-            </div>
-            <p id="powered-text">
+            <p className="footer-powered-info">
                 <span className="powered-by">Powered by</span>{' '}
                 <Anchor
                     className="powered-link"
