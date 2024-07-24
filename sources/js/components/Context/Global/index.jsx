@@ -20,10 +20,6 @@ const GlobalContext = createContext();
  */
 function GlobalProvider({ children }) {
     const [theme, setTheme] = useState('light-blue'),
-        [isHeaderVisible, setHeaderVisibility] = useState(true),
-        [isFooterVisible, setFooterVisibility] = useState(true),
-        [headerHeight, setHeaderHeight] = useState('56.8px'),
-        [footerHeight, setFooterHeight] = useState('140px'),
         [deviceType, setDeviceType] = useState(() => ({
             deviceType:
                 window.innerWidth >= 1024
@@ -45,9 +41,8 @@ function GlobalProvider({ children }) {
             break;
     }
 
-    useEffect(() => {
-        // TEST: Theme subscribers ?
-    }, [theme]);
+    // TEST: Theme subscribers ?
+    // useEffect(() => {}, [theme]);
 
     useEffect(() => {
         window.addEventListener('resize', handleUpdateDeviceType);
@@ -73,14 +68,6 @@ function GlobalProvider({ children }) {
     const global = {
         theme,
         setTheme,
-        isHeaderVisible,
-        setHeaderVisibility,
-        isFooterVisible,
-        setFooterVisibility,
-        headerHeight,
-        setHeaderHeight,
-        footerHeight,
-        setFooterHeight,
         deviceType,
     };
 

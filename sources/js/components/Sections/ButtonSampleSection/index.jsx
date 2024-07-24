@@ -4,10 +4,6 @@
  */
 
 'use strict';
-
-import { useContext } from 'react';
-
-import { GlobalContext } from '../../Context/Global';
 import { openModalWindow } from '../../ModalOverlay';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Button from '../../Button';
@@ -20,46 +16,6 @@ import * as styles from './ButtonSampleSection.module.css';
  * @returns Returns the component.
  */
 function ButtonSampleSection() {
-    const {
-        theme,
-        setTheme,
-        isHeaderVisible,
-        setHeaderVisibility,
-        isFooterVisible,
-        setFooterVisibility,
-    } = useContext(GlobalContext);
-
-    function handleToggleTheme() {
-        switch (theme) {
-            case 'monokai-pro':
-                setTheme('light-blue');
-                break;
-            default:
-                setTheme('monokai-pro');
-                break;
-        }
-    }
-
-    function handleToggleHeader() {
-        if (isHeaderVisible) {
-            setHeaderVisibility(false);
-            showToast('Info', 'The header has been hidden.', 'info', 1000);
-        } else {
-            setHeaderVisibility(true);
-            showToast('Info', 'The header has been shown.', 'info', 1000);
-        }
-    }
-
-    function handleToggleFooter() {
-        if (isFooterVisible) {
-            setFooterVisibility(false);
-            showToast('Info', 'The footer has been hidden.', 'info', 1000);
-        } else {
-            setFooterVisibility(true);
-            showToast('Info', 'The footer has been shown.', 'info', 1000);
-        }
-    }
-
     function handlePlayClickSound() {
         const audio = new Audio('/assets/static/sound/ClickSoundEffect.wav');
         audio.play();
@@ -252,15 +208,6 @@ function ButtonSampleSection() {
                     onClick={() => openModalWindow('custom-modal-window-2')}
                 >
                     Modal Window 2
-                </Button>{' '}
-                <Button id="toggle-theme-button" onClick={handleToggleTheme}>
-                    Theme: {theme}
-                </Button>{' '}
-                <Button id="toggle-header-button" onClick={handleToggleHeader}>
-                    Toggle Header
-                </Button>{' '}
-                <Button id="toggle-footer-button" onClick={handleToggleFooter}>
-                    Toggle Footer
                 </Button>{' '}
                 <Button id="click-sound-button" onClick={handlePlayClickSound}>
                     Click Sound
