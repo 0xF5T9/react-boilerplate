@@ -19,10 +19,10 @@ import AlertIcon from './components/AlertIcon';
 import UserIcon from './components/UserIcon';
 import IconButton from './components/IconButton';
 import Button from '../Button';
-import { showToast } from '../ToastOverlay';
 import { LineMdSunnyOutlineTwotone } from '../Icons/MLSun';
 import { LineMdMoonSimpleTwotone } from '../Icons/MLMoon';
-import './Header.css';
+
+import * as styles from './Header.module.css';
 const $ = document.querySelector.bind(document);
 
 /**
@@ -35,9 +35,9 @@ function Header() {
         navigate = useNavigate();
 
     return (
-        <header id="header">
+        <header className={styles['header']}>
             {/* Left content box */}
-            <div id="header-left-content-box">
+            <div className={styles['left-content']}>
                 {/* Mobile navigation menu */}
                 <MobileNavMenuIcon />
 
@@ -47,37 +47,14 @@ function Header() {
             </div>
 
             {/* Middle content box */}
-            <div id="header-middle-content-box">
+            <div className={styles['middle-content']}>
                 <Navbar />
             </div>
 
             {/* Right content box */}
-            <div id="header-right-content-box">
+            <div className={styles['right-content']}>
                 {authSession ? (
                     <>
-                        {/* Connect button */}
-                        <Button
-                            outline
-                            style={{ marginRight: '5px' }}
-                            onClick={() => {
-                                const audio = new Audio(
-                                    '/assets/static/sound/ClickSoundEffect.wav'
-                                );
-                                audio.play();
-                                showToast(
-                                    'Error',
-                                    'Unable to connect to the remote server.',
-                                    'error'
-                                );
-                            }}
-                        >
-                            <i
-                                className="fa-solid fa-ethernet"
-                                style={{ marginRight: '8px' }}
-                            ></i>
-                            Connect
-                        </Button>
-
                         {/* Alert icon */}
                         <AlertIcon />
 
@@ -137,7 +114,10 @@ function Header() {
                                 )
                             }
                         />
-                        <Link className="login-link" to={routes.login}>
+                        <Link
+                            className={styles['login-link']}
+                            to={routes.login}
+                        >
                             Login
                         </Link>{' '}
                         <Button
