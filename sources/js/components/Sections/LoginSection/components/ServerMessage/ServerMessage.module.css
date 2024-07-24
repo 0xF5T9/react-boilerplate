@@ -5,32 +5,39 @@
     width: 288px;
     padding: 16px;
     margin-bottom: 16px;
-    border: 1px solid var(--color-blue);
+    border: 1px solid var(--server-message-border-color-info);
     border-radius: 10px;
-    background-color: rgb(120, 221, 232, 0.1);
+    color: var(--server-message-text-color-info);
+    background-color: var(--server-message-background-color-info);
+
+    & .server-message-delete:hover {
+        color: var(--server-message-border-color-info);
+    }
 
     &.error {
-        border-color: var(--color-red);
-        background-color: rgb(255, 97, 136, 0.1);
+        border-color: var(--server-message-border-color-error);
+        color: var(--server-message-text-color-error);
+        background-color: var(--server-message-background-color-error);
 
         & .server-message-delete:hover {
-            color: var(--color-red);
+            color: var(--server-message-border-color-error);
         }
     }
 
     &.success {
-        border-color: var(--color-green);
-        background-color: rgb(168, 219, 117, 0.1);
+        border-color: var(--server-message-border-color-success);
+        color: var(--server-message-text-color-success);
+        background-color: var(--server-message-background-color-success);
 
         & .server-message-delete:hover {
-            color: var(--color-green);
+            color: var(--server-message-border-color-success);
         }
     }
 }
 
 .server-message {
     margin-right: 5px;
-    color: var(--color-white);
+    color: var(--server-message-text-color);
     text-align: left;
 }
 

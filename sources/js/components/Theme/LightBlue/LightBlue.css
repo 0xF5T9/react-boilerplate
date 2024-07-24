@@ -270,6 +270,16 @@
     );
     --labeled-select-font-weight-reverse: 500;
 
+    --server-message-text-color-info: var(--color-blue);
+    --server-message-background-color-info: rgba(120, 221, 232, 0.2);
+    --server-message-border-color-info: var(--color-blue);
+    --server-message-text-color-error: var(--color-danger);
+    --server-message-background-color-error: rgba(255, 97, 136, 0.2);
+    --server-message-border-color-error: var(--color-danger);
+    --server-message-text-color-success: var(--color-success);
+    --server-message-background-color-success: rgba(168, 219, 117, 0.2);
+    --server-message-border-color-success: var(--color-success);
+
     /* General variables */
     --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
         'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
