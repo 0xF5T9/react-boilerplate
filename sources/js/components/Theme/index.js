@@ -4,13 +4,13 @@
  */
 'use strict';
 import MonokaiPro from './MonokaiPro';
-import LightBrown from './LightBrown';
+import LightBlue from './LightBlue';
 
 const Themes = {
     MonokaiPro,
-    LightBrown,
+    LightBlue,
 };
 
 export default Themes;
 export { default as MonokaiPro } from './MonokaiPro';
-export { default as LightBrown } from './LightBrown';
+export { default as LightBlue } from './LightBlue';

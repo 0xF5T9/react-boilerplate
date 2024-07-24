@@ -176,7 +176,7 @@ function Header() {
                             onClick={() =>
                                 setTheme(
                                     theme === 'monokai-pro'
-                                        ? 'light-brown'
+                                        ? 'light-blue'
                                         : 'monokai-pro'
                                 )
                             }
