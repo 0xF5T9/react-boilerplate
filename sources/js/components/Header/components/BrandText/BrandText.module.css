@@ -17,3 +17,10 @@
         }
     }
 }
+
+/* Mobile */
+@media only screen and (width <= 740px) {
+    .header-brand-text {
+        display: none;
+    }
+}
