@@ -33,35 +33,35 @@
 
     --text-light: #333333;
     --text-light-hover: #333333;
-    --text-light-highlight: #231f20;
+    --text-light-highlight: var(--color-primary);
     --text-light-dim: #333333;
-    --background-light: #ffffff;
+    --background-light: #f9f5f3;
     --background-light-highlight: #e8ebed;
-    --shadow-light: #e8ebed;
+    --shadow-light: #00000033;
 
     --context-text-light: #333333;
     --context-text-light-hover: #333333;
-    --context-text-light-highlight: var(--color-blue-vibrant);
-    --context-text-light-dim: rgb(138, 156, 164);
-    --context-background-light: #fcfcfd;
+    --context-text-light-highlight: var(--color-primary);
+    --context-text-light-dim: #6b6b6b;
+    --context-background-light: #f4f4f4;
     --context-background-light-highlight: #e8ebed;
-    --context-shadow-light: rgba(24, 24, 33, 0.09);
+    --context-shadow-light: #00000033;
 
-    --text-dark: var(--color-white);
-    --text-dark-hover: var(--color-white);
-    --text-dark-highlight: var(--color-blue-vibrant);
-    --text-dark-dim: rgb(169, 179, 187);
-    --background-dark: #181821;
-    --background-dark-highlight: #2f2f37;
-    --shadow-dark: rgba(24, 24, 33, 0.4);
+    --text-dark: #f9f5f3;
+    --text-dark-hover: #f9f5f3;
+    --text-dark-highlight: #f9f5f3;
+    --text-dark-dim: #f9f5f3;
+    --background-dark: #333333;
+    --background-dark-highlight: #6b6b6b;
+    --shadow-dark: #3333333c;
 
-    --context-text-dark: var(--color-white);
-    --context-text-dark-hover: var(--color-white);
-    --context-text-dark-highlight: var(--color-yellow);
-    --context-text-dark-dim: var(--color-gray);
-    --context-background-dark: #2d2a2e;
-    --context-background-dark-highlight: #383539;
-    --context-shadow-dark: rgba(34, 31, 34, 0.4);
+    --context-text-dark: blue;
+    --context-text-dark-hover: blue;
+    --context-text-dark-highlight: blue;
+    --context-text-dark-dim: blue;
+    --context-background-dark: blue;
+    --context-background-dark-highlight: blue;
+    --context-shadow-dark: blue;
 
     --color-primary: var(--color-black);
     --color-success: var(--color-green);
