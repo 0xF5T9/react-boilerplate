@@ -63,7 +63,7 @@
     --context-background-dark-highlight: blue;
     --context-shadow-dark: blue;
 
-    --color-primary: var(--color-black);
+    --color-primary: var(--color-blue);
     --color-success: var(--color-green);
     --color-warning: var(--color-yellow);
     --color-danger: var(--color-red);
@@ -147,7 +147,7 @@
 
     --mobile-navbar-blur-layer-background-color: #0006;
     --mobile-navbar-background-color: var(--context-background-light);
-    --mobile-navbar-shadow-color: rgba(34, 31, 34, 0.4);
+    --mobile-navbar-shadow-color: #00000033;
     --mobile-navbar-close-color-default: var(--context-text-light-dim);
     --mobile-navbar-close-color-hover: var(--context-text-light);
     --mobile-navbar-close-background-color-highlight: var(
