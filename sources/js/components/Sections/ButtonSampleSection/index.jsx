@@ -187,7 +187,7 @@ function ButtonSampleSection() {
                 <Button color="red">
                     <i className="fa-solid fa-trash"></i> Delete
                 </Button>{' '}
-                <Button color="orange">
+                <Button color="blue">
                     <i className="fa-solid fa-rotate"></i> Update
                 </Button>{' '}
                 <Button color="purple">
