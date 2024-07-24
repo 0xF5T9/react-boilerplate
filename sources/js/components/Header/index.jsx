@@ -20,6 +20,8 @@ import UserIcon from './components/UserIcon';
 import IconButton from './components/IconButton';
 import Button from '../Button';
 import { showToast } from '../ToastOverlay';
+import { LineMdSunnyOutlineTwotone } from '../Icons/MLSun';
+import { LineMdMoonSimpleTwotone } from '../Icons/MLMoon';
 import './Header.css';
 const $ = document.querySelector.bind(document);
 
@@ -166,7 +168,11 @@ function Header() {
                     <>
                         <IconButton
                             style={{ marginRight: '10px' }}
-                            icon={`${theme === 'monokai-pro' ? 'far' : 'fas'} fa-lightbulb`}
+                            icon2={
+                                theme === 'monokai-pro'
+                                    ? LineMdMoonSimpleTwotone
+                                    : LineMdSunnyOutlineTwotone
+                            }
                             onClick={() =>
                                 setTheme(
                                     theme === 'monokai-pro'

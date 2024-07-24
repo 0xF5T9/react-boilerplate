@@ -12,7 +12,7 @@ import * as styles from './LabeledSelect.module.css';
  * Labeled select component.
  * @param {Object} props Component properties.
  * @param {*} props.color Input color variant. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param {*} props.dark Specifies whether to use input dark variant.
+ * @param {*} props.reverse Specifies whether to use input reverse variant.
  * @param {*} props.size Input size. ('small' | 'large')
  * @param {*} props.width Input width.
  * @param {*} props.label Input label.
@@ -29,7 +29,7 @@ import * as styles from './LabeledSelect.module.css';
  */
 function LabeledSelect({
     color,
-    dark,
+    reverse,
     size,
     width,
     label,
@@ -46,7 +46,7 @@ function LabeledSelect({
     let classes = `${styles['input-wrapper']}
                    ${color ? styles[color] : ''}
                    ${size ? styles[size] : ''}
-                   ${dark ? styles['dark'] : ''}`;
+                   ${reverse ? styles['reverse'] : ''}`;
 
     let input_style = Object.assign(
         { width: width && `${width}px` },
@@ -83,7 +83,7 @@ LabeledSelect.propTypes = {
         'blue',
         'purple',
     ]),
-    dark: PropTypes.bool,
+    reverse: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'large']),
     width: PropTypes.number,
     label: PropTypes.string,

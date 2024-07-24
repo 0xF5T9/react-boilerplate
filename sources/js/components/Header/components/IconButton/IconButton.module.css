@@ -5,7 +5,6 @@
     align-items: center;
     width: calc(var(--header-height) * 0.83333);
     height: var(--header-height);
-    font-size: calc(var(--header-height) / 2);
     font-size: calc(var(--header-height) * 0.45);
 
     &:hover > .header-icon-button-icon {

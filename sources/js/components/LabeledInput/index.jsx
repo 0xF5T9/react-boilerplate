@@ -13,7 +13,7 @@ import * as styles from './LabeledInput.module.css';
  * @param {Object} props Component properties.
  * @param {String} [props.type='text'] Input type. (default: 'text')
  * @param {String} props.color Input color variant. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param {Boolean} props.dark Specifies whether to use input dark variant.
+ * @param {Boolean} props.reverse Specifies whether to use reverse variant.
  * @param {String} props.size Input size. ('small' | 'large')
  * @param {Number} props.width Input width.
  * @param {String} props.label Input label.
@@ -30,7 +30,7 @@ import * as styles from './LabeledInput.module.css';
 function LabeledInput({
     type = 'text',
     color,
-    dark,
+    reverse,
     size,
     width,
     label,
@@ -46,7 +46,7 @@ function LabeledInput({
     let classes = `${styles['input-wrapper']}
                    ${color ? styles[color] : ''}
                    ${size ? styles[size] : ''}
-                   ${dark ? styles['dark'] : ''}`;
+                   ${reverse ? styles['reverse'] : ''}`;
 
     let input_style = Object.assign(
         { width: width && `${width}px` },
@@ -83,7 +83,7 @@ LabeledInput.propTypes = {
         'blue',
         'purple',
     ]),
-    dark: PropTypes.bool,
+    reverse: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'large']),
     width: PropTypes.number,
     label: PropTypes.string,

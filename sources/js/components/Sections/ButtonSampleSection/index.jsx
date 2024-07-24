@@ -225,23 +225,17 @@ function ButtonSampleSection() {
                     Outline
                 </Button>
                 <h1 style={{ marginTop: '26px' }}>Icon Buttons</h1>
-                <Button>
-                    <i className="fa-solid fa-magnifying-glass"></i> Search
+                <Button color="green">
+                    <i className="fa-solid fa-plus"></i> Create
                 </Button>{' '}
-                <Button>
-                    <i className="fa-solid fa-folder-open"></i> Open Folder
+                <Button color="red">
+                    <i className="fa-solid fa-trash"></i> Delete
                 </Button>{' '}
-                <Button>
-                    <i className="fa-solid fa-gear"></i> Settings
+                <Button color="orange">
+                    <i className="fa-solid fa-rotate"></i> Update
                 </Button>{' '}
-                <Button>
-                    <i className="fa-solid fa-right-to-bracket"></i> Sign Up
-                </Button>{' '}
-                <Button>
-                    <i className="fa-solid fa-play"></i> Play
-                </Button>{' '}
-                <Button>
-                    <i className="fa-solid fa-pause"></i> Pause
+                <Button color="purple">
+                    <i className="fa-solid fa-upload"></i> Upload
                 </Button>{' '}
                 <h1 style={{ marginTop: '26px' }}>Sized Buttons</h1>
                 <Button size="small">Small</Button> <Button>Default</Button>{' '}

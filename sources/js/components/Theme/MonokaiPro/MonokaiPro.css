@@ -229,6 +229,60 @@
     --input-padding-top-bottom: 4px;
     --input-icon-extra-padding: 4px;
 
+    --labeled-input-label-text-color: var(--context-text-dark);
+    --labeled-input-text-color-default: var(--context-text-dark);
+    --labeled-input-inner-background-color-default: var(
+        --context-background-dark
+    );
+    --labeled-input-inner-background-color-hover: var(
+        --context-background-dark-highlight
+    );
+    --labeled-input-inner-background-color-focus: var(
+        --context-background-dark-highlight
+    );
+    --labeled-input-background-color-default: var(--color-primary);
+    --labeled-input-border-color-default: var(--color-primary);
+    --labeled-input-focus-color: var(--context-text-dark);
+    --labeled-input-font-weight-default: 400;
+    --labeled-input-text-color-default-reverse: var(--context-background-dark);
+    --labeled-input-inner-background-color-default-reverse: var(
+        --context-text-dark
+    );
+    --labeled-input-inner-background-color-hover-reverse: var(
+        --context-text-dark
+    );
+    --labeled-input-inner-background-color-focus-reverse: var(
+        --context-text-dark
+    );
+    --labeled-input-font-weight-reverse: 500;
+
+    --labeled-select-label-text-color: var(--context-text-dark);
+    --labeled-select-text-color-default: var(--context-text-dark);
+    --labeled-select-inner-background-color-default: var(
+        --context-background-dark
+    );
+    --labeled-select-inner-background-color-hover: var(
+        --context-background-dark-highlight
+    );
+    --labeled-select-inner-background-color-focus: var(
+        --context-background-dark-highlight
+    );
+    --labeled-select-background-color-default: var(--color-primary);
+    --labeled-select-border-color-default: var(--color-primary);
+    --labeled-select-focus-color: var(--context-text-dark);
+    --labeled-select-font-weight-default: 400;
+    --labeled-select-text-color-default-reverse: var(--context-background-dark);
+    --labeled-select-inner-background-color-default-reverse: var(
+        --context-text-dark
+    );
+    --labeled-select-inner-background-color-hover-reverse: var(
+        --context-text-dark
+    );
+    --labeled-select-inner-background-color-focus-reverse: var(
+        --context-text-dark
+    );
+    --labeled-select-font-weight-reverse: 500;
+
     /* General variables */
     --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
         'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',

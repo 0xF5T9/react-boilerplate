@@ -231,6 +231,44 @@
     --input-padding-top-bottom: 4px;
     --input-icon-extra-padding: 4px;
 
+    --labeled-input-label-text-color: var(--color-white);
+    --labeled-input-text-color-default: var(--text-light);
+    --labeled-input-inner-background-color-default: var(--color-white);
+    --labeled-input-inner-background-color-hover: var(--color-white);
+    --labeled-input-inner-background-color-focus: var(--color-white);
+    --labeled-input-background-color-default: var(--color-primary);
+    --labeled-input-border-color-default: var(--color-primary);
+    --labeled-input-focus-color: var(--color-white);
+    --labeled-input-font-weight-default: 400;
+    --labeled-input-text-color-default-reverse: var(--color-white);
+    --labeled-input-inner-background-color-default-reverse: var(--color-black);
+    --labeled-input-inner-background-color-hover-reverse: var(
+        --color-black-bright
+    );
+    --labeled-input-inner-background-color-focus-reverse: var(
+        --color-black-bright
+    );
+    --labeled-input-font-weight-reverse: 500;
+
+    --labeled-select-label-text-color: var(--color-white);
+    --labeled-select-text-color-default: var(--text-light);
+    --labeled-select-inner-background-color-default: var(--color-white);
+    --labeled-select-inner-background-color-hover: var(--color-white);
+    --labeled-select-inner-background-color-focus: var(--color-white);
+    --labeled-select-background-color-default: var(--color-primary);
+    --labeled-select-border-color-default: var(--color-primary);
+    --labeled-select-focus-color: var(--color-white);
+    --labeled-select-font-weight-default: 400;
+    --labeled-select-text-color-default-reverse: var(--color-white);
+    --labeled-select-inner-background-color-default-reverse: var(--color-black);
+    --labeled-select-inner-background-color-hover-reverse: var(
+        --color-black-bright
+    );
+    --labeled-select-inner-background-color-focus-reverse: var(
+        --color-black-bright
+    );
+    --labeled-select-font-weight-reverse: 500;
+
     /* General variables */
     --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
         'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
