@@ -4,9 +4,12 @@
  */
 
 'use strict';
-import Anchor from '../Anchor';
-import './Footer.css';
+import { MdiGithub } from '../Icons/MDIGithub';
+import { IcBaselineDiscord } from '../Icons/ICDiscord';
+import { MdiYoutube } from '../Icons/MDIYoutube';
+import { UilFacebook } from '../Icons/UILFacebook';
 const $ = document.querySelector.bind(document);
+import * as styles from './Footer.module.css';
 
 /**
  * Footer component.
@@ -14,17 +17,43 @@ const $ = document.querySelector.bind(document);
  */
 function Footer() {
     return (
-        <footer id="footer">
-            <p className="footer-powered-info">
-                <span className="powered-by">Powered by</span>{' '}
-                <Anchor
-                    className="powered-link"
+        <footer className={styles['footer']}>
+            <span className={styles['copyright-text']}>
+                © 2024{' '}
+                <span className={styles['link']}>www.your-website.com</span> -
+                All Rights Reserved.
+            </span>
+
+            <div className={styles['info-brands']}>
+                <a
+                    className={styles['github']}
                     href="https://github.com/0xF5T9"
-                    newTab
+                    target="_blank"
                 >
-                    0xF5T9
-                </Anchor>
-            </p>
+                    <MdiGithub />
+                </a>
+                <a
+                    className={styles['discord']}
+                    href="https://discord.com/"
+                    target="_blank"
+                >
+                    <IcBaselineDiscord />
+                </a>
+                <a
+                    className={styles['youtube']}
+                    href="https://youtube.com/"
+                    target="_blank"
+                >
+                    <MdiYoutube />
+                </a>
+                <a
+                    className={styles['facebook']}
+                    href="https://facebook.com/"
+                    target="_blank"
+                >
+                    <UilFacebook />
+                </a>
+            </div>
         </footer>
     );
 }

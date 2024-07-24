@@ -97,6 +97,7 @@
     --footer-height: 140px;
     --footer-background-color: #f9f5f3;
     --footer-text-color: var(--text-light);
+    --footer-border-top: 2px solid rgba(0, 0, 0, 0.1);
 
     --navbar-item-background-color-default: var(--background-light);
     --navbar-item-background-color-hover: var(--background-light-highlight);
