@@ -22,7 +22,7 @@ function BrandLogo() {
             to={routes.home}
             tabIndex={-1}
         >
-            <img src="/assets/static/img/brand-logo2.png" alt="Brand Logo" />
+            <img src="/assets/static/img/brand-logo.png" alt="Brand Logo" />
         </Link>
     );
 }
