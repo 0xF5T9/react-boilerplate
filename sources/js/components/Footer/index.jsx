@@ -20,8 +20,10 @@ function Footer() {
         <footer className={styles['footer']}>
             <span className={styles['copyright-text']}>
                 © 2024{' '}
-                <span className={styles['link']}>www.your-website.com</span> -
-                All Rights Reserved.
+                <a href="/" className={styles['link']}>
+                    www.0xf5t9.com
+                </a>{' '}
+                - All Rights Reserved.
             </span>
 
             <div className={styles['info-brands']}>
