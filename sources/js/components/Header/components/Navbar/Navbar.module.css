@@ -117,7 +117,7 @@
         var(--navbar-sublist-border-color);
     border-radius: var(--navbar-sublist-border-radius);
     background-color: var(--navbar-sublist-background-color);
-    box-shadow: 0px 0px 8px 4px var(--navbar-sublist-shadow-color);
+    box-shadow: 0px 0px 4px 2px var(--navbar-sublist-shadow-color);
     visibility: collapse;
     opacity: 0;
     z-index: 1;

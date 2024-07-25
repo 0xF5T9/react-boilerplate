@@ -304,6 +304,11 @@ function GetNavbarItems() {
             layout: 'full-4',
             items: [
                 {
+                    title: 'Section',
+                    to: routes.samples.section,
+                    icon: Fa6SolidCode,
+                },
+                {
                     title: 'Button',
                     to: routes.samples.button,
                     icon: Fa6SolidCode,

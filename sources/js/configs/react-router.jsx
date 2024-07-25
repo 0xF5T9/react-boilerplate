@@ -17,6 +17,7 @@ const routes = {
     register: '/register',
     profile: '/profile',
     samples: {
+        section: '/samples/section',
         button: '/samples/button',
         input: '/samples/input',
         checkbox: '/samples/checkbox',
@@ -58,6 +59,10 @@ const appRouter = [
                             </ProtectedRoute>
                         ),
                         loader: Sections.ProfileSectionLoader,
+                    },
+                    {
+                        path: routes.samples.section,
+                        element: <Sections.SectionsSampleSection />,
                     },
                     {
                         path: routes.samples.button,

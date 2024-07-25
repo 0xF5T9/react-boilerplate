@@ -245,6 +245,11 @@ function GetNavbarSections() {
             title: 'Components',
             items: [
                 {
+                    text: 'Section',
+                    to: routes.samples.section,
+                    icon: Fa6SolidCode,
+                },
+                {
                     text: 'Button',
                     to: routes.samples.button,
                     icon: Fa6SolidCode,

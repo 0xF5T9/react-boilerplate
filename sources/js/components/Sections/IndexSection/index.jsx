@@ -4,11 +4,8 @@
  */
 
 'use strict';
-import {
-    DynamicSection,
-    FixedSection,
-    FlexibleSection,
-} from '../../Content/components/GridSection';
+import { FlexibleSection } from '../../Content/components/GridSection';
+import { SvgSpinnersBlocksShuffle3 } from '../../Icons/SNBlock';
 
 /**
  * Index section.
@@ -17,33 +14,6 @@ import {
 function IndexSection() {
     return (
         <>
-            <DynamicSection
-                style={{
-                    display: 'flex',
-                    flexFlow: 'column nowrap',
-                    justifyContent: 'center',
-                    padding: '50px 20px',
-                    alignItems: 'center',
-                }}
-            >
-                <h1>Dynamic Section</h1>
-                <p>This section's height is determined by its content.</p>
-            </DynamicSection>
-
-            <FixedSection
-                height={300}
-                style={{
-                    display: 'flex',
-                    flexFlow: 'column nowrap',
-                    justifyContent: 'center',
-                    padding: '50px 20px',
-                    alignItems: 'center',
-                }}
-            >
-                <h1>Fixed Section</h1>
-                <p>This section has a fixed height of 300 pixels.</p>
-            </FixedSection>
-
             <FlexibleSection
                 style={{
                     display: 'flex',
@@ -53,11 +23,9 @@ function IndexSection() {
                     alignItems: 'center',
                 }}
             >
-                <h1>Flexible Section</h1>
-                <p>
-                    This section's height is automatically scaled to fit the
-                    remaining space.
-                </p>
+                <SvgSpinnersBlocksShuffle3 style={{ width: '100px' }} />
+                <h1 style={{ marginTop: '26px' }}>Server Under Maintenance</h1>
+                <p>Please come back later.</p>
             </FlexibleSection>
         </>
     );
