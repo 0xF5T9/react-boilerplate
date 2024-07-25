@@ -52,17 +52,27 @@ GridSection.propTypes = {
  * @param {String} props.className Section additional class names.
  * @param {Boolean} props.grid Specifies whether to make this section a grid layout '.grid'.
  * @param {Boolean} props.wide Specifies whether to use wide grid.
+ * @param {Boolean} props.noGutters Specifies whether to remove default gutters.
  * @param {Object} props.style Additional style object for section.
  * @param {*} props.children Component children.
  * @returns Returns the component.
  */
-function DynamicSection({ id, className, grid, wide, style, children }) {
+function DynamicSection({
+    id,
+    className,
+    grid,
+    wide,
+    noGutters,
+    style,
+    children,
+}) {
     const classes = `c-12 m-12 l-12
                     ${className || ''}
                     ${grid ? (wide ? 'grid wide' : 'grid') : ''}`;
     return (
         <GridSection style={{ display: 'flex', flexGrow: '0' }}>
             <Row
+                noGutters={noGutters}
                 style={{
                     flexGrow: '1',
                 }}
@@ -93,17 +103,28 @@ DynamicSection.propTypes = {
  * @param {Number} props.height Section fixed height.
  * @param {Boolean} props.grid Specifies whether to make this section a grid layout '.grid'.
  * @param {Boolean} props.wide Specifies whether to use wide grid.
+ * @param {Boolean} props.noGutters Specifies whether to remove default gutters.
  * @param {Object} props.style Additional style object for section.
  * @param {*} props.children Component children.
  * @returns Returns the component.
  */
-function FixedSection({ id, className, height, grid, wide, style, children }) {
+function FixedSection({
+    id,
+    className,
+    height,
+    grid,
+    wide,
+    noGutters,
+    style,
+    children,
+}) {
     const classes = `c-12 m-12 l-12
                     ${className || ''}
                     ${grid ? (wide ? 'grid wide' : 'grid') : ''}`;
     return (
         <GridSection fixedHeight={height} style={{ display: 'flex' }}>
             <Row
+                noGutters={noGutters}
                 style={{
                     flexGrow: '1',
                 }}
@@ -134,17 +155,27 @@ FixedSection.propTypes = {
  * @param {String} props.className Section additional class names.
  * @param {Boolean} props.grid Specifies whether to make this section a grid layout '.grid'.
  * @param {Boolean} props.wide Specifies whether to use wide grid.
+ * @param {Boolean} props.noGutters Specifies whether to remove default gutters.
  * @param {Object} props.style Additional style object for section.
  * @param {*} props.children Component children.
  * @returns Returns the component.
  */
-function FlexibleSection({ id, className, grid, wide, style, children }) {
+function FlexibleSection({
+    id,
+    className,
+    grid,
+    wide,
+    noGutters,
+    style,
+    children,
+}) {
     const classes = `c-12 m-12 l-12
                     ${className || ''}
                     ${grid ? (wide ? 'grid wide' : 'grid') : ''}`;
     return (
         <GridSection style={{ display: 'flex' }}>
             <Row
+                noGutters={noGutters}
                 style={{
                     flexGrow: '1',
                 }}
