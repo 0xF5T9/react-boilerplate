@@ -14,6 +14,7 @@ import { routes } from '../../../configs/react-router';
 
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Button from '../../Button';
+import LabeledInput from '../../LabeledInput';
 import { showToast } from '../../ToastOverlay';
 
 /**
@@ -77,30 +78,70 @@ function ProfileSection() {
                 {userInfo && (
                     <>
                         <h1>Profile Section</h1>
-                        <h3>
-                            Logged as {authSession.username} ({userInfo.email})
-                        </h3>
-                        <h3>
-                            Created At:{' '}
-                            {new Date(userInfo.createdAt).toLocaleString(
-                                'en-US'
-                            )}
-                        </h3>
-                        <h3>Role: {userInfo.role}</h3>
-                        <Button onClick={() => logout()}>Logout</Button>
-                        <Button
-                            onClick={() => {
-                                (async () => {
-                                    console.log(
-                                        await apis.mysqlServer.verifySession(
-                                            authSession
-                                        )
-                                    );
-                                })();
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexFlow: 'column nowrap',
+                                alignItems: 'start',
+                                rowGap: '4px',
                             }}
                         >
-                            Verify
-                        </Button>
+                            <LabeledInput
+                                label="Username"
+                                value={authSession.username}
+                                readOnly
+                            />
+                            <LabeledInput
+                                label="Email"
+                                value={userInfo.email}
+                                width={216}
+                                readOnly
+                            />
+                            <LabeledInput
+                                label="Created at"
+                                value={new Date(
+                                    userInfo.createdAt
+                                ).toLocaleString('en-US')}
+                                width={181}
+                                readOnly
+                            />
+                            <LabeledInput
+                                label="Role"
+                                value={userInfo.role}
+                                width={225}
+                                readOnly
+                            />
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+
+                                    columnGap: '4px',
+                                    width: '100%',
+                                }}
+                            >
+                                <Button
+                                    onClick={() => logout()}
+                                    style={{ flex: '1' }}
+                                >
+                                    Logout
+                                </Button>
+                                <Button
+                                    onClick={() => {
+                                        (async () => {
+                                            console.log(
+                                                await apis.mysqlServer.verifySession(
+                                                    authSession
+                                                )
+                                            );
+                                        })();
+                                    }}
+                                    style={{ flex: '1' }}
+                                >
+                                    Verify
+                                </Button>
+                            </div>
+                        </div>
                     </>
                 )}
             </FlexibleSection>
