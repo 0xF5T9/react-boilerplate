@@ -20,6 +20,7 @@ import * as styles from './LabeledInput.module.css';
  * @param {String} props.id Input id.
  * @param {String} props.value Input value.
  * @param {String} props.placeholder Input placeholder.
+ * @param {Boolean} props.readOnly Specifies whether the input is read-only.
  * @param {Function} props.onBlur Input on-blur callback.
  * @param {Function} props.onChange Input on-change callback.
  * @param {Boolean} props.disabled Specifies whether to disable the input.
@@ -37,6 +38,7 @@ function LabeledInput({
     id,
     value,
     placeholder,
+    readOnly,
     onBlur,
     onChange,
     disabled,
@@ -64,6 +66,7 @@ function LabeledInput({
                 type={type}
                 value={value}
                 placeholder={placeholder}
+                readOnly={readOnly}
                 onBlur={onBlur}
                 onChange={onChange}
                 disabled={disabled}
