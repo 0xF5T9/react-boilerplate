@@ -55,6 +55,21 @@ function Header() {
             <div className={styles['right-content']}>
                 {authSession ? (
                     <>
+                        <IconButton
+                            icon2={
+                                theme === 'monokai-pro'
+                                    ? LineMdMoonSimpleTwotone
+                                    : LineMdSunnyOutlineTwotone
+                            }
+                            onClick={() =>
+                                setTheme(
+                                    theme === 'monokai-pro'
+                                        ? 'light-blue'
+                                        : 'monokai-pro'
+                                )
+                            }
+                        />
+
                         {/* Alert icon */}
                         <AlertIcon />
 
