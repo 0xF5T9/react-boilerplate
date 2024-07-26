@@ -24,6 +24,8 @@ import { LineMdMoonSimpleTwotone } from '../Icons/MLMoon';
 import { Fa6SolidCode } from '../Icons/FACode';
 import { Fa6SolidCaretDown } from '../Icons/FACaretDown';
 import { Fa6SolidUser } from '../Icons/FAUser';
+import { Fa6SolidHouse } from '../Icons/FAHome';
+import { showToast } from '../ToastOverlay';
 
 import * as styles from './Header.module.css';
 const $ = document.querySelector.bind(document);
@@ -42,7 +44,85 @@ function Header() {
             {/* Left content box */}
             <div className={styles['left-content']}>
                 {/* Mobile navigation menu */}
-                <MobileNavMenuIcon />
+                <MobileNavMenuIcon
+                    render={[
+                        {
+                            title: 'Navigation',
+                            items: [
+                                {
+                                    text: 'Home',
+                                    to: routes.home,
+                                    icon: Fa6SolidHouse,
+                                },
+                                {
+                                    text: 'Profile',
+                                    to: routes.profile,
+                                    icon: Fa6SolidUser,
+                                    authOnly: true,
+                                },
+                            ],
+                        },
+                        {
+                            title: 'Softwares',
+                            items: [
+                                {
+                                    text: 'Shutdown Timer',
+                                    desc: 'A simple PC shutdown timer',
+                                    image: '/assets/static/img/shutdowntimer.png',
+                                    hideOnClick: false,
+                                    onClick: () =>
+                                        showToast(
+                                            'Info',
+                                            'This application is currently unavailable.',
+                                            'info'
+                                        ),
+                                },
+                                {
+                                    text: 'ASC File Cryptor',
+                                    desc: 'Private file cryptor',
+                                    image: '/assets/static/img/ascfilecryptor.png',
+                                    hideOnClick: false,
+                                    onClick: () =>
+                                        showToast(
+                                            'Info',
+                                            'This application is currently unavailable.',
+                                            'info'
+                                        ),
+                                },
+                            ],
+                        },
+                        {
+                            title: 'Components',
+                            items: [
+                                {
+                                    text: 'Section',
+                                    to: routes.samples.section,
+                                    icon: Fa6SolidCode,
+                                },
+                                {
+                                    text: 'Button',
+                                    to: routes.samples.button,
+                                    icon: Fa6SolidCode,
+                                },
+                                {
+                                    text: 'Input',
+                                    to: routes.samples.input,
+                                    icon: Fa6SolidCode,
+                                },
+                                {
+                                    text: 'Checkbox',
+                                    to: routes.samples.checkbox,
+                                    icon: Fa6SolidCode,
+                                },
+                                {
+                                    text: 'Radio',
+                                    to: routes.samples.radio,
+                                    icon: Fa6SolidCode,
+                                },
+                            ],
+                        },
+                    ]}
+                />
 
                 {/* Brand logo and brand text */}
                 <BrandLogo />

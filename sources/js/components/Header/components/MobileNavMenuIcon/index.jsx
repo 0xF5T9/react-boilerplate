@@ -10,16 +10,10 @@ import { NavLink, useNavigation } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
 import PropTypes from 'prop-types';
 
-import { routes } from '../../../../configs/react-router';
-
 import { GlobalContext } from '../../../Context/Global';
 import IconButton, { IconButtonStyles } from '../IconButton';
 import PopupWindow, { PopupStyles } from '../../../PopupWindow';
-import { Fa6SolidHouse } from '../../../Icons/FAHome';
-import { Fa6SolidUser } from '../../../Icons/FAUser';
-import { Fa6SolidCode } from '../../../Icons/FACode';
 import { Fa6SolidSquareXmark } from '../../../Icons/FASquareXMark';
-import { showToast } from '../../../ToastOverlay';
 import * as styles from './MobileNavMenuIcon.module.css';
 
 const MobileNavMenuContext = createContext();
@@ -189,96 +183,12 @@ NavCloseButton.propTypes = {
 };
 
 /**
- * Get navbar sections as an array.
- * @note The array is wrapped inside a getter function.
- *       Otherwise, the imported variables are undefined at runtime.
- * @returns {Array} Navbar sections.
- */
-function GetNavbarSections() {
-    return [
-        {
-            title: 'Navigation',
-            items: [
-                {
-                    text: 'Home',
-                    to: routes.home,
-                    icon: Fa6SolidHouse,
-                },
-                {
-                    text: 'Profile',
-                    to: routes.profile,
-                    icon: Fa6SolidUser,
-                    authOnly: true,
-                },
-            ],
-        },
-        {
-            title: 'Softwares',
-            items: [
-                {
-                    text: 'Shutdown Timer',
-                    desc: 'A simple PC shutdown timer',
-                    image: '/assets/static/img/shutdowntimer.png',
-                    hideOnClick: false,
-                    onClick: () =>
-                        showToast(
-                            'Info',
-                            'This application is currently unavailable.',
-                            'info'
-                        ),
-                },
-                {
-                    text: 'ASC File Cryptor',
-                    desc: 'Private file cryptor',
-                    image: '/assets/static/img/ascfilecryptor.png',
-                    hideOnClick: false,
-                    onClick: () =>
-                        showToast(
-                            'Info',
-                            'This application is currently unavailable.',
-                            'info'
-                        ),
-                },
-            ],
-        },
-        {
-            title: 'Components',
-            items: [
-                {
-                    text: 'Section',
-                    to: routes.samples.section,
-                    icon: Fa6SolidCode,
-                },
-                {
-                    text: 'Button',
-                    to: routes.samples.button,
-                    icon: Fa6SolidCode,
-                },
-                {
-                    text: 'Input',
-                    to: routes.samples.input,
-                    icon: Fa6SolidCode,
-                },
-                {
-                    text: 'Checkbox',
-                    to: routes.samples.checkbox,
-                    icon: Fa6SolidCode,
-                },
-                {
-                    text: 'Radio',
-                    to: routes.samples.radio,
-                    icon: Fa6SolidCode,
-                },
-            ],
-        },
-    ];
-}
-
-/**
  * Mobile navigation menu icon with popup menu.
+ * @param {Object} props Component properties.
+ * @param {Array} props.render Render data.
  * @returns Returns the component.
  */
-function MobileNavMenuIcon() {
+function MobileNavMenuIcon({ render }) {
     const { authSession } = useAuth();
 
     const { deviceType } = useContext(GlobalContext),
@@ -341,8 +251,8 @@ function MobileNavMenuIcon() {
                                 />
 
                                 <div className={styles['nav-sections']}>
-                                    {GetNavbarSections().map(
-                                        (section, index) => {
+                                    {render &&
+                                        render.map((section, index) => {
                                             // Check if the section is require the user to be authenticated.
                                             if (
                                                 section.authOnly &&
@@ -403,8 +313,7 @@ function MobileNavMenuIcon() {
                                                         )}
                                                 </NavSection>
                                             );
-                                        }
-                                    )}
+                                        })}
                                 </div>
                             </div>
                         </MobileNavMenuContextProvider>
@@ -420,5 +329,9 @@ function MobileNavMenuIcon() {
         </div>
     );
 }
+
+MobileNavMenuIcon.propTypes = {
+    render: PropTypes.array.isRequired,
+};
 
 export default MobileNavMenuIcon;
