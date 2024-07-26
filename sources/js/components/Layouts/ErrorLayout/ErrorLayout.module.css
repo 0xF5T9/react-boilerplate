@@ -10,7 +10,7 @@
     flex-flow: column wrap;
     max-width: 600px;
     line-height: normal;
-    color: var(--color-white);
+    color: var(--color-danger);
     text-align: center;
     font-size: 21px;
     font-weight: 200;
