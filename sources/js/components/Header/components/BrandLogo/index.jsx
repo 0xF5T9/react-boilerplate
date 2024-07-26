@@ -13,12 +13,16 @@ import * as styles from './BrandLogo.module.css';
 
 /**
  * Header brand logo component.
+ * @param {Object} props Component properties.
+ * @param {String} props.id Element id.
+ * @param {String} props.className Element addtional class names.
  * @returns Returns the component.
  */
-function BrandLogo() {
+function BrandLogo({ id, className }) {
     return (
         <Link
-            className={styles['header-brand-logo']}
+            id={id}
+            className={`${styles['header-brand-logo']} ${className || ''}`}
             to={routes.home}
             tabIndex={-1}
         >
