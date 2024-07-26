@@ -10,11 +10,6 @@ import { useState, useContext, createContext } from 'react';
 import { NavLink, useNavigation } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
 
-import { routes } from '../../../../configs/react-router';
-
-import { Fa6SolidCode } from '../../../Icons/FACode';
-import { Fa6SolidCaretDown } from '../../../Icons/FACaretDown';
-import { Fa6SolidUser } from '../../../Icons/FAUser';
 import { MLLoading } from '../../../Icons/MLLoading';
 
 import * as styles from './Navbar.module.css';
@@ -269,135 +264,82 @@ NavbarSubitem.propTypes = {
 };
 
 /**
- * Get navbar items as an array.
- * @note The array is wrapped inside a getter function.
- *       Otherwise, the imported variables are undefined at runtime.
- * @returns {Array} Navbar items.
- */
-function GetNavbarItems() {
-    return [
-        {
-            text: 'Home',
-            to: routes.home,
-        },
-        {
-            text: 'Softwares',
-            icon: Fa6SolidCaretDown,
-            items: [
-                {
-                    title: 'Shutdown Timer',
-                    desc: 'A simple PC shutdown timer',
-                    image: '/assets/static/img/shutdowntimer.png',
-                    hideOnClick: true,
-                },
-                {
-                    title: 'ASC File Cryptor',
-                    desc: 'Private file cryptor',
-                    image: '/assets/static/img/ascfilecryptor.png',
-                    hideOnClick: true,
-                },
-            ],
-        },
-        {
-            text: 'Components',
-            icon: Fa6SolidCaretDown,
-            layout: 'full-4',
-            items: [
-                {
-                    title: 'Section',
-                    to: routes.samples.section,
-                    icon: Fa6SolidCode,
-                },
-                {
-                    title: 'Button',
-                    to: routes.samples.button,
-                    icon: Fa6SolidCode,
-                },
-                {
-                    title: 'Input',
-                    to: routes.samples.input,
-                    icon: Fa6SolidCode,
-                },
-                {
-                    title: 'Checkbox',
-                    to: routes.samples.checkbox,
-                    icon: Fa6SolidCode,
-                },
-                {
-                    title: 'Radio',
-                    to: routes.samples.radio,
-                    icon: Fa6SolidCode,
-                },
-            ],
-        },
-        {
-            text: 'Profile',
-            to: routes.profile,
-            icon: Fa6SolidUser,
-            authOnly: true,
-        },
-    ];
-}
-
-/**
  * Navbar.
+ * @param {Object} props Component properties.
+ * @param {Array} props.render Render data.
+ * @returns Returns the component.
  */
-function Navbar() {
+function Navbar({ render }) {
     const { authSession } = useAuth();
 
     return (
         <nav id="header-navbar" className={styles['navbar']}>
             <NavbarList>
-                {GetNavbarItems().map((topItem, index) => {
-                    // Check if the item is require the user to be authenticated.
-                    if (topItem.authOnly && !authSession) return null;
+                {render &&
+                    render.map((topItem, index) => {
+                        // Check if the item is require the user to be authenticated.
+                        if (topItem.authOnly && !authSession) return null;
 
-                    return (
-                        <NavbarItemProvider key={index}>
-                            <NavbarItem
-                                text={topItem.text}
-                                to={topItem.to}
-                                href={topItem.href}
-                                target={topItem.target}
-                                icon={topItem.icon}
-                                onClick={topItem.onClick}
-                            >
-                                {topItem.items && (
-                                    <NavbarSublist layout={topItem.layout}>
-                                        {topItem.items.map((subItem, index) => {
-                                            // Check if the item is require the user to be authenticated.
-                                            if (
-                                                subItem.authOnly &&
-                                                !authSession
-                                            )
-                                                return null;
+                        return (
+                            <NavbarItemProvider key={index}>
+                                <NavbarItem
+                                    text={topItem.text}
+                                    to={topItem.to}
+                                    href={topItem.href}
+                                    target={topItem.target}
+                                    icon={topItem.icon}
+                                    onClick={topItem.onClick}
+                                >
+                                    {topItem.items && (
+                                        <NavbarSublist layout={topItem.layout}>
+                                            {topItem.items.map(
+                                                (subItem, index) => {
+                                                    // Check if the item is require the user to be authenticated.
+                                                    if (
+                                                        subItem.authOnly &&
+                                                        !authSession
+                                                    )
+                                                        return null;
 
-                                            return (
-                                                <NavbarSubitem
-                                                    key={index}
-                                                    title={subItem.title}
-                                                    desc={subItem.desc}
-                                                    icon={subItem.icon}
-                                                    image={subItem.image}
-                                                    to={subItem.to}
-                                                    href={subItem.href}
-                                                    target={subItem.target}
-                                                    hideOnClick={
-                                                        subItem.hideOnClick
-                                                    }
-                                                    onClick={subItem.onClick}
-                                                />
-                                            );
-                                        })}
-                                    </NavbarSublist>
-                                )}
-                            </NavbarItem>
-                        </NavbarItemProvider>
-                    );
-                })}
+                                                    return (
+                                                        <NavbarSubitem
+                                                            key={index}
+                                                            title={
+                                                                subItem.title
+                                                            }
+                                                            desc={subItem.desc}
+                                                            icon={subItem.icon}
+                                                            image={
+                                                                subItem.image
+                                                            }
+                                                            to={subItem.to}
+                                                            href={subItem.href}
+                                                            target={
+                                                                subItem.target
+                                                            }
+                                                            hideOnClick={
+                                                                subItem.hideOnClick
+                                                            }
+                                                            onClick={
+                                                                subItem.onClick
+                                                            }
+                                                        />
+                                                    );
+                                                }
+                                            )}
+                                        </NavbarSublist>
+                                    )}
+                                </NavbarItem>
+                            </NavbarItemProvider>
+                        );
+                    })}
             </NavbarList>
         </nav>
     );
 }
+
+Navbar.propTypes = {
+    render: PropTypes.array.isRequired,
+};
 
 export default Navbar;
