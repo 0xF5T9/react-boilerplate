@@ -77,7 +77,7 @@ function ProfileSection() {
             >
                 {userInfo && (
                     <>
-                        <h1>Profile Section</h1>
+                        <h1>Profile</h1>
                         <div
                             style={{
                                 display: 'flex',
