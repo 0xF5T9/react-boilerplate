@@ -86,7 +86,7 @@ function showToast(
  * Show a custom notification toast.
  * @param {String} title Specifies the toast title.
  * @param {String} message Specifies the toast message.
- * @param {String} colors Specifies the toast colors. (default: {titleColor: '#fcfcfa', descColor: '#fcfcfa', backgroundColor: '#2d2a2e', borderColor: '#2d2a2e', iconColor: '#fcfcfa', closeIconColor: '#fcfcfa'})
+ * @param {Object} colors Specifies the toast colors. (default: {titleColor: '#fcfcfa', descColor: '#fcfcfa', backgroundColor: '#2d2a2e', borderColor: '#2d2a2e', iconColor: '#fcfcfa', closeIconColor: '#fcfcfa'})
  * @param {String} iconClasses Specifies the toast icon classes. (default: 'fa-solid fa-message')
  * @param {Number} duration Specifies the toast duration in milliseconds. (default: 3000)
  * @param {Object} animationDuration Specifies the toast animation duration in milliseconds. (default: {fadeIn: 300, fadeOut: 300})
