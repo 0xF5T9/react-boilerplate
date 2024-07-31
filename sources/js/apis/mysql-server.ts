@@ -1,21 +1,22 @@
 /**
- * @file mysql-server.js
+ * @file mysql-server.ts
  * @description API that interacts with the mysql-server database.
  */
 
 'use strict';
+import type { SessionData } from '../types/authentication';
 import axios from 'axios';
 
 import config from '../configs/mysql-server';
-import { APIResponse as Response } from '../utility/api';
+import { APIResponse } from '../utility/api';
 const { url, endpoints } = config;
 
 /**
  * Get test posts.
- * @param {Number} page Pagination.
- * @returns {Promise<APIResponse>} Returns the API response object.
+ * @param page Pagination.
+ * @returns Returns the API response object.
  */
-async function getTestPosts(page = 1) {
+async function getTestPosts(page: number = 1): Promise<APIResponse> {
     try {
         const result = await axios.get(`${url}${endpoints.posts}`, {
             params: {
@@ -24,11 +25,11 @@ async function getTestPosts(page = 1) {
         });
         const { message, data } = result.data;
 
-        return new Response(message, true, data);
+        return new APIResponse(message, true, data);
     } catch (error) {
         if (error.response) {
             const status_code = error.response.status;
-            return new Response(
+            return new APIResponse(
                 error.response.data.message,
                 false,
                 null,
@@ -36,19 +37,23 @@ async function getTestPosts(page = 1) {
             );
         } else {
             console.error(error);
-            return new Response('Unexpected server error occurred.');
+            return new APIResponse('Unexpected server error occurred.');
         }
     }
 }
 
 /**
  * Register a user.
- * @param {String} email Email.
- * @param {String} username Username.
- * @param {String} password Password.
- * @returns {Promise<APIResponse>} Returns the API response object.
+ * @param email Email.
+ * @param username Username.
+ * @param password Password.
+ * @returns Returns the API response object.
  */
-async function register(email, username, password) {
+async function register(
+    email: string,
+    username: string,
+    password: string
+): Promise<APIResponse> {
     try {
         const result = await axios.post(`${url}${endpoints.register}`, {
             email,
@@ -61,11 +66,11 @@ async function register(email, username, password) {
                 `Expected a successful status code '201' but got a status code '${result.status}'.`
             );
 
-        return new Response(message, true);
+        return new APIResponse(message, true);
     } catch (error) {
         if (error.response) {
             const status_code = error.response.status;
-            return new Response(
+            return new APIResponse(
                 error.response.data.message,
                 false,
                 null,
@@ -73,18 +78,21 @@ async function register(email, username, password) {
             );
         } else {
             console.error(error);
-            return new Response('Unexpected server error occurred.');
+            return new APIResponse('Unexpected server error occurred.');
         }
     }
 }
 
 /**
  * Send a user authorization request and receive the access token.
- * @param {String} username Username.
- * @param {String} password Password.
- * @returns {Promise<APIResponse>} Returns the API response object.
+ * @param username Username.
+ * @param password Password.
+ * @returns Returns the API response object.
  */
-async function authorize(username, password) {
+async function authorize(
+    username: string,
+    password: string
+): Promise<APIResponse> {
     try {
         const result = await axios.post(`${url}${endpoints.authorize}`, {
             username,
@@ -100,11 +108,11 @@ async function authorize(username, password) {
                 `Expected a valid authentication token but got '${token}' value.`
             );
 
-        return new Response(message, true, { username, email, role, token });
+        return new APIResponse(message, true, { username, email, role, token });
     } catch (error) {
         if (error.response) {
             const status_code = error.response.status;
-            return new Response(
+            return new APIResponse(
                 error.response.data.message,
                 false,
                 null,
@@ -112,18 +120,21 @@ async function authorize(username, password) {
             );
         } else {
             console.error(error);
-            return new Response('Unexpected server error occurred.');
+            return new APIResponse('Unexpected server error occurred.');
         }
     }
 }
 
 /**
  * Get user information.
- * @param {String} username Username.
- * @param {String} token Access token.
- * @returns {Promise<APIResponse>} Returns the API response object.
+ * @param username Username.
+ * @param token Access token.
+ * @returns Returns the API response object.
  */
-async function getUserInfo(username, token) {
+async function getUserInfo(
+    username: string,
+    token: string
+): Promise<APIResponse> {
     try {
         const result = await axios.get(`${url}${endpoints.user}/${username}`, {
             headers: {
@@ -132,11 +143,11 @@ async function getUserInfo(username, token) {
         });
         const { message, data } = result.data;
 
-        return new Response(message, true, data);
+        return new APIResponse(message, true, data);
     } catch (error) {
         if (error.response) {
             const status_code = error.response.status;
-            return new Response(
+            return new APIResponse(
                 error.response.data.message,
                 false,
                 null,
@@ -144,17 +155,17 @@ async function getUserInfo(username, token) {
             );
         } else {
             console.error(error);
-            return new Response('Unexpected server error occurred.');
+            return new APIResponse('Unexpected server error occurred.');
         }
     }
 }
 
 /**
  * Verify user authentication session.
- * @param {Object} sessionData Session data.
- * @returns {Promise<APIResponse>} Returns the API response object.
+ * @param sessionData Session data.
+ * @returns Returns the API response object.
  */
-async function verifySession(sessionData) {
+async function verifySession(sessionData: SessionData): Promise<APIResponse> {
     try {
         const result = await axios.post(
             `${url}${endpoints.verifySession}`,
@@ -167,11 +178,11 @@ async function verifySession(sessionData) {
         );
         const { message, data } = result.data;
 
-        return new Response(message, true, data);
+        return new APIResponse(message, true, data);
     } catch (error) {
         if (error.response) {
             const status_code = error.response.status;
-            return new Response(
+            return new APIResponse(
                 error.response.data.message,
                 false,
                 null,
@@ -179,49 +190,9 @@ async function verifySession(sessionData) {
             );
         } else {
             console.error(error);
-            return new Response('Unexpected server error occurred.');
+            return new APIResponse('Unexpected server error occurred.');
         }
     }
 }
 
-/**
- * Get chairs.
- * @param {Number} floor Floor.
- * @param {Number} page Pagination.
- * @returns {Promise<APIResponse>} Returns the API response object.
- */
-async function getChairs(floor, page = 1) {
-    try {
-        const result = await axios.get(`${url}${endpoints.chair}`, {
-            params: {
-                floor,
-                page,
-            },
-        });
-        const { message, data } = result.data;
-
-        return new Response(message, true, data);
-    } catch (error) {
-        if (error.response) {
-            const status_code = error.response.status;
-            return new Response(
-                error.response.data.message,
-                false,
-                null,
-                status_code === 401
-            );
-        } else {
-            console.error(error);
-            return new Response('Unexpected server error occurred.');
-        }
-    }
-}
-
-export {
-    getTestPosts,
-    register,
-    authorize,
-    getUserInfo,
-    verifySession,
-    getChairs,
-};
+export { getTestPosts, register, authorize, getUserInfo, verifySession };
