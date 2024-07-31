@@ -1,5 +1,5 @@
 /**
- * @file useLocalStorage.jsx
+ * @file useLocalStorage.tsx
  * @description Local storage hook.
  */
 
@@ -9,11 +9,11 @@ import { useState } from 'react';
 /**
  * Hook provides a convenient way to access and-
  * manage data from browser local storage.
- * @param {String} key Item key name.
- * @param {String} initValue Initial value for the item. (If the item doesn't exist.)
- * @returns {[String, Function]} Returns a tuple containing the stored value and a function to update the value.
+ * @param key Item key name.
+ * @param initValue Initial value for the item. (If the item doesn't exist)
+ * @returns Returns a tuple containing the stored value and a function to update the value.
  */
-function useLocalStorage(key, initValue) {
+function useLocalStorage(key: string, initValue: string) {
     const [storedValue, setStoredValue] = useState(() => {
         try {
             const value = window.localStorage.getItem(key);
@@ -29,7 +29,7 @@ function useLocalStorage(key, initValue) {
         }
     });
 
-    function setValue(newValue) {
+    function setValue(newValue: any) {
         try {
             window.localStorage.setItem(key, JSON.stringify(newValue));
         } catch (error) {
