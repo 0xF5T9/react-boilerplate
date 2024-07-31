@@ -1,11 +1,11 @@
 /**
- * @file index.js
+ * @file index.ts
  * @description Configurations.
  */
 
 'use strict';
-import reactRouter from './react-router.jsx';
-import mysqlServer from './mysql-server.js';
+import reactRouter from './react-router';
+import mysqlServer from './mysql-server';
 
 const configs = {
     reactRouter,

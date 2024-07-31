@@ -1,5 +1,5 @@
 /**
- * @file react-router.jsx
+ * @file react-router.tsx
  * @description React router configurations.
  */
 

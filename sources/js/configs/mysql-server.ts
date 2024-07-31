@@ -1,5 +1,5 @@
 /**
- * @file mysql-server.js
+ * @file mysql-server.ts
  * @description MySQL server configurations.
  */
 
