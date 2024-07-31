@@ -12,7 +12,7 @@ console.log('Using Webpack production configuration ...');
 
 module.exports = {
     entry: {
-        style: './sources/js/style.js',
+        style: './sources/js/style.ts',
         index: './sources/js/entry.tsx',
     },
     output: {

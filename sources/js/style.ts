@@ -1,5 +1,5 @@
 /**
- * @file style.js
+ * @file style.ts
  * @description Global style script.
  */
 
