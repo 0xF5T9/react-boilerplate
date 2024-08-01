@@ -11,8 +11,8 @@ console.log('Using Webpack development configuration ...');
 
 module.exports = {
     entry: {
-        style: './sources/js/style.js',
-        index: './sources/js/entry.jsx',
+        style: './sources/js/style.ts',
+        index: './sources/js/entry.tsx',
     },
     output: {
         filename: '[name].bundle.js',
@@ -24,11 +24,16 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                 },
+            },
+            {
+                test: /\.(ts|tsx)?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.css$/,
@@ -50,7 +55,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     devServer: {
         static: {
