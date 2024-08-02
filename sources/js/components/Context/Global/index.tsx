@@ -19,7 +19,7 @@ const globalContext = createContext(null);
  * @returns Returns the component.
  */
 function GlobalProvider({ children }: { children: ReactNode }) {
-    const [theme, setTheme] = useState('light-blue'),
+    const [theme, setTheme] = useState('monokai-pro'),
         [deviceType, setDeviceType] = useState(() => ({
             deviceType:
                 window.innerWidth >= 1024
