@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import Themes from '../../Theme';
 
 // Global context.
-const GlobalContext = createContext(null);
+const globalContext = createContext(null);
 
 /**
  * Global context provider component.
@@ -72,10 +72,10 @@ function GlobalProvider({ children }: { children: ReactNode }) {
     };
 
     return (
-        <GlobalContext.Provider value={global}>
+        <globalContext.Provider value={global}>
             {Theme && <Theme />}
             {children}
-        </GlobalContext.Provider>
+        </globalContext.Provider>
     );
 }
 
@@ -83,4 +83,4 @@ GlobalProvider.propTypes = {
     children: PropTypes.node,
 };
 
-export { GlobalContext, GlobalProvider };
+export { globalContext, GlobalProvider };

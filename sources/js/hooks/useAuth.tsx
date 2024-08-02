@@ -12,7 +12,7 @@ import routes from '../configs/routes';
 import PropTypes from 'prop-types';
 
 // Authentication context.
-const AuthContext = createContext(null);
+const authContext = createContext(null);
 
 /**
  * Authentication context provider component.
@@ -49,7 +49,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
         [authSession]
     );
     return (
-        <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+        <authContext.Provider value={value}>{children}</authContext.Provider>
     );
 }
 
@@ -63,7 +63,7 @@ AuthProvider.propTypes = {
  * @returns authSession, login, logout
  */
 function useAuth() {
-    return useContext(AuthContext);
+    return useContext(authContext);
 }
 
 /**

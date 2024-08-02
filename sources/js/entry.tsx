@@ -1,5 +1,5 @@
 /**
- * @file entry.js
+ * @file entry.tsx
  * @description Application entry.
  */
 
@@ -21,11 +21,11 @@ const $ = document.querySelector.bind(document);
 
 (() => {
     // Create the browser router.
-    const BrowserRouter = createBrowserRouter(configs.appRouter);
+    const browserRouter = createBrowserRouter(configs.appRouter);
 
     // Render the application.
     const render = createRoot($('#root'));
-    render.render(<RouterProvider router={BrowserRouter} />);
+    render.render(<RouterProvider router={browserRouter} />);
 })();
 
 // Browser window key down events.

@@ -6,7 +6,7 @@
 'use strict';
 import { useState, useEffect, useContext } from 'react';
 
-import { GlobalContext } from '../Context/Global';
+import { globalContext } from '../Context/Global';
 import './DebugOverlay.css';
 
 /**
@@ -14,7 +14,7 @@ import './DebugOverlay.css';
  * @returns Returns the component.
  */
 function DebugOverlay() {
-    const { deviceType } = useContext(GlobalContext),
+    const { deviceType } = useContext(globalContext),
         [backgroundColor, setBackgroundColor] = useState(() => {
             switch (deviceType.deviceType) {
                 case 'Tablet':

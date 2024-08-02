@@ -17,7 +17,7 @@ import { NavLink, useNavigation } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
 import PropTypes from 'prop-types';
 
-import { GlobalContext } from '../../../Context/Global';
+import { globalContext } from '../../../Context/Global';
 import IconButton, { IconButtonStyles } from '../IconButton';
 import PopupWindow, { PopupStyles } from '../../../PopupWindow';
 import { Fa6SolidSquareXmark } from '../../../Icons/FASquareXMark';
@@ -213,7 +213,7 @@ NavCloseButton.propTypes = {
 function MobileNavMenuIcon() {
     const { authSession } = useAuth();
 
-    const { deviceType } = useContext(GlobalContext),
+    const { deviceType } = useContext(globalContext),
         [showPopup, setShowPopup] = useState(false);
 
     // Close the menu when the screen width changes.

@@ -10,7 +10,7 @@ import { useAuth } from '../../hooks/useAuth';
 
 import routes from '../../configs/routes';
 
-import { GlobalContext } from '../Context/Global';
+import { globalContext } from '../Context/Global';
 import BrandLogo from './components/BrandLogo';
 import BrandText from './components/BrandText';
 import Navbar from './components/Navbar';
@@ -30,7 +30,7 @@ const $ = document.querySelector.bind(document);
  * @returns Returns the component.
  */
 function Header() {
-    const { theme, setTheme } = useContext(GlobalContext),
+    const { theme, setTheme } = useContext(globalContext),
         { authSession, logout } = useAuth(),
         navigate = useNavigate();
 
