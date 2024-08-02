@@ -12,60 +12,70 @@ import * as styles from './Button.module.css';
 /**
  * Button component.
  * @param props Component properties.
- * @param props.color Button color. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param props.size Button size. ('small' | 'large')
- * @param props.outline Use button outline style.
- * @param props.white Use white button style.
- * @param props.whiteOnly Use white only button style.
- * @param props.id Button id.
- * @param props.className Additional button class names.
- * @param props.value Button value.
+ * @param props.color Color variant.
+ * @param props.size Size variant.
+ * @param props.outline Use outline variant.
+ * @param props.white Use white variant.
+ * @param props.whiteOnly Use white-only variant.
+ * @param props.useDarkText Force dark text color.
+ * @param props.id Element id.
+ * @param props.className Element class names.
+ * @param props.value Element value.
  * @param props.onClick Button on-click callback.
  * @param props.disabled Disable the button.
  * @param props.style Additional button styles.
- * @param props.children Button children.
- * @param props.elementType Element type. ('button' | 'a' | 'div')
+ * @param props.children Button content.
+ * @param props.elementType Element type.
  * @returns Returns the component.
  */
 const Button = forwardRef(function Button(
     {
         color,
         size,
-        outline,
-        white,
-        whiteOnly,
+        outline = false,
+        white = false,
+        whiteOnly = false,
+        useDarkText = false,
         id,
         className,
         value,
         onClick,
-        disabled,
+        disabled = false,
         style,
         children,
         elementType = 'button',
     }: {
-        color?: string;
-        size?: string;
+        color?:
+            | 'red'
+            | 'orange'
+            | 'yellow'
+            | 'green'
+            | 'blue'
+            | 'purple'
+            | 'black';
+        size?: 'small' | 'large';
         outline?: boolean;
         white?: boolean;
         whiteOnly?: boolean;
+        useDarkText?: boolean;
         id?: string;
         className?: string;
         value?: string;
-        onClick?: any;
+        onClick?: (...args: any[]) => any;
         disabled?: boolean;
         style?: object;
         children?: ReactNode;
-        elementType?: string;
+        elementType?: 'button' | 'a' | 'div';
     },
     ref?: any
 ) {
     const classes = `${styles.button}
-
                      ${styles[color] || ''}
                      ${styles[size] || ''}
                      ${outline ? styles.outline : ''}
                      ${white ? styles.white : ''}
                      ${whiteOnly ? styles['white-only'] : ''}
+                     ${useDarkText ? styles['dark-text'] : ''}
                      ${className || ''}`,
         Component: any = elementType;
 
@@ -73,11 +83,11 @@ const Button = forwardRef(function Button(
         <Component
             ref={ref}
             id={id}
-            value={value}
             className={classes}
-            onClick={onClick}
-            disabled={disabled}
             style={style}
+            value={value}
+            disabled={disabled}
+            onClick={onClick}
         >
             {children}
         </Component>
@@ -92,11 +102,13 @@ Button.propTypes = {
         'green',
         'blue',
         'purple',
+        'black',
     ]),
     size: PropTypes.oneOf(['small', 'large']),
     outline: PropTypes.bool,
     white: PropTypes.bool,
     whiteOnly: PropTypes.bool,
+    useDarkText: PropTypes.bool,
     id: PropTypes.string,
     className: PropTypes.string,
     value: PropTypes.string,
