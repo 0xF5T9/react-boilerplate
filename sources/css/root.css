@@ -102,7 +102,7 @@
     --footer-height: 140px;
     --footer-background-color: var(--background-dark);
     --footer-text-color: var(--text-dark-dim);
-    --footer-border-top: 2px solid rgba(0, 0, 0, 0.1);
+    --footer-border-top: 2px solid rgba(0, 0, 0, 0.05);
 
     --navbar-item-background-color-default: var(--background-dark);
     --navbar-item-background-color-hover: var(--background-dark-highlight);
@@ -201,6 +201,22 @@
     --modal-window-border-color: var(--color-gray);
     --modal-window-text-color: var(--context-text);
     --modal-window-background-color: var(--context-background);
+
+    --button-text-color-default: var(--color-white);
+    --button-text-color-hover: var(--color-white);
+    --button-text-color-active: var(--color-white);
+    --button-text-color-dark-override: var(--color-black-bright);
+    --button-background-color-default: var(--color-primary);
+    --button-background-color-hover: var(--color-primary);
+    --button-background-color-active: var(--color-primary);
+    --button-border-color-default: var(--color-primary);
+    --button-border-color-hover: var(--color-primary);
+    --button-border-color-active: var(--color-primary);
+    --button-focus-border-color: var(--color-white);
+    --button-border-width: 2px;
+    --button-border-radius: 6px;
+    --button-padding-left-right: 10px;
+    --button-padding-top-bottom: 4px;
 
     --input-text-color-default: var(--text-dark);
     --input-text-color-hover: var(--input-text-color-default);

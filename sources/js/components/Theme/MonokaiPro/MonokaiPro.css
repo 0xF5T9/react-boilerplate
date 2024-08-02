@@ -200,6 +200,7 @@
     --button-text-color-default: var(--color-white);
     --button-text-color-hover: var(--color-white);
     --button-text-color-active: var(--color-white);
+    --button-text-color-dark-override: var(--color-black-bright);
     --button-background-color-default: var(--color-primary);
     --button-background-color-hover: var(--color-primary);
     --button-background-color-active: var(--color-primary);
