@@ -298,7 +298,6 @@ NavbarSubitem.propTypes = {
 
 /**
  * Navbar.
- * @param props Component properties.
  * @returns Returns the component.
  */
 function Navbar() {
