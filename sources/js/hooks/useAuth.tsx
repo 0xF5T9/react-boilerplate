@@ -8,7 +8,7 @@ import type { SessionData } from '../types/authentication';
 import { ReactNode, useContext, useMemo, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from './useLocalStorage';
-import { routes } from '../configs/react-router';
+import routes from '../configs/routes';
 import PropTypes from 'prop-types';
 
 // Authentication context.

@@ -6,7 +6,7 @@
 'use strict';
 import { Link, ScrollRestoration, useRouteError } from 'react-router-dom';
 
-import { routes } from '../../../configs/react-router';
+import routes from '../../../configs/routes';
 
 import Content from '../../Content';
 import { FlexibleSection } from '../../Content/components/GridSection';

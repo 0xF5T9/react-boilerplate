@@ -4,28 +4,13 @@
  */
 
 'use strict';
+import routes from './routes';
 import { GlobalProvider } from '../components/Context/Global';
 import { AuthProvider } from '../hooks/useAuth';
 import ProtectedRoute from '../components/ProtectedRoute';
 import { DefaultLayout, BlankLayout, ErrorLayout } from '../components/Layouts';
 import * as Sections from '../components/Sections';
 
-// Routes path.
-const routes = {
-    home: '/',
-    login: '/login',
-    register: '/register',
-    profile: '/profile',
-    samples: {
-        section: '/samples/section',
-        button: '/samples/button',
-        input: '/samples/input',
-        checkbox: '/samples/checkbox',
-        radio: '/samples/radio',
-    },
-};
-
-// Application router.
 const appRouter = [
     {
         path: routes.home,
@@ -118,10 +103,4 @@ const appRouter = [
     },
 ];
 
-const config = {
-    routes,
-    appRouter,
-};
-
-export default config;
-export { routes, appRouter };
+export default appRouter;

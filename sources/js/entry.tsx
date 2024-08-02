@@ -4,7 +4,6 @@
  */
 
 'use strict';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
@@ -22,7 +21,7 @@ const $ = document.querySelector.bind(document);
 
 (() => {
     // Create the browser router.
-    const BrowserRouter = createBrowserRouter(configs.reactRouter.appRouter);
+    const BrowserRouter = createBrowserRouter(configs.appRouter);
 
     // Render the application.
     const render = createRoot($('#root'));
