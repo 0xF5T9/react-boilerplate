@@ -21,6 +21,7 @@ import { GlobalContext } from '../../../Context/Global';
 import IconButton, { IconButtonStyles } from '../IconButton';
 import PopupWindow, { PopupStyles } from '../../../PopupWindow';
 import { Fa6SolidSquareXmark } from '../../../Icons/FASquareXMark';
+import mobileNavbarItems from '../../../../configs/render/mobile-navbar-items';
 import * as styles from './MobileNavMenuIcon.module.css';
 
 const MobileNavMenuContext = createContext(null);
@@ -207,11 +208,9 @@ NavCloseButton.propTypes = {
 
 /**
  * Mobile navigation menu icon with popup menu.
- * @param {Object} props Component properties.
- * @param {Array} props.render Render data.
  * @returns Returns the component.
  */
-function MobileNavMenuIcon({ render }: { render: Array<any> }) {
+function MobileNavMenuIcon() {
     const { authSession } = useAuth();
 
     const { deviceType } = useContext(GlobalContext),
@@ -274,72 +273,74 @@ function MobileNavMenuIcon({ render }: { render: Array<any> }) {
                                 />
 
                                 <div className={styles['nav-sections']}>
-                                    {render &&
-                                        render.map((section, index) => {
-                                            // Check if the section is require the user to be authenticated.
-                                            if (
-                                                section.authOnly &&
-                                                !authSession
-                                            )
-                                                return null;
+                                    {mobileNavbarItems &&
+                                        mobileNavbarItems.map(
+                                            (section, index) => {
+                                                // Check if the section is require the user to be authenticated.
+                                                if (
+                                                    section.authOnly &&
+                                                    !authSession
+                                                )
+                                                    return null;
 
-                                            return (
-                                                <NavSection
-                                                    key={index}
-                                                    title={section.title}
-                                                >
-                                                    {section.items &&
-                                                        section.items.map(
-                                                            (
-                                                                item: any,
-                                                                index: any
-                                                            ) => {
-                                                                // Check if the item is require the user to be authenticated.
-                                                                if (
-                                                                    item.authOnly &&
-                                                                    !authSession
-                                                                )
-                                                                    return null;
+                                                return (
+                                                    <NavSection
+                                                        key={index}
+                                                        title={section.title}
+                                                    >
+                                                        {section.items &&
+                                                            section.items.map(
+                                                                (
+                                                                    item: any,
+                                                                    index: any
+                                                                ) => {
+                                                                    // Check if the item is require the user to be authenticated.
+                                                                    if (
+                                                                        item.authOnly &&
+                                                                        !authSession
+                                                                    )
+                                                                        return null;
 
-                                                                return (
-                                                                    <NavItem
-                                                                        key={
-                                                                            index
-                                                                        }
-                                                                        text={
-                                                                            item.text
-                                                                        }
-                                                                        desc={
-                                                                            item.desc
-                                                                        }
-                                                                        icon={
-                                                                            item.icon
-                                                                        }
-                                                                        image={
-                                                                            item.image
-                                                                        }
-                                                                        to={
-                                                                            item.to
-                                                                        }
-                                                                        href={
-                                                                            item.href
-                                                                        }
-                                                                        target={
-                                                                            item.target
-                                                                        }
-                                                                        hideOnClick={
-                                                                            item.hideOnClick
-                                                                        }
-                                                                        onClick={
-                                                                            item.onClick
-                                                                        }
-                                                                    />
-                                                                );
-                                                            }
-                                                        )}
-                                                </NavSection>
-                                            );
-                                        })}
+                                                                    return (
+                                                                        <NavItem
+                                                                            key={
+                                                                                index
+                                                                            }
+                                                                            text={
+                                                                                item.text
+                                                                            }
+                                                                            desc={
+                                                                                item.desc
+                                                                            }
+                                                                            icon={
+                                                                                item.icon
+                                                                            }
+                                                                            image={
+                                                                                item.image
+                                                                            }
+                                                                            to={
+                                                                                item.to
+                                                                            }
+                                                                            href={
+                                                                                item.href
+                                                                            }
+                                                                            target={
+                                                                                item.target
+                                                                            }
+                                                                            hideOnClick={
+                                                                                item.hideOnClick
+                                                                            }
+                                                                            onClick={
+                                                                                item.onClick
+                                                                            }
+                                                                        />
+                                                                    );
+                                                                }
+                                                            )}
+                                                    </NavSection>
+                                                );
+                                            }
+                                        )}
                                 </div>
                             </div>
                         </MobileNavMenuContextProvider>
@@ -355,9 +356,5 @@ function MobileNavMenuIcon({ render }: { render: Array<any> }) {
         </div>
     );
 }
-
-MobileNavMenuIcon.propTypes = {
-    render: PropTypes.array.isRequired,
-};
 
 export default MobileNavMenuIcon;
