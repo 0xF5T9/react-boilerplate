@@ -5,11 +5,12 @@
 
 'use strict';
 import type { SessionData } from '../types/authentication';
+import { useLocalStorage } from './useLocalStorage';
 import { ReactNode, useContext, useMemo, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLocalStorage } from './useLocalStorage';
-import routes from '../configs/routes';
 import PropTypes from 'prop-types';
+
+import routes from '../configs/routes';
 
 // Authentication context.
 const authContext = createContext(null);
