@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 
-import { routes } from '../../configs/react-router';
+import routes from '../../configs/routes';
 
 import { GlobalContext } from '../Context/Global';
 import BrandLogo from './components/BrandLogo';

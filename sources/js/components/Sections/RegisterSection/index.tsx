@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 
-import { routes } from '../../../configs/react-router';
+import routes from '../../../configs/routes';
 import apis from '../../../apis';
 
 import { FlexibleSection } from '../../Content/components/GridSection';

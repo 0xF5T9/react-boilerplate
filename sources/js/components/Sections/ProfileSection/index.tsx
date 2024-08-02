@@ -10,7 +10,7 @@ import { useLoaderData } from 'react-router-dom';
 import { useAuth, getAuthSession } from '../../../hooks/useAuth';
 
 import apis from '../../../apis';
-import { routes } from '../../../configs/react-router';
+import routes from '../../../configs/routes';
 
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Button from '../../Button';

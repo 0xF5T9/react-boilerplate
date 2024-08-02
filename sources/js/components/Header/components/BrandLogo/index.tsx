@@ -8,7 +8,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { routes } from '../../../../configs/react-router';
+import routes from '../../../../configs/routes';
 
 import * as styles from './BrandLogo.module.css';
 
