@@ -11,6 +11,7 @@ import { NavLink, useNavigation } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
 
 import { MLLoading } from '../../../Icons/MLLoading';
+import navbarItems from '../../../../configs/render/navbar-items';
 
 import * as styles from './Navbar.module.css';
 
@@ -82,7 +83,7 @@ function NavbarItem({
     to?: string;
     href?: string;
     target?: string;
-    icon?: any;
+    icon?: (...args: any[]) => any;
     onClick?: any;
     children?: ReactNode;
 }) {
@@ -298,17 +299,16 @@ NavbarSubitem.propTypes = {
 /**
  * Navbar.
  * @param props Component properties.
- * @param props.render Render data.
  * @returns Returns the component.
  */
-function Navbar({ render }: { render: Array<any> }) {
+function Navbar() {
     const { authSession } = useAuth();
 
     return (
         <nav id="header-navbar" className={styles['navbar']}>
             <NavbarList>
-                {render &&
-                    render.map((topItem, index) => {
+                {navbarItems &&
+                    navbarItems.map((topItem, index) => {
                         // Check if the item is require the user to be authenticated.
                         if (topItem.authOnly && !authSession) return null;
 
@@ -369,9 +369,5 @@ function Navbar({ render }: { render: Array<any> }) {
         </nav>
     );
 }
-
-Navbar.propTypes = {
-    render: PropTypes.array.isRequired,
-};
 
 export default Navbar;

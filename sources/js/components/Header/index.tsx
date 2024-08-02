@@ -22,7 +22,6 @@ import Button from '../Button';
 import { LineMdSunnyOutlineTwotone } from '../Icons/MLSun';
 import { LineMdMoonSimpleTwotone } from '../Icons/MLMoon';
 import { Fa6SolidCode } from '../Icons/FACode';
-import { Fa6SolidCaretDown } from '../Icons/FACaretDown';
 import { Fa6SolidUser } from '../Icons/FAUser';
 import { Fa6SolidHouse } from '../Icons/FAHome';
 import { showToast } from '../ToastOverlay';
@@ -131,70 +130,7 @@ function Header() {
 
             {/* Middle content box */}
             <div className={styles['middle-content']}>
-                <Navbar
-                    render={[
-                        {
-                            text: 'Home',
-                            to: routes.home,
-                        },
-                        {
-                            text: 'Softwares',
-                            icon: Fa6SolidCaretDown,
-                            items: [
-                                {
-                                    title: 'Shutdown Timer',
-                                    desc: 'A simple PC shutdown timer',
-                                    image: '/assets/static/img/shutdowntimer.png',
-                                    hideOnClick: true,
-                                },
-                                {
-                                    title: 'ASC File Cryptor',
-                                    desc: 'Private file cryptor',
-                                    image: '/assets/static/img/ascfilecryptor.png',
-                                    hideOnClick: true,
-                                },
-                            ],
-                        },
-                        {
-                            text: 'Components',
-                            icon: Fa6SolidCaretDown,
-                            layout: 'full-4',
-                            items: [
-                                {
-                                    title: 'Section',
-                                    to: routes.samples.section,
-                                    icon: Fa6SolidCode,
-                                },
-                                {
-                                    title: 'Button',
-                                    to: routes.samples.button,
-                                    icon: Fa6SolidCode,
-                                },
-                                {
-                                    title: 'Input',
-                                    to: routes.samples.input,
-                                    icon: Fa6SolidCode,
-                                },
-                                {
-                                    title: 'Checkbox',
-                                    to: routes.samples.checkbox,
-                                    icon: Fa6SolidCode,
-                                },
-                                {
-                                    title: 'Radio',
-                                    to: routes.samples.radio,
-                                    icon: Fa6SolidCode,
-                                },
-                            ],
-                        },
-                        {
-                            text: 'Profile',
-                            to: routes.profile,
-                            icon: Fa6SolidUser,
-                            authOnly: true,
-                        },
-                    ]}
-                />
+                <Navbar />
             </div>
 
             {/* Right content box */}
