@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './Radio.module.css';
@@ -12,15 +13,16 @@ import * as styles from './Radio.module.css';
  * Radio component.
  * @param props Component properties.
  * @param props.labelText Label text.
- * @param props.name Radio group name. (required)
- * @param props.value Radio value. (required)
- * @param props.color Radio color. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param props.size Radio size. ('small' | 'large')
- * @param props.altStyle Use radio alternative style. ('alt-1' | 'alt-2')
- * @param props.whiteOnly Use white only radio style.
- * @param props.id Radio id. (This applies to the radio input element)
- * @param props.className Additional radio class names. (This applies to the wrapper element)
+ * @param props.name Radio group name.
+ * @param props.value Radio value.
+ * @param props.color Color variant.
+ * @param props.size Size variant.
+ * @param props.altStyle Use alternative style variant.
+ * @param props.whiteOnly Use white-only variant.
+ * @param props.id Element id.
+ * @param props.className Element class names. (This applies to the wrapper element)
  * @param props.onClick Radio on-click callback.
+ * @param props.required Specifies whether the radio is required.
  * @param props.disabled Disable the radio.
  * @param props.wrapperStyle Additional radio wrapper styles.
  * @param props.radioStyle Additional radio styles.
@@ -33,10 +35,11 @@ function Radio({
     color,
     size,
     altStyle,
-    whiteOnly,
+    whiteOnly = false,
     id,
     className,
     onClick,
+    required = false,
     disabled = false,
     wrapperStyle,
     radioStyle,
@@ -44,17 +47,21 @@ function Radio({
     labelText?: string;
     name: string;
     value: string;
-    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple';
+    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     size?: 'small' | 'large';
     altStyle?: 'alt-1' | 'alt-2';
     whiteOnly?: boolean;
-    id?: string;
+    id: string;
     className?: string;
-    onClick?: any;
+    onClick?: (...args: any[]) => any;
+    required?: boolean;
     disabled?: boolean;
     wrapperStyle?: object;
     radioStyle?: object;
 }) {
+    const wrapper = useRef(),
+        radio = useRef();
+
     let classes = `${styles['radio-wrapper']}
                    ${styles[color] || ''}
                    ${styles[size] || ''}
@@ -62,13 +69,26 @@ function Radio({
                    ${whiteOnly ? styles['white-only'] : ''}
                    ${className || ''}`;
     return (
-        <div className={classes} style={wrapperStyle}>
+        <div
+            ref={wrapper}
+            className={classes}
+            style={wrapperStyle}
+            onClick={(event: any) => {
+                if (event.target === wrapper.current && radio.current) {
+                    const radio_element = radio.current as any;
+                    radio_element.focus();
+                    radio_element.checked = true;
+                }
+            }}
+        >
             <input
+                ref={radio}
                 id={id}
                 type="radio"
                 name={name}
                 value={value}
                 onClick={onClick}
+                required={required}
                 disabled={disabled}
                 style={radioStyle}
             />
@@ -90,11 +110,12 @@ Radio.propTypes = {
         'green',
         'blue',
         'purple',
+        'black',
     ]),
     size: PropTypes.oneOf(['small', 'large']),
     altStyle: PropTypes.oneOf(['alt-1', 'alt-2']),
     whiteOnly: PropTypes.bool,
-    id: PropTypes.string,
+    id: PropTypes.string.isRequired,
     className: PropTypes.string,
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
