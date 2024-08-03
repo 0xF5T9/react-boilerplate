@@ -258,6 +258,13 @@
     );
     --labeled-input-font-weight-reverse: 500;
 
+    --select-text-color: var(--text-dark);
+    --select-background-color: var(--context-background-dark);
+    --select-border-color-default: var(--color-white);
+    --select-border-color-focus: var(--color-primary);
+    --select-border-width: 2px;
+    --select-border-radius: 6px;
+
     --labeled-select-label-text-color: var(--context-text-dark);
     --labeled-select-text-color-default: var(--context-text-dark);
     --labeled-select-inner-background-color-default: var(
