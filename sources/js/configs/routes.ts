@@ -15,6 +15,7 @@ const routes = {
         checkbox: '/samples/checkbox',
         radio: '/samples/radio',
         select: '/samples/select',
+        labeledInput: '/samples/labeled-input',
     },
 };
 

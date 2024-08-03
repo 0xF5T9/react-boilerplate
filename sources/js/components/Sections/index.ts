@@ -11,3 +11,4 @@ export { default as InputSampleSection } from './InputSampleSection';
 export { default as CheckboxSampleSection } from './CheckboxSampleSection';
 export { default as RadioSampleSection } from './RadioSampleSection';
 export { default as SelectSampleSection } from './SelectSampleSection';
+export { default as LabeledInputSampleSection } from './LabeledInputSampleSection';
