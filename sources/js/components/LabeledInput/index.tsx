@@ -11,19 +11,20 @@ import * as styles from './LabeledInput.module.css';
 /**
  * Labeled input component.
  * @param props Component properties.
- * @param Input type. (default: 'text')
- * @param props.color Input color variant. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param props.reverse Specifies whether to use reverse variant.
- * @param props.size Input size. ('small' | 'large')
- * @param props.width Input width.
+ * @param type Input type.
+ * @param props.color Color variant.
+ * @param props.reverseBackground Use reverse background variant.
+ * @param props.size Size variant.
+ * @param props.width Input fixed weight.
+ * @param props.labelWidth Input label fixed width.
  * @param props.label Input label.
- * @param props.id Input id.
- * @param props.value Input value.
- * @param props.placeholder Input placeholder.
+ * @param props.id Element id.
+ * @param props.value Element value.
+ * @param props.placeholder Placeholder text.
  * @param props.readOnly Specifies whether the input is read-only.
  * @param props.onBlur Input on-blur callback.
  * @param props.onChange Input on-change callback.
- * @param props.disabled Specifies whether to disable the input.
+ * @param props.disabled Disable the input.
  * @param props.wrapperStyle Input wrapper style object.
  * @param props.inputStyle Input style object.
  * @returns Returns the component.
@@ -31,32 +32,34 @@ import * as styles from './LabeledInput.module.css';
 function LabeledInput({
     type = 'text',
     color,
-    reverse = false,
+    reverseBackground = false,
     size,
     width,
+    labelWidth,
     label,
     id,
     value,
     placeholder,
-    readOnly,
+    readOnly = false,
     onBlur,
     onChange,
     disabled = false,
     wrapperStyle,
     inputStyle,
 }: {
-    type?: string;
-    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple';
-    reverse?: boolean;
+    type?: 'text' | 'email' | 'password';
+    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
+    reverseBackground?: boolean;
     size?: 'small' | 'large';
     width?: number;
-    label?: string;
+    labelWidth?: number;
+    label: string;
     id?: string;
     value?: string;
     placeholder?: string;
     readOnly?: boolean;
-    onBlur?: any;
-    onChange?: any;
+    onBlur?: (...args: any[]) => any;
+    onChange?: (...args: any[]) => any;
     disabled?: boolean;
     wrapperStyle?: object;
     inputStyle?: object;
@@ -64,16 +67,19 @@ function LabeledInput({
     let classes = `${styles['input-wrapper']}
                    ${color ? styles[color] : ''}
                    ${size ? styles[size] : ''}
-                   ${reverse ? styles['reverse'] : ''}`;
+                   ${reverseBackground ? styles['reverse-background'] : ''}`;
 
-    let input_style = Object.assign(
-        { width: width && `${width}px` },
-        inputStyle || {}
-    );
+    let wrapper_style = Object.assign(
+            { width: width && `${width}px` },
+            wrapperStyle || {}
+        ),
+        label_wrapper_style = labelWidth
+            ? { width: `${labelWidth}px`, flexShrink: '0' }
+            : {};
 
     return (
-        <div className={classes} style={wrapperStyle}>
-            <div className={styles['input-label']}>
+        <div className={classes} style={wrapper_style}>
+            <div className={styles['input-label']} style={label_wrapper_style}>
                 <label htmlFor={id}>{label}</label>
             </div>
             <input
@@ -86,14 +92,14 @@ function LabeledInput({
                 onBlur={onBlur}
                 onChange={onChange}
                 disabled={disabled}
-                style={input_style}
+                style={inputStyle}
             />
         </div>
     );
 }
 
 LabeledInput.propTypes = {
-    type: PropTypes.string,
+    type: PropTypes.oneOf(['text', 'email', 'password']),
     color: PropTypes.oneOf([
         'red',
         'orange',
@@ -101,11 +107,13 @@ LabeledInput.propTypes = {
         'green',
         'blue',
         'purple',
+        'black',
     ]),
-    reverse: PropTypes.bool,
+    reverseBackground: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'large']),
     width: PropTypes.number,
-    label: PropTypes.string,
+    labelWidth: PropTypes.number,
+    label: PropTypes.string.isRequired,
     id: PropTypes.string,
     value: PropTypes.string,
     placeholder: PropTypes.string,

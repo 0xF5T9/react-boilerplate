@@ -23,12 +23,8 @@
     }
 
     &:has(.input:disabled) {
-        opacity: 0.7;
-        cursor: not-allowed;
-
-        & * {
-            cursor: not-allowed;
-        }
+        opacity: 0.65;
+        pointer-events: none;
     }
 }
 
@@ -46,6 +42,7 @@
     border-radius: 0px 4px 4px 0px;
     outline: 0;
     font-size: 1em;
+    width: 100%;
 }
 
 .input-wrapper > .input {
@@ -68,7 +65,7 @@
     }
 }
 
-.input-wrapper.reverse > .input {
+.input-wrapper.reverse-background > .input {
     color: var(--labeled-input-text-color-default-reverse);
     background-color: var(
         --labeled-input-inner-background-color-default-reverse
@@ -139,6 +136,14 @@
 
         & .input {
             border-color: var(--color-purple);
+        }
+    }
+
+    &.black {
+        background-color: var(--color-black);
+
+        & .input {
+            border-color: var(--color-black);
         }
     }
 }
