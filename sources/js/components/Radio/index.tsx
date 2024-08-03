@@ -17,8 +17,6 @@ import * as styles from './Radio.module.css';
  * @param props.value Radio value.
  * @param props.color Color variant.
  * @param props.size Size variant.
- * @param props.altStyle Use alternative style variant.
- * @param props.whiteOnly Use white-only variant.
  * @param props.id Element id.
  * @param props.className Element class names. (This applies to the wrapper element)
  * @param props.onClick Radio on-click callback.
@@ -34,8 +32,6 @@ function Radio({
     value,
     color,
     size,
-    altStyle,
-    whiteOnly = false,
     id,
     className,
     onClick,
@@ -49,8 +45,6 @@ function Radio({
     value: string;
     color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     size?: 'small' | 'large';
-    altStyle?: 'alt-1' | 'alt-2';
-    whiteOnly?: boolean;
     id: string;
     className?: string;
     onClick?: (...args: any[]) => any;
@@ -65,8 +59,6 @@ function Radio({
     let classes = `${styles['radio-wrapper']}
                    ${styles[color] || ''}
                    ${styles[size] || ''}
-                   ${styles[altStyle] || ''}
-                   ${whiteOnly ? styles['white-only'] : ''}
                    ${className || ''}`;
     return (
         <div
@@ -113,8 +105,6 @@ Radio.propTypes = {
         'black',
     ]),
     size: PropTypes.oneOf(['small', 'large']),
-    altStyle: PropTypes.oneOf(['alt-1', 'alt-2']),
-    whiteOnly: PropTypes.bool,
     id: PropTypes.string.isRequired,
     className: PropTypes.string,
     onClick: PropTypes.func,
