@@ -9,17 +9,17 @@ import PropTypes from 'prop-types';
 import * as styles from './Input.module.css';
 
 /**
- * Input component. (Text | Email | Password)
+ * Input component.
  * @param props Component properties.
- * @param props.type Input type. ('text' | 'email' | 'password' - default: 'text')
- * @param props.color Input color. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param props.size Input size. ('small' | 'large')
+ * @param props.type Input type.
+ * @param props.color Color variant.
+ * @param props.size Size variant.
  * @param props.transparent Make the input background transparent.
- * @param props.icon Input icon. ({iconPosition: 'left' | 'right', iconClass: '<icon classses>'})
- * @param props.placeholder Input placeholder.
- * @param props.id Input id. (This applies to the input element)
- * @param props.value Input value.
- * @param props.className Additional input class names. (This applies to the wrapper element)
+ * @param props.icon Input icon.
+ * @param props.placeholder Placeholder text.
+ * @param props.id Element id.
+ * @param props.value Element value.
+ * @param props.className Element class names. (This applies to the wrapper element)
  * @param props.onBlur Input on-blur callback.
  * @param props.onChange Input on-change callback.
  * @param props.disabled Disable the input.
@@ -32,7 +32,7 @@ function Input({
     color,
     size,
     transparent = false,
-    icon = { iconPosition: '', iconClass: '' },
+    icon,
     placeholder,
     id,
     value,
@@ -44,10 +44,10 @@ function Input({
     inputStyle,
 }: {
     type?: 'text' | 'email' | 'password';
-    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple';
+    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     size?: 'small' | 'large';
     transparent?: boolean;
-    icon?: { iconPosition: '' | 'left' | 'right'; iconClass: string };
+    icon?: { iconPosition: 'left' | 'right'; iconClass: string };
     placeholder?: string;
     id?: string;
     value?: string;
@@ -58,20 +58,21 @@ function Input({
     wrapperStyle?: object;
     inputStyle?: object;
 }) {
-    let icon_position_style =
-        icon.iconPosition === 'right'
+    let icon_position_style = icon
+        ? icon.iconPosition === 'right'
             ? styles['icon-right']
-            : styles['icon-left'];
+            : styles['icon-left']
+        : undefined;
 
     let classes = `${styles['input-wrapper']}
                    ${styles[color] || ''}
                    ${styles[size] || ''}
                    ${transparent ? styles['transparent'] : ''}
-                   ${icon.iconPosition ? icon_position_style : ''}
+                   ${icon_position_style ? icon_position_style : ''}
                    ${className || ''}`;
     return (
         <div className={classes} style={wrapperStyle}>
-            {icon.iconClass ? <i className={icon.iconClass}></i> : null}
+            {icon ? <i className={icon.iconClass}></i> : null}
             <input
                 id={id}
                 type={type}
@@ -95,6 +96,7 @@ Input.propTypes = {
         'green',
         'blue',
         'purple',
+        'black',
     ]),
     size: PropTypes.oneOf(['small', 'large']),
     transparent: PropTypes.bool,

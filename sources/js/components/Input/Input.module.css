@@ -76,9 +76,11 @@ div.input-wrapper {
 
         &:disabled {
             opacity: 0.65;
-            cursor: not-allowed;
-            pointer-events: none;
         }
+    }
+
+    &:has(*:disabled) {
+        pointer-events: none;
     }
 
     /* Modifier classes */
@@ -189,5 +191,9 @@ div.input-wrapper {
 
     &.purple {
         --input-border-color-focus: var(--color-purple);
+    }
+
+    &.black {
+        --input-border-color-focus: var(--color-black);
     }
 }
