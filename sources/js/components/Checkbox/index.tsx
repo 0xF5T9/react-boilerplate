@@ -15,8 +15,6 @@ import * as styles from './Checkbox.module.css';
  * @param props.labelText Label text.
  * @param props.color Color variant.
  * @param props.size Size variant.
- * @param props.altStyle Use alternative style variant.
- * @param props.whiteOnly Use white-only variant.
  * @param props.id Element id.
  * @param props.className Element class names. (This applies to the wrapper element)
  * @param props.value Element value.
@@ -31,8 +29,6 @@ function Checkbox({
     labelText,
     color,
     size,
-    altStyle,
-    whiteOnly = false,
     id,
     className,
     value,
@@ -45,8 +41,6 @@ function Checkbox({
     labelText?: string;
     color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     size?: 'small' | 'large';
-    altStyle?: 'alt-1' | 'alt-2';
-    whiteOnly?: boolean;
     id: string;
     className?: string;
     value?: string;
@@ -62,8 +56,6 @@ function Checkbox({
     let classes = `${styles['checkbox-wrapper']}
                    ${styles[color] || ''}
                    ${styles[size] || ''}
-                   ${styles[altStyle] || ''}
-                   ${whiteOnly ? styles['white-only'] : ''}
                    ${className || ''}`;
     return (
         <div
@@ -109,8 +101,6 @@ Checkbox.propTypes = {
         'black',
     ]),
     size: PropTypes.oneOf(['small', 'large']),
-    altStyle: PropTypes.oneOf(['alt-1', 'alt-2']),
-    whiteOnly: PropTypes.bool,
     id: PropTypes.string.isRequired,
     className: PropTypes.string,
     value: PropTypes.string,
