@@ -74,14 +74,14 @@ function InputSampleSection() {
                     placeholder="Purple"
                     inputStyle={{ width: '250px' }}
                 />{' '}
-                <h1 style={{ marginTop: '26px' }}>Disabled Input</h1>
+                <h1 style={{ marginTop: '26px' }}>Disabled Inputs</h1>
                 <Input
                     type="text"
                     placeholder="This input is disabled"
                     inputStyle={{ width: '250px' }}
                     disabled
                 />{' '}
-                <h1 style={{ marginTop: '26px' }}>Icon Input</h1>
+                <h1 style={{ marginTop: '26px' }}>Icon Inputs</h1>
                 <Input
                     type="email"
                     icon={{
@@ -119,7 +119,7 @@ function InputSampleSection() {
                     placeholder="Phone Number"
                     inputStyle={{ width: '250px' }}
                 />
-                <h1 style={{ marginTop: '26px' }}>Sized Input</h1>
+                <h1 style={{ marginTop: '26px' }}>Sized Inputs</h1>
                 <Input
                     type="text"
                     size="small"

@@ -26,7 +26,7 @@ function SelectSampleSection() {
             }}
         >
             <div className={styles['content']}>
-                <h1>Default Select</h1>
+                <h1>Default Selects</h1>
                 <Select>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -62,7 +62,7 @@ function SelectSampleSection() {
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
                 </Select>
-                <h1 style={{ marginTop: '26px' }}>Disabled Select</h1>
+                <h1 style={{ marginTop: '26px' }}>Disabled Selects</h1>
                 <Select disabled>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -98,7 +98,7 @@ function SelectSampleSection() {
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
                 </Select>
-                <h1 style={{ marginTop: '26px' }}>Sized Select</h1>
+                <h1 style={{ marginTop: '26px' }}>Sized Selects</h1>
                 <Select size="small">
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
