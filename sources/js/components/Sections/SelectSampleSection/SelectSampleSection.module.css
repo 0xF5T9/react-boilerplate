@@ -1,0 +1,5 @@
+.content {
+    select ~ select {
+        margin-top: 5px;
+    }
+}

@@ -12,17 +12,16 @@ import * as styles from './Select.module.css';
 /**
  * Select input component.
  * @param props Component properties.
- * @param props.id Select id.
- * @param props.className Select additional class names.
+ * @param props.id Element id.
+ * @param props.className Element class names.
  * @param props.name Select group name.
- * @param props.value Select value.
- * @param props.color Select color. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param props.size Select size. ('small' | 'large')
- * @param props.altStyle Specifies whether to use alternative style.
+ * @param props.value Element value.
+ * @param props.color Color variant.
+ * @param props.size Size variant.
  * @param props.onBlur Select on-blur callback.
  * @param props.onChange Select on-change callback.
  * @param props.disabled Disable the select.
- * @param props.children Select children.
+ * @param props.children Select options.
  * @returns Returns the component.
  */
 function Select({
@@ -32,7 +31,6 @@ function Select({
     value,
     color,
     size,
-    altStyle,
     onBlur,
     onChange,
     disabled = false,
@@ -42,18 +40,16 @@ function Select({
     className?: string;
     name?: string;
     value?: string;
-    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple';
+    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     size?: 'small' | 'large';
-    altStyle?: boolean;
-    onBlur?: any;
-    onChange?: any;
+    onBlur?: (...args: any[]) => any;
+    onChange?: (...args: any[]) => any;
     disabled?: boolean;
     children?: ReactNode;
 }) {
     const classes = `${styles.select}
                      ${color ? styles[color] : ''}
                      ${size ? styles[size] : ''}
-                     ${altStyle ? styles.alt : ''}
                      ${className || ''}`;
     return (
         <select
@@ -82,9 +78,9 @@ Select.propTypes = {
         'green',
         'blue',
         'purple',
+        'black',
     ]),
     size: PropTypes.oneOf(['small', 'large']),
-    altStyle: PropTypes.bool,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     disabled: PropTypes.bool,

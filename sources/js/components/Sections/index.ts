@@ -10,3 +10,4 @@ export { default as ButtonSampleSection } from './ButtonSampleSection';
 export { default as InputSampleSection } from './InputSampleSection';
 export { default as CheckboxSampleSection } from './CheckboxSampleSection';
 export { default as RadioSampleSection } from './RadioSampleSection';
+export { default as SelectSampleSection } from './SelectSampleSection';

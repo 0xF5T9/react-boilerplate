@@ -65,6 +65,10 @@ const appRouter = [
                         path: routes.samples.radio,
                         element: <Sections.RadioSampleSection />,
                     },
+                    {
+                        path: routes.samples.select,
+                        element: <Sections.SelectSampleSection />,
+                    },
                 ],
             },
         ],

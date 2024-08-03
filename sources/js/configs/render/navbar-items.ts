@@ -65,6 +65,11 @@ export default [
                 to: routes.samples.radio,
                 icon: Fa6SolidCode,
             },
+            {
+                title: 'Select',
+                to: routes.samples.select,
+                icon: Fa6SolidCode,
+            },
         ],
     },
     {

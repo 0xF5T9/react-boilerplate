@@ -85,6 +85,11 @@ export default [
                 to: routes.samples.radio,
                 icon: Fa6SolidCode,
             },
+            {
+                text: 'Select',
+                to: routes.samples.select,
+                icon: Fa6SolidCode,
+            },
         ],
     },
 ] satisfies MobileNavbarSection[] as MobileNavbarSection[];
