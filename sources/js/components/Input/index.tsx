@@ -52,8 +52,8 @@ function Input({
     id?: string;
     value?: string;
     className?: string;
-    onBlur?: any;
-    onChange?: any;
+    onBlur?: (...args: any[]) => any;
+    onChange?: (...args: any[]) => any;
     disabled?: boolean;
     wrapperStyle?: object;
     inputStyle?: object;
