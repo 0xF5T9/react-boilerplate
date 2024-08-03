@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './Checkbox.module.css';
@@ -12,12 +13,13 @@ import * as styles from './Checkbox.module.css';
  * Checkbox component.
  * @param props Component properties.
  * @param props.labelText Label text.
- * @param props.color Checkbox color. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param props.size Checkbox size. ('small' | 'large')
- * @param props.altStyle Use checkbox alternative style. ('alt-1' | 'alt-2')
- * @param props.whiteOnly Use white only checkbox style.
- * @param props.id Checkbox id. (This applies to the checkbox input element)
- * @param props.className Additional checkbox class names. (This applies to the wrapper element)
+ * @param props.color Color variant.
+ * @param props.size Size variant.
+ * @param props.altStyle Use alternative style variant.
+ * @param props.whiteOnly Use white-only variant.
+ * @param props.id Element id.
+ * @param props.className Element class names. (This applies to the wrapper element)
+ * @param props.value Element value.
  * @param props.onClick Checkbox on-click callback.
  * @param props.required Specifies whether the checkbox is required.
  * @param props.disabled Disable the checkbox.
@@ -30,28 +32,33 @@ function Checkbox({
     color,
     size,
     altStyle,
-    whiteOnly,
+    whiteOnly = false,
     id,
     className,
+    value,
     onClick,
-    required,
-    disabled,
+    required = false,
+    disabled = false,
     wrapperStyle,
     checkboxStyle,
 }: {
     labelText?: string;
-    color?: string;
-    size?: string;
-    altStyle?: string;
+    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
+    size?: 'small' | 'large';
+    altStyle?: 'alt-1' | 'alt-2';
     whiteOnly?: boolean;
-    id?: string;
+    id: string;
     className?: string;
-    onClick?: any;
+    value?: string;
+    onClick?: (...args: any[]) => any;
     required?: boolean;
     disabled?: boolean;
     wrapperStyle?: object;
     checkboxStyle?: object;
 }) {
+    const wrapper = useRef(),
+        checkbox = useRef();
+
     let classes = `${styles['checkbox-wrapper']}
                    ${styles[color] || ''}
                    ${styles[size] || ''}
@@ -59,10 +66,25 @@ function Checkbox({
                    ${whiteOnly ? styles['white-only'] : ''}
                    ${className || ''}`;
     return (
-        <div className={classes} style={wrapperStyle}>
+        <div
+            ref={wrapper}
+            className={classes}
+            style={wrapperStyle}
+            onClick={(event: any) => {
+                if (event.target === wrapper.current && checkbox.current) {
+                    const checked_state: boolean = (checkbox.current as any)
+                            .checked,
+                        checkbox_element = checkbox.current as any;
+                    checkbox_element.focus();
+                    checkbox_element.checked = !checked_state;
+                }
+            }}
+        >
             <input
+                ref={checkbox}
                 id={id}
                 type="checkbox"
+                value={value}
                 onClick={onClick}
                 required={required}
                 disabled={disabled}
@@ -84,12 +106,14 @@ Checkbox.propTypes = {
         'green',
         'blue',
         'purple',
+        'black',
     ]),
     size: PropTypes.oneOf(['small', 'large']),
     altStyle: PropTypes.oneOf(['alt-1', 'alt-2']),
     whiteOnly: PropTypes.bool,
-    id: PropTypes.string,
+    id: PropTypes.string.isRequired,
     className: PropTypes.string,
+    value: PropTypes.string,
     onClick: PropTypes.func,
     required: PropTypes.bool,
     disabled: PropTypes.bool,

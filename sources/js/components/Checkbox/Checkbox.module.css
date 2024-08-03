@@ -17,6 +17,11 @@ div.checkbox-wrapper {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
+    cursor: pointer;
+
+    &:has(*:disabled) {
+        pointer-events: none;
+    }
 
     & > input[type='checkbox'] {
         display: inline-flex;
@@ -67,8 +72,6 @@ div.checkbox-wrapper {
 
         &:disabled {
             opacity: 0.65;
-            cursor: not-allowed;
-            pointer-events: none;
         }
     }
 
@@ -90,8 +93,6 @@ div.checkbox-wrapper {
 
     & input[type='checkbox']:disabled ~ label > span {
         opacity: 0.65;
-        cursor: not-allowed;
-        pointer-events: none;
     }
 
     /* Modifier classes */
@@ -305,6 +306,32 @@ div.checkbox-wrapper {
             --checkbox-border-color-active: var(--color-white);
             --checkbox-border-color-checked: var(--color-white);
             --checkbox-symbol-color-checked: var(--color-purple);
+        }
+    }
+
+    &.black {
+        & > input[type='checkbox'] {
+            --checkbox-background-color-checked: var(--color-black);
+            --checkbox-border-color-default: var(--color-black);
+            --checkbox-border-color-hover: var(--color-black);
+            --checkbox-border-color-active: var(--color-black);
+            --checkbox-border-color-checked: var(--color-black);
+        }
+
+        &.alt-1 > input[type='checkbox'] {
+            --checkbox-background-color-checked: transparent;
+        }
+
+        &.alt-2 > input[type='checkbox'] {
+            --checkbox-background-color-default: transparent;
+            --checkbox-background-color-hover: transparent;
+            --checkbox-background-color-active: transparent;
+            --checkbox-background-color-checked: transparent;
+            --checkbox-border-color-default: var(--color-white);
+            --checkbox-border-color-hover: var(--color-white);
+            --checkbox-border-color-active: var(--color-white);
+            --checkbox-border-color-checked: var(--color-white);
+            --checkbox-symbol-color-checked: var(--color-black);
         }
     }
 }
