@@ -1,19 +1,4 @@
 div.checkbox-wrapper {
-    --checkbox-symbol-color-default: transparent;
-    --checkbox-symbol-color-hover: var(--checkbox-symbol-color-default);
-    --checkbox-symbol-color-active: var(--checkbox-symbol-color-default);
-    --checkbox-symbol-color-checked: var(--color-white);
-    --checkbox-background-color-default: transparent;
-    --checkbox-background-color-hover: var(--checkbox-background-color-default);
-    --checkbox-background-color-active: var(
-        --checkbox-background-color-default
-    );
-    --checkbox-background-color-checked: var(--color-primary);
-    --checkbox-border-color-default: var(--color-primary);
-    --checkbox-border-color-hover: var(--checkbox-border-color-default);
-    --checkbox-border-color-active: var(--checkbox-border-color-default);
-    --checkbox-border-color-checked: var(--checkbox-border-color-default);
-    --checkbox-focus-border-color: var(--color-white);
     display: inline-flex;
     flex-direction: row;
     align-items: center;

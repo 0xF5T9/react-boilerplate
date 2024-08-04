@@ -231,6 +231,36 @@
     --input-padding-top-bottom: 4px;
     --input-icon-extra-padding: 4px;
 
+    --checkbox-symbol-color-default: transparent;
+    --checkbox-symbol-color-hover: var(--checkbox-symbol-color-default);
+    --checkbox-symbol-color-active: var(--checkbox-symbol-color-default);
+    --checkbox-symbol-color-checked: var(--color-white);
+    --checkbox-background-color-default: transparent;
+    --checkbox-background-color-hover: var(--checkbox-background-color-default);
+    --checkbox-background-color-active: var(
+        --checkbox-background-color-default
+    );
+    --checkbox-background-color-checked: var(--color-primary);
+    --checkbox-border-color-default: var(--color-primary);
+    --checkbox-border-color-hover: var(--checkbox-border-color-default);
+    --checkbox-border-color-active: var(--checkbox-border-color-default);
+    --checkbox-border-color-checked: var(--checkbox-border-color-default);
+    --checkbox-focus-border-color: var(--color-white);
+
+    --radio-symbol-color-default: transparent;
+    --radio-symbol-color-hover: transparent;
+    --radio-symbol-color-active: transparent;
+    --radio-symbol-color-checked: var(--color-white);
+    --radio-background-color-default: transparent;
+    --radio-background-color-hover: transparent;
+    --radio-background-color-active: transparent;
+    --radio-background-color-checked: var(--color-primary);
+    --radio-border-color-default: var(--color-primary);
+    --radio-border-color-hover: var(--color-primary);
+    --radio-border-color-active: var(--color-primary);
+    --radio-border-color-checked: var(--color-primary);
+    --radio-focus-border-color: var(--color-white);
+
     --labeled-input-label-text-color: var(--context-text-dark);
     --labeled-input-text-color-default: var(--context-text-dark);
     --labeled-input-inner-background-color-default: var(

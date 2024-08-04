@@ -1,17 +1,4 @@
 div.radio-wrapper {
-    --radio-symbol-color-default: transparent;
-    --radio-symbol-color-hover: transparent;
-    --radio-symbol-color-active: transparent;
-    --radio-symbol-color-checked: var(--color-white);
-    --radio-background-color-default: transparent;
-    --radio-background-color-hover: transparent;
-    --radio-background-color-active: transparent;
-    --radio-background-color-checked: var(--color-primary);
-    --radio-border-color-default: var(--color-primary);
-    --radio-border-color-hover: var(--color-primary);
-    --radio-border-color-active: var(--color-primary);
-    --radio-border-color-checked: var(--color-primary);
-    --radio-focus-border-color: var(--color-white);
     display: inline-flex;
     flex-direction: row;
     align-items: center;

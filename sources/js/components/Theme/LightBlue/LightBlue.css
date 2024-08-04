@@ -209,7 +209,7 @@
     --button-border-color-default: var(--color-primary);
     --button-border-color-hover: var(--color-primary);
     --button-border-color-active: var(--color-primary);
-    --button-focus-border-color: var(--color-white);
+    --button-focus-border-color: lightblue;
     --button-border-width: 2px;
     --button-border-radius: 6px;
     --button-padding-left-right: 10px;
@@ -233,6 +233,36 @@
     --input-padding-top-bottom: 4px;
     --input-icon-extra-padding: 4px;
 
+    --checkbox-symbol-color-default: transparent;
+    --checkbox-symbol-color-hover: var(--checkbox-symbol-color-default);
+    --checkbox-symbol-color-active: var(--checkbox-symbol-color-default);
+    --checkbox-symbol-color-checked: var(--color-white);
+    --checkbox-background-color-default: transparent;
+    --checkbox-background-color-hover: var(--checkbox-background-color-default);
+    --checkbox-background-color-active: var(
+        --checkbox-background-color-default
+    );
+    --checkbox-background-color-checked: var(--color-primary);
+    --checkbox-border-color-default: var(--color-primary);
+    --checkbox-border-color-hover: var(--checkbox-border-color-default);
+    --checkbox-border-color-active: var(--checkbox-border-color-default);
+    --checkbox-border-color-checked: var(--checkbox-border-color-default);
+    --checkbox-focus-border-color: lightblue;
+
+    --radio-symbol-color-default: transparent;
+    --radio-symbol-color-hover: transparent;
+    --radio-symbol-color-active: transparent;
+    --radio-symbol-color-checked: var(--color-white);
+    --radio-background-color-default: transparent;
+    --radio-background-color-hover: transparent;
+    --radio-background-color-active: transparent;
+    --radio-background-color-checked: var(--color-primary);
+    --radio-border-color-default: var(--color-primary);
+    --radio-border-color-hover: var(--color-primary);
+    --radio-border-color-active: var(--color-primary);
+    --radio-border-color-checked: var(--color-primary);
+    --radio-focus-border-color: lightblue;
+
     --labeled-input-label-text-color: var(--color-white);
     --labeled-input-text-color-default: var(--text-light);
     --labeled-input-inner-background-color-default: var(--color-white);
@@ -240,7 +270,7 @@
     --labeled-input-inner-background-color-focus: var(--color-white);
     --labeled-input-background-color-default: var(--color-primary);
     --labeled-input-border-color-default: var(--color-primary);
-    --labeled-input-focus-color: var(--color-white);
+    --labeled-input-focus-color: lightblue;
     --labeled-input-font-weight-default: 400;
     --labeled-input-text-color-default-reverse: var(--color-white);
     --labeled-input-inner-background-color-default-reverse: var(--color-black);
@@ -266,7 +296,7 @@
     --labeled-select-inner-background-color-focus: var(--color-white);
     --labeled-select-background-color-default: var(--color-primary);
     --labeled-select-border-color-default: var(--color-primary);
-    --labeled-select-focus-color: var(--color-white);
+    --labeled-select-focus-color: lightblue;
     --labeled-select-font-weight-default: 400;
     --labeled-select-text-color-default-reverse: var(--color-white);
     --labeled-select-inner-background-color-default-reverse: var(--color-black);
