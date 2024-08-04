@@ -12,16 +12,17 @@ import * as styles from './LabeledSelect.module.css';
 /**
  * Labeled select component.
  * @param props Component properties.
- * @param props.color Input color variant. ('red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple')
- * @param props.reverse Specifies whether to use input reverse variant.
- * @param props.size Input size. ('small' | 'large')
- * @param props.width Input width.
+ * @param props.color Color variant.
+ * @param props.reverseBackground Specifies whether to use input reverse variant.
+ * @param props.size Size variant.
+ * @param props.width Input fixed width.
+ * @param props.labelWidth Input label fixed width.
  * @param props.label Input label.
- * @param props.id Input id.
- * @param props.value Input value.
+ * @param props.id Element id.
+ * @param props.value Element value.
  * @param props.onBlur Input on-blur callback.
  * @param props.onChange Input on-change callback.
- * @param props.disabled Specifies whether to disable the input.
+ * @param props.disabled Disable the input.
  * @param props.wrapperStyle Input wrapper style object.
  * @param props.inputStyle Input style object.
  * @param props.children <select> elements.
@@ -29,9 +30,10 @@ import * as styles from './LabeledSelect.module.css';
  */
 function LabeledSelect({
     color,
-    reverse = false,
+    reverseBackground = false,
     size,
     width,
+    labelWidth,
     label,
     id,
     value,
@@ -42,15 +44,16 @@ function LabeledSelect({
     inputStyle,
     children,
 }: {
-    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple';
-    reverse?: boolean;
+    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
+    reverseBackground?: boolean;
     size?: 'small' | 'large';
     width?: number;
+    labelWidth?: number;
     label?: string;
     id?: string;
     value?: string;
-    onBlur?: any;
-    onChange?: any;
+    onBlur?: (...args: any[]) => any;
+    onChange?: (...args: any[]) => any;
     disabled?: boolean;
     wrapperStyle?: object;
     inputStyle?: object;
@@ -59,16 +62,19 @@ function LabeledSelect({
     let classes = `${styles['input-wrapper']}
                    ${color ? styles[color] : ''}
                    ${size ? styles[size] : ''}
-                   ${reverse ? styles['reverse'] : ''}`;
+                   ${reverseBackground ? styles['reverse-background'] : ''}`;
 
-    let input_style = Object.assign(
-        { width: width && `${width}px` },
-        inputStyle || {}
-    );
+    let wrapper_style = Object.assign(
+            { width: width && `${width}px` },
+            wrapperStyle || {}
+        ),
+        label_wrapper_style = labelWidth
+            ? { width: `${labelWidth}px`, flexShrink: '0' }
+            : {};
 
     return (
-        <div className={classes} style={wrapperStyle}>
-            <div className={styles['input-label']}>
+        <div className={classes} style={wrapper_style}>
+            <div className={styles['input-label']} style={label_wrapper_style}>
                 <label htmlFor={id}>{label}</label>
             </div>
             <select
@@ -78,7 +84,7 @@ function LabeledSelect({
                 onBlur={onBlur}
                 onChange={onChange}
                 disabled={disabled}
-                style={input_style}
+                style={inputStyle}
             >
                 {children}
             </select>
@@ -94,10 +100,12 @@ LabeledSelect.propTypes = {
         'green',
         'blue',
         'purple',
+        'black',
     ]),
-    reverse: PropTypes.bool,
+    reverseBackground: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'large']),
     width: PropTypes.number,
+    labelWidth: PropTypes.number,
     label: PropTypes.string,
     id: PropTypes.string,
     value: PropTypes.string,
