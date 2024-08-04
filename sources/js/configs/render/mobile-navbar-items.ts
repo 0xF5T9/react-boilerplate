@@ -95,6 +95,11 @@ export default [
                 to: routes.samples.labeledInput,
                 icon: Fa6SolidCode,
             },
+            {
+                text: 'Labeled Select',
+                to: routes.samples.labeledSelect,
+                icon: Fa6SolidCode,
+            },
         ],
     },
 ] satisfies MobileNavbarSection[] as MobileNavbarSection[];

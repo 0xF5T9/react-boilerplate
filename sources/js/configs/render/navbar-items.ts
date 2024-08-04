@@ -75,6 +75,11 @@ export default [
                 to: routes.samples.labeledInput,
                 icon: Fa6SolidCode,
             },
+            {
+                title: 'Labeled Select',
+                to: routes.samples.labeledSelect,
+                icon: Fa6SolidCode,
+            },
         ],
     },
     {

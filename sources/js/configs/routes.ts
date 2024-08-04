@@ -16,6 +16,7 @@ const routes = {
         radio: '/samples/radio',
         select: '/samples/select',
         labeledInput: '/samples/labeled-input',
+        labeledSelect: '/samples/labeled-select',
     },
 };
 

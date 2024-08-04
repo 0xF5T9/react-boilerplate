@@ -73,6 +73,10 @@ const appRouter = [
                         path: routes.samples.labeledInput,
                         element: <Sections.LabeledInputSampleSection />,
                     },
+                    {
+                        path: routes.samples.labeledSelect,
+                        element: <Sections.LabeledSelectSampleSection />,
+                    },
                 ],
             },
         ],
