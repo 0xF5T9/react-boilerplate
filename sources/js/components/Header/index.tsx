@@ -58,8 +58,8 @@ function Header() {
                         <IconButton
                             icon2={
                                 theme === 'monokai-pro'
-                                    ? LineMdMoonSimpleTwotone
-                                    : LineMdSunnyOutlineTwotone
+                                    ? LineMdSunnyOutlineTwotone
+                                    : LineMdMoonSimpleTwotone
                             }
                             onClick={() =>
                                 setTheme(
@@ -118,8 +118,8 @@ function Header() {
                             style={{ marginRight: '10px' }}
                             icon2={
                                 theme === 'monokai-pro'
-                                    ? LineMdMoonSimpleTwotone
-                                    : LineMdSunnyOutlineTwotone
+                                    ? LineMdSunnyOutlineTwotone
+                                    : LineMdMoonSimpleTwotone
                             }
                             onClick={() =>
                                 setTheme(
