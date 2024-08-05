@@ -14,10 +14,6 @@ import * as styles from './Button.module.css';
  * @param props Component properties.
  * @param props.color Color variant.
  * @param props.size Size variant.
- * @param props.outline Use outline variant.
- * @param props.white Use white variant.
- * @param props.whiteOnly Use white-only variant.
- * @param props.useDarkText Force dark text color.
  * @param props.id Element id.
  * @param props.className Element class names.
  * @param props.value Element value.
@@ -32,10 +28,6 @@ const Button = forwardRef(function Button(
     {
         color,
         size,
-        outline = false,
-        white = false,
-        whiteOnly = false,
-        useDarkText = false,
         id,
         className,
         value,
@@ -45,19 +37,8 @@ const Button = forwardRef(function Button(
         children,
         elementType = 'button',
     }: {
-        color?:
-            | 'red'
-            | 'orange'
-            | 'yellow'
-            | 'green'
-            | 'blue'
-            | 'purple'
-            | 'black';
+        color?: 'success' | 'danger' | 'warn' | 'info' | 'gray' | 'white';
         size?: 'small' | 'large';
-        outline?: boolean;
-        white?: boolean;
-        whiteOnly?: boolean;
-        useDarkText?: boolean;
         id?: string;
         className?: string;
         value?: string;
@@ -72,10 +53,6 @@ const Button = forwardRef(function Button(
     const classes = `${styles.button}
                      ${styles[color] || ''}
                      ${styles[size] || ''}
-                     ${outline ? styles.outline : ''}
-                     ${white ? styles.white : ''}
-                     ${whiteOnly ? styles['white-only'] : ''}
-                     ${useDarkText ? styles['dark-text'] : ''}
                      ${className || ''}`,
         Component: any = elementType;
 
@@ -96,19 +73,14 @@ const Button = forwardRef(function Button(
 
 Button.propTypes = {
     color: PropTypes.oneOf([
-        'red',
-        'orange',
-        'yellow',
-        'green',
-        'blue',
-        'purple',
-        'black',
+        'success',
+        'danger',
+        'warn',
+        'info',
+        'gray',
+        'white',
     ]),
     size: PropTypes.oneOf(['small', 'large']),
-    outline: PropTypes.bool,
-    white: PropTypes.bool,
-    whiteOnly: PropTypes.bool,
-    useDarkText: PropTypes.bool,
     id: PropTypes.string,
     className: PropTypes.string,
     value: PropTypes.string,

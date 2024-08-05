@@ -87,28 +87,29 @@ function ProfileSection() {
                             }}
                         >
                             <LabeledInput
+                                width={270}
                                 label="Username"
                                 value={authSession.username}
                                 readOnly
                             />
                             <LabeledInput
+                                width={270}
                                 label="Email"
                                 value={userInfo.email}
-                                width={216}
                                 readOnly
                             />
                             <LabeledInput
-                                label="Created at"
+                                width={270}
+                                label="Created At"
                                 value={new Date(
                                     userInfo.createdAt
                                 ).toLocaleString('en-US')}
-                                width={181}
                                 readOnly
                             />
                             <LabeledInput
+                                width={270}
                                 label="Role"
                                 value={userInfo.role}
-                                width={225}
                                 readOnly
                             />
                             <div

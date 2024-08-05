@@ -63,7 +63,7 @@
     --context-background-dark-highlight: blue;
     --context-shadow-dark: blue;
 
-    --color-primary: var(--color-blue-vibrant);
+    --color-primary: rgba(64, 162, 230, 1);
     --color-success: var(--color-green);
     --color-warning: var(--color-yellow);
     --color-danger: var(--color-red);
@@ -214,6 +214,27 @@
     --button-border-radius: 6px;
     --button-padding-left-right: 10px;
     --button-padding-top-bottom: 4px;
+
+    --button-text-color-default: rgba(255, 255, 255, 0.9);
+    --button-text-color-hover: rgba(255, 255, 255, 0.9);
+    --button-text-color-active: rgba(255, 255, 255, 0.9);
+    --button-background-color-default: linear-gradient(
+        0deg,
+        rgba(64, 162, 230, 1) 0%,
+        rgba(71, 208, 255, 1) 100%
+    );
+    --button-background-color-hover: var(--button-background-color-default);
+    --button-background-color-active: var(--button-background-color-default);
+    --button-border-color-default: transparent;
+    --button-border-color-hover: transparent;
+    --button-border-color-active: transparent;
+    --button-shadow: 0px 4px 8px rgba(64, 162, 230, 0.2);
+    --button-text-shadow: 0 0 4px rgba(45, 42, 46, 0.15);
+    --button-focus-border-color: lightblue;
+    --button-border-width: 0px;
+    --button-border-radius: 6px;
+    --button-padding-left-right: 10px;
+    --button-padding-top-bottom: 6px;
 
     --input-text-color-default: var(--text-light);
     --input-text-color-hover: var(--input-text-color-default);
