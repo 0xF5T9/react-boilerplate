@@ -9,10 +9,12 @@ const $ = document.querySelector.bind(document);
 
 // Toast types.
 enum ToastTypes {
-    Success,
-    Error,
-    Message,
-    Info,
+    Primary = 'primary',
+    Success = 'success',
+    Error = 'error',
+    Warn = 'warn',
+    Message = 'message',
+    Info = 'info',
 }
 
 // Toast icons.
@@ -52,6 +54,9 @@ function showToast(
         case ToastTypes.Error:
             toast_icon = ToastIcons.CircleExclamation;
             break;
+        case ToastTypes.Warn:
+            toast_icon = ToastIcons.CircleExclamation;
+            break;
         case ToastTypes.Message:
             toast_icon = ToastIcons.Message;
             break;
@@ -69,10 +74,8 @@ function showToast(
 
     const toast_element = document.createElement(`div`);
     toast_element.classList.add(styles['toast']);
-    if (type === ToastTypes.Success)
-        toast_element.classList.add(styles['toast-success']);
-    else if (type === ToastTypes.Error)
-        toast_element.classList.add(styles['toast-error']);
+    toast_element.classList.add(styles[`toast-${type}`]);
+
     toast_element.style.animation = `${styles['toast-fade-in']} ${fadein_duration_float}s ease, ${styles['toast-fade-out']} ${fadeout_duration_float}s linear ${toast_duration_float}s forwards`;
     toast_element.innerHTML = `
             <div class="${styles['toast-icon']}"><i class="${toast_icon}"></i></div>

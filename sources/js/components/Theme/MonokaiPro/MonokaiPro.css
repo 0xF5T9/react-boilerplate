@@ -188,8 +188,14 @@
     --toast-container-top-right-margin: 32px;
     --toast-title-color: var(--color-white);
     --toast-desc-color: var(--color-white);
-    --toast-background-color: var(--color-blue-vibrant);
-    --toast-border-color: var(--color-blue-vibrant);
+    --toast-background-color: linear-gradient(
+        45deg,
+        rgba(252, 155, 106, 1) 0%,
+        rgba(252, 178, 105, 1) 100%
+    );
+    --toast-border-color: transparent;
+    --toast-border-width: 0px;
+    --toast-border-radius: 4px;
     --toast-icon-color: var(--color-white);
     --toast-close-icon-color: var(--color-white);
     --toast-shadow-color: var(--shadow-dark);

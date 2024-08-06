@@ -31,9 +31,9 @@
     min-width: calc(280px - (var(--toast-container-top-right-margin) * 2));
     max-width: calc(100vw - (var(--toast-container-top-right-margin) * 2));
     padding: 20px 0;
-    border-left: 3px solid var(--toast-border-color);
-    border-radius: 4px;
-    background-color: var(--toast-background-color);
+    border-left: var(--toast-border-width) solid var(--toast-border-color);
+    border-radius: var(--toast-border-radius);
+    background: var(--toast-background-color);
     box-shadow: 0px 0px 8px 4px var(--toast-shadow-color);
     will-change: opacity, transform;
     transition: all 0.3s;
@@ -74,16 +74,55 @@
             margin-top: 3px;
             line-height: initial;
             color: var(--toast-desc-color);
+            font-weight: 500;
         }
     }
 
+    &.toast-primary {
+    }
+
     &.toast-success {
-        --toast-background-color: var(--color-green-vibrant);
-        --toast-border-color: var(--color-green-vibrant);
+        --toast-background-color: linear-gradient(
+            45deg,
+            rgba(75, 196, 114, 1) 0%,
+            rgba(89, 235, 136, 1) 100%
+        );
+        --toast-border-width: 0px;
     }
 
     &.toast-error {
-        --toast-background-color: var(--color-red-vibrant);
-        --toast-border-color: var(--color-red-vibrant);
+        --toast-background-color: linear-gradient(
+            45deg,
+            rgba(229, 64, 78, 1) 0%,
+            rgba(255, 71, 117, 1) 100%
+        );
+        --toast-border-width: 0px;
+    }
+
+    &.toast-warn {
+        --toast-background-color: linear-gradient(
+            45deg,
+            rgba(252, 155, 106, 1) 0%,
+            rgba(252, 178, 105, 1) 100%
+        );
+        --toast-border-width: 0px;
+    }
+
+    &.toast-info {
+        --toast-background-color: linear-gradient(
+            45deg,
+            rgba(64, 162, 230, 1) 0%,
+            rgba(71, 208, 255, 1) 100%
+        );
+        --toast-border-width: 0px;
+    }
+
+    &.toast-message {
+        --toast-background-color: linear-gradient(
+            45deg,
+            rgba(64, 162, 230, 1) 0%,
+            rgba(71, 208, 255, 1) 100%
+        );
+        --toast-border-width: 0px;
     }
 }
