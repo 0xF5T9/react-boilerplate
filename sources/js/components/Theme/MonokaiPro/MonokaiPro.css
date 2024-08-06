@@ -240,7 +240,7 @@
     --button-border-color-default: transparent;
     --button-border-color-hover: transparent;
     --button-border-color-active: transparent;
-    --button-shadow: 0px 4px 8px rgba(252, 178, 105, 0.2);
+    --button-shadow: 0px 4px 8px rgba(252, 178, 105, 0.1);
     --button-text-shadow: 0 0 4px rgba(45, 42, 46, 0.15);
     --button-focus-border-color: var(--color-white);
     --button-border-width: 0px;
