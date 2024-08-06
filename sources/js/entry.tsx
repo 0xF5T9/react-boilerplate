@@ -13,8 +13,6 @@ import './utility/helper';
 import configs from './configs';
 import apis from './apis';
 
-import { showToast, ToastTypes } from './components/ToastOverlay';
-
 window.React = React;
 window.ReactDOM = ReactDOM;
 const $ = document.querySelector.bind(document);
