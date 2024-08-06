@@ -59,12 +59,12 @@ function LabeledSelect({
     inputStyle?: object;
     children?: ReactNode;
 }) {
-    let classes = `${styles['input-wrapper']}
+    const classes = `${styles['input-wrapper']}
                    ${color ? styles[color] : ''}
                    ${size ? styles[size] : ''}
                    ${reverseBackground ? styles['reverse-background'] : ''}`;
 
-    let wrapper_style = Object.assign(
+    const wrapper_style = Object.assign(
             { width: width && `${width}px` },
             wrapperStyle || {}
         ),

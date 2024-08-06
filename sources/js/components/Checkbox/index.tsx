@@ -53,7 +53,7 @@ function Checkbox({
     const wrapper = useRef(),
         checkbox = useRef();
 
-    let classes = `${styles['checkbox-wrapper']}
+    const classes = `${styles['checkbox-wrapper']}
                    ${styles[color] || ''}
                    ${styles[size] || ''}
                    ${className || ''}`;

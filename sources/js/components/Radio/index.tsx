@@ -56,7 +56,7 @@ function Radio({
     const wrapper = useRef(),
         radio = useRef();
 
-    let classes = `${styles['radio-wrapper']}
+    const classes = `${styles['radio-wrapper']}
                    ${styles[color] || ''}
                    ${styles[size] || ''}
                    ${className || ''}`;

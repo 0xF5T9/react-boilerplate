@@ -41,9 +41,6 @@ function GlobalProvider({ children }: { children: ReactNode }) {
             break;
     }
 
-    // TEST: Theme subscribers ?
-    // useEffect(() => {}, [theme]);
-
     useEffect(() => {
         window.addEventListener('resize', handleUpdateDeviceType);
         return () => {
