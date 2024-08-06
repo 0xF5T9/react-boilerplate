@@ -10,6 +10,7 @@
     top: 0;
     right: 0;
     bottom: 0;
+    color: var(--color-white);
     background-color: var(--debug-overlay-background-color);
     opacity: 0.9;
     pointer-events: none;
