@@ -31,11 +31,7 @@ function showToast(
     const fadeout_duration_float = (animationDuration.fadeOut / 1000).toFixed(
         2
     );
-    const total_toast_duration_float = (
-        duration / 1000 +
-        animationDuration.fadeIn / 1000 +
-        animationDuration.fadeOut / 1000
-    ).toFixed(2);
+    const total_toast_duration_float = (duration / 1000).toFixed(2);
 
     // Define icon classes based on toast type
     const toast_icons = {
@@ -62,19 +58,14 @@ function showToast(
             <div class="toast-close"><i class="fa-solid fa-xmark"></i></div>
             `;
 
-    // Set a timeout to remove the toast element after the specified duration.
-    const timeout_id = setTimeout(
-        function () {
-            toast_element.remove();
-        },
-        duration + animationDuration.fadeIn + animationDuration.fadeOut * 2
-    );
+    toast_element.onanimationend = (event: any) => {
+        if (event.animationName === 'toast-fade-out') toast_element.remove();
+    };
 
     // Define click event for closing the toast.
     toast_element.onclick = function (event: any) {
         if (event.target.closest('.toast-close')) {
             toast_element.remove();
-            clearTimeout(timeout_id);
         }
     };
 
@@ -115,11 +106,7 @@ function showCustomToast(
     const fadeout_duration_float = (animationDuration.fadeOut / 1000).toFixed(
         2
     );
-    const total_toast_duration_float = (
-        duration / 1000 +
-        animationDuration.fadeIn / 1000 +
-        animationDuration.fadeOut / 1000
-    ).toFixed(2);
+    const total_toast_duration_float = (duration / 1000).toFixed(2);
 
     // Define icon classes.
     let toast_icon = iconClasses;
@@ -161,19 +148,14 @@ function showCustomToast(
             <div class="toast-close"><i class="fa-solid fa-xmark"></i></div>
             `;
 
-    // Set a timeout to remove the toast element after the specified duration.
-    const timeout_id = setTimeout(
-        function () {
-            toast_element.remove();
-        },
-        duration + animationDuration.fadeIn + animationDuration.fadeOut * 2
-    );
+    toast_element.onanimationend = (event: any) => {
+        if (event.animationName === 'toast-fade-out') toast_element.remove();
+    };
 
     // Define click event for closing the toast.
     toast_element.onclick = function (event: any) {
         if (event.target.closest('.toast-close')) {
             toast_element.remove();
-            clearTimeout(timeout_id);
         }
     };
 
