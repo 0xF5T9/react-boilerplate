@@ -33,54 +33,6 @@ window.onkeydown = function (event) {
     if (!event.altKey) return;
     switch (event.code) {
         case 'Digit1': {
-            const audio = new Audio(
-                '/assets/static/sound/ClickSoundEffect.wav'
-            );
-            audio.play();
-            showToast(
-                'Info',
-                'New version available for download!',
-                ToastTypes.Info
-            );
-            break;
-        }
-        case 'Digit2': {
-            const audio = new Audio(
-                '/assets/static/sound/ClickSoundEffect.wav'
-            );
-            audio.play();
-            showToast(
-                'Success',
-                'Your request has been sent successfully.',
-                ToastTypes.Success
-            );
-            break;
-        }
-        case 'Digit3': {
-            const audio = new Audio(
-                '/assets/static/sound/ClickSoundEffect.wav'
-            );
-            audio.play();
-            showToast(
-                'Error',
-                'Unable to connect to the remote server.',
-                ToastTypes.Error
-            );
-            break;
-        }
-        case 'Digit4': {
-            const audio = new Audio(
-                '/assets/static/sound/ClickSoundEffect.wav'
-            );
-            audio.play();
-            showToast(
-                'Message',
-                'You have new message(s).',
-                ToastTypes.Message
-            );
-            break;
-        }
-        case 'Digit8': {
             (async () => {
                 console.log(await apis.mysqlServer.getTestPosts(2));
             })();
