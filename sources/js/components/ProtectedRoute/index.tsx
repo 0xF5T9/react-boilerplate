@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import apis from '../../apis';
 import routes from '../../configs/routes';
 
-import { showToast } from '../ToastOverlay';
+import { showToast, ToastTypes } from '../ToastOverlay';
 import { FlexibleSection } from '../Content/components/GridSection';
 import { MLLoading } from '../Icons/MLLoading';
 /**
@@ -41,7 +41,10 @@ function ProtectedRoute({ children }: { children?: ReactNode }) {
         const result = await apis.mysqlServer.verifySession(authSession),
             { message, success, invalidToken } = result;
         if (!success) {
-            setTimeout(() => showToast('Error', message, 'error', 5000), 100);
+            setTimeout(
+                () => showToast('Error', message, ToastTypes.Error, 5000),
+                100
+            );
             logout(invalidToken ? routes.login : routes.home);
         }
         setIsVerifying(false);

@@ -13,7 +13,7 @@ import './utility/helper';
 import configs from './configs';
 import apis from './apis';
 
-import { showToast, showCustomToast } from './components/ToastOverlay';
+import { showToast, ToastTypes } from './components/ToastOverlay';
 
 window.React = React;
 window.ReactDOM = ReactDOM;
@@ -37,7 +37,11 @@ window.onkeydown = function (event) {
                 '/assets/static/sound/ClickSoundEffect.wav'
             );
             audio.play();
-            showToast('Info', 'New version available for download!', 'info');
+            showToast(
+                'Info',
+                'New version available for download!',
+                ToastTypes.Info
+            );
             break;
         }
         case 'Digit2': {
@@ -48,7 +52,7 @@ window.onkeydown = function (event) {
             showToast(
                 'Success',
                 'Your request has been sent successfully.',
-                'success'
+                ToastTypes.Success
             );
             break;
         }
@@ -60,7 +64,7 @@ window.onkeydown = function (event) {
             showToast(
                 'Error',
                 'Unable to connect to the remote server.',
-                'error'
+                ToastTypes.Error
             );
             break;
         }
@@ -69,27 +73,11 @@ window.onkeydown = function (event) {
                 '/assets/static/sound/ClickSoundEffect.wav'
             );
             audio.play();
-            showCustomToast(
-                'Custom Toast',
-                'This is a custom toast message..',
-                {
-                    titleColor: '#fcfcfa',
-                    descColor: '#fcfcfa',
-                    backgroundColor: '#544e56',
-                    borderColor: '#544e56',
-                    iconColor: '#fcfcfa',
-                    closeIconColor: '#fcfcfa',
-                },
-                'fa-solid fa-gear'
+            showToast(
+                'Message',
+                'You have new message(s).',
+                ToastTypes.Message
             );
-            break;
-        }
-        case 'Digit5': {
-            const audio = new Audio(
-                '/assets/static/sound/ClickSoundEffect.wav'
-            );
-            audio.play();
-            showToast('Message', 'You have new message(s).', 'message');
             break;
         }
         case 'Digit8': {

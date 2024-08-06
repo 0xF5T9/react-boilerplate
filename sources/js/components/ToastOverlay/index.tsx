@@ -4,162 +4,96 @@
  */
 
 'use strict';
-import './ToastOverlay.css';
+import * as styles from './ToastOverlay.module.css';
 const $ = document.querySelector.bind(document);
 
-/**
- * Show a notification toast.
- * @param title Specifies the toast title.
- * @param message Specifies the toast message.
- * @param type Specifies the toast type. ('message' | 'info' | 'success' | 'error' - default: 'message')
- * @param duration Specifies the toast duration in milliseconds. (default: 3000)
- * @param animationDuration Specifies the toast animation duration in milliseconds. (default: {fadeIn: 300, fadeOut: 300})
- * @note For 'title' and 'message' parameters, escape characters like '\n' or html tags can be used.
- */
-function showToast(
-    title: any,
-    message: any,
-    type: 'message' | 'info' | 'success' | 'error' = 'message',
-    duration: number = 3000,
-    animationDuration = { fadeIn: 300, fadeOut: 300 }
-) {
-    const toast_overlay = $('#toast-overlay');
-    if (!toast_overlay) return;
+// Toast types.
+enum ToastTypes {
+    Success,
+    Error,
+    Message,
+    Info,
+}
 
-    // Calculate float values for animation durations in seconds.
-    const fadein_duration_float = (animationDuration.fadeIn / 1000).toFixed(2);
-    const fadeout_duration_float = (animationDuration.fadeOut / 1000).toFixed(
-        2
-    );
-    const total_toast_duration_float = (duration / 1000).toFixed(2);
-
-    // Define icon classes based on toast type
-    const toast_icons = {
-        message: 'fa-solid fa-message',
-        info: 'fa-solid fa-circle-info',
-        success: 'fa-solid fa-circle-check',
-        error: 'fa-solid fa-circle-exclamation',
-    };
-    let toast_icon = toast_icons[type];
-    if (toast_icon === undefined) toast_icon = toast_icons['message'];
-
-    // Create the toast element.
-    const toast_element = document.createElement(`div`);
-    toast_element.classList.add('toast');
-    if (type === 'success') toast_element.classList.add('toast-success');
-    else if (type === 'error') toast_element.classList.add('toast-error');
-    toast_element.style.animation = `toast-fade-in ${fadein_duration_float}s ease, toast-fade-out ${fadeout_duration_float}s linear ${total_toast_duration_float}s forwards`;
-    toast_element.innerHTML = `
-            <div class="toast-icon"><i class="${toast_icon}"></i></div>
-            <div class="toast-message">
-                <p class="toast-title">${title}</p>
-                <p class="toast-desc">${message}</p>
-            </div>
-            <div class="toast-close"><i class="fa-solid fa-xmark"></i></div>
-            `;
-
-    toast_element.onanimationend = (event: any) => {
-        if (event.animationName === 'toast-fade-out') toast_element.remove();
-    };
-
-    // Define click event for closing the toast.
-    toast_element.onclick = function (event: any) {
-        if (event.target.closest('.toast-close')) {
-            toast_element.remove();
-        }
-    };
-
-    // Append the toast element.
-    toast_overlay.append(toast_element);
+// Toast icons.
+enum ToastIcons {
+    CircleCheck = 'fa-solid fa-circle-check',
+    CircleExclamation = 'fa-solid fa-circle-exclamation',
+    Message = 'fa-solid fa-message',
+    CircleInfo = 'fa-solid fa-circle-info',
 }
 
 /**
- * Show a custom notification toast.
- * @param title Specifies the toast title.
- * @param message Specifies the toast message.
- * @param colors Specifies the toast colors. (default: {titleColor: '#fcfcfa', descColor: '#fcfcfa', backgroundColor: '#2d2a2e', borderColor: '#2d2a2e', iconColor: '#fcfcfa', closeIconColor: '#fcfcfa'})
- * @param iconClasses Specifies the toast icon classes. (default: 'fa-solid fa-message')
- * @param duration Specifies the toast duration in milliseconds. (default: 3000)
- * @param animationDuration Specifies the toast animation duration in milliseconds. (default: {fadeIn: 300, fadeOut: 300})
- * @note For 'title' and 'message' parameters, escape characters like '\n' or html tags can be used.
+ * Show a notification toast.
+ * @param title Toast title. (Escape characters like '\n' or html tags can be used)
+ * @param message Toast message. (Escape characters like '\n' or html tags can be used)
+ * @param type Toast type.
+ * @param duration Toast duration in milliseconds. (default: 3000)
+ * @param animationDuration Toast animation duration in milliseconds.
  */
-function showCustomToast(
+function showToast(
     title: string,
     message: string,
-    colors = {
-        titleColor: '#fcfcfa',
-        descColor: '#fcfcfa',
-        backgroundColor: '#2d2a2e',
-        borderColor: '#2d2a2e',
-        iconColor: '#fcfcfa',
-        closeIconColor: '#fcfcfa',
-    },
-    iconClasses = 'fa-solid fa-message',
-    duration = 3000,
+    type: ToastTypes,
+    duration: number = 3000,
     animationDuration = { fadeIn: 300, fadeOut: 300 }
 ) {
-    const toast_overlay = $('#toast-overlay');
-    if (!toast_overlay) return;
+    const toast_overlay = $(`.${styles['toast-overlay'] || ''}`);
+    if (!toast_overlay) {
+        console.error('Toast overlay not found.');
+        return;
+    }
 
-    // Calculate float values for animation durations in seconds.
-    const fadein_duration_float = (animationDuration.fadeIn / 1000).toFixed(2);
-    const fadeout_duration_float = (animationDuration.fadeOut / 1000).toFixed(
-        2
-    );
-    const total_toast_duration_float = (duration / 1000).toFixed(2);
+    let toast_icon: ToastIcons;
+    switch (type) {
+        case ToastTypes.Success:
+            toast_icon = ToastIcons.CircleCheck;
+            break;
+        case ToastTypes.Error:
+            toast_icon = ToastIcons.CircleExclamation;
+            break;
+        case ToastTypes.Message:
+            toast_icon = ToastIcons.Message;
+            break;
+        case ToastTypes.Info:
+            toast_icon = ToastIcons.CircleInfo;
+            break;
+        default:
+            toast_icon = ToastIcons.CircleInfo;
+            break;
+    }
 
-    // Define icon classes.
-    let toast_icon = iconClasses;
+    const fadein_duration_float = (animationDuration.fadeIn / 1000).toFixed(2),
+        fadeout_duration_float = (animationDuration.fadeOut / 1000).toFixed(2),
+        toast_duration_float = (duration / 1000).toFixed(2);
 
-    // Create the toast element.
     const toast_element = document.createElement(`div`);
-    toast_element.classList.add('toast');
-    toast_element.style.animation = `toast-fade-in ${fadein_duration_float}s ease, toast-fade-out ${fadeout_duration_float}s linear ${total_toast_duration_float}s forwards`;
-    toast_element.style.setProperty(
-        '--toast-title-color',
-        `${colors.titleColor}`
-    );
-    toast_element.style.setProperty(
-        '--toast-desc-color',
-        `${colors.descColor}`
-    );
-    toast_element.style.setProperty(
-        '--toast-background-color',
-        `${colors.backgroundColor}`
-    );
-    toast_element.style.setProperty(
-        '--toast-border-color',
-        `${colors.borderColor}`
-    );
-    toast_element.style.setProperty(
-        '--toast-icon-color',
-        `${colors.iconColor}`
-    );
-    toast_element.style.setProperty(
-        '--toast-close-icon-color',
-        `${colors.closeIconColor}`
-    );
+    toast_element.classList.add(styles['toast']);
+    if (type === ToastTypes.Success)
+        toast_element.classList.add(styles['toast-success']);
+    else if (type === ToastTypes.Error)
+        toast_element.classList.add(styles['toast-error']);
+    toast_element.style.animation = `${styles['toast-fade-in']} ${fadein_duration_float}s ease, ${styles['toast-fade-out']} ${fadeout_duration_float}s linear ${toast_duration_float}s forwards`;
     toast_element.innerHTML = `
-            <div class="toast-icon"><i class="${toast_icon}"></i></div>
-            <div class="toast-message">
-                <p class="toast-title">${title}</p>
-                <p class="toast-desc">${message}</p>
+            <div class="${styles['toast-icon']}"><i class="${toast_icon}"></i></div>
+            <div class="${styles['toast-message']}">
+                <p class="${styles['toast-title']}">${title}</p>
+                <p class="${styles['toast-desc']}">${message}</p>
             </div>
-            <div class="toast-close"><i class="fa-solid fa-xmark"></i></div>
+            <div class="${styles['toast-close']}"><i class="fa-solid fa-xmark"></i></div>
             `;
 
     toast_element.onanimationend = (event: any) => {
-        if (event.animationName === 'toast-fade-out') toast_element.remove();
+        if (event.animationName === styles['toast-fade-out'])
+            toast_element.remove();
     };
 
-    // Define click event for closing the toast.
     toast_element.onclick = function (event: any) {
-        if (event.target.closest('.toast-close')) {
+        if (event.target.closest(`.${styles['toast-close']}`)) {
             toast_element.remove();
         }
     };
 
-    // Append the toast element.
     toast_overlay.append(toast_element);
 }
 
@@ -168,8 +102,8 @@ function showCustomToast(
  * @returns Returns the component.
  */
 function ToastOverlay() {
-    return <div id="toast-overlay"></div>;
+    return <div className={styles['toast-overlay']}></div>;
 }
 
 export default ToastOverlay;
-export { showToast, showCustomToast };
+export { showToast, ToastTypes };

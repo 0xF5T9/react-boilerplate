@@ -190,6 +190,13 @@
     --context-background-highlight: var(--context-background-dark-highlight);
     --context-shadow: var(--context-shadow-dark);
 
+    --toast-container-top-right-margin: 32px;
+    --toast-title-color: var(--color-white);
+    --toast-desc-color: var(--color-white);
+    --toast-background-color: var(--color-blue-vibrant);
+    --toast-border-color: var(--color-blue-vibrant);
+    --toast-icon-color: var(--color-white);
+    --toast-close-icon-color: var(--color-white);
     --toast-shadow-color: var(--shadow-dark);
 
     --modal-overlay-background-color: rgba(45, 42, 46, 0.9);

@@ -9,7 +9,7 @@ import routes from '../routes';
 import { Fa6SolidHouse } from '../../components/Icons/FAHome';
 import { Fa6SolidUser } from '../../components/Icons/FAUser';
 import { Fa6SolidCode } from '../../components/Icons/FACode';
-import { showToast } from '../../components/ToastOverlay';
+import { showToast, ToastTypes } from '../../components/ToastOverlay';
 
 export default [
     {
@@ -40,7 +40,7 @@ export default [
                     showToast(
                         'Info',
                         'This application is currently unavailable.',
-                        'info'
+                        ToastTypes.Info
                     ),
             },
             {
@@ -52,7 +52,7 @@ export default [
                     showToast(
                         'Info',
                         'This application is currently unavailable.',
-                        'info'
+                        ToastTypes.Info
                     ),
             },
         ],
