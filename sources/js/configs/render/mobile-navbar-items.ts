@@ -9,7 +9,7 @@ import routes from '../routes';
 import { Fa6SolidHouse } from '../../components/Icons/FAHome';
 import { Fa6SolidUser } from '../../components/Icons/FAUser';
 import { Fa6SolidCode } from '../../components/Icons/FACode';
-import { showToast, ToastTypes } from '../../components/ToastOverlay';
+import { showToast } from '../../components/ToastOverlay';
 
 export default [
     {
@@ -37,11 +37,10 @@ export default [
                 image: '/assets/static/img/shutdowntimer.png',
                 hideOnClick: false,
                 onClick: () =>
-                    showToast(
-                        'Info',
-                        'This application is currently unavailable.',
-                        ToastTypes.Info
-                    ),
+                    showToast('info', {
+                        title: 'Info',
+                        message: 'This application is currently unavailable.',
+                    }),
             },
             {
                 text: 'ASC File Cryptor',
@@ -49,11 +48,10 @@ export default [
                 image: '/assets/static/img/ascfilecryptor.png',
                 hideOnClick: false,
                 onClick: () =>
-                    showToast(
-                        'Info',
-                        'This application is currently unavailable.',
-                        ToastTypes.Info
-                    ),
+                    showToast('info', {
+                        title: 'Info',
+                        message: 'This application is currently unavailable.',
+                    }),
             },
         ],
     },

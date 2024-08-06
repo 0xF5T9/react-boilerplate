@@ -15,7 +15,7 @@ import routes from '../../../configs/routes';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Button from '../../Button';
 import LabeledInput from '../../LabeledInput';
-import { showToast, ToastTypes } from '../../ToastOverlay';
+import { showToast } from '../../ToastOverlay';
 
 /**
  * Loader component.
@@ -56,7 +56,12 @@ function ProfileSection() {
             const { message, success, data, invalidToken }: any = loaderData;
             if (!success) {
                 setTimeout(
-                    () => showToast('Error', message, ToastTypes.Error, 5000),
+                    () =>
+                        showToast('danger', {
+                            title: 'Error',
+                            message,
+                            duration: 5000,
+                        }),
                     100
                 );
                 logout(invalidToken ? routes.login : routes.home);

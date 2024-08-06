@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import apis from '../../apis';
 import routes from '../../configs/routes';
 
-import { showToast, ToastTypes } from '../ToastOverlay';
+import { showToast } from '../ToastOverlay';
 import { FlexibleSection } from '../Content/components/GridSection';
 import { MLLoading } from '../Icons/MLLoading';
 /**
@@ -42,7 +42,12 @@ function ProtectedRoute({ children }: { children?: ReactNode }) {
             { message, success, invalidToken } = result;
         if (!success) {
             setTimeout(
-                () => showToast('Error', message, ToastTypes.Error, 5000),
+                () =>
+                    showToast('danger', {
+                        title: 'Error',
+                        message,
+                        duration: 5000,
+                    }),
                 100
             );
             logout(invalidToken ? routes.login : routes.home);

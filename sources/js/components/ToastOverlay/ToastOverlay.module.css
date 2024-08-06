@@ -90,7 +90,7 @@
         --toast-border-width: 0px;
     }
 
-    &.toast-error {
+    &.toast-danger {
         --toast-background-color: linear-gradient(
             45deg,
             rgba(229, 64, 78, 1) 0%,

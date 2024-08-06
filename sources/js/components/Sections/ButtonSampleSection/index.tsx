@@ -7,7 +7,7 @@
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Button from '../../Button';
 import { MLLoading } from '../../Icons/MLLoading';
-import { showToast, ToastTypes } from '../../ToastOverlay';
+import { showToast } from '../../ToastOverlay';
 
 import * as styles from './ButtonSampleSection.module.css';
 
@@ -98,11 +98,10 @@ function ButtonSampleSection() {
                 <Button
                     color="danger"
                     onClick={() =>
-                        showToast(
-                            'Error',
-                            'Unable to connect to the remote server.',
-                            ToastTypes.Error
-                        )
+                        showToast('danger', {
+                            title: 'Error',
+                            message: 'Unable to connect to the remote server.',
+                        })
                     }
                 >
                     Danger Toast
@@ -110,11 +109,10 @@ function ButtonSampleSection() {
                 <Button
                     color="warn"
                     onClick={() =>
-                        showToast(
-                            'Warning',
-                            'Your license will expire within 3 days.',
-                            ToastTypes.Warn
-                        )
+                        showToast('warn', {
+                            title: 'Warning',
+                            message: 'Your license will expire within 3 days.',
+                        })
                     }
                 >
                     Warn Toast
@@ -122,11 +120,10 @@ function ButtonSampleSection() {
                 <Button
                     color="success"
                     onClick={() =>
-                        showToast(
-                            'Success',
-                            'Your request has been sent successfully.',
-                            ToastTypes.Success
-                        )
+                        showToast('success', {
+                            title: 'Success',
+                            message: 'Your request has been sent successfully.',
+                        })
                     }
                 >
                     Success Toast
@@ -134,11 +131,10 @@ function ButtonSampleSection() {
                 <Button
                     color="info"
                     onClick={() =>
-                        showToast(
-                            'Info',
-                            'New version available for download!',
-                            ToastTypes.Info
-                        )
+                        showToast('info', {
+                            title: 'Info',
+                            message: 'New version available for download!',
+                        })
                     }
                 >
                     Info Toast
@@ -146,11 +142,10 @@ function ButtonSampleSection() {
                 <Button
                     color="info"
                     onClick={() =>
-                        showToast(
-                            'Message',
-                            'You have new message(s).',
-                            ToastTypes.Message
-                        )
+                        showToast('message', {
+                            title: 'Message',
+                            message: 'You have new message(s).',
+                        })
                     }
                 >
                     Message Toast
