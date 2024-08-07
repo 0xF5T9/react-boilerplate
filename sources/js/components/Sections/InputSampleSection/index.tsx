@@ -111,7 +111,7 @@ function InputSampleSection() {
                     inputStyle={{ width: '250px' }}
                 />{' '}
                 <Input
-                    type="text"
+                    type="tel"
                     icon={{
                         iconPosition: 'right',
                         iconClass: 'fa-solid fa-address-book',
