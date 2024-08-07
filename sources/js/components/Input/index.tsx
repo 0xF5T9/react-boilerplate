@@ -43,7 +43,7 @@ function Input({
     wrapperStyle,
     inputStyle,
 }: {
-    type?: 'text' | 'email' | 'password';
+    type?: 'text' | 'email' | 'password' | 'number' | 'tel';
     color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     size?: 'small' | 'large';
     transparent?: boolean;
@@ -88,7 +88,7 @@ function Input({
 }
 
 Input.propTypes = {
-    type: PropTypes.oneOf(['text', 'email', 'password']),
+    type: PropTypes.oneOf(['text', 'email', 'password', 'number', 'tel']),
     color: PropTypes.oneOf([
         'red',
         'orange',

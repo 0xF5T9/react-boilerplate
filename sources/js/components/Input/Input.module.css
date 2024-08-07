@@ -41,7 +41,9 @@ div.input-wrapper {
 
     & > input[type='text'],
     & > input[type='email'],
-    & > input[type='password'] {
+    & > input[type='password'],
+    & > input[type='number'],
+    & > input[type='tel'] {
         display: block;
         width: 100%;
         padding: var(--input-padding-top-bottom) var(--input-padding-left-right);
@@ -79,6 +81,16 @@ div.input-wrapper {
         }
     }
 
+    & > input[type='number'] {
+        appearance: textfield;
+
+        *::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
     &:has(*:disabled) {
         pointer-events: none;
     }
@@ -96,7 +108,9 @@ div.input-wrapper {
 
         & > input[type='text'],
         & > input[type='email'],
-        & > input[type='password'] {
+        & > input[type='password'],
+        & > input[type='number'],
+        & > input[type='tel'] {
             padding: var(--input-padding-top-bottom)
                 var(--input-padding-left-right) var(--input-padding-top-bottom)
                 calc(
@@ -117,7 +131,9 @@ div.input-wrapper {
 
         & > input[type='text'],
         & > input[type='email'],
-        & > input[type='password'] {
+        & > input[type='password'],
+        & > input[type='number'],
+        & > input[type='tel'] {
             padding: var(--input-padding-top-bottom)
                 calc(
                     var(--input-padding-left-right) * 2 + 1em + 1px +
