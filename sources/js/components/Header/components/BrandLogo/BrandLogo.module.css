@@ -1,16 +1,21 @@
-.header-brand-logo {
+.link {
     height: 100%;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
-    & > img {
-        width: auto;
-        height: 100%;
-        padding: 12px;
-        filter: brightness(1);
-        transition: all 0.1s;
+.link:focus {
+    outline: 0;
+}
 
-        &:hover {
-            filter: brightness(1.2);
-        }
-    }
+.logo {
+    width: auto;
+    height: 100%;
+    padding: 12px;
+    filter: brightness(1);
+    transition: all 0.1s;
+}
+
+.logo:hover {
+    filter: brightness(1.2);
 }

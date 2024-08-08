@@ -74,6 +74,7 @@ function Input({
         <div className={classes} style={wrapperStyle}>
             {icon ? <i className={icon.iconClass}></i> : null}
             <input
+                className={styles['input']}
                 id={id}
                 type={type}
                 value={value}

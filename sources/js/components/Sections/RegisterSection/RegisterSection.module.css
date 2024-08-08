@@ -56,18 +56,19 @@
     transition:
         color 0.1s,
         filter 0.1s;
+    -webkit-tap-highlight-color: transparent;
+}
 
-    &:hover {
-        text-decoration: underline;
-        filter: brightness(1.2);
-    }
+.link:hover {
+    text-decoration: underline;
+    filter: brightness(1.2);
+}
 
-    &:active {
-        filter: brightness(0.9);
-    }
+.link:active {
+    filter: brightness(0.9);
+}
 
-    &:focus {
-        outline: 0;
-        filter: brightness(1.2);
-    }
+.link:focus {
+    outline: 0;
+    filter: brightness(1.2);
 }

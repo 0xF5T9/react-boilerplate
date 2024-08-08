@@ -7,8 +7,6 @@
 import { FlexibleSection } from '../../Content/components/GridSection';
 import LabeledSelect from '../../LabeledSelect';
 
-import * as styles from './LabeledSelectSampleSection.module.css';
-
 /**
  * Labeled select sample section.
  * @returns Returns the component.
@@ -25,13 +23,14 @@ function LabeledSelectSampleSection() {
                 textAlign: 'center',
             }}
         >
-            <div className={styles['content']}>
+            <div>
                 <h1>Default Inputs</h1>
                 <div
                     style={{
                         display: 'flex',
-                        flexFlow: 'column wrap',
+                        flexFlow: 'column nowrap',
                         alignItems: 'center',
+                        gap: '5px',
                     }}
                 >
                     <LabeledSelect label="Primary" width={250} labelWidth={72}>
@@ -39,7 +38,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Red"
                         color="red"
@@ -50,7 +49,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Orange"
                         color="orange"
@@ -61,7 +60,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Yellow"
                         color="yellow"
@@ -72,7 +71,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Green"
                         color="green"
@@ -83,7 +82,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Blue"
                         color="blue"
@@ -94,7 +93,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Purple"
                         color="purple"
@@ -110,8 +109,9 @@ function LabeledSelectSampleSection() {
                 <div
                     style={{
                         display: 'flex',
-                        flexFlow: 'column wrap',
+                        flexFlow: 'column nowrap',
                         alignItems: 'center',
+                        gap: '5px',
                     }}
                 >
                     <LabeledSelect
@@ -124,7 +124,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Red"
                         color="red"
@@ -136,7 +136,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Orange"
                         color="orange"
@@ -148,7 +148,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Yellow"
                         color="yellow"
@@ -160,7 +160,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Green"
                         color="green"
@@ -172,7 +172,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Blue"
                         color="blue"
@@ -184,7 +184,7 @@ function LabeledSelectSampleSection() {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <br />
+
                     <LabeledSelect
                         label="Purple"
                         color="purple"
@@ -198,21 +198,31 @@ function LabeledSelectSampleSection() {
                     </LabeledSelect>
                 </div>
                 <h1 style={{ marginTop: '26px' }}>Sized Inputs</h1>
-                <LabeledSelect label="Small" size="small">
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </LabeledSelect>{' '}
-                <LabeledSelect label="Default">
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </LabeledSelect>{' '}
-                <LabeledSelect label="Large" size="large">
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </LabeledSelect>
+                <div
+                    style={{
+                        display: 'flex',
+                        flexFlow: 'row wrap',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: '5px',
+                    }}
+                >
+                    <LabeledSelect label="Small" size="small">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </LabeledSelect>
+                    <LabeledSelect label="Default">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </LabeledSelect>
+                    <LabeledSelect label="Large" size="large">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </LabeledSelect>
+                </div>
             </div>
         </FlexibleSection>
     );

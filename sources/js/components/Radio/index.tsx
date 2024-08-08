@@ -74,6 +74,7 @@ function Radio({
             }}
         >
             <input
+                className={styles['input']}
                 ref={radio}
                 id={id}
                 type="radio"

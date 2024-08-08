@@ -7,8 +7,6 @@
 import { FlexibleSection } from '../../Content/components/GridSection';
 import LabeledInput from '../../LabeledInput';
 
-import * as styles from './LabeledInputSampleSection.module.css';
-
 /**
  * Labeled input sample section.
  * @returns Returns the component.
@@ -25,52 +23,47 @@ function LabeledInputSampleSection() {
                 textAlign: 'center',
             }}
         >
-            <div className={styles['content']}>
+            <div>
                 <h1>Default Inputs</h1>
                 <div
                     style={{
                         display: 'flex',
-                        flexFlow: 'column wrap',
+                        flexFlow: 'column nowrap',
                         alignItems: 'center',
+                        gap: '5px',
                     }}
                 >
                     <LabeledInput label="Primary" width={250} labelWidth={72} />
-                    <br />
                     <LabeledInput
                         label="Red"
                         color="red"
                         width={250}
                         labelWidth={72}
                     />
-                    <br />
                     <LabeledInput
                         label="Orange"
                         color="orange"
                         width={250}
                         labelWidth={72}
                     />
-                    <br />
                     <LabeledInput
                         label="Yellow"
                         color="yellow"
                         width={250}
                         labelWidth={72}
                     />
-                    <br />
                     <LabeledInput
                         label="Green"
                         color="green"
                         width={250}
                         labelWidth={72}
                     />
-                    <br />
                     <LabeledInput
                         label="Blue"
                         color="blue"
                         width={250}
                         labelWidth={72}
                     />
-                    <br />
                     <LabeledInput
                         label="Purple"
                         color="purple"
@@ -82,8 +75,9 @@ function LabeledInputSampleSection() {
                 <div
                     style={{
                         display: 'flex',
-                        flexFlow: 'column wrap',
+                        flexFlow: 'column nowrap',
                         alignItems: 'center',
+                        gap: '5px',
                     }}
                 >
                     <LabeledInput
@@ -92,7 +86,7 @@ function LabeledInputSampleSection() {
                         labelWidth={72}
                         disabled
                     />
-                    <br />
+
                     <LabeledInput
                         label="Red"
                         color="red"
@@ -100,7 +94,7 @@ function LabeledInputSampleSection() {
                         labelWidth={72}
                         disabled
                     />
-                    <br />
+
                     <LabeledInput
                         label="Orange"
                         color="orange"
@@ -108,7 +102,7 @@ function LabeledInputSampleSection() {
                         labelWidth={72}
                         disabled
                     />
-                    <br />
+
                     <LabeledInput
                         label="Yellow"
                         color="yellow"
@@ -116,7 +110,7 @@ function LabeledInputSampleSection() {
                         labelWidth={72}
                         disabled
                     />
-                    <br />
+
                     <LabeledInput
                         label="Green"
                         color="green"
@@ -124,7 +118,7 @@ function LabeledInputSampleSection() {
                         labelWidth={72}
                         disabled
                     />
-                    <br />
+
                     <LabeledInput
                         label="Blue"
                         color="blue"
@@ -132,7 +126,7 @@ function LabeledInputSampleSection() {
                         labelWidth={72}
                         disabled
                     />
-                    <br />
+
                     <LabeledInput
                         label="Purple"
                         color="purple"
@@ -142,9 +136,19 @@ function LabeledInputSampleSection() {
                     />
                 </div>
                 <h1 style={{ marginTop: '26px' }}>Sized Inputs</h1>
-                <LabeledInput label="Small" size="small" width={150} />{' '}
-                <LabeledInput label="Default" width={150} />{' '}
-                <LabeledInput label="Large" size="large" width={150} />
+                <div
+                    style={{
+                        display: 'flex',
+                        flexFlow: 'row wrap',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: '5px',
+                    }}
+                >
+                    <LabeledInput label="Small" size="small" width={150} />
+                    <LabeledInput label="Default" width={150} />
+                    <LabeledInput label="Large" size="large" width={150} />
+                </div>
             </div>
         </FlexibleSection>
     );

@@ -1,215 +1,194 @@
-div.input-wrapper {
+.input-wrapper {
     position: relative;
     display: inline-block;
     font-size: 1rem;
+}
 
-    & > i {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1em;
-        z-index: 1;
-    }
+.input-wrapper > i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1em;
+    z-index: 1;
+}
 
-    &::before {
-        content: '';
-        position: absolute;
-        left: 1px;
-        top: 1px;
-        display: block;
-        width: calc(100% - 2px);
-        height: calc(100% - 2px);
-        border-radius: calc(var(--input-border-radius) - 1px);
-        background-color: var(--input-background-color-default);
-        filter: brightness(1);
-        transition: all 0.15s;
-    }
+.input-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    display: block;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: calc(var(--input-border-radius) - 1px);
+    background-color: var(--input-background-color-default);
+    filter: brightness(1);
+    transition: all 0.15s;
+}
 
-    &:hover::before {
-        background-color: var(--input-background-color-hover);
-        filter: brightness(1.2);
-    }
+.input-wrapper:hover::before {
+    background-color: var(--input-background-color-hover);
+    filter: brightness(1.2);
+}
 
-    &:active::before {
-        background-color: var(--input-background-color-active);
-    }
+.input-wrapper:active::before {
+    background-color: var(--input-background-color-active);
+}
 
-    &:focus-within::before {
-        background-color: var(--input-background-color-focus);
-        filter: brightness(1.3);
-    }
+.input-wrapper:focus-within::before {
+    background-color: var(--input-background-color-focus);
+    filter: brightness(1.3);
+}
 
-    & > input[type='text'],
-    & > input[type='email'],
-    & > input[type='password'],
-    & > input[type='number'],
-    & > input[type='tel'] {
-        display: block;
-        width: 100%;
-        padding: var(--input-padding-top-bottom) var(--input-padding-left-right);
-        border: var(--input-border-width) solid
-            var(--input-border-color-default);
-        border-radius: var(--input-border-radius);
-        outline: none;
-        color: var(--input-text-color-default);
-        background-color: transparent;
-        font-size: 1em;
-        filter: brightness(1);
-        z-index: 0;
-        transition: all 0.15s;
+.input-wrapper > .input {
+    display: block;
+    width: 100%;
+    padding: var(--input-padding-top-bottom) var(--input-padding-left-right);
+    border: var(--input-border-width) solid var(--input-border-color-default);
+    border-radius: var(--input-border-radius);
+    outline: none;
+    color: var(--input-text-color-default);
+    background-color: transparent;
+    font-size: 1em;
+    filter: brightness(1);
+    z-index: 0;
+    transition: all 0.15s;
+}
 
-        &:hover {
-            color: var(--input-text-color-hover);
-            border: var(--input-border-width) solid
-                var(--input-border-color-hover);
-        }
+.input-wrapper > .input:hover {
+    color: var(--input-text-color-hover);
+    border: var(--input-border-width) solid var(--input-border-color-hover);
+}
 
-        &:active {
-            color: var(--input-text-color-active);
-            border: var(--input-border-width) solid
-                var(--input-border-color-active);
-        }
+.input-wrapper > .input:active {
+    color: var(--input-text-color-active);
+    border: var(--input-border-width) solid var(--input-border-color-active);
+}
 
-        &:focus {
-            color: var(--input-text-color-focus);
-            border: var(--input-border-width) solid
-                var(--input-border-color-focus);
-        }
+.input-wrapper > .input:focus {
+    color: var(--input-text-color-focus);
+    border: var(--input-border-width) solid var(--input-border-color-focus);
+}
 
-        &:disabled {
-            opacity: 0.65;
-        }
-    }
+.input-wrapper > .input:disabled {
+    opacity: 0.65;
+}
 
-    & > input[type='number'] {
-        appearance: textfield;
+input[type='number'].input {
+    appearance: textfield;
+}
+input[type='number'].input *::-webkit-outer-spin-button,
+input[type='number'].input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-        *::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-    }
+.input-wrapper:has(*:disabled) {
+    pointer-events: none;
+}
 
-    &:has(*:disabled) {
-        pointer-events: none;
-    }
+/* Modifier classes */
 
-    /* Modifier classes */
+.input-wrapper.icon-left > i {
+    right: initial;
+    left: calc(
+        var(--input-border-width) + var(--input-padding-left-right) +
+            var(--input-icon-extra-padding)
+    );
+}
 
-    &.icon-left {
-        & > i {
-            right: initial;
-            left: calc(
-                var(--input-border-width) + var(--input-padding-left-right) +
-                    var(--input-icon-extra-padding)
-            );
-        }
+.input-wrapper.icon-left > .input {
+    padding: var(--input-padding-top-bottom) var(--input-padding-left-right)
+        var(--input-padding-top-bottom)
+        calc(
+            var(--input-padding-left-right) * 2 + 1em + 1px +
+                (var(--input-icon-extra-padding) * 2)
+        );
+}
 
-        & > input[type='text'],
-        & > input[type='email'],
-        & > input[type='password'],
-        & > input[type='number'],
-        & > input[type='tel'] {
-            padding: var(--input-padding-top-bottom)
-                var(--input-padding-left-right) var(--input-padding-top-bottom)
-                calc(
-                    var(--input-padding-left-right) * 2 + 1em + 1px +
-                        (var(--input-icon-extra-padding) * 2)
-                );
-        }
-    }
+.input-wrapper.icon-right > i {
+    left: initial;
+    right: calc(
+        var(--input-border-width) + var(--input-padding-left-right) +
+            var(--input-icon-extra-padding)
+    );
+}
 
-    &.icon-right {
-        & > i {
-            left: initial;
-            right: calc(
-                var(--input-border-width) + var(--input-padding-left-right) +
-                    var(--input-icon-extra-padding)
-            );
-        }
+.input-wrapper.icon-right > .input {
+    padding: var(--input-padding-top-bottom)
+        calc(
+            var(--input-padding-left-right) * 2 + 1em + 1px +
+                (var(--input-icon-extra-padding) * 2)
+        )
+        var(--input-padding-top-bottom) var(--input-padding-left-right);
+}
 
-        & > input[type='text'],
-        & > input[type='email'],
-        & > input[type='password'],
-        & > input[type='number'],
-        & > input[type='tel'] {
-            padding: var(--input-padding-top-bottom)
-                calc(
-                    var(--input-padding-left-right) * 2 + 1em + 1px +
-                        (var(--input-icon-extra-padding) * 2)
-                )
-                var(--input-padding-top-bottom) var(--input-padding-left-right);
-        }
-    }
+.input-wrapper.small {
+    font-size: 0.8rem;
+}
 
-    &.small {
-        font-size: 0.8rem;
-    }
+.input-wrapper.large {
+    font-size: 1.2rem;
+}
 
-    &.large {
-        font-size: 1.2rem;
-    }
+.input-wrapper.transparent {
+    --input-background-color-default: transparent;
+    --input-background-color-hover: transparent;
+    --input-background-color-active: transparent;
+    --input-background-color-focus: transparent;
+}
 
-    &.transparent {
-        --input-background-color-default: transparent;
-        --input-background-color-hover: transparent;
-        --input-background-color-active: transparent;
-        --input-background-color-focus: transparent;
+.input-wrapper.transparent::before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    display: block;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: calc(var(--input-border-radius) - 1px);
+    background-color: rgba(255, 255, 255, 0);
+    transition: all 0.15s;
+}
 
-        &::before {
-            content: '';
-            position: absolute;
-            left: 1px;
-            top: 1px;
-            display: block;
-            width: calc(100% - 2px);
-            height: calc(100% - 2px);
-            border-radius: calc(var(--input-border-radius) - 1px);
-            background-color: rgba(255, 255, 255, 0);
-            transition: all 0.15s;
-        }
+.input-wrapper.transparent:hover::before {
+    background-color: rgba(255, 255, 255, 0.05);
+}
 
-        &:hover::before {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
+.input-wrapper.transparent:active::before {
+    background-color: rgba(255, 255, 255, 0.05);
+}
 
-        &:active::before {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
+.input-wrapper.transparent:focus-within::before {
+    background-color: rgba(255, 255, 255, 0.08);
+}
 
-        &:focus-within::before {
-            background-color: rgba(255, 255, 255, 0.08);
-        }
-    }
+/* Color modifier classes */
 
-    /* Color modifier classes */
+.input-wrapper.red {
+    --input-border-color-focus: var(--color-red);
+}
 
-    &.red {
-        --input-border-color-focus: var(--color-red);
-    }
+.input-wrapper.orange {
+    --input-border-color-focus: var(--color-orange);
+}
 
-    &.orange {
-        --input-border-color-focus: var(--color-orange);
-    }
+.input-wrapper.yellow {
+    --input-border-color-focus: var(--color-yellow);
+}
 
-    &.yellow {
-        --input-border-color-focus: var(--color-yellow);
-    }
+.input-wrapper.green {
+    --input-border-color-focus: var(--color-green);
+}
 
-    &.green {
-        --input-border-color-focus: var(--color-green);
-    }
+.input-wrapper.blue {
+    --input-border-color-focus: var(--color-blue);
+}
 
-    &.blue {
-        --input-border-color-focus: var(--color-blue);
-    }
+.input-wrapper.purple {
+    --input-border-color-focus: var(--color-purple);
+}
 
-    &.purple {
-        --input-border-color-focus: var(--color-purple);
-    }
-
-    &.black {
-        --input-border-color-focus: var(--color-black);
-    }
+.input-wrapper.black {
+    --input-border-color-focus: var(--color-black);
 }

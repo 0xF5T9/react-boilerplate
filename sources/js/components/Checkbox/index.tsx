@@ -73,6 +73,7 @@ function Checkbox({
             }}
         >
             <input
+                className={styles['input']}
                 ref={checkbox}
                 id={id}
                 type="checkbox"

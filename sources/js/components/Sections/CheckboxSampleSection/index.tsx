@@ -7,8 +7,6 @@
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Checkbox from '../../Checkbox';
 
-import * as styles from './CheckboxSampleSection.module.css';
-
 /**
  * Checkbox sample section.
  * @returns Returns the component.
@@ -25,42 +23,83 @@ function CheckboxSampleSection() {
                 textAlign: 'center',
             }}
         >
-            <div className={styles['content']}>
+            <div>
                 <h1>Default Checkboxes</h1>
-                <Checkbox labelText="Primary" id="cb-1" />{' '}
-                <Checkbox labelText="Red" color="red" id="cb-2" />{' '}
-                <Checkbox labelText="Orange" color="orange" id="cb-3" />{' '}
-                <Checkbox labelText="Yellow" color="yellow" id="cb-4" />{' '}
-                <Checkbox labelText="Green" color="green" id="cb-5" />{' '}
-                <Checkbox labelText="Blue" color="blue" id="cb-6" />{' '}
-                <Checkbox labelText="Purple" color="purple" id="cb-7" />
+                <div
+                    style={{
+                        display: 'flex',
+                        flexFlow: 'row wrap',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: '5px',
+                    }}
+                >
+                    <Checkbox labelText="Primary" id="cb-1" />{' '}
+                    <Checkbox labelText="Red" color="red" id="cb-2" />{' '}
+                    <Checkbox labelText="Orange" color="orange" id="cb-3" />{' '}
+                    <Checkbox labelText="Yellow" color="yellow" id="cb-4" />{' '}
+                    <Checkbox labelText="Green" color="green" id="cb-5" />{' '}
+                    <Checkbox labelText="Blue" color="blue" id="cb-6" />{' '}
+                    <Checkbox labelText="Purple" color="purple" id="cb-7" />
+                </div>
                 <h1 style={{ marginTop: '26px' }}>Disabled Checkboxes</h1>
-                <Checkbox labelText="Primary" id="dcb-1" disabled />{' '}
-                <Checkbox labelText="Red" color="red" id="dcb-2" disabled />{' '}
-                <Checkbox
-                    labelText="Orange"
-                    color="orange"
-                    id="dcb-3"
-                    disabled
-                />{' '}
-                <Checkbox
-                    labelText="Yellow"
-                    color="yellow"
-                    id="dcb-4"
-                    disabled
-                />{' '}
-                <Checkbox labelText="Green" color="green" id="dcb-5" disabled />{' '}
-                <Checkbox labelText="Blue" color="blue" id="dcb-6" disabled />{' '}
-                <Checkbox
-                    labelText="Purple"
-                    color="purple"
-                    id="dcb-7"
-                    disabled
-                />
+                <div
+                    style={{
+                        display: 'flex',
+                        flexFlow: 'row wrap',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: '5px',
+                    }}
+                >
+                    <Checkbox labelText="Primary" id="dcb-1" disabled />{' '}
+                    <Checkbox labelText="Red" color="red" id="dcb-2" disabled />{' '}
+                    <Checkbox
+                        labelText="Orange"
+                        color="orange"
+                        id="dcb-3"
+                        disabled
+                    />{' '}
+                    <Checkbox
+                        labelText="Yellow"
+                        color="yellow"
+                        id="dcb-4"
+                        disabled
+                    />{' '}
+                    <Checkbox
+                        labelText="Green"
+                        color="green"
+                        id="dcb-5"
+                        disabled
+                    />{' '}
+                    <Checkbox
+                        labelText="Blue"
+                        color="blue"
+                        id="dcb-6"
+                        disabled
+                    />{' '}
+                    <Checkbox
+                        labelText="Purple"
+                        color="purple"
+                        id="dcb-7"
+                        disabled
+                    />
+                </div>
+
                 <h1 style={{ marginTop: '26px' }}>Sized Checkboxes</h1>
-                <Checkbox labelText="Small" size="small" id="scb-small" />
-                <Checkbox labelText="Default" id="scb-default" />
-                <Checkbox labelText="Large" size="large" id="scb-large" />
+                <div
+                    style={{
+                        display: 'flex',
+                        flexFlow: 'row wrap',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: '5px',
+                    }}
+                >
+                    <Checkbox labelText="Small" size="small" id="scb-small" />
+                    <Checkbox labelText="Default" id="scb-default" />
+                    <Checkbox labelText="Large" size="large" id="scb-large" />
+                </div>
             </div>
         </FlexibleSection>
     );

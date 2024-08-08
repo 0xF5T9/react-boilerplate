@@ -23,28 +23,28 @@
     display: flex;
     flex-flow: row nowrap;
     column-gap: 8px;
+}
 
-    & > a {
-        display: block;
-        width: 30px;
-        color: inherit;
-        transition: color 0.15s;
-        will-change: color;
-        cursor: pointer;
+.info-brands > a {
+    display: block;
+    width: 30px;
+    color: inherit;
+    transition: color 0.15s;
+    will-change: color;
+    cursor: pointer;
+}
 
-        &.github:hover {
-            color: #3a3a3a;
-        }
-        &.discord:hover {
-            color: #5868f2;
-        }
-        &.youtube:hover {
-            color: #ff0000;
-        }
-        &.facebook:hover {
-            color: #0866ff;
-        }
-    }
+.info-brands > a.github:hover {
+    color: #3a3a3a;
+}
+.info-brands > a.discord:hover {
+    color: #5868f2;
+}
+.info-brands > a.youtube:hover {
+    color: #ff0000;
+}
+.info-brands > a.facebook:hover {
+    color: #0866ff;
 }
 
 .link {

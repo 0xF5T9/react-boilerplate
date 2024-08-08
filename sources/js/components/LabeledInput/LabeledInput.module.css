@@ -9,23 +9,23 @@
     font-size: 1rem;
     filter: brightness(1);
     transition: all 0.15s;
+}
 
-    &.small {
-        font-size: 0.8rem;
-    }
+.input-wrapper.small {
+    font-size: 0.8rem;
+}
 
-    &.large {
-        font-size: 1.2rem;
-    }
+.input-wrapper.large {
+    font-size: 1.2rem;
+}
 
-    &:has(*:focus) {
-        outline: 2px solid var(--labeled-input-focus-color);
-    }
+.input-wrapper:has(*:focus) {
+    outline: 2px solid var(--labeled-input-focus-color);
+}
 
-    &:has(.input:disabled) {
-        opacity: 0.65;
-        pointer-events: none;
-    }
+.input-wrapper:has(.input:disabled) {
+    opacity: 0.65;
+    pointer-events: none;
 }
 
 .input-label {
@@ -51,19 +51,19 @@
     background-color: var(--labeled-input-inner-background-color-default);
     font-weight: var(--labeled-input-font-weight-default);
     transition: all 0.1s;
+}
 
-    &::selection {
-        color: var(--labeled-input-inner-background-color-default);
-        background-color: var(--labeled-input-text-color-default);
-    }
+.input-wrapper > .input::selection {
+    color: var(--labeled-input-inner-background-color-default);
+    background-color: var(--labeled-input-text-color-default);
+}
 
-    &:hover {
-        background-color: var(--labeled-input-inner-background-color-hover);
-    }
+.input-wrapper > .input:hover {
+    background-color: var(--labeled-input-inner-background-color-hover);
+}
 
-    &:focus {
-        background-color: var(--labeled-input-inner-background-color-focus);
-    }
+.input-wrapper > .input:focus {
+    background-color: var(--labeled-input-inner-background-color-focus);
 }
 
 .input-wrapper.reverse-background > .input {
@@ -72,79 +72,73 @@
         --labeled-input-inner-background-color-default-reverse
     );
     font-weight: var(--labeled-input-font-weight-reverse);
-
-    &::selection {
-        color: var(--labeled-input-inner-background-color-default-reverse);
-        background-color: var(--labeled-input-text-color-default-reverse);
-    }
-
-    &:hover {
-        background-color: var(
-            --labeled-input-inner-background-color-hover-reverse
-        );
-    }
-
-    &:focus {
-        background-color: var(
-            --labeled-input-inner-background-color-focus-reverse
-        );
-    }
 }
 
-.input-wrapper {
-    &.red {
-        background-color: var(--color-red);
+.input-wrapper.reverse-background > .input::selection {
+    color: var(--labeled-input-inner-background-color-default-reverse);
+    background-color: var(--labeled-input-text-color-default-reverse);
+}
 
-        & .input {
-            border-color: var(--color-red);
-        }
-    }
+.input-wrapper.reverse-background > .input:hover {
+    background-color: var(--labeled-input-inner-background-color-hover-reverse);
+}
 
-    &.orange {
-        background-color: var(--color-orange);
+.input-wrapper.reverse-background > .input:focus {
+    background-color: var(--labeled-input-inner-background-color-focus-reverse);
+}
 
-        & .input {
-            border-color: var(--color-orange);
-        }
-    }
+.input-wrapper.red {
+    background-color: var(--color-red);
+}
 
-    &.yellow {
-        background-color: var(--color-yellow);
+.input-wrapper.red .input {
+    border-color: var(--color-red);
+}
 
-        & .input {
-            border-color: var(--color-yellow);
-        }
-    }
+.input-wrapper.orange {
+    background-color: var(--color-orange);
+}
 
-    &.green {
-        background-color: var(--color-green);
+.input-wrapper.orange .input {
+    border-color: var(--color-orange);
+}
 
-        & .input {
-            border-color: var(--color-green);
-        }
-    }
+.input-wrapper.yellow {
+    background-color: var(--color-yellow);
+}
 
-    &.blue {
-        background-color: var(--color-blue);
+.input-wrapper.yellow .input {
+    border-color: var(--color-yellow);
+}
 
-        & .input {
-            border-color: var(--color-blue);
-        }
-    }
+.input-wrapper.green {
+    background-color: var(--color-green);
+}
 
-    &.purple {
-        background-color: var(--color-purple);
+.input-wrapper.green .input {
+    border-color: var(--color-green);
+}
 
-        & .input {
-            border-color: var(--color-purple);
-        }
-    }
+.input-wrapper.blue {
+    background-color: var(--color-blue);
+}
 
-    &.black {
-        background-color: var(--color-black);
+.input-wrapper.blue .input {
+    border-color: var(--color-blue);
+}
 
-        & .input {
-            border-color: var(--color-black);
-        }
-    }
+.input-wrapper.purple {
+    background-color: var(--color-purple);
+}
+
+.input-wrapper.purple .input {
+    border-color: var(--color-purple);
+}
+
+.input-wrapper.black {
+    background-color: var(--color-black);
+}
+
+.input-wrapper.black .input {
+    border-color: var(--color-black);
 }
