@@ -215,22 +215,6 @@
     --modal-window-text-color: var(--context-text);
     --modal-window-background-color: var(--context-background);
 
-    --button-text-color-default: var(--color-white);
-    --button-text-color-hover: var(--color-white);
-    --button-text-color-active: var(--color-white);
-    --button-text-color-dark-override: var(--color-black-bright);
-    --button-background-color-default: var(--color-primary);
-    --button-background-color-hover: var(--color-primary);
-    --button-background-color-active: var(--color-primary);
-    --button-border-color-default: var(--color-primary);
-    --button-border-color-hover: var(--color-primary);
-    --button-border-color-active: var(--color-primary);
-    --button-focus-border-color: var(--color-white);
-    --button-border-width: 2px;
-    --button-border-radius: 6px;
-    --button-padding-left-right: 10px;
-    --button-padding-top-bottom: 4px;
-
     --button-text-color-default: rgba(255, 255, 255, 0.9);
     --button-text-color-hover: rgba(255, 255, 255, 0.9);
     --button-text-color-active: rgba(255, 255, 255, 0.9);
@@ -264,6 +248,8 @@
     --input-border-color-default: var(--color-white);
     --input-border-color-hover: var(--input-border-color-default);
     --input-border-color-active: var(--input-border-color-default);
+    --input-icon-color-default: var(--text-dark);
+    --input-icon-color-focus: var(--color-primary);
     --input-border-color-focus: var(--color-primary);
     --input-border-width: 2px;
     --input-border-radius: 6px;

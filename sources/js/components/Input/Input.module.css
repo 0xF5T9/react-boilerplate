@@ -123,6 +123,17 @@ input[type='number'].input::-webkit-inner-spin-button {
         var(--input-padding-top-bottom) var(--input-padding-left-right);
 }
 
+.input-wrapper.icon-left > i,
+.input-wrapper.icon-right > i {
+    color: var(--input-icon-color-default);
+    transition: all 0.15s;
+    will-change: color;
+}
+.input-wrapper.icon-left:focus-within > i,
+.input-wrapper.icon-right:focus-within > i {
+    color: var(--input-icon-color-focus);
+}
+
 .input-wrapper.small {
     font-size: 0.8rem;
 }
