@@ -3,14 +3,14 @@
  * @description Theme components.
  */
 'use strict';
-import MonokaiPro from './MonokaiPro';
-import LightBlue from './LightBlue';
+import Light from './Light';
+import Dark from './Dark';
 
 const Themes = {
-    MonokaiPro,
-    LightBlue,
+    Light,
+    Dark,
 };
 
 export default Themes;
-export { default as MonokaiPro } from './MonokaiPro';
-export { default as LightBlue } from './LightBlue';
+export { default as Light } from './Light';
+export { default as Dark } from './Dark';

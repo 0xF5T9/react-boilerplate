@@ -1,9 +1,9 @@
 /**
  * @file index.tsx
- * @description Monokai pro theme component.
+ * @description Dark theme component.
  */
 'use strict';
-import css from '!!raw-loader!./MonokaiPro.css';
+import css from '!!raw-loader!./Dark.css';
 
 function Theme() {
     return <style>{`${css}`}</style>;

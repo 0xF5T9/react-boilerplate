@@ -19,7 +19,7 @@ const globalContext = createContext(null);
  * @returns Returns the component.
  */
 function GlobalProvider({ children }: { children: ReactNode }) {
-    const [theme, setTheme] = useState('monokai-pro'),
+    const [theme, setTheme] = useState('dark'),
         [deviceType, setDeviceType] = useState(() => ({
             deviceType:
                 window.innerWidth >= 1024
@@ -33,12 +33,15 @@ function GlobalProvider({ children }: { children: ReactNode }) {
 
     let Theme;
     switch (theme) {
-        case 'monokai-pro':
-            Theme = Themes['MonokaiPro'];
+        case 'light':
+            Theme = Themes['Light'];
             break;
-        case 'light-blue':
-            Theme = Themes['LightBlue'];
+        case 'dark':
+            Theme = Themes['Dark'];
             break;
+        default:
+            console.warn('Unknown theme name detected, fallback to default.');
+            Theme = Themes['Dark'];
     }
 
     useEffect(() => {
