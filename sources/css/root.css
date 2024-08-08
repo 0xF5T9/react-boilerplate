@@ -421,6 +421,25 @@ select {
     font-family: var(--general-font-family);
 }
 
+table {
+    border: 1px solid;
+    border-collapse: collapse;
+
+    & th,
+    & td {
+        padding: 10px;
+        border: 1px solid;
+    }
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus {
+    outline: 0;
+}
+
 ::selection {
     color: var(--color-black);
     background-color: var(--color-white);
@@ -451,15 +470,4 @@ select {
 
 ::-ms-input-placeholder {
     color: var(--color-gray);
-}
-
-table {
-    border: 1px solid;
-    border-collapse: collapse;
-
-    & th,
-    & td {
-        padding: 10px;
-        border: 1px solid;
-    }
 }
