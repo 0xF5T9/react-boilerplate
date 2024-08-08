@@ -11,6 +11,7 @@ const Dotenv = require('dotenv-webpack'); // Dotenv: Enable support for environm
 console.log('Using Webpack production configuration ...');
 
 module.exports = {
+    target: ['web', 'es5'],
     entry: {
         style: './sources/js/style.ts',
         index: './sources/js/entry.tsx',
