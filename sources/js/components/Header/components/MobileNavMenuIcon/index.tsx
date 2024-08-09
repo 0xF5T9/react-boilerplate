@@ -244,7 +244,7 @@ function MobileNavMenuIcon() {
                         },
                     ],
                 }}
-                onClickOutside={handleBackgroundClick}
+                // onClickOutside={handleBackgroundClick}
                 customAnimation={{
                     classIn: styles['animation-in'],
                     classOut: styles['animation-out'],
