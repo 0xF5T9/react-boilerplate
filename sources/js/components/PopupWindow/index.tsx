@@ -24,6 +24,7 @@ import * as styles from './PopupWindow.module.css';
  * @param props.placement Tippy 'placement' prop.
  * @param props.onClickOutside Tippy 'onClickOutside' prop.
  * @param props.popperOptions Tippy 'popperOptions' prop.
+ * @param props.appendTo Tippy 'appendTo' prop.
  * @note This component utilize Tippy onMount, onHide callbacks to handle popup animation logics.
  *       Use 'onMount' & 'onHide' props to add additional callbacks if needed.
  * @returns Returns the component.
@@ -41,6 +42,7 @@ function PopupWindow({
     placement,
     onClickOutside,
     popperOptions,
+    appendTo,
 }: {
     children?: any;
     render?: any;
@@ -58,6 +60,7 @@ function PopupWindow({
     placement?: any;
     onClickOutside?: any;
     popperOptions?: any;
+    appendTo?: any;
 }) {
     function onPopupMount(instance: any) {
         const popup = instance.popper.firstElementChild;
@@ -123,6 +126,7 @@ function PopupWindow({
             placement={placement}
             onClickOutside={onClickOutside}
             popperOptions={popperOptions}
+            appendTo={appendTo}
         >
             {children}
         </Tippy>
@@ -139,6 +143,13 @@ PopupWindow.propTypes = {
         classOut: PropTypes.string.isRequired,
         outAnimationName: PropTypes.string.isRequired,
     }),
+    interactive: PropTypes.any,
+    visible: PropTypes.any,
+    offset: PropTypes.any,
+    placement: PropTypes.any,
+    onClickOutside: PropTypes.any,
+    popperOptions: PropTypes.any,
+    appendTo: PropTypes.any,
 };
 
 export default PopupWindow;
