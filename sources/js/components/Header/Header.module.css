@@ -12,6 +12,7 @@
     padding: 0px 5px;
     background-color: var(--header-background-color);
     box-shadow: 0px 0px 4px 2px var(--header-shadow-color);
+    backdrop-filter: var(--header-backdrop-filter, none);
     overflow: visible;
     z-index: 100;
 }

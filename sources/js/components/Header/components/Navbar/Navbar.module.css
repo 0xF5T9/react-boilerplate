@@ -120,6 +120,7 @@
     border-radius: var(--navbar-sublist-border-radius);
     background-color: var(--navbar-sublist-background-color);
     box-shadow: 0px 0px 4px 2px var(--navbar-sublist-shadow-color);
+    backdrop-filter: var(--navbar-sublist-backdrop-filter, none);
     visibility: collapse;
     opacity: 0;
     z-index: 1;
