@@ -31,36 +31,36 @@
     --color-purple-darker: #998cd9;
     --color-purple-vibrant: #7058e9;
 
-    --text-light: #333333;
-    --text-light-hover: #333333;
-    --text-light-highlight: #231f20;
-    --text-light-dim: #333333;
-    --background-light: #ffffff;
-    --background-light-highlight: #e8ebed;
-    --shadow-light: #e8ebed;
+    --text-light: blue;
+    --text-light-hover: blue;
+    --text-light-highlight: blue;
+    --text-light-dim: blue;
+    --background-light: blue;
+    --background-light-highlight: blue;
+    --shadow-light: blue;
 
-    --context-text-light: #333333;
-    --context-text-light-hover: #333333;
-    --context-text-light-highlight: var(--color-blue-vibrant);
-    --context-text-light-dim: rgb(138, 156, 164);
-    --context-background-light: #fcfcfd;
-    --context-background-light-highlight: #e8ebed;
-    --context-shadow-light: rgba(24, 24, 33, 0.09);
+    --context-text-light: blue;
+    --context-text-light-hover: blue;
+    --context-text-light-highlight: blue;
+    --context-text-light-dim: blue;
+    --context-background-light: blue;
+    --context-background-light-highlight: blue;
+    --context-shadow-light: blue;
 
-    --text-dark: var(--color-white);
-    --text-dark-hover: var(--color-white);
-    --text-dark-highlight: var(--color-yellow);
-    --text-dark-dim: var(--color-gray);
+    --text-dark: #f7f7f7;
+    --text-dark-hover: #f7f7f7;
+    --text-dark-highlight: #fc9a69;
+    --text-dark-dim: #797779;
     --background-dark: #221f22;
-    --background-dark-highlight: #333234;
+    --background-dark-highlight: rgba(56, 53, 56, 0.45);
     --shadow-dark: rgba(34, 31, 34, 0.4);
 
-    --context-text-dark: var(--color-white);
-    --context-text-dark-hover: var(--color-white);
-    --context-text-dark-highlight: var(--color-yellow);
-    --context-text-dark-dim: var(--color-gray);
+    --context-text-dark: #f7f7f7;
+    --context-text-dark-hover: #f7f7f7;
+    --context-text-dark-highlight: #fc9a69;
+    --context-text-dark-dim: #797779;
     --context-background-dark: #2d2a2e;
-    --context-background-dark-highlight: #383539;
+    --context-background-dark-highlight: rgba(56, 53, 57, 0.45);
     --context-shadow-dark: rgba(34, 31, 34, 0.4);
 
     --color-primary: var(--color-orange);
@@ -75,15 +75,14 @@
 
     /* Component variables */
     --header-height: 56.8px;
-    --header-background-color: var(--background-dark);
+    --header-background-color: rgba(34, 31, 34, 0.8);
     --header-shadow-color: rgba(34, 31, 34, 0.4);
+    --header-shadow-color: rgba(0, 0, 0, 0.05);
     --header-text-color: var(--text-dark-dim);
     --header-brand-text: var(--text-dark);
 
     --header-icon-button-icon-color-default: var(--text-dark-dim);
-    --header-icon-button-background-color-default: var(
-        --header-background-color
-    );
+    --header-icon-button-background-color-default: var(rgba(34, 31, 34, 0));
     --header-icon-button-icon-color-hover: var(--text-dark-hover);
     --header-icon-button-background-color-hover: var(
         --background-dark-highlight
@@ -93,13 +92,14 @@
         --background-dark-highlight
     );
     --header-icon-button-icon-color-open: var(--text-dark-hover);
+    --header-backdrop-filter: blur(4px);
 
     --footer-height: 140px;
     --footer-background-color: var(--background-dark);
     --footer-text-color: var(--text-dark-dim);
     --footer-border-top: 2px solid rgba(0, 0, 0, 0.05);
 
-    --navbar-item-background-color-default: var(--background-dark);
+    --navbar-item-background-color-default: rgba(34, 31, 34, 0);
     --navbar-item-background-color-hover: var(--background-dark-highlight);
     --navbar-item-background-color-active: var(--background-dark-highlight);
     --navbar-item-background-color-link-active: var(
@@ -115,7 +115,7 @@
     --navbar-item-text-color-link-active: var(--text-dark-highlight);
     --navbar-item-text-color-link-pending: var(--navbar-item-text-color-hover);
 
-    --navbar-subitem-background-color-default: var(--context-background-dark);
+    --navbar-subitem-background-color-default: rgba(45, 42, 46, 0);
     --navbar-subitem-background-color-hover: var(
         --context-background-dark-highlight
     );
@@ -137,13 +137,15 @@
     );
     --navbar-subitem-desc-text-default: var(--context-text-dark-dim);
 
-    --navbar-sublist-background-color: var(--context-background-dark);
+    --navbar-sublist-background-color: rgba(45, 42, 46, 0.9);
     --navbar-sublist-border-color: transparent;
     --navbar-sublist-border-width: 0px;
     --navbar-sublist-border-radius: 10px;
     --navbar-sublist-shadow-color: rgba(34, 31, 34, 0.4);
+    --navbar-sublist-backdrop-filter: blur(4px);
 
     --mobile-navbar-blur-layer-background-color: rgba(34, 31, 34, 0.8);
+    --mobile-navbar-blur-layer-backdrop-filter: blur(10px);
     --mobile-navbar-background-color: var(--context-background-dark);
     --mobile-navbar-shadow-color: rgba(34, 31, 34, 0.4);
     --mobile-navbar-close-color-default: var(--context-text-dark-dim);
@@ -216,8 +218,8 @@
     --button-text-color-dark-override: var(--color-black);
     --button-background-color-default: linear-gradient(
         0deg,
-        rgba(252, 155, 106, 1) 0%,
-        rgba(252, 178, 105, 1) 100%
+        #fc7f69 0%,
+        #fc9a69 100%
     );
     --button-background-color-hover: var(--button-background-color-default);
     --button-background-color-active: var(--button-background-color-default);
@@ -287,12 +289,8 @@
     --labeled-input-inner-background-color-default: var(
         --context-background-dark
     );
-    --labeled-input-inner-background-color-hover: var(
-        --context-background-dark-highlight
-    );
-    --labeled-input-inner-background-color-focus: var(
-        --context-background-dark-highlight
-    );
+    --labeled-input-inner-background-color-hover: #383539;
+    --labeled-input-inner-background-color-focus: #383539;
     --labeled-input-background-color-default: var(--color-primary);
     --labeled-input-border-color-default: var(--color-primary);
     --labeled-input-focus-color: var(--context-text-dark);
@@ -321,12 +319,8 @@
     --labeled-select-inner-background-color-default: var(
         --context-background-dark
     );
-    --labeled-select-inner-background-color-hover: var(
-        --context-background-dark-highlight
-    );
-    --labeled-select-inner-background-color-focus: var(
-        --context-background-dark-highlight
-    );
+    --labeled-select-inner-background-color-hover: #383539;
+    --labeled-select-inner-background-color-focus: #383539;
     --labeled-select-background-color-default: var(--color-primary);
     --labeled-select-border-color-default: var(--color-primary);
     --labeled-select-focus-color: var(--context-text-dark);
@@ -361,9 +355,10 @@
     --general-body-background-color: var(--color-black);
     --general-body-background-gradient-color: linear-gradient(
         to bottom,
-        rgba(45, 42, 46, 0.8),
-        rgba(45, 42, 46, 0.8)
+        #221f22,
+        #221f22
     );
+    --general-body-background-backdrop-filter: blur(6px);
 }
 
 ::selection {

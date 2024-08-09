@@ -93,6 +93,7 @@
         --background-light-highlight
     );
     --header-icon-button-icon-color-open: var(--text-light-hover);
+    --header-backdrop-filter: none;
 
     --footer-height: 140px;
     --footer-background-color: #f9f5f3;
@@ -144,8 +145,10 @@
     --navbar-sublist-border-width: 0px;
     --navbar-sublist-border-radius: 10px;
     --navbar-sublist-shadow-color: var(--context-shadow-light);
+    --navbar-sublist-backdrop-filter: none;
 
     --mobile-navbar-blur-layer-background-color: #0006;
+    --mobile-navbar-blur-layer-backdrop-filter: blur(10px);
     --mobile-navbar-background-color: var(--context-background-light);
     --mobile-navbar-shadow-color: #00000033;
     --mobile-navbar-close-color-default: var(--context-text-light-dim);
@@ -349,6 +352,7 @@
         #f9f5f3,
         #f9f5f3
     );
+    --general-body-background-backdrop-filter: none;
 }
 
 html {
