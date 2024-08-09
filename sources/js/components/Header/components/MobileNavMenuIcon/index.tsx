@@ -233,6 +233,7 @@ function MobileNavMenuIcon() {
         <div>
             <PopupWindow
                 interactive
+                appendTo={document.getElementById('app')}
                 visible={showPopup}
                 popperOptions={{
                     strategy: 'fixed',

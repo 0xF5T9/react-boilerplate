@@ -20,7 +20,7 @@
     position: fixed;
     top: var(--toast-container-top-right-margin);
     right: var(--toast-container-top-right-margin);
-    z-index: 100;
+    z-index: 10000;
 }
 
 .toast {
