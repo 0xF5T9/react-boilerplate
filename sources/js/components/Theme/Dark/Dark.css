@@ -217,8 +217,8 @@
     --button-text-color-active: rgba(255, 255, 255, 0.9);
     --button-text-color-dark-override: var(--color-black);
     --button-background-color-default: linear-gradient(
-        0deg,
-        #fc7f69 0%,
+        90deg,
+        #f08764 0%,
         #fc9a69 100%
     );
     --button-background-color-hover: var(--button-background-color-default);
