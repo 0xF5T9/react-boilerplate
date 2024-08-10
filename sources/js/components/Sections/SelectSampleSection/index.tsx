@@ -16,7 +16,7 @@ function SelectSampleSection() {
         <FlexibleSection
             style={{
                 display: 'flex',
-                flexFlow: 'columm nowrap',
+                flexFlow: 'column nowrap',
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: '50px 20px',
