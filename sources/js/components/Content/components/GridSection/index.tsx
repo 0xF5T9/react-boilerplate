@@ -17,6 +17,7 @@ import * as styles from './GridSection.module.css';
  * @param props.fixedHeight Specifies a fixed height for the section.
  * @param props.dynamicHeight Make the section's height determined by its content.
  *                                      By default, the section's height is scaled to fit the remaining space of the content wrapper.
+ * @param props.noAnimation Disable section animation.
  * @param props.style Style object.
  * @param props.children Component children.
  * @returns Returns the component.
@@ -25,18 +26,21 @@ function GridSection({
     wide,
     fixedHeight,
     dynamicHeight,
+    noAnimation = false,
     style,
     children,
 }: {
     wide?: boolean;
     fixedHeight?: number;
     dynamicHeight?: boolean;
+    noAnimation?: boolean;
     style?: Record<string, unknown> & { height?: string };
     children?: ReactNode;
 }) {
     const classes = `${styles['section']}
                     ${wide ? 'wide' : ''}
                     ${fixedHeight || dynamicHeight ? styles['dynamic-height'] : ''}
+                    ${noAnimation ? styles['no-animation'] : ''}
                     grid`;
     if (fixedHeight) {
         if (!style) style = {};
@@ -53,6 +57,7 @@ GridSection.propTypes = {
     wide: PropTypes.bool,
     fixedHeight: PropTypes.number,
     dynamicHeight: PropTypes.bool,
+    noAnimation: PropTypes.bool,
     style: PropTypes.object,
     children: PropTypes.node,
 };
@@ -66,6 +71,7 @@ GridSection.propTypes = {
  * @param props.grid Specifies whether to make this section a grid layout '.grid'.
  * @param props.wide Specifies whether to use wide grid.
  * @param props.noGutters Specifies whether to remove default gutters.
+ * @param props.noAnimation Disable section animation.
  * @param props.style Additional style object for section.
  * @param props.children Component children.
  * @returns Returns the component.
@@ -76,6 +82,7 @@ function DynamicSection({
     grid,
     wide,
     noGutters,
+    noAnimation = false,
     style,
     children,
 }: {
@@ -84,6 +91,7 @@ function DynamicSection({
     grid?: boolean;
     wide?: boolean;
     noGutters?: boolean;
+    noAnimation?: boolean;
     style?: any;
     children?: ReactNode;
 }) {
@@ -91,7 +99,10 @@ function DynamicSection({
                     ${className || ''}
                     ${grid ? (wide ? 'grid wide' : 'grid') : ''}`;
     return (
-        <GridSection style={{ display: 'flex', flexGrow: '0' }}>
+        <GridSection
+            style={{ display: 'flex', flexGrow: '0' }}
+            noAnimation={noAnimation}
+        >
             <Row
                 noGutters={noGutters}
                 style={{
@@ -111,6 +122,8 @@ DynamicSection.propTypes = {
     className: PropTypes.string,
     grid: PropTypes.bool,
     wide: PropTypes.bool,
+    noGutters: PropTypes.bool,
+    noAnimation: PropTypes.bool,
     style: PropTypes.object,
     children: PropTypes.node,
 };
@@ -125,6 +138,7 @@ DynamicSection.propTypes = {
  * @param props.grid Specifies whether to make this section a grid layout '.grid'.
  * @param props.wide Specifies whether to use wide grid.
  * @param props.noGutters Specifies whether to remove default gutters.
+ * @param props.noAnimation Disable section animation.
  * @param props.style Additional style object for section.
  * @param props.children Component children.
  * @returns Returns the component.
@@ -136,6 +150,7 @@ function FixedSection({
     grid,
     wide,
     noGutters,
+    noAnimation = false,
     style,
     children,
 }: {
@@ -145,6 +160,7 @@ function FixedSection({
     grid?: boolean;
     wide?: boolean;
     noGutters?: boolean;
+    noAnimation?: boolean;
     style?: object;
     children?: ReactNode;
 }) {
@@ -152,7 +168,11 @@ function FixedSection({
                     ${className || ''}
                     ${grid ? (wide ? 'grid wide' : 'grid') : ''}`;
     return (
-        <GridSection fixedHeight={height} style={{ display: 'flex' }}>
+        <GridSection
+            fixedHeight={height}
+            style={{ display: 'flex' }}
+            noAnimation={noAnimation}
+        >
             <Row
                 noGutters={noGutters}
                 style={{
@@ -173,6 +193,8 @@ FixedSection.propTypes = {
     height: PropTypes.number.isRequired,
     grid: PropTypes.bool,
     wide: PropTypes.bool,
+    noGutters: PropTypes.bool,
+    noAnimation: PropTypes.bool,
     style: PropTypes.object,
     children: PropTypes.node,
 };
@@ -186,6 +208,7 @@ FixedSection.propTypes = {
  * @param {Boolean} props.grid Specifies whether to make this section a grid layout '.grid'.
  * @param {Boolean} props.wide Specifies whether to use wide grid.
  * @param {Boolean} props.noGutters Specifies whether to remove default gutters.
+ * @param props.noAnimation Disable section animation.
  * @param {Object} props.style Additional style object for section.
  * @param {*} props.children Component children.
  * @returns Returns the component.
@@ -196,6 +219,7 @@ function FlexibleSection({
     grid,
     wide,
     noGutters,
+    noAnimation = false,
     style,
     children,
 }: {
@@ -204,6 +228,7 @@ function FlexibleSection({
     grid?: boolean;
     wide?: boolean;
     noGutters?: boolean;
+    noAnimation?: boolean;
     style?: object;
     children?: ReactNode;
 }) {
@@ -211,7 +236,7 @@ function FlexibleSection({
                     ${className || ''}
                     ${grid ? (wide ? 'grid wide' : 'grid') : ''}`;
     return (
-        <GridSection style={{ display: 'flex' }}>
+        <GridSection style={{ display: 'flex' }} noAnimation={noAnimation}>
             <Row
                 noGutters={noGutters}
                 style={{
@@ -231,6 +256,8 @@ FlexibleSection.propTypes = {
     className: PropTypes.string,
     grid: PropTypes.bool,
     wide: PropTypes.bool,
+    noGutters: PropTypes.bool,
+    noAnimation: PropTypes.bool,
     style: PropTypes.object,
     children: PropTypes.node,
 };
