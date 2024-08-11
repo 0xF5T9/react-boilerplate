@@ -1,7 +1,7 @@
 .components-section {
     --card-text-color-default: var(--text-light);
     --card-text-color-hover: var(--text-light-highlight);
-    --card-background-color-default: var(--background-light);
+    --card-background-color-default: rgba(247, 247, 247, 0.5);
     --card-background-color-hover: linear-gradient(
         0deg,
         rgba(64, 162, 230, 0.05) 0%,
@@ -14,7 +14,7 @@
 .components-section:global(.dark) {
     --card-text-color-default: var(--text-dark);
     --card-text-color-hover: var(--text-dark-highlight);
-    --card-background-color-default: var(--background-dark);
+    --card-background-color-default: rgba(34, 31, 34, 0.5);
     --card-background-color-hover: linear-gradient(
         0deg,
         rgba(252, 155, 106, 0.05) 0%,
