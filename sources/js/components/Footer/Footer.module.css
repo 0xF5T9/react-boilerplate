@@ -13,6 +13,7 @@
     color: var(--footer-text-color);
     background-color: var(--footer-background-color);
     overflow: hidden;
+    box-shadow: 0 0 1px 1px transparent;
 }
 
 .copyright-text {
