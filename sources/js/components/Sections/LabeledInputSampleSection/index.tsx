@@ -31,7 +31,7 @@ function LabeledInputSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        gap: '5px',
+                        gap: '6px',
                     }}
                 >
                     <LabeledInput label="Primary" width={250} labelWidth={72} />
@@ -80,7 +80,7 @@ function LabeledInputSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        gap: '5px',
+                        gap: '6px',
                     }}
                 >
                     <LabeledInput
@@ -147,7 +147,7 @@ function LabeledInputSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        gap: '6px',
                     }}
                 >
                     <LabeledInput label="Small" size="small" width={150} />

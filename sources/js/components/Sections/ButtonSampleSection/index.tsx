@@ -39,7 +39,7 @@ function ButtonSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '4px',
+                        gap: '6px',
                     }}
                 >
                     <Button>Primary</Button>{' '}
@@ -59,7 +59,7 @@ function ButtonSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '4px',
+                        gap: '6px',
                     }}
                 >
                     <Button disabled>Primary</Button>{' '}
@@ -91,7 +91,7 @@ function ButtonSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '4px',
+                        gap: '6px',
                     }}
                 >
                     <Button color="success">
@@ -110,7 +110,7 @@ function ButtonSampleSection() {
                         color="gray"
                         style={{
                             display: 'inline-flex',
-                            columnGap: '4px',
+                            columngap: '6px',
                             verticalAlign: 'bottom',
                         }}
                     >
@@ -133,7 +133,7 @@ function ButtonSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '4px',
+                        gap: '6px',
                     }}
                 >
                     <Button size="small">Small</Button>
@@ -149,7 +149,7 @@ function ButtonSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '4px',
+                        gap: '6px',
                     }}
                 >
                     <Button

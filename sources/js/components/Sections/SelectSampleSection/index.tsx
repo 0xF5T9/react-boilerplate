@@ -32,7 +32,7 @@ function SelectSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        gap: '6px',
                     }}
                 >
                     <Select>
@@ -80,7 +80,7 @@ function SelectSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        gap: '6px',
                     }}
                 >
                     <Select disabled>
@@ -128,7 +128,7 @@ function SelectSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        gap: '6px',
                     }}
                 >
                     <Select size="small">

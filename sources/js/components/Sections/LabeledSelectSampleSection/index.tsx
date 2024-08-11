@@ -31,7 +31,7 @@ function LabeledSelectSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        gap: '5px',
+                        gap: '6px',
                     }}
                 >
                     <LabeledSelect label="Primary" width={250} labelWidth={72}>
@@ -114,7 +114,7 @@ function LabeledSelectSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        gap: '5px',
+                        gap: '6px',
                     }}
                 >
                     <LabeledSelect
@@ -209,7 +209,7 @@ function LabeledSelectSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        gap: '6px',
                     }}
                 >
                     <LabeledSelect label="Small" size="small">

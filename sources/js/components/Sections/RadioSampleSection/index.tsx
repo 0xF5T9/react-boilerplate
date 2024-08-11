@@ -32,7 +32,8 @@ function RadioSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        columnGap: '5px',
+                        rowGap: '10px',
                     }}
                 >
                     {' '}
@@ -95,7 +96,8 @@ function RadioSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        columnGap: '5px',
+                        rowGap: '10px',
                     }}
                 >
                     <Radio
@@ -164,7 +166,8 @@ function RadioSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        columnGap: '5px',
+                        rowGap: '10px',
                     }}
                 >
                     <Radio

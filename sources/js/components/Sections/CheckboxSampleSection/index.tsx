@@ -32,7 +32,8 @@ function CheckboxSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        columnGap: '5px',
+                        rowGap: '10px',
                     }}
                 >
                     <Checkbox labelText="Primary" id="cb-1" />{' '}
@@ -52,7 +53,8 @@ function CheckboxSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        columnGap: '5px',
+                        rowGap: '10px',
                     }}
                 >
                     <Checkbox labelText="Primary" id="dcb-1" disabled />{' '}
@@ -98,7 +100,8 @@ function CheckboxSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '5px',
+                        columnGap: '5px',
+                        rowGap: '10px',
                     }}
                 >
                     <Checkbox labelText="Small" size="small" id="scb-small" />

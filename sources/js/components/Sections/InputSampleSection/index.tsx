@@ -31,7 +31,7 @@ function InputSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        rowGap: '5px',
+                        rowGap: '6px',
                     }}
                 >
                     <Input
@@ -93,10 +93,18 @@ function InputSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        rowGap: '5px',
+                        rowGap: '6px',
                     }}
                 >
-                    <div>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexFlow: 'row wrap',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            gap: '6px',
+                        }}
+                    >
                         <Input
                             type="email"
                             icon={{
@@ -116,7 +124,15 @@ function InputSampleSection() {
                             inputStyle={{ width: '250px' }}
                         />
                     </div>
-                    <div>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexFlow: 'row wrap',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            gap: '6px',
+                        }}
+                    >
                         <Input
                             type="text"
                             icon={{
@@ -145,7 +161,7 @@ function InputSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        rowGap: '5px',
+                        rowGap: '6px',
                     }}
                 >
                     <div>
