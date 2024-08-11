@@ -76,10 +76,10 @@
     /* Component variables */
     --header-height: 56.8px;
     --header-background-color: rgba(34, 31, 34, 0.8);
-    --header-shadow-color: rgba(34, 31, 34, 0.4);
     --header-shadow-color: rgba(0, 0, 0, 0.05);
     --header-text-color: var(--text-dark-dim);
     --header-brand-text: var(--text-dark);
+    --header-backdrop-filter: blur(4px);
 
     --header-icon-button-icon-color-default: var(--text-dark-dim);
     --header-icon-button-background-color-default: var(rgba(34, 31, 34, 0));
@@ -92,7 +92,6 @@
         --background-dark-highlight
     );
     --header-icon-button-icon-color-open: var(--text-dark-hover);
-    --header-backdrop-filter: blur(4px);
 
     --footer-height: 140px;
     --footer-background-color: var(--background-dark);
@@ -155,10 +154,14 @@
     );
     --mobile-navbar-section-title-text-color: var(--context-text-dark-dim);
     --mobile-navbar-item-text-color-default: var(--context-text-dark);
-    --mobile-navbar-item-background-color-default: transparent;
+    --mobile-navbar-item-background-color-default: rgba(45, 42, 46, 0);
+    --mobile-navbar-item-background-color-hover: var(
+        --context-background-dark-highlight
+    );
     --mobile-navbar-item-background-color-highlight: var(
         --context-background-dark-highlight
     );
+    --mobile-navbar-item-text-color-hover: hsl(25, 96%, 75%);
     --mobile-navbar-item-text-color-highlight: var(
         --context-text-dark-highlight
     );
@@ -173,9 +176,7 @@
     --popup-window-shadow-color: var(--context-shadow-dark);
 
     --context-item-text-color-highlight: var(--context-text-dark-highlight);
-    --context-item-background-color-highlight: var(
-        --context-background-dark-highlight
-    );
+    --context-item-background-color-highlight: #322f33;
 
     --context-text: var(--context-text-dark);
     --context-text-hover: var(--context-text-dark-hover);
@@ -359,7 +360,7 @@
         #221f22,
         #221f22
     );
-    --general-body-background-backdrop-filter: blur(6px);
+    --general-body-background-backdrop-filter: none;
 }
 
 ::selection {

@@ -31,29 +31,29 @@
     --color-purple-darker: #998cd9;
     --color-purple-vibrant: #7058e9;
 
-    --text-light: #333333;
-    --text-light-hover: #333333;
+    --text-light: #231f20;
+    --text-light-hover: #231f20;
     --text-light-highlight: var(--color-primary);
     --text-light-dim: #5b5a5a;
-    --background-light: #f9f5f3;
-    --background-light-highlight: #e8ebed;
+    --background-light: #f7f7f7;
+    --background-light-highlight: rgba(64, 162, 230, 0.2);
     --shadow-light: #00000033;
 
-    --context-text-light: #333333;
-    --context-text-light-hover: #333333;
+    --context-text-light: #231f20;
+    --context-text-light-hover: #231f20;
     --context-text-light-highlight: var(--color-primary);
-    --context-text-light-dim: #6b6b6b;
+    --context-text-light-dim: #5b5a5a;
     --context-background-light: #f4f4f4;
-    --context-background-light-highlight: #e8ebed;
+    --context-background-light-highlight: rgba(64, 162, 230, 0.15);
     --context-shadow-light: #00000033;
 
-    --text-dark: #f9f5f3;
-    --text-dark-hover: #f9f5f3;
-    --text-dark-highlight: #f9f5f3;
-    --text-dark-dim: #f9f5f3;
-    --background-dark: #333333;
+    --text-dark: #f7f7f7;
+    --text-dark-hover: #f7f7f7;
+    --text-dark-highlight: #f7f7f7;
+    --text-dark-dim: #f7f7f7;
+    --background-dark: #231f20;
     --background-dark-highlight: #6b6b6b;
-    --shadow-dark: #3333333c;
+    --shadow-dark: rgba(35, 31, 32, 0.25);
 
     --context-text-dark: blue;
     --context-text-dark-hover: blue;
@@ -75,33 +75,27 @@
 
     /* Component variables */
     --header-height: 56.8px;
-    --header-background-color: var(--background-light);
+    --header-background-color: rgba(247, 247, 247, 0.8);
     --header-shadow-color: var(--shadow-light);
-    --header-text-color: var(--text-light-dim);
+    --header-text-color: var(--text-light);
     --header-brand-text: var(--text-light);
+    --header-backdrop-filter: blur(4px);
 
-    --header-icon-button-icon-color-default: var(--text-light-dim);
-    --header-icon-button-background-color-default: var(
-        --header-background-color
-    );
+    --header-icon-button-icon-color-default: var(--text-light);
+    --header-icon-button-background-color-default: rgba(247, 247, 247, 0);
     --header-icon-button-icon-color-hover: var(--text-light-hover);
-    --header-icon-button-background-color-hover: var(
-        --background-light-highlight
-    );
+    --header-icon-button-background-color-hover: rgba(211, 211, 211, 0.6);
     --header-icon-button-icon-color-active: var(--text-light-hover);
-    --header-icon-button-background-color-active: var(
-        --background-light-highlight
-    );
+    --header-icon-button-background-color-active: rgba(211, 211, 211, 0.6);
     --header-icon-button-icon-color-open: var(--text-light-hover);
-    --header-backdrop-filter: none;
 
     --footer-height: 140px;
-    --footer-background-color: #f9f5f3;
+    --footer-background-color: #f7f7f7;
     --footer-text-color: var(--text-light);
     --footer-border-top: 2px solid rgba(0, 0, 0, 0.1);
 
-    --navbar-item-background-color-default: var(--background-light);
-    --navbar-item-background-color-hover: var(--background-light-highlight);
+    --navbar-item-background-color-default: rgba(247, 247, 247, 0);
+    --navbar-item-background-color-hover: rgba(64, 162, 230, 0.1);
     --navbar-item-background-color-active: var(--background-light-highlight);
     --navbar-item-background-color-link-active: var(
         --background-light-highlight
@@ -111,12 +105,12 @@
     );
 
     --navbar-item-text-color-default: var(--text-light);
-    --navbar-item-text-color-hover: var(--text-light);
-    --navbar-item-text-color-active: var(--text-light);
+    --navbar-item-text-color-hover: rgba(64, 162, 230, 1);
+    --navbar-item-text-color-active: rgba(64, 162, 230, 1);
     --navbar-item-text-color-link-active: var(--text-light-highlight);
     --navbar-item-text-color-link-pending: var(--navbar-item-text-color-hover);
 
-    --navbar-subitem-background-color-default: var(--context-background-light);
+    --navbar-subitem-background-color-default: rgba(244, 244, 244, 0);
     --navbar-subitem-background-color-hover: var(
         --context-background-light-highlight
     );
@@ -140,12 +134,12 @@
     );
     --navbar-subitem-desc-text-default: var(--context-text-light-dim);
 
-    --navbar-sublist-background-color: var(--context-background-light);
+    --navbar-sublist-background-color: rgba(244, 244, 244, 0.8);
     --navbar-sublist-border-color: transparent;
     --navbar-sublist-border-width: 0px;
     --navbar-sublist-border-radius: 10px;
     --navbar-sublist-shadow-color: var(--context-shadow-light);
-    --navbar-sublist-backdrop-filter: none;
+    --navbar-sublist-backdrop-filter: blur(4px);
 
     --mobile-navbar-blur-layer-background-color: #0006;
     --mobile-navbar-blur-layer-backdrop-filter: blur(10px);
@@ -153,20 +147,14 @@
     --mobile-navbar-shadow-color: #00000033;
     --mobile-navbar-close-color-default: var(--context-text-light-dim);
     --mobile-navbar-close-color-hover: var(--context-text-light);
-    --mobile-navbar-close-background-color-highlight: var(
-        --context-background-light-highlight
-    );
+    --mobile-navbar-close-background-color-highlight: rgba(211, 211, 211, 0.5);
     --mobile-navbar-section-title-text-color: var(--context-text-light-dim);
     --mobile-navbar-item-text-color-default: var(--context-text-light);
-    --mobile-navbar-item-background-color-default: var(
-        --context-background-light
-    );
-    --mobile-navbar-item-background-color-highlight: var(
-        --context-background-light-highlight
-    );
-    --mobile-navbar-item-text-color-highlight: var(
-        --context-text-light-highlight
-    );
+    --mobile-navbar-item-background-color-default: rgba(228, 238, 245, 0);
+    --mobile-navbar-item-background-color-hover: #e4eef5;
+    --mobile-navbar-item-background-color-highlight: #d3e6f4;
+    --mobile-navbar-item-text-color-hover: #40a2e6;
+    --mobile-navbar-item-text-color-highlight: #40a2e6;
     --mobile-navbar-item-desc-text-color: var(--context-text-light-dim);
 
     --popup-window-text-color: var(--context-text-light);
@@ -177,10 +165,8 @@
     --popup-window-border-radius: 4px;
     --popup-window-shadow-color: var(--context-shadow-light);
 
-    --context-item-text-color-highlight: var(--context-text-light-highlight);
-    --context-item-background-color-highlight: var(
-        --context-background-light-highlight
-    );
+    --context-item-text-color-highlight: var(--context-text-light);
+    --context-item-background-color-highlight: #e8e8e8;
 
     --context-text: var(--context-text-light);
     --context-text-hover: var(--context-text-light-hover);
@@ -348,12 +334,12 @@
     --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
         'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
         'Segoe UI Emoji';
-    --general-text-color: #333333;
-    --general-body-background-color: #f9f5f3;
+    --general-text-color: #231f20;
+    --general-body-background-color: #f7f7f7;
     --general-body-background-gradient-color: linear-gradient(
         to bottom,
-        #f9f5f3,
-        #f9f5f3
+        #f7f7f7,
+        #f7f7f7
     );
     --general-body-background-backdrop-filter: none;
 }
