@@ -110,8 +110,8 @@ function ButtonSampleSection() {
                         color="gray"
                         style={{
                             display: 'inline-flex',
-                            columngap: '6px',
-                            verticalAlign: 'bottom',
+                            columnGap: '6px',
+                            // verticalAlign: 'bottom',
                         }}
                     >
                         <MLLoading
