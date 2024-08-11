@@ -14,6 +14,7 @@ import Radio from '../../Radio';
 function RadioSampleSection() {
     return (
         <FlexibleSection
+            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -24,7 +25,7 @@ function RadioSampleSection() {
             }}
         >
             <div>
-                <h1>Default Radios</h1>
+                <h2>Default Radios</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -85,7 +86,7 @@ function RadioSampleSection() {
                     />
                 </div>
 
-                <h1 style={{ marginTop: '26px' }}>Disabled Radios</h1>
+                <h2 style={{ marginTop: '26px' }}>Disabled Radios</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -152,7 +153,7 @@ function RadioSampleSection() {
                     />
                 </div>
 
-                <h1 style={{ marginTop: '26px' }}>Sized Radios</h1>
+                <h2 style={{ marginTop: '26px' }}>Sized Radios</h2>
                 <div
                     style={{
                         display: 'flex',

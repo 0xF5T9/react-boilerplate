@@ -14,6 +14,7 @@ import Checkbox from '../../Checkbox';
 function CheckboxSampleSection() {
     return (
         <FlexibleSection
+            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -24,7 +25,7 @@ function CheckboxSampleSection() {
             }}
         >
             <div>
-                <h1>Default Checkboxes</h1>
+                <h2>Default Checkboxes</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -42,7 +43,7 @@ function CheckboxSampleSection() {
                     <Checkbox labelText="Blue" color="blue" id="cb-6" />{' '}
                     <Checkbox labelText="Purple" color="purple" id="cb-7" />
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Disabled Checkboxes</h1>
+                <h2 style={{ marginTop: '26px' }}>Disabled Checkboxes</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -86,7 +87,7 @@ function CheckboxSampleSection() {
                     />
                 </div>
 
-                <h1 style={{ marginTop: '26px' }}>Sized Checkboxes</h1>
+                <h2 style={{ marginTop: '26px' }}>Sized Checkboxes</h2>
                 <div
                     style={{
                         display: 'flex',

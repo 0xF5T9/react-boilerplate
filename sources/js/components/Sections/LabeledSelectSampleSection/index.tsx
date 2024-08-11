@@ -14,6 +14,7 @@ import LabeledSelect from '../../LabeledSelect';
 function LabeledSelectSampleSection() {
     return (
         <FlexibleSection
+            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -24,7 +25,7 @@ function LabeledSelectSampleSection() {
             }}
         >
             <div>
-                <h1>Default Inputs</h1>
+                <h2>Default Inputs</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -105,7 +106,7 @@ function LabeledSelectSampleSection() {
                         <option value="3">Option 3</option>
                     </LabeledSelect>
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Disabled Inputs</h1>
+                <h2 style={{ marginTop: '26px' }}>Disabled Inputs</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -197,7 +198,7 @@ function LabeledSelectSampleSection() {
                         <option value="3">Option 3</option>
                     </LabeledSelect>
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Sized Inputs</h1>
+                <h2 style={{ marginTop: '26px' }}>Sized Inputs</h2>
                 <div
                     style={{
                         display: 'flex',

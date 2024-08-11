@@ -21,6 +21,7 @@ function ButtonSampleSection() {
 
     return (
         <FlexibleSection
+            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -31,7 +32,7 @@ function ButtonSampleSection() {
             }}
         >
             <div>
-                <h1>Button Variants</h1>
+                <h2>Button Variants</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -49,7 +50,7 @@ function ButtonSampleSection() {
                     <Button color="gray">Gray</Button>{' '}
                     <Button color="white">White</Button>
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Disabled Buttons</h1>
+                <h2 style={{ marginTop: '26px' }}>Disabled Buttons</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -79,7 +80,7 @@ function ButtonSampleSection() {
                         White
                     </Button>
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Icon Buttons</h1>
+                <h2 style={{ marginTop: '26px' }}>Icon Buttons</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -119,7 +120,7 @@ function ButtonSampleSection() {
                         Open
                     </Button>
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Sized Buttons</h1>
+                <h2 style={{ marginTop: '26px' }}>Sized Buttons</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -133,7 +134,7 @@ function ButtonSampleSection() {
                     <Button>Default</Button>
                     <Button size="large">Large</Button>
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Functional Buttons</h1>
+                <h2 style={{ marginTop: '26px' }}>Functional Buttons</h2>
                 <div
                     style={{
                         display: 'flex',

@@ -14,6 +14,7 @@ import Select from '../../Select';
 function SelectSampleSection() {
     return (
         <FlexibleSection
+            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -24,7 +25,7 @@ function SelectSampleSection() {
             }}
         >
             <div>
-                <h1>Default Selects</h1>
+                <h2>Default Selects</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -70,7 +71,7 @@ function SelectSampleSection() {
                         <option value="3">Option 3</option>
                     </Select>
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Disabled Selects</h1>
+                <h2 style={{ marginTop: '26px' }}>Disabled Selects</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -116,7 +117,7 @@ function SelectSampleSection() {
                         <option value="3">Option 3</option>
                     </Select>
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Sized Selects</h1>
+                <h2 style={{ marginTop: '26px' }}>Sized Selects</h2>
                 <div
                     style={{
                         display: 'flex',

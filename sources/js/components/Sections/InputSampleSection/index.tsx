@@ -14,6 +14,7 @@ import Input from '../../Input';
 function InputSampleSection() {
     return (
         <FlexibleSection
+            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -24,7 +25,7 @@ function InputSampleSection() {
             }}
         >
             <div>
-                <h1>Default Inputs</h1>
+                <h2>Default Inputs</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -75,14 +76,14 @@ function InputSampleSection() {
                         inputStyle={{ width: '250px' }}
                     />{' '}
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Disabled Inputs</h1>
+                <h2 style={{ marginTop: '26px' }}>Disabled Inputs</h2>
                 <Input
                     type="text"
                     placeholder="This input is disabled"
                     inputStyle={{ width: '250px' }}
                     disabled
                 />{' '}
-                <h1 style={{ marginTop: '26px' }}>Icon Inputs</h1>
+                <h2 style={{ marginTop: '26px' }}>Icon Inputs</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -132,7 +133,7 @@ function InputSampleSection() {
                         />
                     </div>
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Sized Inputs</h1>
+                <h2 style={{ marginTop: '26px' }}>Sized Inputs</h2>
                 <div
                     style={{
                         display: 'flex',

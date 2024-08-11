@@ -14,6 +14,7 @@ import LabeledInput from '../../LabeledInput';
 function LabeledInputSampleSection() {
     return (
         <FlexibleSection
+            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -24,7 +25,7 @@ function LabeledInputSampleSection() {
             }}
         >
             <div>
-                <h1>Default Inputs</h1>
+                <h2>Default Inputs</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -71,7 +72,7 @@ function LabeledInputSampleSection() {
                         labelWidth={72}
                     />
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Disabled Inputs</h1>
+                <h2 style={{ marginTop: '26px' }}>Disabled Inputs</h2>
                 <div
                     style={{
                         display: 'flex',
@@ -135,7 +136,7 @@ function LabeledInputSampleSection() {
                         disabled
                     />
                 </div>
-                <h1 style={{ marginTop: '26px' }}>Sized Inputs</h1>
+                <h2 style={{ marginTop: '26px' }}>Sized Inputs</h2>
                 <div
                     style={{
                         display: 'flex',

@@ -18,6 +18,7 @@ function IndexSection() {
     return (
         <>
             <DynamicSection
+                defaultContentStyles
                 noGutters
                 style={{
                     display: 'flex',
@@ -28,11 +29,12 @@ function IndexSection() {
                     border: '2px solid var(--color-red)',
                 }}
             >
-                <h1>Dynamic Section</h1>
-                <p>This section's height is determined by its content.</p>
+                <h2>Dynamic Section</h2>
+                <span>This section's height is determined by its content.</span>
             </DynamicSection>
 
             <FixedSection
+                defaultContentStyles
                 noGutters
                 height={300}
                 style={{
@@ -44,11 +46,12 @@ function IndexSection() {
                     border: '2px solid var(--color-green)',
                 }}
             >
-                <h1>Fixed Section</h1>
-                <p>This section has a fixed height of 300 pixels.</p>
+                <h2>Fixed Section</h2>
+                <span>This section has a fixed height of 300 pixels.</span>
             </FixedSection>
 
             <FlexibleSection
+                defaultContentStyles
                 noGutters
                 style={{
                     display: 'flex',
@@ -59,11 +62,11 @@ function IndexSection() {
                     border: '2px solid var(--color-blue)',
                 }}
             >
-                <h1>Flexible Section</h1>
-                <p>
+                <h2>Flexible Section</h2>
+                <span>
                     This section's height is automatically scaled to fit the
                     remaining space.
-                </p>
+                </span>
             </FlexibleSection>
         </>
     );
