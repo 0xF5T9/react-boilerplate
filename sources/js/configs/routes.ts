@@ -9,6 +9,7 @@ const routes = {
     register: '/register',
     profile: '/profile',
     samples: {
+        components: '/samples/components',
         section: '/samples/section',
         button: '/samples/button',
         input: '/samples/input',

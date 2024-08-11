@@ -1,0 +1,85 @@
+.components-section {
+    --card-text-color-default: var(--text-light);
+    --card-text-color-hover: var(--text-light-highlight);
+    --card-background-color-default: var(--background-light);
+    --card-background-color-hover: linear-gradient(
+        0deg,
+        rgba(64, 162, 230, 0.05) 0%,
+        rgba(71, 208, 255, 0.1) 100%
+    );
+    --card-border-color-default: var(--color-black);
+    --card-border-color-hover: var(--text-light-highlight);
+}
+
+.components-section:global(.dark) {
+    --card-text-color-default: var(--text-dark);
+    --card-text-color-hover: var(--text-dark-highlight);
+    --card-background-color-default: var(--background-dark);
+    --card-background-color-hover: linear-gradient(
+        0deg,
+        rgba(252, 155, 106, 0.05) 0%,
+        rgba(252, 178, 105, 0.1) 100%
+    );
+    --card-border-color-default: var(--color-white);
+    --card-border-color-hover: var(--text-dark-highlight);
+}
+
+.card-block {
+    max-width: 850px;
+}
+
+.card-list {
+    row-gap: 24px;
+}
+
+.card-item {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+    padding: 20px;
+    border: 2px solid var(--card-border-color-default);
+    border-radius: 10px;
+    color: var(--card-text-color-default);
+    background: var(--card-background-color-default);
+    filter: brightness(1);
+    transform: scale(1);
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.1s;
+    will-change: color, background, filter, transform;
+}
+
+.card-item:hover {
+    border: 2px solid var(--card-border-color-hover);
+    color: var(--card-text-color-hover);
+    background: var(--card-background-color-hover);
+    transform: scale(1.05);
+}
+
+.card-item:active {
+    filter: brightness(0.8);
+    transform: scale(1.1);
+    transition: all 0.05s;
+}
+
+.card-icon {
+    width: 30px;
+}
+
+.card-text {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+@media only screen and (width <= 1113px) {
+    .card-list {
+        row-gap: 26px;
+    }
+}
+@media only screen and (max-width: 1113px) {
+    .card-list {
+        row-gap: 16px;
+    }
+}

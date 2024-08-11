@@ -46,6 +46,10 @@ const appRouter = [
                         loader: Sections.ProfileSectionLoader,
                     },
                     {
+                        path: routes.samples.components,
+                        element: <Sections.ComponentsSection />,
+                    },
+                    {
                         path: routes.samples.section,
                         element: <Sections.SectionsSampleSection />,
                     },

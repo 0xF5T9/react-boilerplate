@@ -37,6 +37,7 @@ export default [
     },
     {
         text: 'Components',
+        to: routes.samples.components,
         icon: Fa6SolidCaretDown,
         layout: 'full-4',
         items: [

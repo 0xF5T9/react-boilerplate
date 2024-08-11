@@ -57,6 +57,7 @@ export default [
     },
     {
         title: 'Components',
+        to: routes.samples.components,
         items: [
             {
                 text: 'Section',
