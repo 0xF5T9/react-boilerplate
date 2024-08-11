@@ -100,7 +100,7 @@ function LoginSection() {
                     />
                 )}
                 <div className={styles['wrapper']}>
-                    <h1 className={styles['title']}>Login</h1>
+                    <h2 className={styles['title']}>Login</h2>
 
                     <form className={styles['form']}>
                         <div className={styles['form-group']}>
