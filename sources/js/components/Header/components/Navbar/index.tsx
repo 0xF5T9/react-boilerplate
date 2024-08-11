@@ -304,7 +304,7 @@ function Navbar() {
     const { authSession } = useAuth();
 
     return (
-        <nav id="header-navbar" className={styles['navbar']}>
+        <nav className={styles['navbar']}>
             <NavbarList>
                 {navbarItems &&
                     navbarItems.map((topItem, index) => {
