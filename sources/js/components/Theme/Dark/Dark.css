@@ -146,7 +146,7 @@
 
     --mobile-navbar-blur-layer-background-color: rgba(34, 31, 34, 0.8);
     --mobile-navbar-blur-layer-backdrop-filter: blur(10px);
-    --mobile-navbar-background-color: var(--context-background-dark);
+    --mobile-navbar-background-color: rgba(45, 42, 46, 0.7);
     --mobile-navbar-shadow-color: rgba(34, 31, 34, 0.4);
     --mobile-navbar-close-color-default: var(--context-text-dark-dim);
     --mobile-navbar-close-color-hover: var(--context-text-dark);
@@ -155,9 +155,7 @@
     );
     --mobile-navbar-section-title-text-color: var(--context-text-dark-dim);
     --mobile-navbar-item-text-color-default: var(--context-text-dark);
-    --mobile-navbar-item-background-color-default: var(
-        --context-background-dark
-    );
+    --mobile-navbar-item-background-color-default: transparent;
     --mobile-navbar-item-background-color-highlight: var(
         --context-background-dark-highlight
     );
