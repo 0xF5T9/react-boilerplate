@@ -1,0 +1,7 @@
+.section-title {
+    color: var(--section-title-text-color);
+}
+
+.section-title + * {
+    margin-top: 13px;
+}

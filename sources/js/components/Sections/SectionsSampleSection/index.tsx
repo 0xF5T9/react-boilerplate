@@ -9,6 +9,10 @@ import {
     FixedSection,
     FlexibleSection,
 } from '../../Content/components/GridSection';
+import {
+    SectionTitle,
+    SectionSubtitle,
+} from '../../Content/components/GridSection/components';
 
 /**
  * Index section.
@@ -18,7 +22,6 @@ function IndexSection() {
     return (
         <>
             <DynamicSection
-                defaultContentStyles
                 noGutters
                 style={{
                     display: 'flex',
@@ -29,12 +32,13 @@ function IndexSection() {
                     border: '2px solid var(--color-red)',
                 }}
             >
-                <h2>Dynamic Section</h2>
-                <span>This section's height is determined by its content.</span>
+                <SectionTitle>Dynamic Section</SectionTitle>
+                <SectionSubtitle>
+                    This section's height is determined by its content.
+                </SectionSubtitle>
             </DynamicSection>
 
             <FixedSection
-                defaultContentStyles
                 noGutters
                 height={300}
                 style={{
@@ -46,12 +50,13 @@ function IndexSection() {
                     border: '2px solid var(--color-green)',
                 }}
             >
-                <h2>Fixed Section</h2>
-                <span>This section has a fixed height of 300 pixels.</span>
+                <SectionTitle>Fixed Section</SectionTitle>
+                <SectionSubtitle>
+                    This section has a fixed height of 300 pixels.
+                </SectionSubtitle>
             </FixedSection>
 
             <FlexibleSection
-                defaultContentStyles
                 noGutters
                 style={{
                     display: 'flex',
@@ -62,11 +67,11 @@ function IndexSection() {
                     border: '2px solid var(--color-blue)',
                 }}
             >
-                <h2>Flexible Section</h2>
-                <span>
+                <SectionTitle>Flexible Section</SectionTitle>
+                <SectionSubtitle>
                     This section's height is automatically scaled to fit the
                     remaining space.
-                </span>
+                </SectionSubtitle>
             </FlexibleSection>
         </>
     );

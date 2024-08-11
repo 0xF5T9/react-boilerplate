@@ -5,6 +5,7 @@
 
 'use strict';
 import { FlexibleSection } from '../../Content/components/GridSection';
+import { SectionTitle } from '../../Content/components/GridSection/components';
 import Input from '../../Input';
 
 /**
@@ -14,7 +15,6 @@ import Input from '../../Input';
 function InputSampleSection() {
     return (
         <FlexibleSection
-            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -25,7 +25,7 @@ function InputSampleSection() {
             }}
         >
             <div>
-                <h2>Default Inputs</h2>
+                <SectionTitle>Default Inputs</SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -76,14 +76,18 @@ function InputSampleSection() {
                         inputStyle={{ width: '250px' }}
                     />{' '}
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Disabled Inputs</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Disabled Inputs
+                </SectionTitle>
                 <Input
                     type="text"
                     placeholder="This input is disabled"
                     inputStyle={{ width: '250px' }}
                     disabled
                 />{' '}
-                <h2 style={{ marginTop: '26px' }}>Icon Inputs</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Icon Inputs
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -133,7 +137,9 @@ function InputSampleSection() {
                         />
                     </div>
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Sized Inputs</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Sized Inputs
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',

@@ -5,6 +5,7 @@
 
 'use strict';
 import { FlexibleSection } from '../../Content/components/GridSection';
+import { SectionTitle } from '../../Content/components/GridSection/components';
 import Checkbox from '../../Checkbox';
 
 /**
@@ -14,7 +15,6 @@ import Checkbox from '../../Checkbox';
 function CheckboxSampleSection() {
     return (
         <FlexibleSection
-            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -25,7 +25,7 @@ function CheckboxSampleSection() {
             }}
         >
             <div>
-                <h2>Default Checkboxes</h2>
+                <SectionTitle>Default Checkboxes</SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -43,7 +43,9 @@ function CheckboxSampleSection() {
                     <Checkbox labelText="Blue" color="blue" id="cb-6" />{' '}
                     <Checkbox labelText="Purple" color="purple" id="cb-7" />
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Disabled Checkboxes</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Disabled Checkboxes
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -87,7 +89,9 @@ function CheckboxSampleSection() {
                     />
                 </div>
 
-                <h2 style={{ marginTop: '26px' }}>Sized Checkboxes</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Sized Checkboxes
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',

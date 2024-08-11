@@ -5,6 +5,7 @@
 
 'use strict';
 import { FlexibleSection } from '../../Content/components/GridSection';
+import { SectionTitle } from '../../Content/components/GridSection/components';
 import LabeledSelect from '../../LabeledSelect';
 
 /**
@@ -14,7 +15,6 @@ import LabeledSelect from '../../LabeledSelect';
 function LabeledSelectSampleSection() {
     return (
         <FlexibleSection
-            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -25,7 +25,7 @@ function LabeledSelectSampleSection() {
             }}
         >
             <div>
-                <h2>Default Inputs</h2>
+                <SectionTitle>Default Inputs</SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -106,7 +106,9 @@ function LabeledSelectSampleSection() {
                         <option value="3">Option 3</option>
                     </LabeledSelect>
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Disabled Inputs</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Disabled Inputs
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -198,7 +200,9 @@ function LabeledSelectSampleSection() {
                         <option value="3">Option 3</option>
                     </LabeledSelect>
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Sized Inputs</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Sized Inputs
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',

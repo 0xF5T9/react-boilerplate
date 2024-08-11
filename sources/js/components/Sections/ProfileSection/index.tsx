@@ -13,6 +13,7 @@ import apis from '../../../apis';
 import routes from '../../../configs/routes';
 
 import { FlexibleSection } from '../../Content/components/GridSection';
+import { SectionTitle } from '../../Content/components/GridSection/components';
 import Button from '../../Button';
 import LabeledInput from '../../LabeledInput';
 import { showToast } from '../../ToastOverlay';
@@ -82,7 +83,7 @@ function ProfileSection() {
             >
                 {userInfo && (
                     <>
-                        <h1>Profile</h1>
+                        <SectionTitle>Profile</SectionTitle>
                         <div
                             style={{
                                 display: 'flex',

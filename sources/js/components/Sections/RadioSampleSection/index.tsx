@@ -5,6 +5,7 @@
 
 'use strict';
 import { FlexibleSection } from '../../Content/components/GridSection';
+import { SectionTitle } from '../../Content/components/GridSection/components';
 import Radio from '../../Radio';
 
 /**
@@ -14,7 +15,6 @@ import Radio from '../../Radio';
 function RadioSampleSection() {
     return (
         <FlexibleSection
-            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -25,7 +25,7 @@ function RadioSampleSection() {
             }}
         >
             <div>
-                <h2>Default Radios</h2>
+                <SectionTitle>Default Radios</SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -86,7 +86,9 @@ function RadioSampleSection() {
                     />
                 </div>
 
-                <h2 style={{ marginTop: '26px' }}>Disabled Radios</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Disabled Radios
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -153,7 +155,9 @@ function RadioSampleSection() {
                     />
                 </div>
 
-                <h2 style={{ marginTop: '26px' }}>Sized Radios</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Sized Radios
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',

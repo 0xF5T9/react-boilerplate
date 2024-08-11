@@ -5,6 +5,7 @@
 
 'use strict';
 import { FlexibleSection } from '../../Content/components/GridSection';
+import { SectionTitle } from '../../Content/components/GridSection/components';
 import Button from '../../Button';
 import { MLLoading } from '../../Icons/MLLoading';
 import { showToast } from '../../ToastOverlay';
@@ -21,7 +22,6 @@ function ButtonSampleSection() {
 
     return (
         <FlexibleSection
-            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -32,7 +32,7 @@ function ButtonSampleSection() {
             }}
         >
             <div>
-                <h2>Button Variants</h2>
+                <SectionTitle>Button Variants</SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -50,7 +50,9 @@ function ButtonSampleSection() {
                     <Button color="gray">Gray</Button>{' '}
                     <Button color="white">White</Button>
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Disabled Buttons</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Disabled Buttons
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -80,7 +82,9 @@ function ButtonSampleSection() {
                         White
                     </Button>
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Icon Buttons</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Icon Buttons
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -120,7 +124,9 @@ function ButtonSampleSection() {
                         Open
                     </Button>
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Sized Buttons</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Sized Buttons
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -134,7 +140,9 @@ function ButtonSampleSection() {
                     <Button>Default</Button>
                     <Button size="large">Large</Button>
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Functional Buttons</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Functional Buttons
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',

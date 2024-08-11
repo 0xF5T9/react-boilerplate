@@ -34,7 +34,7 @@
     --text-light: #333333;
     --text-light-hover: #333333;
     --text-light-highlight: var(--color-primary);
-    --text-light-dim: #333333;
+    --text-light-dim: #5b5a5a;
     --background-light: #f9f5f3;
     --background-light-highlight: #e8ebed;
     --shadow-light: #00000033;
@@ -110,7 +110,7 @@
         --background-light-highlight
     );
 
-    --navbar-item-text-color-default: var(--text-light-dim);
+    --navbar-item-text-color-default: var(--text-light);
     --navbar-item-text-color-hover: var(--text-light);
     --navbar-item-text-color-active: var(--text-light);
     --navbar-item-text-color-link-active: var(--text-light-highlight);
@@ -340,6 +340,9 @@
     --server-message-text-color-success: var(--color-success);
     --server-message-background-color-success: rgba(168, 219, 117, 0.2);
     --server-message-border-color-success: var(--color-success);
+
+    --section-title-text-color: var(--text-light);
+    --section-desc-text-color: var(--text-light-dim);
 
     /* General variables */
     --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',

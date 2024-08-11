@@ -21,8 +21,3 @@
 .section.dynamic-height {
     flex: unset;
 }
-
-.section.default-content-styles h1 + *,
-.section.default-content-styles h2 + * {
-    margin-top: 13px;
-}

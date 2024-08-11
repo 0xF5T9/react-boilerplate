@@ -347,6 +347,9 @@
     --server-message-background-color-success: rgba(168, 219, 117, 0.1);
     --server-message-border-color-success: var(--color-success);
 
+    --section-title-text-color: var(--text-dark);
+    --section-desc-text-color: var(--text-dark-dim);
+
     /* General variables */
     --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
         'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',

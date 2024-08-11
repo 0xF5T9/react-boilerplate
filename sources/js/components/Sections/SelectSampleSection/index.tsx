@@ -5,6 +5,7 @@
 
 'use strict';
 import { FlexibleSection } from '../../Content/components/GridSection';
+import { SectionTitle } from '../../Content/components/GridSection/components';
 import Select from '../../Select';
 
 /**
@@ -14,7 +15,6 @@ import Select from '../../Select';
 function SelectSampleSection() {
     return (
         <FlexibleSection
-            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -25,7 +25,7 @@ function SelectSampleSection() {
             }}
         >
             <div>
-                <h2>Default Selects</h2>
+                <SectionTitle>Default Selects</SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -71,7 +71,9 @@ function SelectSampleSection() {
                         <option value="3">Option 3</option>
                     </Select>
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Disabled Selects</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Disabled Selects
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -117,7 +119,9 @@ function SelectSampleSection() {
                         <option value="3">Option 3</option>
                     </Select>
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Sized Selects</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Sized Selects
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',

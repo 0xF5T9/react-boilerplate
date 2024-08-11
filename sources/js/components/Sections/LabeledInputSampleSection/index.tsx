@@ -5,6 +5,7 @@
 
 'use strict';
 import { FlexibleSection } from '../../Content/components/GridSection';
+import { SectionTitle } from '../../Content/components/GridSection/components';
 import LabeledInput from '../../LabeledInput';
 
 /**
@@ -14,7 +15,6 @@ import LabeledInput from '../../LabeledInput';
 function LabeledInputSampleSection() {
     return (
         <FlexibleSection
-            defaultContentStyles
             style={{
                 display: 'flex',
                 flexFlow: 'column nowrap',
@@ -25,7 +25,7 @@ function LabeledInputSampleSection() {
             }}
         >
             <div>
-                <h2>Default Inputs</h2>
+                <SectionTitle>Default Inputs</SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -72,7 +72,9 @@ function LabeledInputSampleSection() {
                         labelWidth={72}
                     />
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Disabled Inputs</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Disabled Inputs
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',
@@ -136,7 +138,9 @@ function LabeledInputSampleSection() {
                         disabled
                     />
                 </div>
-                <h2 style={{ marginTop: '26px' }}>Sized Inputs</h2>
+                <SectionTitle style={{ marginTop: '26px' }}>
+                    Sized Inputs
+                </SectionTitle>
                 <div
                     style={{
                         display: 'flex',
