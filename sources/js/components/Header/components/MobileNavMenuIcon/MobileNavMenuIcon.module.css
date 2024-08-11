@@ -130,6 +130,19 @@
     user-select: none;
 }
 
+.nav-section-title.link {
+    transition: all 0.1s;
+    filter: brightness(1);
+    cursor: pointer;
+    will-change: filter;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-section-title.link:hover {
+    text-decoration: underline;
+    filter: brightness(1.1);
+}
+
 .nav-list {
     display: flex;
     flex-flow: column nowrap;

@@ -13,7 +13,7 @@ import {
     useRef,
     createContext,
 } from 'react';
-import { NavLink, useNavigation } from 'react-router-dom';
+import { NavLink, useNavigation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
 import PropTypes from 'prop-types';
 
@@ -57,19 +57,37 @@ MobileNavMenuContextProvider.propTypes = {
  * Navbar section.
  * @param props Component properties.
  * @param props.title Section title.
+ * @param props.to Section title link.
  * @param props.children <NavItem />
  * @returns Returns the component.
  */
 function NavSection({
     title,
+    to,
     children,
 }: {
     title?: string;
+    to?: string;
     children?: ReactNode;
 }) {
+    const { closeButtonRef } = useContext(MobileNavMenuContext),
+        navigate = useNavigate();
+
     return (
         <div className={styles['nav-section']}>
-            <span className={styles['nav-section-title']}>{title}</span>
+            <span
+                className={`${styles['nav-section-title']} ${to ? styles['link'] : ''}`}
+                onClick={
+                    to &&
+                    (() => {
+                        if (to[0] === '/') navigate(to);
+                        else window?.open(to, '_blank').focus();
+                        closeButtonRef?.current?.click();
+                    })
+                }
+            >
+                {title}
+            </span>
             <ul className={styles['nav-list']}>{children}</ul>
         </div>
     );
@@ -77,6 +95,7 @@ function NavSection({
 
 NavSection.propTypes = {
     title: PropTypes.string,
+    to: PropTypes.string,
     children: PropTypes.node,
 };
 
@@ -288,6 +307,7 @@ function MobileNavMenuIcon() {
                                                     <NavSection
                                                         key={index}
                                                         title={section.title}
+                                                        to={section.to}
                                                     >
                                                         {section.items &&
                                                             section.items.map(

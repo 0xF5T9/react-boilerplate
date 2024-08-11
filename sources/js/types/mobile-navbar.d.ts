@@ -5,6 +5,7 @@
 
 export interface MobileNavbarSection {
     title: string;
+    to?: string;
     authOnly?: boolean;
     items: MobileNavbarItem[];
 }
