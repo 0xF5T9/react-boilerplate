@@ -8,7 +8,6 @@ import { FlexibleSection } from '../../Content/components/GridSection';
 import { SectionTitle } from '../../Content/components/GridSection/components';
 import Button from '../../Button';
 import { MLLoading } from '../../Icons/MLLoading';
-import { showToast } from '../../ToastOverlay';
 
 /**
  * Button sample section.
@@ -157,64 +156,6 @@ function ButtonSampleSection() {
                         onClick={handlePlayClickSound}
                     >
                         Click Sound
-                    </Button>{' '}
-                    <Button
-                        color="danger"
-                        onClick={() =>
-                            showToast('danger', {
-                                title: 'Error',
-                                message:
-                                    'Unable to connect to the remote server.',
-                            })
-                        }
-                    >
-                        Danger Toast
-                    </Button>{' '}
-                    <Button
-                        color="warn"
-                        onClick={() =>
-                            showToast('warn', {
-                                title: 'Warning',
-                                message:
-                                    'Your license will expire within 3 days.',
-                            })
-                        }
-                    >
-                        Warn Toast
-                    </Button>{' '}
-                    <Button
-                        color="success"
-                        onClick={() =>
-                            showToast('success', {
-                                title: 'Success',
-                                message:
-                                    'Your request has been sent successfully.',
-                            })
-                        }
-                    >
-                        Success Toast
-                    </Button>{' '}
-                    <Button
-                        color="info"
-                        onClick={() =>
-                            showToast('info', {
-                                title: 'Info',
-                                message: 'New version available for download!',
-                            })
-                        }
-                    >
-                        Info Toast
-                    </Button>{' '}
-                    <Button
-                        color="info"
-                        onClick={() =>
-                            showToast('message', {
-                                title: 'Message',
-                                message: 'You have new message(s).',
-                            })
-                        }
-                    >
-                        Message Toast
                     </Button>
                 </div>
             </div>
