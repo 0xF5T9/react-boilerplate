@@ -7,25 +7,15 @@
 import * as styles from './Toast.module.css';
 const $ = document.querySelector.bind(document);
 
-/**
- * Toast option interface/class.
- *
- * @note Use a class implement from the interface because the interface can't have a default value.
- * @interface ToastOption
- * @member title Toast title.
- * @member message Toast message.
- * @member icon Toast icon class names.
- * @member duration Toast duration. (default: 3000)
- * @member animationDuration Toast animation durations. (default: {fadeIn: 300, fadeOut: 300})
- */
-interface ToastOption {
+type ToastOptionType = {
     title: string;
     message: string;
     icon?: string;
     duration?: number;
     animationDuration?: { fadeIn: number; fadeOut: number };
-}
-class ToastOption implements ToastOption {
+};
+
+class ToastOption implements ToastOptionType {
     title: string;
     message: string;
     icon?: string;
@@ -61,14 +51,14 @@ class ToastOption implements ToastOption {
     }
 }
 
-interface ToastTypes {
+type ToastTypes = {
     primary: ToastOption;
     success: ToastOption;
     danger: ToastOption;
     warn: ToastOption;
     message: ToastOption;
     info: ToastOption;
-}
+};
 
 /**
  * Show a toast notification.
