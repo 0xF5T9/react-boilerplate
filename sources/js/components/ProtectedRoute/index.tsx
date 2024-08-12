@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import apis from '../../apis';
 import routes from '../../configs/routes';
 
-import { showToast } from '../ToastOverlay';
+import { showToast } from '../Toast';
 import { FlexibleSection } from '../Content/components/GridSection';
 import { MLLoading } from '../Icons/MLLoading';
 /**

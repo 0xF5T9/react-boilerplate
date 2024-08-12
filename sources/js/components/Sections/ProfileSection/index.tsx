@@ -16,7 +16,7 @@ import { FlexibleSection } from '../../Content/components/GridSection';
 import { SectionTitle } from '../../Content/components/GridSection/components';
 import Button from '../../Button';
 import LabeledInput from '../../LabeledInput';
-import { showToast } from '../../ToastOverlay';
+import { showToast } from '../../Toast';
 
 /**
  * Loader component.

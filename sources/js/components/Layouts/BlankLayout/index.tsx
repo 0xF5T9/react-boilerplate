@@ -7,7 +7,7 @@
 import { Outlet, ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 import Content from '../../Content';
-import { ToastOverlay } from '../../ToastOverlay';
+import { ToastOverlay } from '../../Toast';
 import DebugOverlay from '../../DebugOverlay';
 
 import * as styles from '../Layout.module.css';

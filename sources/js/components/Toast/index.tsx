@@ -1,10 +1,10 @@
 /**
  * @file index.tsx
- * @description Toast overlay component.
+ * @description Toast component.
  */
 
 'use strict';
-import * as styles from './ToastOverlay.module.css';
+import * as styles from './Toast.module.css';
 const $ = document.querySelector.bind(document);
 
 /**

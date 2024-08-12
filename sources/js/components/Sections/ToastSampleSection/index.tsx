@@ -10,9 +10,9 @@ import {
     SectionBlock,
 } from '../../Content/components/GridSection/components';
 import Button from '../../Button';
-import { showToast } from '../../ToastOverlay';
+import { showToast } from '../../Toast';
 
-import * as toastStyles from '../../ToastOverlay/ToastOverlay.module.css';
+import * as toastStyles from '../../Toast/Toast.module.css';
 
 /**
  * Toast sample section.
