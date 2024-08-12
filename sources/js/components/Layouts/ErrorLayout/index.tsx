@@ -10,7 +10,7 @@ import routes from '../../../configs/routes';
 
 import Content from '../../Content';
 import { FlexibleSection } from '../../Content/components/GridSection';
-import ToastOverlay from '../../ToastOverlay';
+import { ToastOverlay } from '../../ToastOverlay';
 // import DebugOverlay from '../../DebugOverlay';
 import Button from '../../Button';
 

@@ -81,6 +81,10 @@ const appRouter = [
                         path: routes.samples.labeledSelect,
                         element: <Sections.LabeledSelectSampleSection />,
                     },
+                    {
+                        path: routes.samples.toast,
+                        element: <Sections.ToastSampleSection />,
+                    },
                 ],
             },
         ],

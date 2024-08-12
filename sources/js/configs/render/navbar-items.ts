@@ -81,6 +81,11 @@ export default [
                 to: routes.samples.labeledSelect,
                 icon: Fa6SolidCode,
             },
+            {
+                title: 'Toast',
+                to: routes.samples.toast,
+                icon: Fa6SolidCode,
+            },
         ],
     },
     {

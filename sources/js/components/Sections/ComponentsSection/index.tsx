@@ -103,6 +103,7 @@ function ComponentsSection() {
                             text="Labeled Select"
                             to={routes.samples.labeledSelect}
                         />
+                        <CardItem text="Toast" to={routes.samples.toast} />
                     </Row>
                 </SectionBlock>
             </FlexibleSection>

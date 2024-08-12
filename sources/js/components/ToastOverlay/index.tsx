@@ -131,5 +131,4 @@ function ToastOverlay() {
     return <div className={styles['toast-overlay']}></div>;
 }
 
-export default ToastOverlay;
-export { showToast };
+export { ToastOverlay, showToast };
