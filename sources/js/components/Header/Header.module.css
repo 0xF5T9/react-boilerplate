@@ -123,6 +123,9 @@
         display: none;
     }
     .header::before {
+        backdrop-filter: blur(28.5px);
+    }
+    .header::after {
         display: block;
         content: 'The current device viewport dimension is unsupported.';
         font-size: 0.8rem;
@@ -137,6 +140,9 @@
         display: none;
     }
     .header::before {
+        backdrop-filter: blur(28.5px);
+    }
+    .header::after {
         display: block;
         content: 'The current device viewport dimension is unsupported.';
         font-size: 0.8rem;
