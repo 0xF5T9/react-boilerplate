@@ -5,7 +5,7 @@
 
 'use strict';
 import { FlexibleSection } from '../../Content/components/GridSection';
-import { SvgSpinnersBarsScaleFade } from '../../Icons/BarScaleFade';
+import { BarsLoading } from '../../Icons/BarsLoading';
 
 /**
  * Index section.
@@ -23,7 +23,7 @@ function IndexSection() {
                     alignItems: 'center',
                 }}
             >
-                <SvgSpinnersBarsScaleFade style={{ width: '100px' }} />
+                <BarsLoading style={{ width: '100px' }} />
                 <h3 style={{ marginTop: '26px' }}>Server Under Maintenance</h3>
             </FlexibleSection>
         </>

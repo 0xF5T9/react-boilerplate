@@ -1,6 +1,9 @@
-import React from 'react';
+// https://icon-sets.iconify.design/mdi/github/
 
-export function MdiGithub(props: any) {
+import React from 'react';
+import type { SVGProps } from 'react';
+
+export function Github(props: SVGProps<SVGSVGElement>) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
             <path

@@ -10,7 +10,7 @@ import { ReactNode, useState, useContext, createContext } from 'react';
 import { NavLink, useNavigation } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
 
-import { MLLoading } from '../../../Icons/MLLoading';
+import { CircleLoading } from '../../../Icons/CircleLoading';
 import navbarItems from '../../../../configs/render/navbar-items';
 
 import * as styles from './Navbar.module.css';
@@ -126,7 +126,7 @@ function NavbarItem({
                         : onClick
                 }
             >
-                <MLLoading className={styles['navbar-item-loading-icon']} />
+                <CircleLoading className={styles['navbar-item-loading-icon']} />
                 {icon && <Icon className={styles['navbar-item-icon']} />}
                 {text}
             </LinkComponent>

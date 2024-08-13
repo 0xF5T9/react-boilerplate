@@ -1,6 +1,9 @@
-import React from 'react';
+// https://icon-sets.iconify.design/skill-icons/github-dark/
 
-export function SkillIconsGithubDark(props: any) {
+import React from 'react';
+import type { SVGProps } from 'react';
+
+export function Github2(props: SVGProps<SVGSVGElement>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

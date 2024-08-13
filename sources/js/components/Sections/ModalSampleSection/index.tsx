@@ -9,8 +9,8 @@ import { ModalSetter } from '../../../types/modal';
 
 import { modalContext } from '../../Modal';
 import { showToast } from '../../Toast';
-import { Fa6SolidCircleExclamation } from '../../Icons/FAExclamation';
-import { MLLoading } from '../../Icons/MLLoading';
+import { CircleExclamation } from '../../Icons/CircleExclamation';
+import { CircleLoading } from '../../Icons/CircleLoading';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import {
     SectionTitle,
@@ -116,7 +116,7 @@ function ModalSampleSection() {
                         onClick={() =>
                             setModal({
                                 type: 'alert',
-                                icon: MLLoading,
+                                icon: CircleLoading,
                                 iconColor: 'gray',
                                 title: 'Please wait ...',
                                 message: 'This might take some time.',
@@ -223,7 +223,7 @@ function ModalSampleSection() {
                                     </div>
                                 ),
                                 variant: 'danger',
-                                icon: Fa6SolidCircleExclamation,
+                                icon: CircleExclamation,
                                 closeButtonVariant: 'gray',
                                 closeButtonText: 'Cancel',
                                 makeCloseButtonDefault: true,

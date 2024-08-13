@@ -14,7 +14,7 @@ import routes from '../../configs/routes';
 
 import { showToast } from '../Toast';
 import { FlexibleSection } from '../Content/components/GridSection';
-import { MLLoading } from '../Icons/MLLoading';
+import { CircleLoading } from '../Icons/CircleLoading';
 /**
  * This component is used to prevent unauthenticated users from accessing private routes.
  * @param props Component properties.
@@ -68,7 +68,7 @@ function ProtectedRoute({ children }: { children?: ReactNode }) {
                     textAlign: 'center',
                 }}
             >
-                <MLLoading style={{ width: '30px' }} />
+                <CircleLoading style={{ width: '30px' }} />
             </FlexibleSection>
         );
 

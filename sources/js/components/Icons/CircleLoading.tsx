@@ -1,6 +1,9 @@
-import React from 'react';
+// https://icon-sets.iconify.design/line-md/loading-twotone-loop/
 
-export function MLLoading(props: any) {
+import React from 'react';
+import type { SVGProps } from 'react';
+
+export function CircleLoading(props: SVGProps<SVGSVGElement>) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
             <g
@@ -18,7 +21,7 @@ export function MLLoading(props: any) {
                     <animate
                         fill="freeze"
                         attributeName="stroke-dashoffset"
-                        dur="1.3s"
+                        dur="0.65s"
                         values="60;0"
                     ></animate>
                 </path>
@@ -30,12 +33,12 @@ export function MLLoading(props: any) {
                     <animate
                         fill="freeze"
                         attributeName="stroke-dashoffset"
-                        dur="0.3s"
+                        dur="0.15s"
                         values="15;0"
                     ></animate>
                     <animateTransform
                         attributeName="transform"
-                        dur="1.5s"
+                        dur="0.75s"
                         repeatCount="indefinite"
                         type="rotate"
                         values="0 12 12;360 12 12"

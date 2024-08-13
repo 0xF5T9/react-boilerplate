@@ -1,6 +1,9 @@
-import React from 'react';
+// https://icon-sets.iconify.design/svg-spinners/bars-scale-fade/
 
-export function SvgSpinnersBarsScaleFade(props: any) {
+import React from 'react';
+import type { SVGProps } from 'react';
+
+export function BarsLoading(props: SVGProps<SVGSVGElement>) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
             <rect width={6} height={14} x={1} y={4} fill="currentColor">

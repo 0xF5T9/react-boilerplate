@@ -4,10 +4,11 @@
  */
 
 'use strict';
-import { MdiGithub } from '../Icons/MDIGithub';
-import { IcBaselineDiscord } from '../Icons/ICDiscord';
-import { MdiYoutube } from '../Icons/MDIYoutube';
-import { UilFacebook } from '../Icons/UILFacebook';
+import { Github } from '../Icons/Github';
+import { Discord } from '../Icons/Discord';
+import { Youtube } from '../Icons/Youtube';
+import { Facebook } from '../Icons/Facebook';
+
 const $ = document.querySelector.bind(document);
 import * as styles from './Footer.module.css';
 
@@ -32,28 +33,28 @@ function Footer() {
                     href="https://github.com/0xF5T9"
                     target="_blank"
                 >
-                    <MdiGithub />
+                    <Github />
                 </a>
                 <a
                     className={styles['discord']}
                     href="https://discord.com/"
                     target="_blank"
                 >
-                    <IcBaselineDiscord />
+                    <Discord />
                 </a>
                 <a
                     className={styles['youtube']}
                     href="https://youtube.com/"
                     target="_blank"
                 >
-                    <MdiYoutube />
+                    <Youtube />
                 </a>
                 <a
                     className={styles['facebook']}
                     href="https://facebook.com/"
                     target="_blank"
                 >
-                    <UilFacebook />
+                    <Facebook />
                 </a>
             </div>
         </footer>

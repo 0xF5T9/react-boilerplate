@@ -1,6 +1,9 @@
-import React from 'react';
+// https://icon-sets.iconify.design/fa6-solid/circle-info/
 
-export function Fa6SolidCircleInfo(props: any) {
+import React from 'react';
+import type { SVGProps } from 'react';
+
+export function CircleInfo(props: SVGProps<SVGSVGElement>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

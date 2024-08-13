@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 import { globalContext } from '../../../Context/Global';
 import IconButton, { IconButtonStyles } from '../IconButton';
 import PopupWindow, { PopupStyles } from '../../../PopupWindow';
-import { Fa6SolidSquareXmark } from '../../../Icons/FASquareXMark';
+import { SquareX } from '../../../Icons/SquareX';
 import mobileNavbarItems from '../../../../configs/render/mobile-navbar-items';
 import * as styles from './MobileNavMenuIcon.module.css';
 
@@ -216,7 +216,7 @@ function NavCloseButton({ onClick }: { onClick?: any }) {
             className={styles['nav-close-button']}
             onClick={onClick}
         >
-            <Fa6SolidSquareXmark className={styles['nav-close-button-icon']} />
+            <SquareX className={styles['nav-close-button-icon']} />
         </div>
     );
 }

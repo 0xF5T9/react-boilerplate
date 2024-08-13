@@ -19,8 +19,8 @@ import AlertIcon from './components/AlertIcon';
 import UserIcon from './components/UserIcon';
 import IconButton from './components/IconButton';
 import Button from '../Button';
-import { LineMdSunnyOutlineTwotone } from '../Icons/MLSun';
-import { LineMdMoonSimpleTwotone } from '../Icons/MLMoon';
+import { Sun } from '../Icons/Sun';
+import { Moon } from '../Icons/Moon';
 
 import * as styles from './Header.module.css';
 const $ = document.querySelector.bind(document);
@@ -56,11 +56,7 @@ function Header() {
                 {authSession ? (
                     <>
                         <IconButton
-                            icon2={
-                                theme === 'dark'
-                                    ? LineMdSunnyOutlineTwotone
-                                    : LineMdMoonSimpleTwotone
-                            }
+                            icon2={theme === 'dark' ? Sun : Moon}
                             onClick={() =>
                                 setTheme(theme === 'dark' ? 'light' : 'dark')
                             }
@@ -112,11 +108,7 @@ function Header() {
                     <>
                         <IconButton
                             style={{ marginRight: '10px' }}
-                            icon2={
-                                theme === 'dark'
-                                    ? LineMdSunnyOutlineTwotone
-                                    : LineMdMoonSimpleTwotone
-                            }
+                            icon2={theme === 'dark' ? Sun : Moon}
                             onClick={() =>
                                 setTheme(theme === 'dark' ? 'light' : 'dark')
                             }

@@ -18,7 +18,7 @@ import {
     SectionBlock,
 } from '../../Content/components/GridSection/components';
 import { Row, Column } from '../../GridSystem';
-import { Fa6SolidCode } from '../../Icons/FACode';
+import { Code } from '../../Icons/Code';
 
 import * as styles from './ComponentsSection.module.css';
 
@@ -41,7 +41,7 @@ function CardItem({
 }) {
     const navigate = useNavigate();
 
-    const Icon = icon || Fa6SolidCode;
+    const Icon = icon || Code;
 
     return (
         <Column className={`c-12 m-4 l-3`}>

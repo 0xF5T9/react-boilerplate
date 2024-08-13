@@ -7,7 +7,7 @@
 import { FlexibleSection } from '../../Content/components/GridSection';
 import { SectionTitle } from '../../Content/components/GridSection/components';
 import Button from '../../Button';
-import { MLLoading } from '../../Icons/MLLoading';
+import { CircleLoading } from '../../Icons/CircleLoading';
 
 /**
  * Button sample section.
@@ -113,7 +113,7 @@ function ButtonSampleSection() {
                             // verticalAlign: 'bottom',
                         }}
                     >
-                        <MLLoading
+                        <CircleLoading
                             style={{ height: '1em', alignSelf: 'center' }}
                         />
                         Loading

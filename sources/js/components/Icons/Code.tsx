@@ -1,6 +1,9 @@
-import React from 'react';
+// https://icon-sets.iconify.design/fa6-solid/code/
 
-export function Fa6SolidCode(props: any) {
+import React from 'react';
+import type { SVGProps } from 'react';
+
+export function Code(props: SVGProps<SVGSVGElement>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

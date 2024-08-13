@@ -6,20 +6,20 @@
 'use strict';
 import type { NavbarItem } from '../../types/navbar';
 import routes from '../routes';
-import { Fa6SolidHouse } from '../../components/Icons/FAHome';
-import { Fa6SolidCaretDown } from '../../components/Icons/FACaretDown';
-import { Fa6SolidCode } from '../../components/Icons/FACode';
-import { Fa6SolidUser } from '../../components/Icons/FAUser';
+import { House } from '../../components/Icons/House';
+import { CaretDown } from '../../components/Icons/CaretDown';
+import { Code } from '../../components/Icons/Code';
+import { User } from '../../components/Icons/User';
 
 export default [
     {
         text: 'Home',
         to: routes.home,
-        icon: Fa6SolidHouse,
+        icon: House,
     },
     {
         text: 'Softwares',
-        icon: Fa6SolidCaretDown,
+        icon: CaretDown,
         items: [
             {
                 title: 'Shutdown Timer',
@@ -38,65 +38,65 @@ export default [
     {
         text: 'Components',
         to: routes.samples.components,
-        icon: Fa6SolidCaretDown,
+        icon: CaretDown,
         layout: 'full-4',
         items: [
             {
                 title: 'Section',
                 to: routes.samples.section,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 title: 'Button',
                 to: routes.samples.button,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 title: 'Input',
                 to: routes.samples.input,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 title: 'Checkbox',
                 to: routes.samples.checkbox,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 title: 'Radio',
                 to: routes.samples.radio,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 title: 'Select',
                 to: routes.samples.select,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 title: 'Labeled Input',
                 to: routes.samples.labeledInput,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 title: 'Labeled Select',
                 to: routes.samples.labeledSelect,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 title: 'Toast',
                 to: routes.samples.toast,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 title: 'Modal',
                 to: routes.samples.modal,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
         ],
     },
     {
         text: 'Profile',
         to: routes.profile,
-        icon: Fa6SolidUser,
+        icon: User,
         authOnly: true,
     },
 ] satisfies NavbarItem[] as NavbarItem[];

@@ -6,9 +6,9 @@
 'use strict';
 import type { MobileNavbarSection } from '../../types/mobile-navbar';
 import routes from '../routes';
-import { Fa6SolidHouse } from '../../components/Icons/FAHome';
-import { Fa6SolidUser } from '../../components/Icons/FAUser';
-import { Fa6SolidCode } from '../../components/Icons/FACode';
+import { House } from '../../components/Icons/House';
+import { User } from '../../components/Icons/User';
+import { Code } from '../../components/Icons/Code';
 import { showToast } from '../../components/Toast';
 
 export default [
@@ -18,12 +18,12 @@ export default [
             {
                 text: 'Home',
                 to: routes.home,
-                icon: Fa6SolidHouse,
+                icon: House,
             },
             {
                 text: 'Profile',
                 to: routes.profile,
-                icon: Fa6SolidUser,
+                icon: User,
                 authOnly: true,
             },
         ],
@@ -62,52 +62,52 @@ export default [
             {
                 text: 'Section',
                 to: routes.samples.section,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 text: 'Button',
                 to: routes.samples.button,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 text: 'Input',
                 to: routes.samples.input,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 text: 'Checkbox',
                 to: routes.samples.checkbox,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 text: 'Radio',
                 to: routes.samples.radio,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 text: 'Select',
                 to: routes.samples.select,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 text: 'Labeled Input',
                 to: routes.samples.labeledInput,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 text: 'Labeled Select',
                 to: routes.samples.labeledSelect,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 text: 'Toast',
                 to: routes.samples.toast,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
             {
                 text: 'Modal',
                 to: routes.samples.modal,
-                icon: Fa6SolidCode,
+                icon: Code,
             },
         ],
     },

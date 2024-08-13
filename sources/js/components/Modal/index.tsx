@@ -15,9 +15,9 @@ import {
 import PropTypes from 'prop-types';
 import { AlertModal, CustomModal, Modal, ModalSetter } from '../../types/modal';
 
-import { Fa6SolidCircleExclamation } from '../Icons/FAExclamation';
-import { Fa6SolidCircleInfo } from '../Icons/FACircleInfo';
-import { Fa6SolidCircleCheck } from '../Icons/CircleCheck';
+import { CircleExclamation } from '../Icons/CircleExclamation';
+import { CircleInfo } from '../Icons/CircleInfo';
+import { CircleCheck } from '../Icons/CircleCheck';
 import Button from '../Button';
 
 import * as styles from './Modal.module.css';
@@ -123,16 +123,16 @@ function ModalOverlay() {
             if (!Icon) {
                 switch (alert_modal.variant) {
                     case 'success':
-                        Icon = Fa6SolidCircleCheck;
+                        Icon = CircleCheck;
                         break;
                     case 'danger':
-                        Icon = Fa6SolidCircleExclamation;
+                        Icon = CircleExclamation;
                         break;
                     case 'warn':
-                        Icon = Fa6SolidCircleExclamation;
+                        Icon = CircleExclamation;
                         break;
                     case 'info':
-                        Icon = Fa6SolidCircleInfo;
+                        Icon = CircleInfo;
                         break;
                 }
             }
