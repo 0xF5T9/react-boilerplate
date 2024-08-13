@@ -36,98 +36,104 @@ function Header() {
 
     return (
         <header className={styles['header']}>
-            {/* Left content box */}
-            <div className={styles['left-content']}>
-                {/* Mobile navigation menu */}
-                <MobileNavMenuIcon />
+            <div className={styles['header-content']}>
+                {/* Left content box */}
+                <div className={styles['left-content']}>
+                    {/* Mobile navigation menu */}
+                    <MobileNavMenuIcon />
 
-                {/* Brand logo and brand text */}
-                <BrandLogo />
-                <BrandText />
-            </div>
+                    {/* Brand logo and brand text */}
+                    <BrandLogo />
+                    <BrandText />
+                </div>
 
-            {/* Middle content box */}
-            <div className={styles['middle-content']}>
-                <Navbar />
-            </div>
+                {/* Middle content box */}
+                <div className={styles['middle-content']}>
+                    <Navbar />
+                </div>
 
-            {/* Right content box */}
-            <div className={styles['right-content']}>
-                {authSession ? (
-                    <>
-                        <IconButton
-                            icon2={theme === 'dark' ? Sun : Moon}
-                            onClick={() =>
-                                setTheme(theme === 'dark' ? 'light' : 'dark')
-                            }
-                        />
+                {/* Right content box */}
+                <div className={styles['right-content']}>
+                    {authSession ? (
+                        <>
+                            <IconButton
+                                icon2={theme === 'dark' ? Sun : Moon}
+                                onClick={() =>
+                                    setTheme(
+                                        theme === 'dark' ? 'light' : 'dark'
+                                    )
+                                }
+                            />
 
-                        {/* Alert icon */}
-                        <AlertIcon />
+                            {/* Alert icon */}
+                            <AlertIcon />
 
-                        {/* User icon */}
-                        <UserIcon
-                            menus={[
-                                {
-                                    id: 'default',
-                                    menu: [
-                                        {
-                                            text: 'Profile',
-                                            icon: 'fas fa-user',
-                                            to: 'profile',
-                                        },
-                                        {
-                                            text: 'Settings',
-                                            icon: 'fas fa-gear',
-                                            gotoMenu: 'settings',
-                                        },
-                                        {
-                                            text: 'Logout',
-                                            icon: 'fas fa-right-from-bracket',
-                                            onClick: () => logout(),
-                                        },
-                                    ],
-                                },
-                                {
-                                    id: 'settings',
-                                    menu: [
-                                        {
-                                            text: 'No option availables.',
-                                        },
-                                        {
-                                            text: 'Back',
-                                            icon: 'fas fa-arrow-left',
-                                            gotoMenu: 'default',
-                                        },
-                                    ],
-                                },
-                            ]}
-                        />
-                    </>
-                ) : (
-                    <>
-                        <IconButton
-                            style={{ marginRight: '10px' }}
-                            icon2={theme === 'dark' ? Sun : Moon}
-                            onClick={() =>
-                                setTheme(theme === 'dark' ? 'light' : 'dark')
-                            }
-                        />
-                        <Link
-                            className={styles['login-link']}
-                            to={routes.login}
-                        >
-                            Login
-                        </Link>{' '}
-                        <Button
-                            style={{ marginRight: '10px' }}
-                            onClick={() => navigate(routes.register)}
-                            elementType="div"
-                        >
-                            Register
-                        </Button>
-                    </>
-                )}
+                            {/* User icon */}
+                            <UserIcon
+                                menus={[
+                                    {
+                                        id: 'default',
+                                        menu: [
+                                            {
+                                                text: 'Profile',
+                                                icon: 'fas fa-user',
+                                                to: 'profile',
+                                            },
+                                            {
+                                                text: 'Settings',
+                                                icon: 'fas fa-gear',
+                                                gotoMenu: 'settings',
+                                            },
+                                            {
+                                                text: 'Logout',
+                                                icon: 'fas fa-right-from-bracket',
+                                                onClick: () => logout(),
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        id: 'settings',
+                                        menu: [
+                                            {
+                                                text: 'No option availables.',
+                                            },
+                                            {
+                                                text: 'Back',
+                                                icon: 'fas fa-arrow-left',
+                                                gotoMenu: 'default',
+                                            },
+                                        ],
+                                    },
+                                ]}
+                            />
+                        </>
+                    ) : (
+                        <>
+                            <IconButton
+                                style={{ marginRight: '10px' }}
+                                icon2={theme === 'dark' ? Sun : Moon}
+                                onClick={() =>
+                                    setTheme(
+                                        theme === 'dark' ? 'light' : 'dark'
+                                    )
+                                }
+                            />
+                            <Link
+                                className={styles['login-link']}
+                                to={routes.login}
+                            >
+                                Login
+                            </Link>{' '}
+                            <Button
+                                style={{ marginRight: '10px' }}
+                                onClick={() => navigate(routes.register)}
+                                elementType="div"
+                            >
+                                Register
+                            </Button>
+                        </>
+                    )}
+                </div>
             </div>
         </header>
     );

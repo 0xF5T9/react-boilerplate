@@ -9,6 +9,7 @@
     --general-font-size-large: calc(1rem * 1.17);
     --general-body-background-image-url: url('../img/background.jpg');
     --general-html-overflow: auto;
+    --content-max-width: 1200px;
 }
 
 * {

@@ -19,43 +19,45 @@ import * as styles from './Footer.module.css';
 function Footer() {
     return (
         <footer className={styles['footer']}>
-            <span className={styles['copyright-text']}>
-                © 2024{' '}
-                <a href="/" className={styles['link']}>
-                    www.0xf5t9.com
-                </a>{' '}
-                - All Rights Reserved.
-            </span>
+            <div className={styles['footer-content']}>
+                <span className={styles['copyright-text']}>
+                    © 2024{' '}
+                    <a href="/" className={styles['link']}>
+                        www.0xf5t9.com
+                    </a>{' '}
+                    - All Rights Reserved.
+                </span>
 
-            <div className={styles['info-brands']}>
-                <a
-                    className={styles['github']}
-                    href="https://github.com/0xF5T9"
-                    target="_blank"
-                >
-                    <Github />
-                </a>
-                <a
-                    className={styles['discord']}
-                    href="https://discord.com/"
-                    target="_blank"
-                >
-                    <Discord />
-                </a>
-                <a
-                    className={styles['youtube']}
-                    href="https://youtube.com/"
-                    target="_blank"
-                >
-                    <Youtube />
-                </a>
-                <a
-                    className={styles['facebook']}
-                    href="https://facebook.com/"
-                    target="_blank"
-                >
-                    <Facebook />
-                </a>
+                <div className={styles['info-brands']}>
+                    <a
+                        className={styles['github']}
+                        href="https://github.com/0xF5T9"
+                        target="_blank"
+                    >
+                        <Github />
+                    </a>
+                    <a
+                        className={styles['discord']}
+                        href="https://discord.com/"
+                        target="_blank"
+                    >
+                        <Discord />
+                    </a>
+                    <a
+                        className={styles['youtube']}
+                        href="https://youtube.com/"
+                        target="_blank"
+                    >
+                        <Youtube />
+                    </a>
+                    <a
+                        className={styles['facebook']}
+                        href="https://facebook.com/"
+                        target="_blank"
+                    >
+                        <Facebook />
+                    </a>
+                </div>
             </div>
         </footer>
     );
