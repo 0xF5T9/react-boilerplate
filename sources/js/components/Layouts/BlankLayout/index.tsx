@@ -7,6 +7,7 @@
 import { Outlet, ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 import Content from '../../Content';
+import { ModalOverlay } from '../../Modal';
 import { ToastOverlay } from '../../Toast';
 import DebugOverlay from '../../DebugOverlay';
 
@@ -39,6 +40,7 @@ function BlankLayout() {
                 <Content>
                     <Outlet />
                 </Content>
+                <ModalOverlay />
                 <ToastOverlay />
                 {process.env.NODE_ENV === 'development' && <DebugOverlay />}
                 <div className={styles['background']} />

@@ -5,8 +5,9 @@
 
 'use strict';
 import routes from './routes';
-import { GlobalProvider } from '../components/Context/Global';
 import { AuthProvider } from '../hooks/useAuth';
+import { GlobalProvider } from '../components/Context/Global';
+import { ModalProvider } from '../components/Modal';
 import ProtectedRoute from '../components/ProtectedRoute';
 import { DefaultLayout, BlankLayout, ErrorLayout } from '../components/Layouts';
 import * as Sections from '../components/Sections';
@@ -17,14 +18,18 @@ const appRouter = [
         element: (
             <GlobalProvider>
                 <AuthProvider>
-                    <DefaultLayout />
+                    <ModalProvider>
+                        <DefaultLayout />
+                    </ModalProvider>
                 </AuthProvider>
             </GlobalProvider>
         ),
         errorElement: (
             <GlobalProvider>
                 <AuthProvider>
-                    <ErrorLayout />
+                    <ModalProvider>
+                        <ErrorLayout />
+                    </ModalProvider>
                 </AuthProvider>
             </GlobalProvider>
         ),
@@ -85,6 +90,10 @@ const appRouter = [
                         path: routes.samples.toast,
                         element: <Sections.ToastSampleSection />,
                     },
+                    {
+                        path: routes.samples.modal,
+                        element: <Sections.ModalSampleSection />,
+                    },
                 ],
             },
         ],
@@ -94,7 +103,9 @@ const appRouter = [
         element: (
             <GlobalProvider>
                 <AuthProvider>
-                    <BlankLayout />
+                    <ModalProvider>
+                        <BlankLayout />
+                    </ModalProvider>
                 </AuthProvider>
             </GlobalProvider>
         ),
@@ -110,7 +121,9 @@ const appRouter = [
         element: (
             <GlobalProvider>
                 <AuthProvider>
-                    <BlankLayout />
+                    <ModalProvider>
+                        <BlankLayout />
+                    </ModalProvider>
                 </AuthProvider>
             </GlobalProvider>
         ),

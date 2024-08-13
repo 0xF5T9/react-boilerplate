@@ -10,6 +10,7 @@ import routes from '../../../configs/routes';
 
 import Content from '../../Content';
 import { FlexibleSection } from '../../Content/components/GridSection';
+import { ModalOverlay } from '../../Modal';
 import { ToastOverlay } from '../../Toast';
 // import DebugOverlay from '../../DebugOverlay';
 import Button from '../../Button';
@@ -78,6 +79,7 @@ function ErrorLayout() {
                         </div>
                     </FlexibleSection>
                 </Content>
+                <ModalOverlay />
                 <ToastOverlay />
                 {/* <DebugOverlay /> */}
                 <div className={layoutStyles['background']} />

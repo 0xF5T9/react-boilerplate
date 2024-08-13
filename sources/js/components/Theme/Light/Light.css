@@ -191,7 +191,9 @@
     --toast-close-icon-color: var(--color-white);
     --toast-shadow-color: var(--shadow-dark2, #33333327);
 
+    --modal-overlay-fade-in-duration: 0.1s;
     --modal-overlay-background-color: #0006;
+    --modal-overlay-backdrop-filter: blur(1px);
     --modal-window-margin: 50px;
     --modal-window-width: auto;
     --modal-window-height: auto;
@@ -200,6 +202,8 @@
     --modal-window-border-color: var(--color-gray);
     --modal-window-text-color: var(--context-text);
     --modal-window-background-color: var(--context-background);
+    --alert-modal-window-title-text-color: rgb(53, 53, 53);
+    --alert-modal-window-message-text-color: rgb(91, 90, 90);
 
     --button-text-color-default: rgba(255, 255, 255, 0.9);
     --button-text-color-hover: rgba(255, 255, 255, 0.9);

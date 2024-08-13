@@ -104,6 +104,11 @@ export default [
                 to: routes.samples.toast,
                 icon: Fa6SolidCode,
             },
+            {
+                text: 'Modal',
+                to: routes.samples.modal,
+                icon: Fa6SolidCode,
+            },
         ],
     },
 ] satisfies MobileNavbarSection[] as MobileNavbarSection[];

@@ -19,6 +19,7 @@ const routes = {
         labeledInput: '/samples/labeled-input',
         labeledSelect: '/samples/labeled-select',
         toast: '/samples/toast',
+        modal: '/samples/modal',
     },
 };
 

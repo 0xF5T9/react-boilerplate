@@ -86,6 +86,11 @@ export default [
                 to: routes.samples.toast,
                 icon: Fa6SolidCode,
             },
+            {
+                title: 'Modal',
+                to: routes.samples.modal,
+                icon: Fa6SolidCode,
+            },
         ],
     },
     {

@@ -9,6 +9,7 @@ import { Outlet, ScrollRestoration, useLoaderData } from 'react-router-dom';
 import Header from '../../Header';
 import Content from '../../Content';
 import Footer from '../../Footer';
+import { ModalOverlay } from '../../Modal';
 import { ToastOverlay } from '../../Toast';
 import DebugOverlay from '../../DebugOverlay';
 
@@ -35,6 +36,7 @@ function DefaultLayout() {
                     <Outlet />
                 </Content>
                 <Footer />
+                <ModalOverlay />
                 <ToastOverlay />
                 {process.env.NODE_ENV === 'development' && <DebugOverlay />}
                 <div className={styles['background']} />
