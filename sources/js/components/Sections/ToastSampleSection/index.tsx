@@ -117,7 +117,7 @@ function ToastSampleSection() {
                         className={`${toastStyles['toast']} ${toastStyles['toast-message']}`}
                     >
                         <div className={toastStyles['toast-icon']}>
-                            <i className="fa-solid fa-circle-info"></i>
+                            <i className="fa-solid fa-message"></i>
                         </div>
                         <div className={toastStyles['toast-message']}>
                             <div className={toastStyles['toast-title']}>
