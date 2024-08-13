@@ -19,7 +19,15 @@ const globalContext = createContext(null);
  * @returns Returns the component.
  */
 function GlobalProvider({ children }: { children: ReactNode }) {
-    const [theme, setTheme] = useState('dark'),
+    const [theme, setTheme] = useState(() => {
+            let theme = localStorage.getItem('theme');
+            if (!theme || (theme !== 'light' && theme !== 'dark')) {
+                localStorage.setItem('theme', 'dark');
+                theme = 'dark';
+            }
+
+            return theme;
+        }),
         [deviceType, setDeviceType] = useState(() => ({
             deviceType:
                 window.innerWidth >= 1024
@@ -50,6 +58,10 @@ function GlobalProvider({ children }: { children: ReactNode }) {
             window.removeEventListener('resize', handleUpdateDeviceType);
         };
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     function handleUpdateDeviceType() {
         const device_type =
