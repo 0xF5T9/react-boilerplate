@@ -89,10 +89,15 @@
     --header-icon-button-background-color-active: rgba(211, 211, 211, 0.6);
     --header-icon-button-icon-color-open: var(--text-light-hover);
 
-    --footer-height: 140px;
+    --footer-height: 0px;
     --footer-background-color: #f7f7f7;
-    --footer-text-color: var(--text-light);
     --footer-border-top: 2px solid rgba(0, 0, 0, 0.1);
+    --footer-business-section-border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    --footer-text-color: var(--text-light);
+    --footer-text-dim-color: var(--text-light-dim);
+    --footer-text-highlight-color: var(--color-primary);
+    --footer-heading-text-color: var(--text-light);
+    --footer-heading-border-color: var(--color-primary);
 
     --navbar-item-background-color-default: rgba(247, 247, 247, 0);
     --navbar-item-background-color-hover: rgba(64, 162, 230, 0.1);

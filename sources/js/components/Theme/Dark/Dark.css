@@ -93,10 +93,15 @@
     );
     --header-icon-button-icon-color-open: var(--text-dark-hover);
 
-    --footer-height: 140px;
+    --footer-height: 0px;
     --footer-background-color: var(--background-dark);
-    --footer-text-color: var(--text-dark-dim);
     --footer-border-top: 2px solid rgba(0, 0, 0, 0.05);
+    --footer-business-section-border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    --footer-text-color: var(--text-dark);
+    --footer-text-dim-color: var(--text-dark-dim);
+    --footer-text-highlight-color: var(--color-primary);
+    --footer-heading-text-color: var(--text-dark);
+    --footer-heading-border-color: var(--color-primary);
 
     --navbar-item-background-color-default: rgba(34, 31, 34, 0);
     --navbar-item-background-color-hover: var(--background-dark-highlight);
