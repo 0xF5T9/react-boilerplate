@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './LabeledInput.module.css';
@@ -20,6 +21,7 @@ import * as styles from './LabeledInput.module.css';
  * @param props.label Input label.
  * @param props.id Element id.
  * @param props.value Element value.
+ * @param props.defaultValue Element value.
  * @param props.placeholder Placeholder text.
  * @param props.readOnly Specifies whether the input is read-only.
  * @param props.onBlur Input on-blur callback.
@@ -39,6 +41,7 @@ function LabeledInput({
     label,
     id,
     value,
+    defaultValue,
     placeholder,
     readOnly = false,
     onBlur,
@@ -47,7 +50,7 @@ function LabeledInput({
     wrapperStyle,
     inputStyle,
 }: {
-    type?: 'text' | 'email' | 'password';
+    type?: 'text' | 'email' | 'password' | 'number' | 'tel';
     color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     reverseBackground?: boolean;
     size?: 'small' | 'large';
@@ -56,6 +59,7 @@ function LabeledInput({
     label: string;
     id?: string;
     value?: string;
+    defaultValue?: string;
     placeholder?: string;
     readOnly?: boolean;
     onBlur?: (...args: any[]) => any;
@@ -64,6 +68,8 @@ function LabeledInput({
     wrapperStyle?: object;
     inputStyle?: object;
 }) {
+    const input: any = useRef();
+
     const classes = `${styles['input-wrapper']}
                    ${color ? styles[color] : ''}
                    ${size ? styles[size] : ''}
@@ -77,12 +83,17 @@ function LabeledInput({
             ? { width: `${labelWidth}px`, flexShrink: '0' }
             : {};
 
+    useEffect(() => {
+        if (defaultValue && input.current) input.current.value = defaultValue;
+    }, []);
+
     return (
         <div className={classes} style={wrapper_style}>
             <div className={styles['input-label']} style={label_wrapper_style}>
                 <label htmlFor={id}>{label}</label>
             </div>
             <input
+                ref={input}
                 className={styles['input']}
                 id={id}
                 type={type}
@@ -99,7 +110,7 @@ function LabeledInput({
 }
 
 LabeledInput.propTypes = {
-    type: PropTypes.oneOf(['text', 'email', 'password']),
+    type: PropTypes.oneOf(['text', 'email', 'password', 'number', 'tel']),
     color: PropTypes.oneOf([
         'red',
         'orange',
@@ -116,6 +127,7 @@ LabeledInput.propTypes = {
     label: PropTypes.string.isRequired,
     id: PropTypes.string,
     value: PropTypes.string,
+    defaultValue: PropTypes.string,
     placeholder: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,

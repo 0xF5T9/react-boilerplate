@@ -28,6 +28,15 @@
     pointer-events: none;
 }
 
+input[type='number'].input {
+    appearance: textfield;
+}
+input[type='number'].input *::-webkit-outer-spin-button,
+input[type='number'].input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .input-label {
     padding: 0px 8px;
     color: var(--labeled-input-label-text-color);
