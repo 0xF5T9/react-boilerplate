@@ -276,9 +276,6 @@
     height: 35px;
     margin-right: 15px;
 }
-.navbar-subitem-icon > i {
-    font-size: 30px;
-}
 .navbar-subitem-icon > img {
     width: max-content;
     height: 100%;
