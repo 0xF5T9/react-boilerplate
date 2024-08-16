@@ -21,10 +21,18 @@ function IndexSection() {
                     justifyContent: 'center',
                     padding: '50px 20px',
                     alignItems: 'center',
+                    textAlign: 'center',
                 }}
             >
-                <BarsLoading style={{ width: '100px' }} />
-                <h3 style={{ marginTop: '26px' }}>Server Under Maintenance</h3>
+                <BarsLoading
+                    style={{
+                        width: '7.142857142857143rem',
+                        height: '7.142857142857143rem',
+                    }}
+                />
+                <h5 style={{ marginTop: '28px', opacity: '0.6' }}>
+                    Server Under Maintenance
+                </h5>
             </FlexibleSection>
         </>
     );
