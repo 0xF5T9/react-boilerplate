@@ -4,9 +4,6 @@
  */
 
 :root {
-    --general-font-size-normal: 1rem;
-    --general-font-size-small: calc(1rem * 0.8333333);
-    --general-font-size-large: calc(1rem * 1.17);
     --general-body-background-image-url: url('../img/background.jpg');
     --general-html-overflow: auto;
     --content-max-width: 1200px;
