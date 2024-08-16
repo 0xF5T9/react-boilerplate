@@ -15,6 +15,7 @@ import {
 import PropTypes from 'prop-types';
 import { AlertModal, CustomModal, Modal, ModalSetter } from '../../types/modal';
 
+import { globalContext } from '../Context/Global';
 import { CircleExclamation } from '../Icons/CircleExclamation';
 import { CircleInfo } from '../Icons/CircleInfo';
 import { CircleCheck } from '../Icons/CircleCheck';
@@ -32,6 +33,8 @@ const modalContext = createContext(null);
  * @returns Returns the component.
  */
 function ModalProvider({ children }: { children: ReactNode }) {
+    const { setAllowScrolling } = useContext(globalContext);
+
     // 'modalVisibility' is used to check if there is an opening modal. (Don't use 'modal')
     // 'setModalVisibility' is used to close any opening modal programmatically.
     const [modal, setModal]: [Modal, ModalSetter] = useState(null),
@@ -39,6 +42,7 @@ function ModalProvider({ children }: { children: ReactNode }) {
 
     useEffect(() => {
         setModalVisibility(!!modal);
+        setAllowScrolling(!!!modal);
     }, [modal]);
 
     const value = {
