@@ -37,7 +37,8 @@ function GlobalProvider({ children }: { children: ReactNode }) {
                       : 'Mobile',
             deviceWidth: window.innerWidth,
             deviceHeight: window.innerHeight,
-        }));
+        })),
+        [allowScrolling, setAllowScrolling] = useState(true);
 
     let Theme;
     switch (theme) {
@@ -81,10 +82,20 @@ function GlobalProvider({ children }: { children: ReactNode }) {
         theme,
         setTheme,
         deviceType,
+        setAllowScrolling,
     };
 
     return (
         <globalContext.Provider value={global}>
+            {!allowScrolling && (
+                <style>
+                    {`
+                    :root {
+                        --general-html-overflow: clip;
+                    }
+                    `}
+                </style>
+            )}
             {Theme && <Theme />}
             {children}
         </globalContext.Provider>
