@@ -99,7 +99,7 @@
 .navbar-item-loading-icon {
     width: 12px;
     height: 1em;
-    margin-right: 6px;
+    margin-right: 8px;
 }
 
 .navbar-item-loading-icon {
@@ -253,12 +253,11 @@
 }
 
 .navbar-subitem-link {
+    display: flex;
+    align-items: center;
     min-width: max-content;
     padding: 5px 15px;
     border-radius: var(--navbar-sublist-border-radius);
-
-    display: flex;
-    align-items: center;
     color: var(--navbar-subitem-text-color-default);
     text-decoration: none;
 }
@@ -273,7 +272,7 @@
     align-items: center;
     width: 35px;
     height: 35px;
-    margin-right: 15px;
+    margin-right: 16px;
 }
 .navbar-subitem-icon > img {
     width: max-content;
@@ -292,6 +291,7 @@
 
 .navbar-subitem-title {
     max-width: 390px;
+    font-size: 1rem;
     font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
@@ -301,7 +301,7 @@
 .navbar-subitem-desc {
     max-width: 390px;
     margin-top: 8px;
-    font-size: small;
+    font-size: 0.9285714285714286rem;
     font-weight: 500;
     white-space: nowrap;
     color: var(--navbar-subitem-desc-text-default);

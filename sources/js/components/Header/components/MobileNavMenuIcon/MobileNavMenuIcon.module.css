@@ -229,7 +229,7 @@
     margin-top: 4px;
     color: var(--mobile-navbar-item-desc-text-color);
     font-weight: 500;
-    font-size: small;
+    font-size: 0.9285714285714286rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
