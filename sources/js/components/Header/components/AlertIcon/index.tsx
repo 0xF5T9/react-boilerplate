@@ -32,7 +32,7 @@ function AlertIcon() {
                 interactive
                 visible={showPopup}
                 offset={[0, 0]}
-                placement="bottom-start"
+                placement="bottom-end"
                 onClickOutside={handleBackgroundClick}
                 customAnimation={{
                     classIn: styles['animation-in'],

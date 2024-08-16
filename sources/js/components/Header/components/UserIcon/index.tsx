@@ -95,7 +95,7 @@ function UserIcon({ menus }: { menus: Array<any> }) {
                 interactive
                 visible={showPopup}
                 offset={[0, 0]}
-                placement="bottom-start"
+                placement="bottom-end"
                 onClickOutside={handleBackgroundClick}
                 onHidden={handlePopupClose}
                 customAnimation={{
