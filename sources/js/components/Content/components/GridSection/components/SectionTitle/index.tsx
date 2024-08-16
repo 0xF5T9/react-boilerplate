@@ -19,7 +19,7 @@ import * as styles from './SectionTitle.module.css';
  * @returns Returns the component.
  */
 function SectionTitle({
-    element = 'h2',
+    element = 'h5',
     id,
     className,
     style,
