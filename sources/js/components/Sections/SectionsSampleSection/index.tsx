@@ -30,6 +30,7 @@ function IndexSection() {
                     padding: '50px 20px',
                     alignItems: 'center',
                     border: '2px solid var(--color-red)',
+                    textAlign: 'center',
                 }}
             >
                 <SectionTitle>Dynamic Section</SectionTitle>
@@ -48,6 +49,7 @@ function IndexSection() {
                     padding: '50px 20px',
                     alignItems: 'center',
                     border: '2px solid var(--color-green)',
+                    textAlign: 'center',
                 }}
             >
                 <SectionTitle>Fixed Section</SectionTitle>
@@ -65,6 +67,7 @@ function IndexSection() {
                     padding: '50px 20px',
                     alignItems: 'center',
                     border: '2px solid var(--color-blue)',
+                    textAlign: 'center',
                 }}
             >
                 <SectionTitle>Flexible Section</SectionTitle>
