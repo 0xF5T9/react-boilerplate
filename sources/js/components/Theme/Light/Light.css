@@ -55,23 +55,24 @@
     --background-dark-highlight: #6b6b6b;
     --shadow-dark: rgba(35, 31, 32, 0.25);
 
-    --context-text-dark: blue;
-    --context-text-dark-hover: blue;
-    --context-text-dark-highlight: blue;
-    --context-text-dark-dim: blue;
-    --context-background-dark: blue;
-    --context-background-dark-highlight: blue;
-    --context-shadow-dark: blue;
+    --context-text-dark: #f7f7f7;
+    --context-text-dark-hover: #f7f7f7;
+    --context-text-dark-highlight: rgba(64, 162, 230, 1);
+    --context-text-dark-dim: #797779;
+    --context-background-dark: #2d2a2e;
+    --context-background-dark-highlight: rgba(56, 53, 57, 0.45);
+    --context-shadow-dark: rgba(34, 31, 34, 0.4);
 
     --color-primary: rgba(64, 162, 230, 1);
     --color-success: var(--color-green);
     --color-warning: var(--color-yellow);
     --color-danger: var(--color-red);
 
-    --color-scrollbar-background: var(--color-black);
-    --color-scrollbar-thumb-background-default: var(--color-gray);
-    --color-scrollbar-thumb-background-hover: var(--color-gray-bright);
-    --color-scrollbar-thumb-background-active: var(--color-gray-darker);
+    --color-scrollbar-background: #f7f7f7;
+    --color-scrollbar-thumb-background-default: #a6a1a6;
+    --color-scrollbar-thumb-background-hover: #40a2e6;
+    --color-scrollbar-thumb-background-active: #63b0e6;
+    --color-div-scrollbar-thumb-background-default: #40a2e6;
 
     /* Component variables */
     --header-height: 56.8px;
@@ -194,7 +195,7 @@
     --toast-border-radius: 4px;
     --toast-icon-color: var(--color-white);
     --toast-close-icon-color: var(--color-white);
-    --toast-shadow-color: var(--shadow-dark2, #33333327);
+    --toast-shadow-color: var(#33333327);
 
     --modal-overlay-fade-in-duration: 0.1s;
     --modal-overlay-background-color: #0006;

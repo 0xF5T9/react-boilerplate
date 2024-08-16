@@ -96,12 +96,12 @@ small {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 4px;
     background: var(--color-scrollbar-background);
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 0px;
+    border-radius: 4px;
     background: var(--color-scrollbar-thumb-background-default);
 }
 
@@ -111,6 +111,14 @@ small {
 
 ::-webkit-scrollbar-thumb:active {
     background: var(--color-scrollbar-thumb-background-active);
+}
+
+div::-webkit-scrollbar {
+    background: transparent;
+}
+
+div::-webkit-scrollbar-thumb {
+    background: var(--color-div-scrollbar-thumb-background-default);
 }
 
 ::placeholder {

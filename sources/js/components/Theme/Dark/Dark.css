@@ -31,21 +31,21 @@
     --color-purple-darker: #998cd9;
     --color-purple-vibrant: #7058e9;
 
-    --text-light: blue;
-    --text-light-hover: blue;
-    --text-light-highlight: blue;
-    --text-light-dim: blue;
-    --background-light: blue;
-    --background-light-highlight: blue;
-    --shadow-light: blue;
+    --text-light: #231f20;
+    --text-light-hover: #231f20;
+    --text-light-highlight: #fc9a69;
+    --text-light-dim: #5b5a5a;
+    --background-light: #f7f7f7;
+    --background-light-highlight: rgba(64, 162, 230, 0.2);
+    --shadow-light: #00000033;
 
-    --context-text-light: blue;
-    --context-text-light-hover: blue;
-    --context-text-light-highlight: blue;
-    --context-text-light-dim: blue;
-    --context-background-light: blue;
-    --context-background-light-highlight: blue;
-    --context-shadow-light: blue;
+    --context-text-light: #231f20;
+    --context-text-light-hover: #231f20;
+    --context-text-light-highlight: var(--color-primary);
+    --context-text-light-dim: #5b5a5a;
+    --context-background-light: #f4f4f4;
+    --context-background-light-highlight: rgba(252, 154, 105, 0.15);
+    --context-shadow-light: #00000033;
 
     --text-dark: #f7f7f7;
     --text-dark-hover: #f7f7f7;
@@ -68,10 +68,11 @@
     --color-warning: var(--color-yellow);
     --color-danger: var(--color-red);
 
-    --color-scrollbar-background: var(--color-black);
-    --color-scrollbar-thumb-background-default: var(--color-gray);
-    --color-scrollbar-thumb-background-hover: var(--color-gray-bright);
-    --color-scrollbar-thumb-background-active: var(--color-gray-darker);
+    --color-scrollbar-background: #221f22;
+    --color-scrollbar-thumb-background-default: #4e4c4e;
+    --color-scrollbar-thumb-background-hover: #fc9a69;
+    --color-scrollbar-thumb-background-active: #fcab83;
+    --color-div-scrollbar-thumb-background-default: #4e4c4e;
 
     /* Component variables */
     --header-height: 56.8px;
