@@ -16,3 +16,4 @@ export { default as LabeledInputSampleSection } from './LabeledInputSampleSectio
 export { default as LabeledSelectSampleSection } from './LabeledSelectSampleSection';
 export { default as ToastSampleSection } from './ToastSampleSection';
 export { default as ModalSampleSection } from './ModalSampleSection';
+export { default as TypographySection } from './TypographySection';

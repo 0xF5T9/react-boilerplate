@@ -109,6 +109,11 @@ export default [
                 to: routes.samples.modal,
                 icon: Code,
             },
+            {
+                text: 'Typography',
+                to: routes.samples.typography,
+                icon: Code,
+            },
         ],
     },
 ] satisfies MobileNavbarSection[] as MobileNavbarSection[];

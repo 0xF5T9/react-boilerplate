@@ -105,6 +105,10 @@ function ComponentsSection() {
                         />
                         <CardItem text="Toast" to={routes.samples.toast} />
                         <CardItem text="Modal" to={routes.samples.modal} />
+                        <CardItem
+                            text="Typography"
+                            to={routes.samples.typography}
+                        />
                     </Row>
                 </SectionBlock>
             </FlexibleSection>

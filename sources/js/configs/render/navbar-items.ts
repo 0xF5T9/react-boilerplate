@@ -91,6 +91,11 @@ export default [
                 to: routes.samples.modal,
                 icon: Code,
             },
+            {
+                title: 'Typography',
+                to: routes.samples.typography,
+                icon: Code,
+            },
         ],
     },
     {

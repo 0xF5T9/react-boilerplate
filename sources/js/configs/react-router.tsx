@@ -94,6 +94,10 @@ const appRouter = [
                         path: routes.samples.modal,
                         element: <Sections.ModalSampleSection />,
                     },
+                    {
+                        path: routes.samples.typography,
+                        element: <Sections.TypographySection />,
+                    },
                 ],
             },
         ],

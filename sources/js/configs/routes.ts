@@ -20,6 +20,7 @@ const routes = {
         labeledSelect: '/samples/labeled-select',
         toast: '/samples/toast',
         modal: '/samples/modal',
+        typography: '/samples/typography',
     },
 };
 
