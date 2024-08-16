@@ -31,7 +31,7 @@ function LabeledInputSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <LabeledInput label="Primary" width={250} labelWidth={72} />
@@ -72,7 +72,7 @@ function LabeledInputSampleSection() {
                         labelWidth={72}
                     />
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Disabled Inputs
                 </SectionTitle>
                 <div
@@ -80,7 +80,7 @@ function LabeledInputSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <LabeledInput
@@ -138,7 +138,7 @@ function LabeledInputSampleSection() {
                         disabled
                     />
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Sized Inputs
                 </SectionTitle>
                 <div
@@ -147,7 +147,7 @@ function LabeledInputSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <LabeledInput label="Small" size="small" width={150} />

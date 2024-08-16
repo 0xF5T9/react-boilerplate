@@ -63,7 +63,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: start;
-    gap: 10px;
+    gap: 12px;
     margin-top: 4px;
 }
 
@@ -96,7 +96,7 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    column-gap: 10px;
+    column-gap: 12px;
     text-decoration: none;
     cursor: pointer;
 }
@@ -194,10 +194,10 @@
 @media only screen and (width <= 799px) {
     .business-section {
         flex-flow: column nowrap;
-        row-gap: 26px;
+        row-gap: 28px;
     }
     .business-section-block {
-        gap: 15px;
+        gap: 16px;
     }
     .info-wrapper {
         width: 100%;
@@ -207,9 +207,9 @@
 @media only screen and (max-width: 799px) {
     .business-section {
         flex-flow: column nowrap;
-        row-gap: 26px;
+        row-gap: 28px;
     }
     .business-section-block {
-        gap: 15px;
+        gap: 16px;
     }
 }

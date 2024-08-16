@@ -31,7 +31,7 @@ function InputSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        rowGap: '6px',
+                        rowGap: '8px',
                     }}
                 >
                     <Input
@@ -76,7 +76,7 @@ function InputSampleSection() {
                         inputStyle={{ width: '250px' }}
                     />{' '}
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Disabled Inputs
                 </SectionTitle>
                 <Input
@@ -85,7 +85,7 @@ function InputSampleSection() {
                     inputStyle={{ width: '250px' }}
                     disabled
                 />{' '}
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Icon Inputs
                 </SectionTitle>
                 <div
@@ -93,7 +93,7 @@ function InputSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        rowGap: '6px',
+                        rowGap: '8px',
                     }}
                 >
                     <div
@@ -102,7 +102,7 @@ function InputSampleSection() {
                             flexFlow: 'row wrap',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            gap: '6px',
+                            gap: '8px',
                         }}
                     >
                         <Input
@@ -130,7 +130,7 @@ function InputSampleSection() {
                             flexFlow: 'row wrap',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            gap: '6px',
+                            gap: '8px',
                         }}
                     >
                         <Input
@@ -153,7 +153,7 @@ function InputSampleSection() {
                         />
                     </div>
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Sized Inputs
                 </SectionTitle>
                 <div
@@ -161,7 +161,7 @@ function InputSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        rowGap: '6px',
+                        rowGap: '8px',
                     }}
                 >
                     <div>

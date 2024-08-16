@@ -31,7 +31,7 @@ function LabeledSelectSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <LabeledSelect label="Primary" width={250} labelWidth={72}>
@@ -106,7 +106,7 @@ function LabeledSelectSampleSection() {
                         <option value="3">Option 3</option>
                     </LabeledSelect>
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Disabled Inputs
                 </SectionTitle>
                 <div
@@ -114,7 +114,7 @@ function LabeledSelectSampleSection() {
                         display: 'flex',
                         flexFlow: 'column nowrap',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <LabeledSelect
@@ -200,7 +200,7 @@ function LabeledSelectSampleSection() {
                         <option value="3">Option 3</option>
                     </LabeledSelect>
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Sized Inputs
                 </SectionTitle>
                 <div
@@ -209,7 +209,7 @@ function LabeledSelectSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <LabeledSelect label="Small" size="small">

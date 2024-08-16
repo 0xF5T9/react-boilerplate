@@ -37,7 +37,7 @@
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    row-gap: 15px;
+    row-gap: 16px;
     padding: 20px;
     border: 2px solid var(--card-border-color-default);
     border-radius: 10px;
@@ -75,7 +75,7 @@
 
 @media only screen and (width <= 1113px) {
     .card-list {
-        row-gap: 26px;
+        row-gap: 28px;
     }
 }
 @media only screen and (max-width: 1113px) {

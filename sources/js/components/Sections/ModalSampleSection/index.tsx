@@ -48,7 +48,7 @@ function ModalSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Button
@@ -139,7 +139,7 @@ function ModalSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Button
@@ -258,7 +258,7 @@ function ModalSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <style>

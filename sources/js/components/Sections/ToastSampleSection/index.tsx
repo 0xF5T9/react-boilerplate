@@ -142,7 +142,7 @@ function ToastSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Button

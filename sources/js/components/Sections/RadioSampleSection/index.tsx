@@ -32,8 +32,8 @@ function RadioSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        columnGap: '5px',
-                        rowGap: '10px',
+                        columnGap: '8px',
+                        rowGap: '12px',
                     }}
                 >
                     {' '}
@@ -87,7 +87,7 @@ function RadioSampleSection() {
                     />
                 </div>
 
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Disabled Radios
                 </SectionTitle>
                 <div
@@ -96,8 +96,8 @@ function RadioSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        columnGap: '5px',
-                        rowGap: '10px',
+                        columnGap: '8px',
+                        rowGap: '12px',
                     }}
                 >
                     <Radio
@@ -157,7 +157,7 @@ function RadioSampleSection() {
                     />
                 </div>
 
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Sized Radios
                 </SectionTitle>
                 <div
@@ -166,8 +166,8 @@ function RadioSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        columnGap: '5px',
-                        rowGap: '10px',
+                        columnGap: '8px',
+                        rowGap: '12px',
                     }}
                 >
                     <Radio

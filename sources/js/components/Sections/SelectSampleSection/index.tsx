@@ -32,7 +32,7 @@ function SelectSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Select>
@@ -71,7 +71,7 @@ function SelectSampleSection() {
                         <option value="3">Option 3</option>
                     </Select>
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Disabled Selects
                 </SectionTitle>
                 <div
@@ -80,7 +80,7 @@ function SelectSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Select disabled>
@@ -119,7 +119,7 @@ function SelectSampleSection() {
                         <option value="3">Option 3</option>
                     </Select>
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Sized Selects
                 </SectionTitle>
                 <div
@@ -128,7 +128,7 @@ function SelectSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Select size="small">

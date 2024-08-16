@@ -38,7 +38,7 @@ function ButtonSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Button>Primary</Button>{' '}
@@ -49,7 +49,7 @@ function ButtonSampleSection() {
                     <Button color="gray">Gray</Button>{' '}
                     <Button color="white">White</Button>
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Disabled Buttons
                 </SectionTitle>
                 <div
@@ -58,7 +58,7 @@ function ButtonSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Button disabled>Primary</Button>{' '}
@@ -81,7 +81,7 @@ function ButtonSampleSection() {
                         White
                     </Button>
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Icon Buttons
                 </SectionTitle>
                 <div
@@ -90,7 +90,7 @@ function ButtonSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Button color="success">
@@ -109,7 +109,7 @@ function ButtonSampleSection() {
                         color="gray"
                         style={{
                             display: 'inline-flex',
-                            columnGap: '6px',
+                            columngap: '8px',
                             // verticalAlign: 'bottom',
                         }}
                     >
@@ -123,7 +123,7 @@ function ButtonSampleSection() {
                         Open
                     </Button>
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Sized Buttons
                 </SectionTitle>
                 <div
@@ -132,14 +132,14 @@ function ButtonSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Button size="small">Small</Button>
                     <Button>Default</Button>
                     <Button size="large">Large</Button>
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Functional Buttons
                 </SectionTitle>
                 <div
@@ -148,7 +148,7 @@ function ButtonSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '8px',
                     }}
                 >
                     <Button

@@ -32,8 +32,8 @@ function CheckboxSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        columnGap: '5px',
-                        rowGap: '10px',
+                        columnGap: '8px',
+                        rowGap: '12px',
                     }}
                 >
                     <Checkbox labelText="Primary" id="cb-1" />{' '}
@@ -44,7 +44,7 @@ function CheckboxSampleSection() {
                     <Checkbox labelText="Blue" color="blue" id="cb-6" />{' '}
                     <Checkbox labelText="Purple" color="purple" id="cb-7" />
                 </div>
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Disabled Checkboxes
                 </SectionTitle>
                 <div
@@ -53,8 +53,8 @@ function CheckboxSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        columnGap: '5px',
-                        rowGap: '10px',
+                        columnGap: '8px',
+                        rowGap: '12px',
                     }}
                 >
                     <Checkbox labelText="Primary" id="dcb-1" disabled />{' '}
@@ -91,7 +91,7 @@ function CheckboxSampleSection() {
                     />
                 </div>
 
-                <SectionTitle style={{ marginTop: '26px' }}>
+                <SectionTitle style={{ marginTop: '28px' }}>
                     Sized Checkboxes
                 </SectionTitle>
                 <div
@@ -100,8 +100,8 @@ function CheckboxSampleSection() {
                         flexFlow: 'row wrap',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        columnGap: '5px',
-                        rowGap: '10px',
+                        columnGap: '8px',
+                        rowGap: '12px',
                     }}
                 >
                     <Checkbox labelText="Small" size="small" id="scb-small" />
