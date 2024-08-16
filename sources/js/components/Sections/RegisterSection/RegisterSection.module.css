@@ -37,7 +37,7 @@
 }
 
 .submit {
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 .links {
@@ -47,7 +47,7 @@
 }
 
 .link {
-    margin-top: 6px;
+    margin-top: 8px;
     color: var(--context-text-dim);
     text-decoration: none;
     user-select: none;

@@ -125,7 +125,6 @@
 }
 
 .alert-modal-window .title {
-    /* margin-top: 6px; */
     color: var(--alert-modal-window-title-text-color);
     font-size: 1.2rem;
     font-weight: bold;

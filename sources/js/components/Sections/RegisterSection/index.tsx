@@ -150,7 +150,7 @@ function RegisterSection() {
                     />
                 )}
                 <div className={styles['wrapper']}>
-                    <h2 className={styles['title']}>Register</h2>
+                    <h5 className={styles['title']}>Register</h5>
 
                     <form className={styles['form']}>
                         <div className={styles['form-group']}>

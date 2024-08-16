@@ -157,7 +157,7 @@ function ModalSampleSection() {
                                         <span
                                             style={{
                                                 display: 'block',
-                                                marginTop: '6px',
+                                                marginTop: '8px',
                                             }}
                                         >
                                             {
@@ -203,7 +203,7 @@ function ModalSampleSection() {
                                         <span
                                             style={{
                                                 display: 'block',
-                                                marginTop: '6px',
+                                                marginTop: '8px',
                                                 fontWeight: 'bold',
                                                 textDecoration: 'underline',
                                             }}
@@ -213,7 +213,7 @@ function ModalSampleSection() {
                                         <span
                                             style={{
                                                 display: 'block',
-                                                marginTop: '6px',
+                                                marginTop: '8px',
                                             }}
                                         >
                                             {

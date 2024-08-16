@@ -226,7 +226,7 @@
 }
 
 .nav-item-desc {
-    margin-top: 3px;
+    margin-top: 4px;
     color: var(--mobile-navbar-item-desc-text-color);
     font-weight: 500;
     font-size: small;

@@ -209,7 +209,7 @@
     --modal-overlay-fade-in-duration: 0.1s;
     --modal-overlay-background-color: rgba(45, 42, 46, 0.9);
     --modal-overlay-backdrop-filter: blur(1px);
-    --modal-window-margin: 50px;
+    --modal-window-margin: 48px;
     --modal-window-width: auto;
     --modal-window-height: auto;
     --modal-window-border-width: 2px;

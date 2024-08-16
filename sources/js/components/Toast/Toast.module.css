@@ -74,7 +74,7 @@
 }
 
 .toast > .toast-message > .toast-desc {
-    margin-top: 3px;
+    margin-top: 4px;
     line-height: initial;
     color: var(--toast-desc-color);
     font-weight: 500;
