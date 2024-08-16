@@ -232,13 +232,17 @@ NavCloseButton.propTypes = {
 function MobileNavMenuIcon() {
     const { authSession } = useAuth();
 
-    const { deviceType } = useContext(globalContext),
+    const { deviceType, setAllowScrolling } = useContext(globalContext),
         [showPopup, setShowPopup] = useState(false);
 
     // Close the menu when the screen width changes.
     useEffect(() => {
         setShowPopup(false);
     }, [deviceType.deviceWidth]);
+
+    useEffect(() => {
+        setAllowScrolling(!showPopup);
+    }, [showPopup]);
 
     function handleClick() {
         setShowPopup(!showPopup);
@@ -274,15 +278,6 @@ function MobileNavMenuIcon() {
                         className={`${styles['blur-layer']} ${PopupStyles['popup-window']}`}
                         onClick={handleBackgroundClick}
                     >
-                        {/* TODO: Figure out a better way to disable html scrolling */}
-                        <style>
-                            {`
-                                :root {
-                                    --general-html-overflow: ${showPopup ? 'clip' : 'var(--general-html-overflow)'};
-                                }
-                            `}
-                        </style>
-
                         <MobileNavMenuContextProvider>
                             <div
                                 className={`${styles['mobile-nav-menu-popup']}`}
