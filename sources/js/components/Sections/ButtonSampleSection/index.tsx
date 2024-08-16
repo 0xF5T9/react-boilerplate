@@ -109,7 +109,7 @@ function ButtonSampleSection() {
                         color="gray"
                         style={{
                             display: 'inline-flex',
-                            columngap: '8px',
+                            columnGap: '4px',
                             // verticalAlign: 'bottom',
                         }}
                     >
