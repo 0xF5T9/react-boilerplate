@@ -1,15 +1,15 @@
 /**
- * @file webpack.config.js
+ * @file webpack.config.ts
  * @description Webpack development configuration file.
  */
 
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // HtmlWebpackPlugin: Generate HTML files from template files.
-const Dotenv = require('dotenv-webpack'); // Dotenv: Enable support for environment files.
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin'; // HtmlWebpackPlugin: Generate HTML files from template files.
+import Dotenv from 'dotenv-webpack'; // Dotenv: Enable support for environment files.
 
 console.log('Using Webpack development configuration ...');
 
-module.exports = {
+export default {
     target: ['web', 'es5'],
     entry: {
         style: './sources/js/style.ts',

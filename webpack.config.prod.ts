@@ -1,16 +1,16 @@
 /**
- * @file webpack.config.js
+ * @file webpack.config.ts
  * @description Webpack production configuration file.
  */
 
-const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin'); // CopyPlugin: Copy files.
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // HtmlWebpackPlugin: Generate HTML files from template files.
-const Dotenv = require('dotenv-webpack'); // Dotenv: Enable support for environment files.
+import path from 'path';
+import CopyPlugin from 'copy-webpack-plugin'; // CopyPlugin: Copy files.
+import HtmlWebpackPlugin from 'html-webpack-plugin'; // HtmlWebpackPlugin: Generate HTML files from template files.
+import Dotenv from 'dotenv-webpack'; // Dotenv: Enable support for environment files.
 
 console.log('Using Webpack production configuration ...');
 
-module.exports = {
+export default {
     target: ['web', 'es5'],
     entry: {
         style: './sources/js/style.ts',
