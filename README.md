@@ -13,6 +13,7 @@ npm install
 ## 2. Set environment variables.
 ```
 DATABASE_API=
+PORT=8317
 ```
 
 # Usage
