@@ -47,7 +47,7 @@ function LoginSection() {
 
         setPending(true);
 
-        const { message, success, data } = await apis.mysqlServer.authorize(
+        const { message, success, data } = await apis.backend.authorize(
             username,
             password
         );

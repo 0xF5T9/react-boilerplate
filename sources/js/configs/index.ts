@@ -6,12 +6,12 @@
 'use strict';
 import routes from './routes';
 import appRouter from './react-router';
-import mysqlServer from './mysql-server';
+import backend from './backend';
 
 const configs = {
     routes,
     appRouter,
-    mysqlServer,
+    backend,
 };
 
 export default configs;

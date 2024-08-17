@@ -38,7 +38,7 @@ function ProtectedRoute({ children }: { children?: ReactNode }) {
     // If the session token is invalid (expired, tampered) redirect to login page.
     // If the verification failed due to server error, redirect to homepage instead.
     async function verifySession() {
-        const result = await apis.mysqlServer.verifySession(authSession),
+        const result = await apis.backend.verifySession(authSession),
             { message, success, invalidToken } = result;
         if (!success) {
             setTimeout(

@@ -32,7 +32,7 @@ window.onkeydown = function (event) {
     switch (event.code) {
         case 'Digit1': {
             (async () => {
-                console.log(await apis.mysqlServer.getTestPosts(2));
+                console.log(await apis.backend.getTestPosts(2));
             })();
             break;
         }

@@ -1,14 +1,15 @@
 /**
- * @file mysql-server.ts
- * @description API that interacts with the mysql-server database.
+ * @file backend.ts
+ * @description API that interacts with the backend server.
  */
 
 'use strict';
+import type { BackendResponse } from '../types/backend-api';
 import type { SessionData } from '../types/authentication';
 import axios from 'axios';
 
-import config from '../configs/mysql-server';
-import { APIResponse } from '../utility/api';
+import config from '../configs/backend';
+import { APIResult } from '../utility/api';
 const { url, endpoints } = config;
 
 /**
@@ -16,28 +17,32 @@ const { url, endpoints } = config;
  * @param page Pagination.
  * @returns Returns the API response object.
  */
-async function getTestPosts(page: number = 1): Promise<APIResponse> {
+async function getTestPosts(page: number = 1): Promise<APIResult> {
     try {
         const result = await axios.get(`${url}${endpoints.posts}`, {
             params: {
                 page,
             },
         });
-        const { message, data } = result.data;
+        const { message, data }: BackendResponse = result.data;
 
-        return new APIResponse(message, true, data);
+        return new APIResult(message, true, data, result.status);
     } catch (error) {
         if (error.response) {
-            const status_code = error.response.status;
-            return new APIResponse(
+            return new APIResult(
                 error.response.data.message,
                 false,
-                null,
-                status_code === 401
+                error,
+                error.response.status
             );
         } else {
             console.error(error);
-            return new APIResponse('Unexpected server error occurred.');
+            return new APIResult(
+                'Unexpected server error occurred.',
+                false,
+                error,
+                null
+            );
         }
     }
 }
@@ -53,32 +58,36 @@ async function register(
     email: string,
     username: string,
     password: string
-): Promise<APIResponse> {
+): Promise<APIResult> {
     try {
         const result = await axios.post(`${url}${endpoints.register}`, {
             email,
             username,
             password,
         });
-        const { message } = result.data;
+        const { message, data }: BackendResponse = result.data;
         if (result.status !== 201)
             throw new Error(
                 `Expected a successful status code '201' but got a status code '${result.status}'.`
             );
 
-        return new APIResponse(message, true);
+        return new APIResult(message, true, data, result.status);
     } catch (error) {
         if (error.response) {
-            const status_code = error.response.status;
-            return new APIResponse(
+            return new APIResult(
                 error.response.data.message,
                 false,
-                null,
-                status_code === 401
+                error,
+                error.response.status
             );
         } else {
             console.error(error);
-            return new APIResponse('Unexpected server error occurred.');
+            return new APIResult(
+                'Unexpected server error occurred.',
+                false,
+                error,
+                null
+            );
         }
     }
 }
@@ -92,13 +101,15 @@ async function register(
 async function authorize(
     username: string,
     password: string
-): Promise<APIResponse> {
+): Promise<APIResult> {
     try {
         const result = await axios.post(`${url}${endpoints.authorize}`, {
             username,
             password,
         });
-        const { message, email, role, token } = result.data;
+        const { message, data }: BackendResponse = result.data,
+            { email, role, token } = data;
+
         if (result.status !== 200)
             throw new Error(
                 `Expected a successful status code '200' but got a status code '${result.status}'.`
@@ -108,19 +119,28 @@ async function authorize(
                 `Expected a valid authentication token but got '${token}' value.`
             );
 
-        return new APIResponse(message, true, { username, email, role, token });
+        return new APIResult(
+            message,
+            true,
+            { username, email, role, token },
+            result.status
+        );
     } catch (error) {
         if (error.response) {
-            const status_code = error.response.status;
-            return new APIResponse(
+            return new APIResult(
                 error.response.data.message,
                 false,
-                null,
-                status_code === 401
+                error,
+                error.response.status
             );
         } else {
             console.error(error);
-            return new APIResponse('Unexpected server error occurred.');
+            return new APIResult(
+                'Unexpected server error occurred.',
+                false,
+                error,
+                null
+            );
         }
     }
 }
@@ -134,28 +154,32 @@ async function authorize(
 async function getUserInfo(
     username: string,
     token: string
-): Promise<APIResponse> {
+): Promise<APIResult> {
     try {
         const result = await axios.get(`${url}${endpoints.user}/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         });
-        const { message, data } = result.data;
+        const { message, data }: BackendResponse = result.data;
 
-        return new APIResponse(message, true, data);
+        return new APIResult(message, true, data, result.status);
     } catch (error) {
         if (error.response) {
-            const status_code = error.response.status;
-            return new APIResponse(
+            return new APIResult(
                 error.response.data.message,
                 false,
-                null,
-                status_code === 401
+                error,
+                error.response.status
             );
         } else {
             console.error(error);
-            return new APIResponse('Unexpected server error occurred.');
+            return new APIResult(
+                'Unexpected server error occurred.',
+                false,
+                error,
+                null
+            );
         }
     }
 }
@@ -165,7 +189,7 @@ async function getUserInfo(
  * @param sessionData Session data.
  * @returns Returns the API response object.
  */
-async function verifySession(sessionData: SessionData): Promise<APIResponse> {
+async function verifySession(sessionData: SessionData): Promise<APIResult> {
     try {
         const result = await axios.post(
             `${url}${endpoints.verifySession}`,
@@ -176,21 +200,25 @@ async function verifySession(sessionData: SessionData): Promise<APIResponse> {
                 },
             }
         );
-        const { message, data } = result.data;
+        const { message, data }: BackendResponse = result.data;
 
-        return new APIResponse(message, true, data);
+        return new APIResult(message, true, data, result.status);
     } catch (error) {
         if (error.response) {
-            const status_code = error.response.status;
-            return new APIResponse(
+            return new APIResult(
                 error.response.data.message,
                 false,
-                null,
-                status_code === 401
+                error,
+                error.response.status
             );
         } else {
             console.error(error);
-            return new APIResponse('Unexpected server error occurred.');
+            return new APIResult(
+                'Unexpected server error occurred.',
+                false,
+                error,
+                null
+            );
         }
     }
 }

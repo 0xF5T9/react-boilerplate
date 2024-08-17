@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { useAuth, getAuthSession } from '../../../hooks/useAuth';
 
+import { APIResult } from '../../../utility/api';
 import apis from '../../../apis';
 import routes from '../../../configs/routes';
 
@@ -22,24 +23,15 @@ import { showToast } from '../../Toast';
  * Loader component.
  * @returns Returns the loader data.
  */
-async function loader() {
+async function loader(): Promise<APIResult> {
+    // Session data should not be null unless local storage is corrupted.
     const authSession = getAuthSession();
     if (!authSession)
-        // NOTE:
-        // Polyfill the loader object as the component only expects an APIResponse object.
-        // If the 'authSession' is null and <ProtectedRoute /> component didn't prevent-
-        // this component from being rendered, meaning the 'authSession' data has been tampered.
-        return {
-            message:
-                'Invalid session detected. This incident will be reported.',
-            success: false,
-            data: null,
-            invalidToken: true,
-        };
+        return new APIResult('Session expired.', false, null, 401);
 
     const { username, token } = authSession;
 
-    return await apis.mysqlServer.getUserInfo(username, token);
+    return await apis.backend.getUserInfo(username, token);
 }
 
 /**
@@ -47,14 +39,14 @@ async function loader() {
  * @returns Returns the component.
  */
 function ProfileSection() {
-    const loaderData = useLoaderData(),
+    const loaderData = useLoaderData() as APIResult,
         { authSession, logout } = useAuth();
 
     const [userInfo, setUserInfo]: any = useState();
 
     useEffect(() => {
         (async () => {
-            const { message, success, data, invalidToken }: any = loaderData;
+            const { message, success, data, invalidToken } = loaderData;
             if (!success) {
                 setTimeout(
                     () =>
@@ -137,7 +129,7 @@ function ProfileSection() {
                                     onClick={() => {
                                         (async () => {
                                             console.log(
-                                                await apis.mysqlServer.verifySession(
+                                                await apis.backend.verifySession(
                                                     authSession
                                                 )
                                             );

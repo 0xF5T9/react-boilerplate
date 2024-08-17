@@ -4,10 +4,10 @@
  */
 
 'use strict';
-import * as mysqlServer from './mysql-server';
+import * as backend from './backend';
 
 const apis = {
-    mysqlServer,
+    backend,
 };
 
 export default apis;

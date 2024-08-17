@@ -97,7 +97,7 @@ function RegisterSection() {
         setPending(true);
 
         const { message: registerMessage, success: isRegisterSuccess } =
-            await apis.mysqlServer.register(email, username, password);
+            await apis.backend.register(email, username, password);
         if (!isRegisterSuccess) {
             console.warn(registerMessage);
             setServerMessage({ message: registerMessage, type: 'error' });
@@ -111,7 +111,7 @@ function RegisterSection() {
             message: loginMessage,
             success: isLoginSuccess,
             data,
-        } = await apis.mysqlServer.authorize(username, password);
+        } = await apis.backend.authorize(username, password);
         if (!isLoginSuccess) {
             console.warn(loginMessage);
             setServerMessage({ message: loginMessage, type: 'error' });

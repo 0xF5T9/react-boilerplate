@@ -6,22 +6,32 @@
 'use strict';
 
 /**
- * API response object.
+ * Processed API call result.
  */
-class APIResponse {
+class APIResult {
+    message: string;
+    success: boolean;
+    data: any;
+    invalidToken: boolean;
+
     /**
-     * Constructs a API response object.
+     * Constructs a API result object.
      * @param message Response message.
      * @param success Specifies whether the action is successful.
      * @param data Response associated data.
-     * @param invalidToken Specifies whether the action is rejected due to an invalid token.
+     * @param status Response status code.
      */
     constructor(
-        public message: string = '',
-        public success: boolean = false,
-        public data: object | null = null,
-        public invalidToken: boolean = false
-    ) {}
+        message: string,
+        success: boolean,
+        data: any,
+        status: number | null
+    ) {
+        this.message = message;
+        this.success = success;
+        this.data = data;
+        this.invalidToken = status === 401;
+    }
 }
 
-export { APIResponse };
+export { APIResult };

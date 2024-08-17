@@ -1,6 +1,6 @@
 /**
- * @file mysql-server.ts
- * @description MySQL server configurations.
+ * @file backend.ts
+ * @description Backend server configurations.
  */
 
 const config = {
