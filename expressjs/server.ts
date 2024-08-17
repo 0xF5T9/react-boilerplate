@@ -4,23 +4,24 @@
  */
 
 'use strict';
-import path from 'path';
 import dotenv from 'dotenv';
-import express, { ErrorRequestHandler } from 'express';
-import rateLimit from 'express-rate-limit';
-
 dotenv.config({
     path: '.env',
 });
+
+import path from 'path';
+import express, { ErrorRequestHandler } from 'express';
+import rateLimit from 'express-rate-limit';
+
 const rootPath = path.resolve(process.cwd());
 
-/**
- * Initialize express server.
- * If this server is meant to be run behind a proxy,
- * set the trust level accordingly so the rate limiter won't complaint.
- */
 const app = express();
+
+// Trust proxy: If this server is meant to be run behind a proxy,
+// set the trust level accordingly so the rate limiter won't complaint.
 app.set('trust proxy', 1);
+
+// Serves static files.
 app.use(express.static(path.join(rootPath, 'public')));
 
 // Rate limiter configurations.
