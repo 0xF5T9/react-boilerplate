@@ -3,13 +3,11 @@
     "version": "1.0.0",
     "description": "React website deployment boilerplate project.",
     "scripts": {
-        "start": "webpack-dev-server --config ./webpack.config.js",
-        "build": "webpack --config ./webpack.config.js",
-        "build-dev": "webpack --config ./webpack.config.js",
-        "build-prod": "webpack --config ./webpack.config.prod.js",
+        "start": "npx ts-node ./expressjs/server.ts",
         "start-webpack": "webpack-dev-server --config ./webpack.config.js",
-        "start-express": "node ./expressjs/server.js",
-        "start-express-ts": "npx ts-node ./expressjs/server.ts"
+        "build": "webpack --config ./webpack.config.prod.js",
+        "build-dev": "webpack --config ./webpack.config.js",
+        "build-prod": "webpack --config ./webpack.config.prod.js"
     },
     "keywords": [],
     "author": "",
@@ -43,6 +41,7 @@
     "dependencies": {
         "@tippyjs/react": "^4.2.6",
         "axios": "^1.7.2",
+        "dotenv": "^16.4.5",
         "express-rate-limit": "^7.3.1",
         "prop-types": "^15.8.1",
         "react": "^18.2.0",

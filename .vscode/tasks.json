@@ -4,10 +4,26 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build (Development)",
-            "detail": "Build the project using Webpack in development mode.",
+            "label": "Start (Production)",
+            "detail": "Start the web-server using Express.",
             "type": "shell",
-            "command": "npm run build-dev",
+            "command": "npm start",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "revealProblems": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
+            "label": "Start (Development)",
+            "detail": "Start the web-server using Webpack.",
+            "type": "shell",
+            "command": "npm run start-webpack",
             "problemMatcher": [],
             "presentation": {
                 "echo": false,
@@ -36,26 +52,10 @@
             }
         },
         {
-            "label": "Start (webpack)",
-            "detail": "Start the web-server using Webpack. (Development)",
+            "label": "Build (Development)",
+            "detail": "Build the project using Webpack in development mode.",
             "type": "shell",
-            "command": "npm run start-webpack",
-            "problemMatcher": [],
-            "presentation": {
-                "echo": false,
-                "reveal": "always",
-                "revealProblems": "never",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": true
-            }
-        },
-        {
-            "label": "Start (express)",
-            "detail": "Start the web-server using Express. (Production)",
-            "type": "shell",
-            "command": "npm run start-express",
+            "command": "npm run build-dev",
             "problemMatcher": [],
             "presentation": {
                 "echo": false,
@@ -69,4 +69,3 @@
         }
     ]
 }
-
