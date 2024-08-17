@@ -7,6 +7,8 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin'; // HtmlWebpackPlugin: Generate HTML files from template files.
 import Dotenv from 'dotenv-webpack'; // Dotenv: Enable support for environment files.
 
+const enableHighQualitySourceMap = false;
+
 console.log('Using Webpack development configuration ...');
 
 export default {
@@ -58,6 +60,7 @@ export default {
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
+    devtool: enableHighQualitySourceMap ? 'eval-source-map' : false,
     devServer: {
         static: {
             directory: path.join(__dirname, 'sources/static'),

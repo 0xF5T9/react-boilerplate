@@ -57,6 +57,7 @@ export default {
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
+    devtool: false,
     plugins: [
         // Generate 'index.html' file.
         new HtmlWebpackPlugin({
