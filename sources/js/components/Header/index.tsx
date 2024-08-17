@@ -31,7 +31,7 @@ const $ = document.querySelector.bind(document);
  */
 function Header() {
     const { theme, setTheme } = useContext(globalContext),
-        { authSession, logout } = useAuth(),
+        { sessionData, logout } = useAuth(),
         navigate = useNavigate();
 
     return (
@@ -54,7 +54,7 @@ function Header() {
 
                 {/* Right content box */}
                 <div className={styles['right-content']}>
-                    {authSession ? (
+                    {sessionData ? (
                         <>
                             <IconButton
                                 icon2={theme === 'dark' ? Sun : Moon}

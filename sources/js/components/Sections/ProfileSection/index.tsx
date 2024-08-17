@@ -7,7 +7,7 @@
 'use strict';
 import { useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { useAuth, getAuthSession } from '../../../hooks/useAuth';
+import { useAuth, getSessionData } from '../../../hooks/useAuth';
 
 import { APIResult } from '../../../utility/api';
 import apis from '../../../apis';
@@ -25,11 +25,11 @@ import { showToast } from '../../Toast';
  */
 async function loader(): Promise<APIResult> {
     // Session data should not be null unless local storage is corrupted.
-    const authSession = getAuthSession();
-    if (!authSession)
+    const sessionData = getSessionData();
+    if (!sessionData)
         return new APIResult('Session expired.', false, null, 401);
 
-    const { username, token } = authSession;
+    const { username, token } = sessionData;
 
     return await apis.backend.getUserInfo(username, token);
 }
@@ -40,7 +40,7 @@ async function loader(): Promise<APIResult> {
  */
 function ProfileSection() {
     const loaderData = useLoaderData() as APIResult,
-        { authSession, logout } = useAuth();
+        { sessionData, logout } = useAuth();
 
     const [userInfo, setUserInfo]: any = useState();
 
@@ -87,7 +87,7 @@ function ProfileSection() {
                             <LabeledInput
                                 width={270}
                                 label="Username"
-                                value={authSession.username}
+                                value={sessionData.username}
                                 readOnly
                             />
                             <LabeledInput
@@ -130,7 +130,7 @@ function ProfileSection() {
                                         (async () => {
                                             console.log(
                                                 await apis.backend.verifySession(
-                                                    authSession
+                                                    sessionData
                                                 )
                                             );
                                         })();

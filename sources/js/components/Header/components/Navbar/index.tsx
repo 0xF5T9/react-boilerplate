@@ -301,7 +301,7 @@ NavbarSubitem.propTypes = {
  * @returns Returns the component.
  */
 function Navbar() {
-    const { authSession } = useAuth();
+    const { sessionData } = useAuth();
 
     return (
         <nav className={styles['navbar']}>
@@ -309,7 +309,7 @@ function Navbar() {
                 {navbarItems &&
                     navbarItems.map((topItem, index) => {
                         // Check if the item is require the user to be authenticated.
-                        if (topItem.authOnly && !authSession) return null;
+                        if (topItem.authOnly && !sessionData) return null;
 
                         return (
                             <NavbarItemProvider key={index}>
@@ -328,7 +328,7 @@ function Navbar() {
                                                     // Check if the item is require the user to be authenticated.
                                                     if (
                                                         subItem.authOnly &&
-                                                        !authSession
+                                                        !sessionData
                                                     )
                                                         return null;
 

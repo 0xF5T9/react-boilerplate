@@ -24,13 +24,13 @@ import * as styles from './LoginSection.module.css';
  * @returns Returns the component.
  */
 function LoginSection() {
-    const { authSession, login } = useAuth(),
+    const { sessionData, login } = useAuth(),
         [pending, setPending] = useState(false),
         [serverMessage, setServerMessage] = useState(null), // { message, type }
         [username, setUsername] = useState(''),
         [password, setPassword] = useState('');
 
-    if (authSession) {
+    if (sessionData) {
         return <Navigate to={routes.profile} />;
     }
 

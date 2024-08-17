@@ -4,7 +4,12 @@
  */
 
 'use strict';
-import type { SessionData } from '../types/authentication';
+import type {
+    SessionData,
+    SessionLogin,
+    SessionLogout,
+    UseAuth,
+} from '../types/authentication';
 import { useLocalStorage } from './useLocalStorage';
 import { ReactNode, useContext, useMemo, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -22,32 +27,33 @@ const authContext = createContext(null);
  * @returns Returns the component.
  */
 function AuthProvider({ children }: { children: ReactNode }) {
-    const [authSession, setAuthSession] = useLocalStorage('authSession', null),
+    const [sessionData, setSessionData] = useLocalStorage('sessionData', null),
         navigate = useNavigate();
 
-    async function login(sessionData: SessionData) {
+    const login: SessionLogin = async (sessionData: SessionData) => {
         const { username, email, role, token } = sessionData;
         if (!username || !token || !email || !role) {
             console.error('Invalid session data.');
             navigate(routes.home);
         }
 
-        setAuthSession(sessionData);
+        setSessionData(sessionData);
         navigate(routes.profile); // Redirect to secret route on successful login. [MOCK]
-    }
+    };
 
-    async function logout(route: string = routes.home) {
-        setAuthSession(null);
-        navigate(route, { replace: true });
-    }
+    const logout: SessionLogout = async (route?: string) => {
+        setSessionData(null);
+        navigate(route || routes.home, { replace: true });
+    };
 
     const value = useMemo(
-        () => ({
-            authSession,
-            login,
-            logout,
-        }),
-        [authSession]
+        () =>
+            ({
+                sessionData,
+                login,
+                logout,
+            }) as UseAuth,
+        [sessionData]
     );
     return (
         <authContext.Provider value={value}>{children}</authContext.Provider>
@@ -61,7 +67,7 @@ AuthProvider.propTypes = {
 /**
  * Hook provides a convenient way to access and manage user-
  * authentication status from application components.
- * @returns authSession, login, logout
+ * @returns sessionData, login, logout
  */
 function useAuth() {
     return useContext(authContext);
@@ -72,9 +78,9 @@ function useAuth() {
  * Use this when we can't use the `useAuth()` hook, such as outside a component function.
  * @returns Returns the authentication session data.
  */
-function getAuthSession(): SessionData | null {
+function getSessionData(): SessionData | null {
     try {
-        const value = window.localStorage.getItem('authSession');
+        const value = window.localStorage.getItem('sessionData');
         if (!value) return null;
         const parsedValue = JSON.parse(value);
         return parsedValue;
@@ -84,4 +90,4 @@ function getAuthSession(): SessionData | null {
     }
 }
 
-export { useAuth, AuthProvider, getAuthSession };
+export { useAuth, AuthProvider, getSessionData };

@@ -5,6 +5,7 @@
  */
 
 'use strict';
+import type { UseAuth } from '../../../types/authentication';
 import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
@@ -24,7 +25,7 @@ import * as styles from './RegisterSection.module.css';
  * @returns Returns the component.
  */
 function RegisterSection() {
-    const { authSession, login } = useAuth(),
+    const { sessionData, login }: UseAuth = useAuth(),
         [pending, setPending] = useState(false),
         [serverMessage, setServerMessage] = useState(null), // { message, type }
         [email, setEmail] = useState(''),
@@ -32,7 +33,7 @@ function RegisterSection() {
         [password, setPassword] = useState(''),
         [passwordRepeat, setPasswordRepeat] = useState('');
 
-    if (authSession) {
+    if (sessionData) {
         return <Navigate to={routes.profile} />;
     }
 
@@ -121,10 +122,20 @@ function RegisterSection() {
             return;
         }
 
-        const { username: data_username, token: data_token }: any = data;
+        const {
+            username: data_username,
+            email: data_email,
+            role: data_role,
+            token: data_token,
+        } = data;
         setTimeout(
             async () =>
-                await login({ username: data_username, token: data_token }),
+                await login({
+                    username: data_username,
+                    email: data_email,
+                    role: data_role,
+                    token: data_token,
+                }),
             300
         );
 

@@ -22,23 +22,23 @@ import { CircleLoading } from '../Icons/CircleLoading';
  * @returns Returns the component.
  */
 function ProtectedRoute({ children }: { children?: ReactNode }) {
-    const { authSession, logout } = useAuth(),
+    const { sessionData, logout } = useAuth(),
         [isVerifying, setIsVerifying] = useState(true);
 
     // Redirect to login route if no authentication session found.
-    if (!authSession) {
+    if (!sessionData) {
         return <Navigate to={routes.login} />;
     }
 
     // Verify the authentication session. (Check if token is still valid.)
     useEffect(() => {
         verifySession();
-    }, [authSession]);
+    }, [sessionData]);
 
     // If the session token is invalid (expired, tampered) redirect to login page.
     // If the verification failed due to server error, redirect to homepage instead.
     async function verifySession() {
-        const result = await apis.backend.verifySession(authSession),
+        const result = await apis.backend.verifySession(sessionData),
             { message, success, invalidToken } = result;
         if (!success) {
             setTimeout(

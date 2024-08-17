@@ -230,7 +230,7 @@ NavCloseButton.propTypes = {
  * @returns Returns the component.
  */
 function MobileNavMenuIcon() {
-    const { authSession } = useAuth();
+    const { sessionData } = useAuth();
 
     const { deviceType, setAllowScrolling } = useContext(globalContext),
         [showPopup, setShowPopup] = useState(false);
@@ -294,7 +294,7 @@ function MobileNavMenuIcon() {
                                                 // Check if the section is require the user to be authenticated.
                                                 if (
                                                     section.authOnly &&
-                                                    !authSession
+                                                    !sessionData
                                                 )
                                                     return null;
 
@@ -313,7 +313,7 @@ function MobileNavMenuIcon() {
                                                                     // Check if the item is require the user to be authenticated.
                                                                     if (
                                                                         item.authOnly &&
-                                                                        !authSession
+                                                                        !sessionData
                                                                     )
                                                                         return null;
 
