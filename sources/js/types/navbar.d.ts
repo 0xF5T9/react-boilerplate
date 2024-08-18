@@ -3,7 +3,7 @@
  * @description Header navbar item types.
  */
 
-export interface NavbarItem {
+export type NavbarItem = {
     text: string;
     icon?: (...args: any[]) => any;
     to?: string;
@@ -13,9 +13,9 @@ export interface NavbarItem {
     onClick?: (...args: any[]) => any;
     items?: NavbarSubitem[];
     layout?: 'full' | 'full-2' | 'full-3' | 'full-4';
-}
+};
 
-export interface NavbarSubitem {
+export type NavbarSubitem = {
     title: string;
     desc?: string;
     image?: string;
@@ -26,4 +26,4 @@ export interface NavbarSubitem {
     authOnly?: boolean;
     hideOnClick?: boolean;
     onClick?: (...args: any[]) => any;
-}
+};

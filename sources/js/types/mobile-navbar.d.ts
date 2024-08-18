@@ -3,14 +3,14 @@
  * @description Header mobile navbar item types.
  */
 
-export interface MobileNavbarSection {
+export type MobileNavbarSection = {
     title: string;
     to?: string;
     authOnly?: boolean;
     items: MobileNavbarItem[];
-}
+};
 
-export interface MobileNavbarItem {
+export type MobileNavbarItem = {
     text: string;
     desc?: string;
     image?: string;
@@ -21,4 +21,4 @@ export interface MobileNavbarItem {
     authOnly?: boolean;
     hideOnClick?: boolean;
     onClick?: (...args: any[]) => any;
-}
+};
