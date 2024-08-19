@@ -60,51 +60,51 @@ class CToastOption implements ToastOption {
  * @param options Toast options.
  */
 function showToast(toast: ToastMap): void {
-    const toast_overlay = $(`.${styles['toast-overlay'] || ''}`);
-    if (!toast_overlay) {
+    const toastOverlay = $(`.${styles['toast-overlay'] || ''}`);
+    if (!toastOverlay) {
         console.error('Toast overlay not found.');
         return;
     }
 
-    const toast_options = new CToastOption(toast);
+    const toastOptions = new CToastOption(toast);
 
-    const fadein_duration_float = (
-            toast_options.animationDuration.fadeIn / 1000
+    const fadeinDurationFloat = (
+            toastOptions.animationDuration.fadeIn / 1000
         ).toFixed(2),
-        fadeout_duration_float = (
-            toast_options.animationDuration.fadeOut / 1000
+        fadeoutDurationFloat = (
+            toastOptions.animationDuration.fadeOut / 1000
         ).toFixed(2),
         fadeOutDelayDuration = (
-            toast_options.animationDuration.fadeIn / 1000 +
-            toast_options.duration / 1000
+            toastOptions.animationDuration.fadeIn / 1000 +
+            toastOptions.duration / 1000
         ).toFixed(2);
 
-    const toast_element = document.createElement(`div`);
-    toast_element.classList.add(styles['toast']);
-    toast_element.classList.add(styles[`toast-${toast_options.variant}`]);
+    const toastElement = document.createElement(`div`);
+    toastElement.classList.add(styles['toast']);
+    toastElement.classList.add(styles[`toast-${toastOptions.variant}`]);
 
-    toast_element.style.animation = `${styles['toast-fade-in']} ${fadein_duration_float}s ease, ${styles['toast-fade-out']} ${fadeout_duration_float}s linear ${fadeOutDelayDuration}s forwards`;
-    toast_element.innerHTML = `
-            <div class="${styles['toast-icon']}"><i class="${toast_options.icon}"></i></div>
+    toastElement.style.animation = `${styles['toast-fade-in']} ${fadeinDurationFloat}s ease, ${styles['toast-fade-out']} ${fadeoutDurationFloat}s linear ${fadeOutDelayDuration}s forwards`;
+    toastElement.innerHTML = `
+            <div class="${styles['toast-icon']}"><i class="${toastOptions.icon}"></i></div>
             <div class="${styles['toast-message']}">
-                <p class="${styles['toast-title']}">${toast_options.title}</p>
-                <p class="${styles['toast-desc']}">${toast_options.message}</p>
+                <p class="${styles['toast-title']}">${toastOptions.title}</p>
+                <p class="${styles['toast-desc']}">${toastOptions.message}</p>
             </div>
             <div class="${styles['toast-close']}"><i class="fa-solid fa-xmark"></i></div>
             `;
 
-    toast_element.onanimationend = (event: any) => {
+    toastElement.onanimationend = (event: any) => {
         if (event.animationName === styles['toast-fade-out'])
-            toast_element.remove();
+            toastElement.remove();
     };
 
-    toast_element.onclick = function (event: any) {
+    toastElement.onclick = function (event: any) {
         if (event.target.closest(`.${styles['toast-close']}`)) {
-            toast_element.remove();
+            toastElement.remove();
         }
     };
 
-    toast_overlay.append(toast_element);
+    toastOverlay.append(toastElement);
 }
 
 /**

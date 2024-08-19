@@ -64,11 +64,11 @@ function Checkbox({
             style={wrapperStyle}
             onClick={(event: any) => {
                 if (event.target === wrapper.current && checkbox.current) {
-                    const checked_state: boolean = (checkbox.current as any)
+                    const checkedState: boolean = (checkbox.current as any)
                             .checked,
-                        checkbox_element = checkbox.current as any;
-                    checkbox_element.focus();
-                    checkbox_element.checked = !checked_state;
+                        checkboxElement = checkbox.current as any;
+                    checkboxElement.focus();
+                    checkboxElement.checked = !checkedState;
                 }
             }}
         >

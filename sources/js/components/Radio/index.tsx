@@ -67,9 +67,9 @@ function Radio({
             style={wrapperStyle}
             onClick={(event: any) => {
                 if (event.target === wrapper.current && radio.current) {
-                    const radio_element = radio.current as any;
-                    radio_element.focus();
-                    radio_element.checked = true;
+                    const radioElement = radio.current as any;
+                    radioElement.focus();
+                    radioElement.checked = true;
                 }
             }}
         >

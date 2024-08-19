@@ -75,11 +75,11 @@ function LabeledInput({
                    ${size ? styles[size] : ''}
                    ${reverseBackground ? styles['reverse-background'] : ''}`;
 
-    const wrapper_style = Object.assign(
+    const processedWrapperStyle = Object.assign(
             { width: width && `${width}px` },
             wrapperStyle || {}
         ),
-        label_wrapper_style = labelWidth
+        labelWrapperStyle = labelWidth
             ? { width: `${labelWidth}px`, flexShrink: '0' }
             : {};
 
@@ -88,8 +88,8 @@ function LabeledInput({
     }, []);
 
     return (
-        <div className={classes} style={wrapper_style}>
-            <div className={styles['input-label']} style={label_wrapper_style}>
+        <div className={classes} style={processedWrapperStyle}>
+            <div className={styles['input-label']} style={labelWrapperStyle}>
                 <label htmlFor={id}>{label}</label>
             </div>
             <input

@@ -58,7 +58,7 @@ function Input({
     wrapperStyle?: object;
     inputStyle?: object;
 }) {
-    const icon_position_style = icon
+    const iconPositionStyle = icon
         ? icon.iconPosition === 'right'
             ? styles['icon-right']
             : styles['icon-left']
@@ -68,7 +68,7 @@ function Input({
                    ${styles[color] || ''}
                    ${styles[size] || ''}
                    ${transparent ? styles['transparent'] : ''}
-                   ${icon_position_style ? icon_position_style : ''}
+                   ${iconPositionStyle ? iconPositionStyle : ''}
                    ${className || ''}`;
     return (
         <div className={classes} style={wrapperStyle}>

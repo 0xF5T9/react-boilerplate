@@ -123,18 +123,18 @@ function RegisterSection() {
         }
 
         const {
-            username: data_username,
-            email: data_email,
-            role: data_role,
-            token: data_token,
+            username: dataUsername,
+            email: dataEmail,
+            role: dataRole,
+            token: dataToken,
         } = data;
         setTimeout(
             async () =>
                 await login({
-                    username: data_username,
-                    email: data_email,
-                    role: data_role,
-                    token: data_token,
+                    username: dataUsername,
+                    email: dataEmail,
+                    role: dataRole,
+                    token: dataToken,
                 }),
             300
         );

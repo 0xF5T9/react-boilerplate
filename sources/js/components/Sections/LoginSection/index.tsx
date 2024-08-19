@@ -63,19 +63,19 @@ function LoginSection() {
         }
 
         const {
-            username: data_username,
-            email: data_email,
-            role: data_role,
-            token: data_token,
+            username: dataUsername,
+            email: dataEmail,
+            role: dataRole,
+            token: dataToken,
         }: any = data;
         setServerMessage({ message: 'Redirecting...', type: 'success' });
         setTimeout(
             async () =>
                 await login({
-                    username: data_username,
-                    email: data_email,
-                    role: data_role,
-                    token: data_token,
+                    username: dataUsername,
+                    email: dataEmail,
+                    role: dataRole,
+                    token: dataToken,
                 }),
             300
         );

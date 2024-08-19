@@ -20,24 +20,24 @@ function Footer() {
 
     useLayoutEffect(() => {
         function handleFooterResize() {
-            const current_footer_height = getComputedStyle(
+            const currentFooterHeight = getComputedStyle(
                 document.documentElement
             ).getPropertyValue('--footer-height');
-            if (!current_footer_height) {
+            if (!currentFooterHeight) {
                 console.warn(
                     'Expect footer height variable in root, but none were found.',
-                    `\nFound value: '${current_footer_height}'`
+                    `\nFound value: '${currentFooterHeight}'`
                 );
                 return;
             }
 
-            const footer_height =
+            const footerHeight =
                     footer?.current?.getBoundingClientRect()?.height,
-                parsed_height = parseFloat(footer_height.toFixed(2));
+                parsedHeight = parseFloat(footerHeight.toFixed(2));
 
             document.documentElement.style.setProperty(
                 '--footer-height',
-                `${parsed_height}px`
+                `${parsedHeight}px`
             );
         }
 
@@ -47,13 +47,13 @@ function Footer() {
         return () => {
             observer?.disconnect();
 
-            const current_footer_height = getComputedStyle(
+            const currentFooterHeight = getComputedStyle(
                 document.documentElement
             ).getPropertyValue('--footer-height');
-            if (!current_footer_height)
+            if (!currentFooterHeight)
                 console.warn(
                     'Expect footer height variable in root, but none were found.',
-                    `\nFound value: '${current_footer_height}'`
+                    `\nFound value: '${currentFooterHeight}'`
                 );
             document.documentElement.style.setProperty(
                 '--footer-height',

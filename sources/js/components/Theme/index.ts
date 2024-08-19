@@ -6,11 +6,11 @@
 import Light from './Light';
 import Dark from './Dark';
 
-const Themes = {
+const themes = {
     Light,
     Dark,
 };
 
-export default Themes;
+export default themes;
 export { default as Light } from './Light';
 export { default as Dark } from './Dark';

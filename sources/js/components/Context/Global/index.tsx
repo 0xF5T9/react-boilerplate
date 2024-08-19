@@ -7,7 +7,7 @@
 import { ReactNode, createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import Themes from '../../Theme';
+import themes from '../../Theme';
 
 // Global context.
 const globalContext = createContext(null);
@@ -43,14 +43,14 @@ function GlobalProvider({ children }: { children: ReactNode }) {
     let Theme;
     switch (theme) {
         case 'light':
-            Theme = Themes['Light'];
+            Theme = themes['Light'];
             break;
         case 'dark':
-            Theme = Themes['Dark'];
+            Theme = themes['Dark'];
             break;
         default:
             console.warn('Unknown theme name detected, fallback to default.');
-            Theme = Themes['Dark'];
+            Theme = themes['Dark'];
     }
 
     useEffect(() => {
@@ -65,14 +65,14 @@ function GlobalProvider({ children }: { children: ReactNode }) {
     }, [theme]);
 
     function handleUpdateDeviceType() {
-        const device_type =
+        const deviceTypeString =
             window.innerWidth >= 1024
                 ? 'Desktop'
                 : window.innerWidth >= 741
                   ? 'Tablet'
                   : 'Mobile';
         setDeviceType({
-            deviceType: device_type,
+            deviceType: deviceTypeString,
             deviceWidth: window.innerWidth,
             deviceHeight: window.innerHeight,
         });

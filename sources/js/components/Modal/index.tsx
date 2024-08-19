@@ -121,11 +121,11 @@ function ModalOverlay() {
     let Modal: JSX.Element = null;
     switch (modal?.type) {
         case 'alert':
-            const alert_modal: AlertModal = modal;
+            const alertModal: AlertModal = modal;
 
-            let Icon = alert_modal?.icon;
+            let Icon = alertModal?.icon;
             if (!Icon) {
-                switch (alert_modal.variant) {
+                switch (alertModal.variant) {
                     case 'success':
                         Icon = CircleCheck;
                         break;
@@ -141,27 +141,25 @@ function ModalOverlay() {
                 }
             }
 
-            let icon_style: any = {};
-            if (alert_modal?.iconColor)
-                icon_style.color = alert_modal.iconColor;
-            if (alert_modal?.iconWidth)
-                icon_style.width = alert_modal.iconWidth;
+            let iconStyle: any = {};
+            if (alertModal?.iconColor) iconStyle.color = alertModal.iconColor;
+            if (alertModal?.iconWidth) iconStyle.width = alertModal.iconWidth;
 
-            let close_button_variant = alert_modal?.closeButtonVariant,
-                close_button_text = alert_modal?.closeButtonText || 'Close';
-            if (!close_button_variant) {
-                switch (alert_modal.variant) {
+            let closeButtonVariant = alertModal?.closeButtonVariant,
+                closeButtonText = alertModal?.closeButtonText || 'Close';
+            if (!closeButtonVariant) {
+                switch (alertModal.variant) {
                     case 'success':
-                        close_button_variant = 'success';
+                        closeButtonVariant = 'success';
                         break;
                     case 'danger':
-                        close_button_variant = 'danger';
+                        closeButtonVariant = 'danger';
                         break;
                     case 'warn':
-                        close_button_variant = 'warn';
+                        closeButtonVariant = 'warn';
                         break;
                     case 'info':
-                        close_button_variant = 'info';
+                        closeButtonVariant = 'info';
                         break;
                 }
             }
@@ -170,51 +168,51 @@ function ModalOverlay() {
                 <div
                     ref={modalWindow}
                     onClick={(event) => event.stopPropagation()}
-                    className={`${styles['modal-window']} ${styles['alert-modal-window']} ${alert_modal?.className || ''} ${styles[alert_modal.variant] || ''}`}
+                    className={`${styles['modal-window']} ${styles['alert-modal-window']} ${alertModal?.className || ''} ${styles[alertModal.variant] || ''}`}
                 >
                     {Icon && (
-                        <Icon className={styles['icon']} style={icon_style} />
+                        <Icon className={styles['icon']} style={iconStyle} />
                     )}
-                    {alert_modal?.title && (
+                    {alertModal?.title && (
                         <span className={styles['title']}>
-                            {alert_modal.title}
+                            {alertModal.title}
                         </span>
                     )}
-                    {(alert_modal?.message &&
-                        typeof alert_modal.message === 'string' && (
+                    {(alertModal?.message &&
+                        typeof alertModal.message === 'string' && (
                             <span className={styles['message']}>
-                                {alert_modal.message}
+                                {alertModal.message}
                             </span>
                         )) ||
-                        (alert_modal?.message && (
+                        (alertModal?.message && (
                             <div className={styles['message']}>
-                                {alert_modal?.message}
+                                {alertModal?.message}
                             </div>
                         ))}
                     <div className={styles['button-block']}>
-                        {!alert_modal.removeDefaultCloseButton && (
+                        {!alertModal.removeDefaultCloseButton && (
                             <Button
-                                className={`${alert_modal.makeCloseButtonDefault ? 'default' : ''}`}
-                                color={close_button_variant}
+                                className={`${alertModal.makeCloseButtonDefault ? 'default' : ''}`}
+                                color={closeButtonVariant}
                                 onClick={() => closeModal()}
                             >
-                                {close_button_text}
+                                {closeButtonText}
                             </Button>
                         )}
-                        {alert_modal.customButton}
+                        {alertModal.customButton}
                     </div>
                 </div>
             );
             break;
         case 'custom':
-            const custom_modal: CustomModal = modal;
+            const customModal: CustomModal = modal;
             Modal = (
                 <div
                     ref={modalWindow}
                     onClick={(event) => event.stopPropagation()}
-                    className={`${styles['modal-window']} ${custom_modal?.className || ''}`}
+                    className={`${styles['modal-window']} ${customModal?.className || ''}`}
                 >
-                    {custom_modal.content}
+                    {customModal.content}
                 </div>
             );
             break;
