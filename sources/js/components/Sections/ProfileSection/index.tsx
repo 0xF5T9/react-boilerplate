@@ -50,7 +50,8 @@ function ProfileSection() {
             if (!success) {
                 setTimeout(
                     () =>
-                        showToast('danger', {
+                        showToast({
+                            variant: 'danger',
                             title: 'Error',
                             message,
                             duration: 5000,

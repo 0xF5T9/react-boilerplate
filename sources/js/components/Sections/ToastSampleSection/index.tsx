@@ -148,7 +148,8 @@ function ToastSampleSection() {
                     <Button
                         color="success"
                         onClick={() =>
-                            showToast('success', {
+                            showToast({
+                                variant: 'success',
                                 title: 'Success',
                                 message:
                                     'Your request has been sent successfully.',
@@ -160,7 +161,8 @@ function ToastSampleSection() {
                     <Button
                         color="danger"
                         onClick={() =>
-                            showToast('danger', {
+                            showToast({
+                                variant: 'danger',
                                 title: 'Error',
                                 message:
                                     'Unable to connect to the remote server.',
@@ -172,7 +174,8 @@ function ToastSampleSection() {
                     <Button
                         color="warn"
                         onClick={() =>
-                            showToast('warn', {
+                            showToast({
+                                variant: 'warn',
                                 title: 'Warning',
                                 message:
                                     'Your license will expire within 3 days.',
@@ -184,7 +187,8 @@ function ToastSampleSection() {
                     <Button
                         color="info"
                         onClick={() =>
-                            showToast('info', {
+                            showToast({
+                                variant: 'info',
                                 title: 'Info',
                                 message: 'New version available for download!',
                             })
@@ -195,7 +199,8 @@ function ToastSampleSection() {
                     <Button
                         color="info"
                         onClick={() =>
-                            showToast('message', {
+                            showToast({
+                                variant: 'message',
                                 title: 'Message',
                                 message: 'You have new message(s).',
                             })

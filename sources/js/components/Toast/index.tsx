@@ -4,31 +4,34 @@
  */
 
 'use strict';
+import type { ToastOption, ToastMap } from '../../types/toast';
 import * as styles from './Toast.module.css';
 const $ = document.querySelector.bind(document);
 
-type ToastOptionType = {
-    title: string;
-    message: string;
-    icon?: string;
-    duration?: number;
-    animationDuration?: { fadeIn: number; fadeOut: number };
-};
-
-class ToastOption implements ToastOptionType {
-    title: string;
-    message: string;
-    icon?: string;
+class CToastOption implements ToastOption {
+    variant: string = '';
+    title: string = '';
+    message: string = '';
+    icon?: string = '';
     duration?: number = 3000;
     animationDuration?: { fadeIn: number; fadeOut: number } = {
         fadeIn: 300,
         fadeOut: 300,
     };
 
-    constructor(type: keyof ToastTypes, options: Partial<ToastOption> = {}) {
-        Object.assign(this, options);
+    constructor(options: ToastOption) {
+        const validOptions: ToastOption & { [key: string]: any } = {
+            ...options,
+        };
+        Object.keys(validOptions)
+            .filter((key) => !(key in this))
+            .forEach((key) => {
+                delete validOptions[key];
+            });
+        Object.assign(this, validOptions);
+
         if (!this.icon) {
-            switch (type) {
+            switch (validOptions.variant) {
                 case 'success':
                     this.icon = 'fa-solid fa-circle-check';
                     break;
@@ -51,31 +54,19 @@ class ToastOption implements ToastOptionType {
     }
 }
 
-type ToastTypes = {
-    primary: ToastOption;
-    success: ToastOption;
-    danger: ToastOption;
-    warn: ToastOption;
-    message: ToastOption;
-    info: ToastOption;
-};
-
 /**
  * Show a toast notification.
  * @param type Toast type.
  * @param options Toast options.
  */
-function showToast<Type extends keyof ToastTypes>(
-    type: Type,
-    options: ToastTypes[Type]
-): void {
+function showToast(toast: ToastMap): void {
     const toast_overlay = $(`.${styles['toast-overlay'] || ''}`);
     if (!toast_overlay) {
         console.error('Toast overlay not found.');
         return;
     }
 
-    const toast_options = new ToastOption(type, options);
+    const toast_options = new CToastOption(toast);
 
     const fadein_duration_float = (
             toast_options.animationDuration.fadeIn / 1000
@@ -83,13 +74,16 @@ function showToast<Type extends keyof ToastTypes>(
         fadeout_duration_float = (
             toast_options.animationDuration.fadeOut / 1000
         ).toFixed(2),
-        toast_duration_float = (toast_options.duration / 1000).toFixed(2);
+        fadeOutDelayDuration = (
+            toast_options.animationDuration.fadeIn / 1000 +
+            toast_options.duration / 1000
+        ).toFixed(2);
 
     const toast_element = document.createElement(`div`);
     toast_element.classList.add(styles['toast']);
-    toast_element.classList.add(styles[`toast-${type}`]);
+    toast_element.classList.add(styles[`toast-${toast_options.variant}`]);
 
-    toast_element.style.animation = `${styles['toast-fade-in']} ${fadein_duration_float}s ease, ${styles['toast-fade-out']} ${fadeout_duration_float}s linear ${toast_duration_float}s forwards`;
+    toast_element.style.animation = `${styles['toast-fade-in']} ${fadein_duration_float}s ease, ${styles['toast-fade-out']} ${fadeout_duration_float}s linear ${fadeOutDelayDuration}s forwards`;
     toast_element.innerHTML = `
             <div class="${styles['toast-icon']}"><i class="${toast_options.icon}"></i></div>
             <div class="${styles['toast-message']}">

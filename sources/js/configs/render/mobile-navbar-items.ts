@@ -37,7 +37,8 @@ export default [
                 image: '/assets/static/img/shutdowntimer.png',
                 hideOnClick: false,
                 onClick: () =>
-                    showToast('info', {
+                    showToast({
+                        variant: 'info',
                         title: 'Info',
                         message: 'This application is currently unavailable.',
                     }),
@@ -48,7 +49,8 @@ export default [
                 image: '/assets/static/img/ascfilecryptor.png',
                 hideOnClick: false,
                 onClick: () =>
-                    showToast('info', {
+                    showToast({
+                        variant: 'info',
                         title: 'Info',
                         message: 'This application is currently unavailable.',
                     }),

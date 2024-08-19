@@ -173,7 +173,8 @@ function ModalSampleSection() {
                                         className="default"
                                         onClick={() => {
                                             setModalVisibility(false);
-                                            showToast('success', {
+                                            showToast({
+                                                variant: 'success',
                                                 title: 'Success',
                                                 message:
                                                     'This toast only shows up if you click the confirm button.',
@@ -232,7 +233,8 @@ function ModalSampleSection() {
                                         color="danger"
                                         onClick={() => {
                                             setModalVisibility(false);
-                                            showToast('success', {
+                                            showToast({
+                                                variant: 'success',
                                                 title: 'Success',
                                                 message:
                                                     'This toast only shows up if you click the delete button.',
