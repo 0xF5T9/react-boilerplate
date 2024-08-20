@@ -4,7 +4,12 @@
  */
 
 'use strict';
-import { ForwardRefRenderFunction, ReactNode, forwardRef } from 'react';
+import {
+    ForwardRefRenderFunction,
+    ElementType,
+    ReactNode,
+    forwardRef,
+} from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './Button.module.css';
@@ -36,7 +41,7 @@ const ButtonRefRender: ForwardRefRenderFunction<
         disabled?: boolean;
         style?: object;
         children?: ReactNode;
-        elementType?: 'button' | 'a' | 'div';
+        elementType?: ElementType;
     }
 > = function (
     {
@@ -57,7 +62,7 @@ const ButtonRefRender: ForwardRefRenderFunction<
                      ${styles[color] || ''}
                      ${styles[size] || ''}
                      ${className || ''}`,
-        Component: any = elementType;
+        Component: ElementType = elementType;
 
     return (
         <Component
