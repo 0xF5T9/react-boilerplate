@@ -77,7 +77,7 @@ const Header: FunctionComponent = function () {
                                             {
                                                 text: 'Profile',
                                                 icon: 'fas fa-user',
-                                                to: 'profile',
+                                                to: routes.profile,
                                             },
                                             {
                                                 text: 'Settings',
