@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { FunctionComponent, ReactNode } from 'react';
+import { FunctionComponent, CSSProperties, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './SectionBlock.module.css';
@@ -21,7 +21,7 @@ import * as styles from './SectionBlock.module.css';
 const SectionBlock: FunctionComponent<{
     id?: string;
     className?: string;
-    style?: object;
+    style?: CSSProperties;
     children: ReactNode;
 }> = function ({ id, className, style, children }) {
     const classes = `${styles['section-block']} ${className || ''}`;

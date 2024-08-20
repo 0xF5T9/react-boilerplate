@@ -39,12 +39,12 @@ const ErrorLayout: FunctionComponent = function () {
             <div id="app">
                 <Content>
                     <FlexibleSection
+                        className={styles['error-section']}
                         style={{
                             display: 'flex',
                             flexFlow: 'column nowrap',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            '--value': '-12px',
                             padding: '20px 20px',
                             userSelect: 'none',
                         }}

@@ -3,6 +3,8 @@
  * @description Header mobile navbar item types.
  */
 
+import { FunctionComponent } from 'react';
+
 export type MobileNavbarSection = {
     title: string;
     to?: string;
@@ -14,7 +16,7 @@ export type MobileNavbarItem = {
     text: string;
     desc?: string;
     image?: string;
-    icon?: (...args: any[]) => any;
+    icon?: FunctionComponent;
     to?: string;
     href?: string;
     target?: string;

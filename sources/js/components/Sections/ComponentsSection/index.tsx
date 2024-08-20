@@ -33,7 +33,7 @@ import * as styles from './ComponentsSection.module.css';
 const CardItem: FunctionComponent<{
     text: string;
     to?: string;
-    icon?: (...args: any[]) => any;
+    icon?: FunctionComponent;
 }> = function ({ text, to, icon }) {
     const navigate = useNavigate();
 

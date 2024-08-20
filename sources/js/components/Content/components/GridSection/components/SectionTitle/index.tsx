@@ -4,7 +4,12 @@
  */
 
 'use strict';
-import { FunctionComponent, ReactNode } from 'react';
+import {
+    FunctionComponent,
+    ElementType,
+    CSSProperties,
+    ReactNode,
+} from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './SectionTitle.module.css';
@@ -22,10 +27,10 @@ const SectionTitle: FunctionComponent<{
     element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     id?: string;
     className?: string;
-    style?: object;
+    style?: CSSProperties;
     children: ReactNode;
 }> = function ({ element = 'h5', id, className, style, children }) {
-    const Element = element,
+    const Element: ElementType = element,
         classes = `${styles['section-title']} ${className || ''}`;
     return (
         <Element id={id} className={classes} style={style}>

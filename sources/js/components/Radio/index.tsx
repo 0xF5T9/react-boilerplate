@@ -53,8 +53,8 @@ const Radio: FunctionComponent<{
     wrapperStyle,
     radioStyle,
 }) {
-    const wrapper = useRef(),
-        radio = useRef();
+    const wrapper = useRef<HTMLDivElement>(),
+        radio = useRef<HTMLInputElement>();
 
     const classes = `${styles['radio-wrapper']}
                    ${styles[color] || ''}
@@ -65,9 +65,9 @@ const Radio: FunctionComponent<{
             ref={wrapper}
             className={classes}
             style={wrapperStyle}
-            onClick={(event: any) => {
+            onClick={(event) => {
                 if (event.target === wrapper.current && radio.current) {
-                    const radioElement = radio.current as any;
+                    const radioElement = radio.current;
                     radioElement.focus();
                     radioElement.checked = true;
                 }

@@ -8,6 +8,7 @@
 import PropTypes from 'prop-types';
 import {
     FunctionComponent,
+    ElementType,
     ReactNode,
     useState,
     useContext,
@@ -84,15 +85,15 @@ const NavbarItem: FunctionComponent<{
     to?: string;
     href?: string;
     target?: string;
-    icon?: (...args: any[]) => any;
-    onClick?: any;
+    icon?: FunctionComponent<any>;
+    onClick?: (...args: any[]) => any;
     children?: ReactNode;
 }> = function ({ text, to, href, target, icon, onClick, children }) {
     const { navbarSublistVisibility, setNavbarSublistVisibility } =
             useContext(NavbarItemContext),
         navigation = useNavigation();
 
-    const LinkComponent: any = to ? NavLink : 'a',
+    const LinkComponent: ElementType = to ? NavLink : ('a' as ElementType),
         Icon = icon;
 
     return (
@@ -208,7 +209,7 @@ NavbarSublist.propTypes = {
 const NavbarSubitem: FunctionComponent<{
     title?: string;
     desc?: string;
-    icon?: any;
+    icon?: FunctionComponent;
     image?: string;
     to?: string;
     href?: string;
@@ -229,7 +230,7 @@ const NavbarSubitem: FunctionComponent<{
     const { setNavbarSublistVisibility } = useContext(NavbarItemContext),
         navigation = useNavigation();
 
-    const LinkComponent: any = to ? NavLink : 'a',
+    const LinkComponent: ElementType = to ? NavLink : ('a' as ElementType),
         Icon = icon;
 
     return (

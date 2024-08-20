@@ -7,6 +7,7 @@
 'use strict';
 import {
     FunctionComponent,
+    ElementType,
     ReactNode,
     useState,
     useEffect,
@@ -115,13 +116,13 @@ NavSection.propTypes = {
 const NavItem: FunctionComponent<{
     text?: string;
     desc?: string;
-    icon?: any;
+    icon?: FunctionComponent;
     image?: string;
     to?: string;
     href?: string;
     target?: string;
     hideOnClick?: boolean;
-    onClick?: any;
+    onClick?: (...args: any[]) => any;
 }> = function ({
     text,
     desc,
@@ -136,8 +137,8 @@ const NavItem: FunctionComponent<{
     const { closeButtonRef } = useContext(MobileNavMenuContext),
         navigation = useNavigation();
 
-    const LinkComponent: any = to ? NavLink : 'a',
-        Icon = icon;
+    const LinkComponent: ElementType = to ? NavLink : ('a' as ElementType),
+        Icon: FunctionComponent = icon;
 
     return (
         <li className={styles['nav-item']}>

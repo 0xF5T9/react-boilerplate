@@ -3,11 +3,13 @@
  * @description Modal related types.
  */
 
+import { FunctionComponent } from 'react';
+
 export type AlertModal = {
     type: 'alert';
     className?: string;
     variant?: 'success' | 'danger' | 'warn' | 'info';
-    icon?: (...args: any[]) => any;
+    icon?: FunctionComponent<any>;
     iconColor?: string;
     iconWidth?: string;
     title?: string;

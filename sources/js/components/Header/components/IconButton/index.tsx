@@ -5,7 +5,12 @@
  * @todo Convert to use icon component only.
  */
 'use strict';
-import { ForwardRefRenderFunction, forwardRef } from 'react';
+import {
+    ForwardRefRenderFunction,
+    CSSProperties,
+    forwardRef,
+    FunctionComponent,
+} from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -29,13 +34,13 @@ const IconButtonRefRender: ForwardRefRenderFunction<
         id?: string;
         className?: string;
         icon?: string;
-        icon2?: any;
+        icon2?: FunctionComponent<any>;
         to?: string;
-        onClick?: any;
-        style?: object;
+        onClick?: (...args: any[]) => any;
+        style?: CSSProperties;
     }
 > = function ({ id, className, icon, icon2, to, onClick, style }, ref) {
-    const Icon = icon2;
+    const Icon: FunctionComponent<any> = icon2;
     return (
         <div
             ref={ref}

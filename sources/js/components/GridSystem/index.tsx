@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { FunctionComponent, ReactNode } from 'react';
+import { CSSProperties, FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './GridSystem.module.css';
 
@@ -21,7 +21,7 @@ import * as styles from './GridSystem.module.css';
 const Row: FunctionComponent<{
     id?: string;
     className?: string;
-    style?: object;
+    style?: CSSProperties;
     noGutters?: boolean;
     children?: ReactNode;
 }> = function ({ id, className, style, noGutters, children }) {
@@ -55,7 +55,7 @@ Row.propTypes = {
 const Column: FunctionComponent<{
     id?: string;
     className?: string;
-    style?: object;
+    style?: CSSProperties;
     children?: ReactNode;
 }> = function ({ id, className, style, children }) {
     const classes = `col ${className ? className : ''}`;

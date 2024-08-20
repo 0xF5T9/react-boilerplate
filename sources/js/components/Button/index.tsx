@@ -7,6 +7,7 @@
 import {
     ForwardRefRenderFunction,
     ElementType,
+    CSSProperties,
     ReactNode,
     forwardRef,
 } from 'react';
@@ -39,7 +40,7 @@ const ButtonRefRender: ForwardRefRenderFunction<
         value?: string;
         onClick?: (...args: any[]) => any;
         disabled?: boolean;
-        style?: object;
+        style?: CSSProperties;
         children?: ReactNode;
         elementType?: ElementType;
     }

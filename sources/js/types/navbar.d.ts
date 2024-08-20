@@ -3,9 +3,11 @@
  * @description Header navbar item types.
  */
 
+import { FunctionComponent } from 'react';
+
 export type NavbarItem = {
     text: string;
-    icon?: (...args: any[]) => any;
+    icon?: FunctionComponent;
     to?: string;
     href?: string;
     target?: string;
@@ -19,7 +21,7 @@ export type NavbarSubitem = {
     title: string;
     desc?: string;
     image?: string;
-    icon?: (...args: any[]) => any;
+    icon?: FunctionComponent;
     to?: string;
     href?: string;
     target?: string;

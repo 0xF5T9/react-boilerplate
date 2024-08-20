@@ -50,8 +50,8 @@ const Checkbox: FunctionComponent<{
     wrapperStyle,
     checkboxStyle,
 }) {
-    const wrapper = useRef(),
-        checkbox = useRef();
+    const wrapper = useRef<HTMLDivElement>(),
+        checkbox = useRef<HTMLInputElement>();
 
     const classes = `${styles['checkbox-wrapper']}
                    ${styles[color] || ''}
@@ -62,11 +62,10 @@ const Checkbox: FunctionComponent<{
             ref={wrapper}
             className={classes}
             style={wrapperStyle}
-            onClick={(event: any) => {
+            onClick={(event) => {
                 if (event.target === wrapper.current && checkbox.current) {
-                    const checkedState: boolean = (checkbox.current as any)
-                            .checked,
-                        checkboxElement = checkbox.current as any;
+                    const checkedState: boolean = checkbox.current.checked,
+                        checkboxElement = checkbox.current;
                     checkboxElement.focus();
                     checkboxElement.checked = !checkedState;
                 }

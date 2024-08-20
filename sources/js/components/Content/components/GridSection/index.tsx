@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { FunctionComponent, ReactNode } from 'react';
+import { FunctionComponent, CSSProperties, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Column } from '../../../GridSystem';
 
@@ -27,7 +27,7 @@ const GridSection: FunctionComponent<{
     fixedHeight?: number;
     dynamicHeight?: boolean;
     noAnimation?: boolean;
-    style?: Record<string, unknown> & { height?: string };
+    style?: CSSProperties & { height?: string };
     children?: ReactNode;
 }> = function ({
     wide,
@@ -58,7 +58,7 @@ GridSection.propTypes = {
     fixedHeight: PropTypes.number,
     dynamicHeight: PropTypes.bool,
     noAnimation: PropTypes.bool,
-    style: PropTypes.any,
+    style: PropTypes.object,
     children: PropTypes.node,
 };
 
@@ -83,7 +83,7 @@ const DynamicSection: FunctionComponent<{
     wide?: boolean;
     noGutters?: boolean;
     noAnimation?: boolean;
-    style?: any;
+    style?: CSSProperties;
     children?: ReactNode;
 }> = function ({
     id,
@@ -151,7 +151,7 @@ const FixedSection: FunctionComponent<{
     wide?: boolean;
     noGutters?: boolean;
     noAnimation?: boolean;
-    style?: object;
+    style?: CSSProperties;
     children?: ReactNode;
 }> = function ({
     id,
@@ -220,7 +220,7 @@ const FlexibleSection: FunctionComponent<{
     wide?: boolean;
     noGutters?: boolean;
     noAnimation?: boolean;
-    style?: object;
+    style?: CSSProperties;
     children?: ReactNode;
 }> = function ({
     id,
