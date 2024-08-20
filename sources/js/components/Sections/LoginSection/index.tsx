@@ -5,7 +5,7 @@
  */
 
 'use strict';
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 
@@ -23,7 +23,7 @@ import * as styles from './LoginSection.module.css';
  * Login section.
  * @returns Returns the component.
  */
-function LoginSection() {
+const LoginSection: FunctionComponent = function () {
     const { sessionData, login } = useAuth(),
         [pending, setPending] = useState(false),
         [serverMessage, setServerMessage] = useState(null), // { message, type }
@@ -178,6 +178,6 @@ function LoginSection() {
             </FlexibleSection>
         </>
     );
-}
+};
 
 export default LoginSection;

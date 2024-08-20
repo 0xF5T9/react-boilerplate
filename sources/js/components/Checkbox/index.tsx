@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { useRef } from 'react';
+import { FunctionComponent, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './Checkbox.module.css';
@@ -25,19 +25,7 @@ import * as styles from './Checkbox.module.css';
  * @param props.checkboxStyle Additional checkbox styles.
  * @returns Returns the component.
  */
-function Checkbox({
-    labelText,
-    color,
-    size,
-    id,
-    className,
-    value,
-    onClick,
-    required = false,
-    disabled = false,
-    wrapperStyle,
-    checkboxStyle,
-}: {
+const Checkbox: FunctionComponent<{
     labelText?: string;
     color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     size?: 'small' | 'large';
@@ -49,6 +37,18 @@ function Checkbox({
     disabled?: boolean;
     wrapperStyle?: object;
     checkboxStyle?: object;
+}> = function ({
+    labelText,
+    color,
+    size,
+    id,
+    className,
+    value,
+    onClick,
+    required = false,
+    disabled = false,
+    wrapperStyle,
+    checkboxStyle,
 }) {
     const wrapper = useRef(),
         checkbox = useRef();
@@ -88,7 +88,7 @@ function Checkbox({
             </label>
         </div>
     );
-}
+};
 
 Checkbox.propTypes = {
     labelText: PropTypes.string,

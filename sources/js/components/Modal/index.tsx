@@ -5,6 +5,7 @@
 
 'use strict';
 import {
+    FunctionComponent,
     useState,
     useEffect,
     useRef,
@@ -32,7 +33,9 @@ const modalContext = createContext(null);
  * @param props.children Context children.
  * @returns Returns the component.
  */
-function ModalProvider({ children }: { children: ReactNode }) {
+const ModalProvider: FunctionComponent<{ children: ReactNode }> = function ({
+    children,
+}) {
     const { setAllowScrolling } = useContext(globalContext);
 
     // 'modalVisibility' is used to check if there is an opening modal. (Don't use 'modal')
@@ -55,7 +58,7 @@ function ModalProvider({ children }: { children: ReactNode }) {
     return (
         <modalContext.Provider value={value}>{children}</modalContext.Provider>
     );
-}
+};
 
 ModalProvider.propTypes = {
     children: PropTypes.node,
@@ -65,7 +68,7 @@ ModalProvider.propTypes = {
  * Modal overlay.
  * @returns Returns the component.
  */
-function ModalOverlay() {
+const ModalOverlay: FunctionComponent = function () {
     const {
         modal,
         setModal,
@@ -230,6 +233,6 @@ function ModalOverlay() {
             {Modal}
         </div>
     );
-}
+};
 
 export { ModalOverlay, modalContext, ModalProvider };

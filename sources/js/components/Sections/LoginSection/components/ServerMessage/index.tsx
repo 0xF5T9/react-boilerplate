@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './ServerMessage.module.css';
@@ -16,15 +17,11 @@ import * as styles from './ServerMessage.module.css';
  * @param props.onClick Delete message button on-click callback.
  * @returns Returns the component.
  */
-function ServerMessage({
-    message,
-    type,
-    onClick,
-}: {
+const ServerMessage: FunctionComponent<{
     message?: string;
     type?: 'success' | 'error';
     onClick?: any;
-}) {
+}> = function ({ message, type, onClick }) {
     const classes = `${styles['server-message-wrapper']} ${styles[type]}`;
     return (
         <div className={classes}>
@@ -34,7 +31,7 @@ function ServerMessage({
             </div>
         </div>
     );
-}
+};
 
 ServerMessage.propTypes = {
     message: PropTypes.string,

@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { Link, ScrollRestoration, useRouteError } from 'react-router-dom';
 
 import routes from '../../../configs/routes';
@@ -21,7 +22,7 @@ import * as styles from './ErrorLayout.module.css';
  * Error layout component.
  * @returns Returns the component.
  */
-function ErrorLayout() {
+const ErrorLayout: FunctionComponent = function () {
     const error: any = useRouteError();
     console.warn(error);
 
@@ -85,6 +86,6 @@ function ErrorLayout() {
             <ScrollRestoration />
         </>
     );
-}
+};
 
 export default ErrorLayout;

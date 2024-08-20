@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { ReactNode } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './Select.module.css';
@@ -24,18 +24,7 @@ import * as styles from './Select.module.css';
  * @param props.children Select options.
  * @returns Returns the component.
  */
-function Select({
-    id,
-    className,
-    name,
-    value,
-    color,
-    size,
-    onBlur,
-    onChange,
-    disabled = false,
-    children,
-}: {
+const Select: FunctionComponent<{
     id?: string;
     className?: string;
     name?: string;
@@ -46,6 +35,17 @@ function Select({
     onChange?: (...args: any[]) => any;
     disabled?: boolean;
     children?: ReactNode;
+}> = function ({
+    id,
+    className,
+    name,
+    value,
+    color,
+    size,
+    onBlur,
+    onChange,
+    disabled = false,
+    children,
 }) {
     const classes = `${styles.select}
                      ${color ? styles[color] : ''}
@@ -64,13 +64,13 @@ function Select({
             {children}
         </select>
     );
-}
+};
 
 Select.propTypes = {
     id: PropTypes.string,
     className: PropTypes.string,
     name: PropTypes.string,
-    value: PropTypes.bool,
+    value: PropTypes.string,
     color: PropTypes.oneOf([
         'red',
         'orange',

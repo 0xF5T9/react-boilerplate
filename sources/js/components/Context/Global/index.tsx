@@ -4,7 +4,13 @@
  */
 
 'use strict';
-import { ReactNode, createContext, useState, useEffect } from 'react';
+import {
+    FunctionComponent,
+    ReactNode,
+    createContext,
+    useState,
+    useEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 
 import themes from '../../Theme';
@@ -18,7 +24,9 @@ const globalContext = createContext(null);
  * @param props.children Context children.
  * @returns Returns the component.
  */
-function GlobalProvider({ children }: { children: ReactNode }) {
+const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
+    children,
+}) {
     const [theme, setTheme] = useState(() => {
             let theme = localStorage.getItem('theme');
             if (!theme || (theme !== 'light' && theme !== 'dark')) {
@@ -100,7 +108,7 @@ function GlobalProvider({ children }: { children: ReactNode }) {
             {children}
         </globalContext.Provider>
     );
-}
+};
 
 GlobalProvider.propTypes = {
     children: PropTypes.node,

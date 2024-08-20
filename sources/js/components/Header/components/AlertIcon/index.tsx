@@ -5,7 +5,7 @@
  */
 
 'use strict';
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 
 import IconButton, { IconButtonStyles } from '../IconButton';
 import PopupWindow, { PopupStyles } from '../../../PopupWindow';
@@ -15,7 +15,7 @@ import * as styles from './AlertIcon.module.css';
  * Header alert icon button, with popup window.
  * @returns Returns the component.
  */
-function AlertIcon() {
+const AlertIcon: FunctionComponent = function () {
     const [showPopup, setShowPopup] = useState(false);
 
     function handleClick() {
@@ -53,6 +53,6 @@ function AlertIcon() {
             </PopupWindow>
         </div>
     );
-}
+};
 
 export default AlertIcon;

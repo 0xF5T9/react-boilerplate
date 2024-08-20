@@ -5,7 +5,7 @@
  */
 
 'use strict';
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -23,17 +23,12 @@ import * as styles from './UserIcon.module.css';
  * @note 'props.onClick' is ignored if 'props.to' is passed.
  * @returns Returns the component.
  */
-function ListItem({
-    text,
-    icon,
-    to,
-    onClick,
-}: {
+const ListItem: FunctionComponent<{
     text?: string;
     icon?: string;
     to?: string;
     onClick?: any;
-}) {
+}> = function ({ text, icon, to, onClick }) {
     const navigate = useNavigate();
 
     return (
@@ -56,7 +51,7 @@ function ListItem({
             </Link>
         </li>
     );
-}
+};
 
 ListItem.propTypes = {
     text: PropTypes.string,
@@ -71,7 +66,9 @@ ListItem.propTypes = {
  * @param props.menus The array that contains menu object(s).
  * @returns Returns the component.
  */
-function UserIcon({ menus }: { menus: Array<any> }) {
+const UserIcon: FunctionComponent<{ menus: Array<any> }> = function ({
+    menus,
+}) {
     const [showPopup, setShowPopup] = useState(false),
         [render, setRender] = useState(() => {
             return menus.find((element) => element.id === 'default');
@@ -117,7 +114,7 @@ function UserIcon({ menus }: { menus: Array<any> }) {
                                         to={item.to}
                                         onClick={
                                             item.gotoMenu
-                                                ? (event) => {
+                                                ? (event: any) => {
                                                       event.preventDefault();
                                                       setRender(
                                                           menus.find(
@@ -144,7 +141,7 @@ function UserIcon({ menus }: { menus: Array<any> }) {
             </PopupWindow>
         </div>
     );
-}
+};
 
 UserIcon.propTypes = {
     menus: PropTypes.array.isRequired,

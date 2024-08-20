@@ -5,7 +5,7 @@
 
 'use strict';
 import { useAuth } from '../../hooks/useAuth';
-import { ReactNode, useState, useEffect } from 'react';
+import { FunctionComponent, ReactNode, useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -21,7 +21,9 @@ import { CircleLoading } from '../Icons/CircleLoading';
  * @param props.children Component children.
  * @returns Returns the component.
  */
-function ProtectedRoute({ children }: { children?: ReactNode }) {
+const ProtectedRoute: FunctionComponent<{ children?: ReactNode }> = function ({
+    children,
+}) {
     const { sessionData, logout } = useAuth(),
         [isVerifying, setIsVerifying] = useState(true);
 
@@ -74,7 +76,7 @@ function ProtectedRoute({ children }: { children?: ReactNode }) {
         );
 
     return children;
-}
+};
 
 ProtectedRoute.propTypes = {
     children: PropTypes.node,

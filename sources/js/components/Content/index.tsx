@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { ReactNode } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './Content.module.css';
@@ -15,9 +15,11 @@ import * as styles from './Content.module.css';
  * @param props.children Content children.
  * @returns Returns the component.
  */
-function Content({ children }: { children?: ReactNode }) {
+const Content: FunctionComponent<{ children?: ReactNode }> = function ({
+    children,
+}) {
     return <div className={styles['content-wrapper']}>{children}</div>;
-}
+};
 
 Content.propTypes = {
     children: PropTypes.node,

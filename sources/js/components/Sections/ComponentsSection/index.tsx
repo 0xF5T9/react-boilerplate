@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { useContext } from 'react';
+import { FunctionComponent, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -30,15 +30,11 @@ import * as styles from './ComponentsSection.module.css';
  * @param props.icon Card icon.
  * @returns Returns the component.
  */
-function CardItem({
-    text,
-    to,
-    icon,
-}: {
+const CardItem: FunctionComponent<{
     text: string;
     to?: string;
     icon?: (...args: any[]) => any;
-}) {
+}> = function ({ text, to, icon }) {
     const navigate = useNavigate();
 
     const Icon = icon || Code;
@@ -54,19 +50,19 @@ function CardItem({
             </div>
         </Column>
     );
-}
+};
 
 CardItem.propTypes = {
     text: PropTypes.string,
     to: PropTypes.string,
-    icon: PropTypes.node,
+    icon: PropTypes.any,
 };
 
 /**
  * Components section.
  * @returns Returns the component.
  */
-function ComponentsSection() {
+const ComponentsSection: FunctionComponent = function () {
     const { theme } = useContext(globalContext);
 
     return (
@@ -114,6 +110,6 @@ function ComponentsSection() {
             </FlexibleSection>
         </>
     );
-}
+};
 
 export default ComponentsSection;

@@ -6,6 +6,7 @@
 
 'use strict';
 import {
+    FunctionComponent,
     ReactNode,
     useState,
     useEffect,
@@ -34,7 +35,9 @@ const MobileNavMenuContext = createContext(null);
  * @param props.children <NavCloseButton /> && <NavbarItem />.
  * @returns Returns the component.
  */
-function MobileNavMenuContextProvider({ children }: { children?: ReactNode }) {
+const MobileNavMenuContextProvider: FunctionComponent<{
+    children?: ReactNode;
+}> = function ({ children }) {
     const [closeButtonRef, setCloseButtonRef] = useState();
 
     const value = {
@@ -47,7 +50,7 @@ function MobileNavMenuContextProvider({ children }: { children?: ReactNode }) {
             {children}
         </MobileNavMenuContext.Provider>
     );
-}
+};
 
 MobileNavMenuContextProvider.propTypes = {
     children: PropTypes.node,
@@ -61,15 +64,11 @@ MobileNavMenuContextProvider.propTypes = {
  * @param props.children <NavItem />
  * @returns Returns the component.
  */
-function NavSection({
-    title,
-    to,
-    children,
-}: {
+const NavSection: FunctionComponent<{
     title?: string;
     to?: string;
     children?: ReactNode;
-}) {
+}> = function ({ title, to, children }) {
     const { closeButtonRef } = useContext(MobileNavMenuContext),
         navigate = useNavigate();
 
@@ -91,7 +90,7 @@ function NavSection({
             <ul className={styles['nav-list']}>{children}</ul>
         </div>
     );
-}
+};
 
 NavSection.propTypes = {
     title: PropTypes.string,
@@ -113,17 +112,7 @@ NavSection.propTypes = {
  * @param props.onClick Item on-click callback.
  * @returns Returns the component.
  */
-function NavItem({
-    text,
-    desc,
-    icon,
-    image,
-    to,
-    href,
-    target,
-    hideOnClick = true,
-    onClick,
-}: {
+const NavItem: FunctionComponent<{
     text?: string;
     desc?: string;
     icon?: any;
@@ -133,6 +122,16 @@ function NavItem({
     target?: string;
     hideOnClick?: boolean;
     onClick?: any;
+}> = function ({
+    text,
+    desc,
+    icon,
+    image,
+    to,
+    href,
+    target,
+    hideOnClick = true,
+    onClick,
 }) {
     const { closeButtonRef } = useContext(MobileNavMenuContext),
         navigation = useNavigation();
@@ -182,7 +181,7 @@ function NavItem({
             </LinkComponent>
         </li>
     );
-}
+};
 
 NavItem.propTypes = {
     text: PropTypes.string,
@@ -202,7 +201,9 @@ NavItem.propTypes = {
  * @param props.onClick On-click callback that close the mobile navbar.
  * @returns Returns the component.
  */
-function NavCloseButton({ onClick }: { onClick?: any }) {
+const NavCloseButton: FunctionComponent<{ onClick?: any }> = function ({
+    onClick,
+}) {
     const { setCloseButtonRef } = useContext(MobileNavMenuContext),
         closeButton = useRef();
 
@@ -219,7 +220,7 @@ function NavCloseButton({ onClick }: { onClick?: any }) {
             <SquareX className={styles['nav-close-button-icon']} />
         </div>
     );
-}
+};
 
 NavCloseButton.propTypes = {
     onClick: PropTypes.func,
@@ -229,7 +230,7 @@ NavCloseButton.propTypes = {
  * Mobile navigation menu icon with popup menu.
  * @returns Returns the component.
  */
-function MobileNavMenuIcon() {
+const MobileNavMenuIcon: FunctionComponent = function () {
     const { sessionData } = useAuth();
 
     const { deviceType, setAllowScrolling } = useContext(globalContext),
@@ -273,7 +274,7 @@ function MobileNavMenuIcon() {
                     classOut: styles['animation-out'],
                     outAnimationName: styles['popup-out'],
                 }}
-                render={(attrs) => (
+                render={(attrs: any) => (
                     <div
                         className={`${styles['blur-layer']} ${PopupStyles['popup-window']}`}
                         onClick={handleBackgroundClick}
@@ -371,6 +372,6 @@ function MobileNavMenuIcon() {
             </PopupWindow>
         </div>
     );
-}
+};
 
 export default MobileNavMenuIcon;

@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { ReactNode } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './SectionSubtitle.module.css';
@@ -18,24 +18,19 @@ import * as styles from './SectionSubtitle.module.css';
  * @param props.children Component children.
  * @returns Returns the component.
  */
-function SectionSubtitle({
-    id,
-    className,
-    style,
-    children,
-}: {
+const SectionSubtitle: FunctionComponent<{
     id?: string;
     className?: string;
     style?: object;
     children: ReactNode;
-}) {
+}> = function ({ id, className, style, children }) {
     const classes = `${styles['section-subtitle']} ${className || ''}`;
     return (
         <span id={id} className={classes} style={style}>
             {children}
         </span>
     );
-}
+};
 
 SectionSubtitle.propTypes = {
     id: PropTypes.string,

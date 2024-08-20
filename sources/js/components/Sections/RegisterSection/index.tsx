@@ -6,7 +6,7 @@
 
 'use strict';
 import type { UseAuth } from '../../../types/authentication';
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 
@@ -24,7 +24,7 @@ import * as styles from './RegisterSection.module.css';
  * Register section.
  * @returns Returns the component.
  */
-function RegisterSection() {
+const RegisterSection: FunctionComponent = function () {
     const { sessionData, login }: UseAuth = useAuth(),
         [pending, setPending] = useState(false),
         [serverMessage, setServerMessage] = useState(null), // { message, type }
@@ -283,6 +283,6 @@ function RegisterSection() {
             </FlexibleSection>
         </>
     );
-}
+};
 
 export default RegisterSection;

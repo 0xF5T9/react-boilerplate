@@ -1,9 +1,11 @@
 /**
  * @file index.tsx
  * @description Popup window component.
+ * @todo Fix typing
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import Tippy from '@tippyjs/react/headless';
 import PropTypes from 'prop-types';
 
@@ -29,21 +31,7 @@ import * as styles from './PopupWindow.module.css';
  *       Use 'onMount' & 'onHide' props to add additional callbacks if needed.
  * @returns Returns the component.
  */
-function PopupWindow({
-    children,
-    render,
-    onMount,
-    onHide,
-    onHidden,
-    customAnimation,
-    interactive,
-    visible,
-    offset,
-    placement,
-    onClickOutside,
-    popperOptions,
-    appendTo,
-}: {
+const PopupWindow: FunctionComponent<{
     children?: any;
     render?: any;
     onMount?: any;
@@ -61,6 +49,20 @@ function PopupWindow({
     onClickOutside?: any;
     popperOptions?: any;
     appendTo?: any;
+}> = function ({
+    children,
+    render,
+    onMount,
+    onHide,
+    onHidden,
+    customAnimation,
+    interactive,
+    visible,
+    offset,
+    placement,
+    onClickOutside,
+    popperOptions,
+    appendTo,
 }) {
     function onPopupMount(instance: any) {
         const popup = instance.popper.firstElementChild;
@@ -131,18 +133,14 @@ function PopupWindow({
             {children}
         </Tippy>
     );
-}
+};
 
 PopupWindow.propTypes = {
     children: PropTypes.node,
     render: PropTypes.func,
     onMount: PropTypes.func,
     onHide: PropTypes.func,
-    customAnimation: PropTypes.shape({
-        classIn: PropTypes.string.isRequired,
-        classOut: PropTypes.string.isRequired,
-        outAnimationName: PropTypes.string.isRequired,
-    }),
+    customAnimation: PropTypes.any,
     interactive: PropTypes.any,
     visible: PropTypes.any,
     offset: PropTypes.any,

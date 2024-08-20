@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import { SectionTitle } from '../../Content/components/GridSection/components';
 import Button from '../../Button';
@@ -13,7 +14,7 @@ import { CircleLoading } from '../../Icons/CircleLoading';
  * Button sample section.
  * @returns Returns the component.
  */
-function ButtonSampleSection() {
+const ButtonSampleSection: FunctionComponent = function () {
     function handlePlayClickSound() {
         const audio = new Audio('/assets/static/sound/ClickSoundEffect.wav');
         audio.play();
@@ -161,6 +162,6 @@ function ButtonSampleSection() {
             </div>
         </FlexibleSection>
     );
-}
+};
 
 export default ButtonSampleSection;

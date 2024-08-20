@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { ReactNode, forwardRef } from 'react';
+import { ForwardRefRenderFunction, ReactNode, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './Button.module.css';
@@ -24,7 +24,21 @@ import * as styles from './Button.module.css';
  * @param props.elementType Element type.
  * @returns Returns the component.
  */
-const Button = forwardRef(function Button(
+const ButtonRefRender: ForwardRefRenderFunction<
+    HTMLButtonElement,
+    {
+        color?: 'success' | 'danger' | 'warn' | 'info' | 'gray' | 'white';
+        size?: 'small' | 'large';
+        id?: string;
+        className?: string;
+        value?: string;
+        onClick?: (...args: any[]) => any;
+        disabled?: boolean;
+        style?: object;
+        children?: ReactNode;
+        elementType?: 'button' | 'a' | 'div';
+    }
+> = function (
     {
         color,
         size,
@@ -36,19 +50,8 @@ const Button = forwardRef(function Button(
         style,
         children,
         elementType = 'button',
-    }: {
-        color?: 'success' | 'danger' | 'warn' | 'info' | 'gray' | 'white';
-        size?: 'small' | 'large';
-        id?: string;
-        className?: string;
-        value?: string;
-        onClick?: (...args: any[]) => any;
-        disabled?: boolean;
-        style?: object;
-        children?: ReactNode;
-        elementType?: 'button' | 'a' | 'div';
     },
-    ref?: any
+    ref
 ) {
     const classes = `${styles.button}
                      ${styles[color] || ''}
@@ -69,7 +72,9 @@ const Button = forwardRef(function Button(
             {children}
         </Component>
     );
-});
+};
+
+const Button = forwardRef(ButtonRefRender);
 
 Button.propTypes = {
     color: PropTypes.oneOf([

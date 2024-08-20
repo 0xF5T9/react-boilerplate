@@ -4,13 +4,14 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { FlexibleSection } from '../../Content/components/GridSection';
 
 /**
  * Typography section.
  * @returns Returns the component.
  */
-function TypographySection() {
+const TypographySection: FunctionComponent = function () {
     return (
         <>
             <FlexibleSection
@@ -43,6 +44,6 @@ function TypographySection() {
             </FlexibleSection>
         </>
     );
-}
+};
 
 export default TypographySection;

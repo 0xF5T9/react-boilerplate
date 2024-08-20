@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { useLayoutEffect, useRef } from 'react';
+import { FunctionComponent, useLayoutEffect, useRef } from 'react';
 import { Github } from '../Icons/Github';
 import { Discord } from '../Icons/Discord';
 
@@ -15,7 +15,7 @@ import * as styles from './Footer.module.css';
  * Footer component.
  * @returns Returns the component.
  */
-function Footer() {
+const Footer: FunctionComponent = function () {
     const footer: any = useRef();
 
     useLayoutEffect(() => {
@@ -105,6 +105,6 @@ function Footer() {
             </div>
         </footer>
     );
-}
+};
 
 export default Footer;

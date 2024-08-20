@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import { SectionTitle } from '../../Content/components/GridSection/components';
 import Radio from '../../Radio';
@@ -12,7 +13,7 @@ import Radio from '../../Radio';
  * Radio sample section.
  * @returns Returns the component.
  */
-function RadioSampleSection() {
+const RadioSampleSection: FunctionComponent = function () {
     return (
         <FlexibleSection
             style={{
@@ -194,6 +195,6 @@ function RadioSampleSection() {
             </div>
         </FlexibleSection>
     );
-}
+};
 
 export default RadioSampleSection;

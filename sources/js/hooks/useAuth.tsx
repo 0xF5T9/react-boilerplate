@@ -11,7 +11,13 @@ import type {
     UseAuth,
 } from '../types/authentication';
 import { useLocalStorage } from './useLocalStorage';
-import { ReactNode, useContext, useMemo, createContext } from 'react';
+import {
+    FunctionComponent,
+    ReactNode,
+    useContext,
+    useMemo,
+    createContext,
+} from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -26,7 +32,9 @@ const authContext = createContext(null);
  * @param props.children Context children.
  * @returns Returns the component.
  */
-function AuthProvider({ children }: { children: ReactNode }) {
+const AuthProvider: FunctionComponent<{ children: ReactNode }> = function ({
+    children,
+}) {
     const [sessionData, setSessionData] = useLocalStorage('sessionData', null),
         navigate = useNavigate();
 
@@ -58,7 +66,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
     return (
         <authContext.Provider value={value}>{children}</authContext.Provider>
     );
-}
+};
 
 AuthProvider.propTypes = {
     children: PropTypes.node,

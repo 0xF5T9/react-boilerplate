@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { ReactNode } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Column } from '../../../GridSystem';
 
@@ -22,20 +22,20 @@ import * as styles from './GridSection.module.css';
  * @param props.children Component children.
  * @returns Returns the component.
  */
-function GridSection({
-    wide,
-    fixedHeight,
-    dynamicHeight,
-    noAnimation = false,
-    style,
-    children,
-}: {
+const GridSection: FunctionComponent<{
     wide?: boolean;
     fixedHeight?: number;
     dynamicHeight?: boolean;
     noAnimation?: boolean;
     style?: Record<string, unknown> & { height?: string };
     children?: ReactNode;
+}> = function ({
+    wide,
+    fixedHeight,
+    dynamicHeight,
+    noAnimation = false,
+    style,
+    children,
 }) {
     const classes = `${styles['section']}
                     ${wide ? 'wide' : ''}
@@ -51,14 +51,14 @@ function GridSection({
             {children}
         </section>
     );
-}
+};
 
 GridSection.propTypes = {
     wide: PropTypes.bool,
     fixedHeight: PropTypes.number,
     dynamicHeight: PropTypes.bool,
     noAnimation: PropTypes.bool,
-    style: PropTypes.object,
+    style: PropTypes.any,
     children: PropTypes.node,
 };
 
@@ -76,16 +76,7 @@ GridSection.propTypes = {
  * @param props.children Component children.
  * @returns Returns the component.
  */
-function DynamicSection({
-    id,
-    className,
-    grid,
-    wide,
-    noGutters,
-    noAnimation = false,
-    style,
-    children,
-}: {
+const DynamicSection: FunctionComponent<{
     id?: string;
     className?: string;
     grid?: boolean;
@@ -94,6 +85,15 @@ function DynamicSection({
     noAnimation?: boolean;
     style?: any;
     children?: ReactNode;
+}> = function ({
+    id,
+    className,
+    grid,
+    wide,
+    noGutters,
+    noAnimation = false,
+    style,
+    children,
 }) {
     const classes = `c-12 m-12 l-12
                     ${className || ''}
@@ -115,7 +115,7 @@ function DynamicSection({
             </Row>
         </GridSection>
     );
-}
+};
 
 DynamicSection.propTypes = {
     id: PropTypes.string,
@@ -143,17 +143,7 @@ DynamicSection.propTypes = {
  * @param props.children Component children.
  * @returns Returns the component.
  */
-function FixedSection({
-    id,
-    className,
-    height,
-    grid,
-    wide,
-    noGutters,
-    noAnimation = false,
-    style,
-    children,
-}: {
+const FixedSection: FunctionComponent<{
     id?: string;
     className?: string;
     height: number;
@@ -163,6 +153,16 @@ function FixedSection({
     noAnimation?: boolean;
     style?: object;
     children?: ReactNode;
+}> = function ({
+    id,
+    className,
+    height,
+    grid,
+    wide,
+    noGutters,
+    noAnimation = false,
+    style,
+    children,
 }) {
     const classes = `c-12 m-12 l-12
                     ${className || ''}
@@ -185,7 +185,7 @@ function FixedSection({
             </Row>
         </GridSection>
     );
-}
+};
 
 FixedSection.propTypes = {
     id: PropTypes.string,
@@ -213,16 +213,7 @@ FixedSection.propTypes = {
  * @param props.children Component children.
  * @returns Returns the component.
  */
-function FlexibleSection({
-    id,
-    className,
-    grid,
-    wide,
-    noGutters,
-    noAnimation = false,
-    style,
-    children,
-}: {
+const FlexibleSection: FunctionComponent<{
     id?: string;
     className?: string;
     grid?: boolean;
@@ -231,6 +222,15 @@ function FlexibleSection({
     noAnimation?: boolean;
     style?: object;
     children?: ReactNode;
+}> = function ({
+    id,
+    className,
+    grid,
+    wide,
+    noGutters,
+    noAnimation = false,
+    style,
+    children,
 }) {
     const classes = `c-12 m-12 l-12
                     ${className || ''}
@@ -249,7 +249,7 @@ function FlexibleSection({
             </Row>
         </GridSection>
     );
-}
+};
 
 FlexibleSection.propTypes = {
     id: PropTypes.string,

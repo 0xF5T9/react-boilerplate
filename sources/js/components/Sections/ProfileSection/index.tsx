@@ -5,7 +5,7 @@
  */
 
 'use strict';
-import { useState, useEffect } from 'react';
+import { FunctionComponent, useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { useAuth, getSessionData } from '../../../hooks/useAuth';
 
@@ -38,7 +38,7 @@ async function loader(): Promise<APIResult> {
  * Profile section.
  * @returns Returns the component.
  */
-function ProfileSection() {
+const ProfileSection: FunctionComponent = function () {
     const loaderData = useLoaderData() as APIResult,
         { sessionData, logout } = useAuth();
 
@@ -147,7 +147,7 @@ function ProfileSection() {
             </FlexibleSection>
         </>
     );
-}
+};
 
 export default ProfileSection;
 export { loader };

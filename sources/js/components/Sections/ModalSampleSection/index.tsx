@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { useContext } from 'react';
+import { FunctionComponent, useContext } from 'react';
 import { ModalSetter } from '../../../types/modal';
 
 import { modalContext } from '../../Modal';
@@ -22,7 +22,7 @@ import Button from '../../Button';
  * Modal sample section.
  * @returns Returns the component.
  */
-function ModalSampleSection() {
+const ModalSampleSection: FunctionComponent = function () {
     const {
         setModal,
         setModalVisibility,
@@ -344,6 +344,6 @@ function ModalSampleSection() {
             </SectionBlock>
         </FlexibleSection>
     );
-}
+};
 
 export default ModalSampleSection;

@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './Input.module.css';
@@ -27,22 +28,7 @@ import * as styles from './Input.module.css';
  * @param props.inputStyle Additional input styles.
  * @returns Returns the component.
  */
-function Input({
-    type = 'text',
-    color,
-    size,
-    transparent = false,
-    icon,
-    placeholder,
-    id,
-    value,
-    className,
-    onBlur,
-    onChange,
-    disabled = false,
-    wrapperStyle,
-    inputStyle,
-}: {
+const Input: FunctionComponent<{
     type?: 'text' | 'email' | 'password' | 'number' | 'tel';
     color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     size?: 'small' | 'large';
@@ -57,6 +43,21 @@ function Input({
     disabled?: boolean;
     wrapperStyle?: object;
     inputStyle?: object;
+}> = function ({
+    type = 'text',
+    color,
+    size,
+    transparent = false,
+    icon,
+    placeholder,
+    id,
+    value,
+    className,
+    onBlur,
+    onChange,
+    disabled = false,
+    wrapperStyle,
+    inputStyle,
 }) {
     const iconPositionStyle = icon
         ? icon.iconPosition === 'right'
@@ -86,7 +87,7 @@ function Input({
             />
         </div>
     );
-}
+};
 
 Input.propTypes = {
     type: PropTypes.oneOf(['text', 'email', 'password', 'number', 'tel']),
@@ -101,10 +102,7 @@ Input.propTypes = {
     ]),
     size: PropTypes.oneOf(['small', 'large']),
     transparent: PropTypes.bool,
-    icon: PropTypes.shape({
-        iconPosition: PropTypes.oneOf(['left', 'right']).isRequired,
-        iconClass: PropTypes.string.isRequired,
-    }),
+    icon: PropTypes.any,
     placeholder: PropTypes.string,
     id: PropTypes.string,
     value: PropTypes.string,

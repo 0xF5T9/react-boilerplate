@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import { SectionTitle } from '../../Content/components/GridSection/components';
 import LabeledSelect from '../../LabeledSelect';
@@ -12,7 +13,7 @@ import LabeledSelect from '../../LabeledSelect';
  * Labeled select sample section.
  * @returns Returns the component.
  */
-function LabeledSelectSampleSection() {
+const LabeledSelectSampleSection: FunctionComponent = function () {
     return (
         <FlexibleSection
             style={{
@@ -231,6 +232,6 @@ function LabeledSelectSampleSection() {
             </div>
         </FlexibleSection>
     );
-}
+};
 
 export default LabeledSelectSampleSection;

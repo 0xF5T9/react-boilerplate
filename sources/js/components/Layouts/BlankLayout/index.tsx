@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { Outlet, ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 import Content from '../../Content';
@@ -24,7 +25,7 @@ async function loader() {
  * Blank layout component.
  * @returns Returns the component.
  */
-function BlankLayout() {
+const BlankLayout: FunctionComponent = function () {
     return (
         <>
             <style>
@@ -46,7 +47,7 @@ function BlankLayout() {
             <ScrollRestoration />
         </>
     );
-}
+};
 
 export default BlankLayout;
 export { loader };

@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import { BarsLoading } from '../../Icons/BarsLoading';
 
@@ -11,7 +12,7 @@ import { BarsLoading } from '../../Icons/BarsLoading';
  * Index section.
  * @returns Returns the component.
  */
-function IndexSection() {
+const IndexSection: FunctionComponent = function () {
     return (
         <>
             <FlexibleSection
@@ -36,6 +37,6 @@ function IndexSection() {
             </FlexibleSection>
         </>
     );
-}
+};
 
 export default IndexSection;

@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import type { ToastOption, ToastMap } from '../../types/toast';
 import * as styles from './Toast.module.css';
 const $ = document.querySelector.bind(document);
@@ -111,8 +112,8 @@ function showToast(toast: ToastMap): void {
  * Toast overlay component.
  * @returns Returns the component.
  */
-function ToastOverlay() {
+const ToastOverlay: FunctionComponent = function () {
     return <div className={styles['toast-overlay']}></div>;
-}
+};
 
 export { ToastOverlay, showToast };

@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import {
     SectionTitle,
@@ -18,7 +19,7 @@ import * as toastStyles from '../../Toast/Toast.module.css';
  * Toast sample section.
  * @returns Returns the component.
  */
-function ToastSampleSection() {
+const ToastSampleSection: FunctionComponent = function () {
     return (
         <FlexibleSection
             style={{
@@ -212,6 +213,6 @@ function ToastSampleSection() {
             </SectionBlock>
         </FlexibleSection>
     );
-}
+};
 
 export default ToastSampleSection;

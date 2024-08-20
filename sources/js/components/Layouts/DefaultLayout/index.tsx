@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { Outlet, ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 import Header from '../../Header';
@@ -26,7 +27,7 @@ async function loader() {
  * Default layout component.
  * @returns Returns the component.
  */
-function DefaultLayout() {
+const DefaultLayout: FunctionComponent = function () {
     return (
         <>
             <div id="app">
@@ -42,7 +43,7 @@ function DefaultLayout() {
             <ScrollRestoration />
         </>
     );
-}
+};
 
 export default DefaultLayout;
 export { loader };

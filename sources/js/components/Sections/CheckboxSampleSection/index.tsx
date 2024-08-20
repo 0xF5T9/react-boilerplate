@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import { SectionTitle } from '../../Content/components/GridSection/components';
 import Checkbox from '../../Checkbox';
@@ -12,7 +13,7 @@ import Checkbox from '../../Checkbox';
  * Checkbox sample section.
  * @returns Returns the component.
  */
-function CheckboxSampleSection() {
+const CheckboxSampleSection: FunctionComponent = function () {
     return (
         <FlexibleSection
             style={{
@@ -111,6 +112,6 @@ function CheckboxSampleSection() {
             </div>
         </FlexibleSection>
     );
-}
+};
 
 export default CheckboxSampleSection;

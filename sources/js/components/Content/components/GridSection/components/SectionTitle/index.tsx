@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { ReactNode } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './SectionTitle.module.css';
@@ -18,19 +18,13 @@ import * as styles from './SectionTitle.module.css';
  * @param props.children Element children.
  * @returns Returns the component.
  */
-function SectionTitle({
-    element = 'h5',
-    id,
-    className,
-    style,
-    children,
-}: {
+const SectionTitle: FunctionComponent<{
     element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     id?: string;
     className?: string;
     style?: object;
     children: ReactNode;
-}) {
+}> = function ({ element = 'h5', id, className, style, children }) {
     const Element = element,
         classes = `${styles['section-title']} ${className || ''}`;
     return (
@@ -38,10 +32,10 @@ function SectionTitle({
             {children}
         </Element>
     );
-}
+};
 
 SectionTitle.propTypes = {
-    element: PropTypes.string,
+    element: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
     id: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,

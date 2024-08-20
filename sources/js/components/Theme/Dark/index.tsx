@@ -3,10 +3,11 @@
  * @description Dark theme component.
  */
 'use strict';
+import { FunctionComponent } from 'react';
 import css from '!!raw-loader!./Dark.css';
 
-function Theme() {
+const Theme: FunctionComponent = function () {
     return <style>{`${css}`}</style>;
-}
+};
 
 export default Theme;

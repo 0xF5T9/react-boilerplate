@@ -5,6 +5,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -19,22 +20,23 @@ import * as styles from './BrandLogo.module.css';
  * @param props.className Element addtional class names.
  * @returns Returns the component.
  */
-function BrandLogo({ id, className }: { id?: string; className?: string }) {
-    return (
-        <Link
-            id={id}
-            className={`${styles['link']} ${className || ''}`}
-            to={routes.home}
-            tabIndex={-1}
-        >
-            <img
-                className={styles['logo']}
-                src="/assets/static/img/brand-logo.png"
-                alt="Brand Logo"
-            />
-        </Link>
-    );
-}
+const BrandLogo: FunctionComponent<{ id?: string; className?: string }> =
+    function ({ id, className }) {
+        return (
+            <Link
+                id={id}
+                className={`${styles['link']} ${className || ''}`}
+                to={routes.home}
+                tabIndex={-1}
+            >
+                <img
+                    className={styles['logo']}
+                    src="/assets/static/img/brand-logo.png"
+                    alt="Brand Logo"
+                />
+            </Link>
+        );
+    };
 
 BrandLogo.propTypes = {
     id: PropTypes.string,

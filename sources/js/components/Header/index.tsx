@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { useContext } from 'react';
+import { FunctionComponent, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -29,7 +29,7 @@ const $ = document.querySelector.bind(document);
  * Header component.
  * @returns Returns the component.
  */
-function Header() {
+const Header: FunctionComponent = function () {
     const { theme, setTheme } = useContext(globalContext),
         { sessionData, logout } = useAuth(),
         navigate = useNavigate();
@@ -137,6 +137,6 @@ function Header() {
             </div>
         </header>
     );
-}
+};
 
 export default Header;

@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { useRef } from 'react';
+import { FunctionComponent, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './Radio.module.css';
@@ -26,20 +26,7 @@ import * as styles from './Radio.module.css';
  * @param props.radioStyle Additional radio styles.
  * @returns Returns the component.
  */
-function Radio({
-    labelText,
-    name,
-    value,
-    color,
-    size,
-    id,
-    className,
-    onClick,
-    required = false,
-    disabled = false,
-    wrapperStyle,
-    radioStyle,
-}: {
+const Radio: FunctionComponent<{
     labelText?: string;
     name: string;
     value: string;
@@ -52,6 +39,19 @@ function Radio({
     disabled?: boolean;
     wrapperStyle?: object;
     radioStyle?: object;
+}> = function ({
+    labelText,
+    name,
+    value,
+    color,
+    size,
+    id,
+    className,
+    onClick,
+    required = false,
+    disabled = false,
+    wrapperStyle,
+    radioStyle,
 }) {
     const wrapper = useRef(),
         radio = useRef();
@@ -90,7 +90,7 @@ function Radio({
             </label>
         </div>
     );
-}
+};
 
 Radio.propTypes = {
     labelText: PropTypes.string,

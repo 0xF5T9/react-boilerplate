@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { useEffect, useRef } from 'react';
+import { FunctionComponent, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './LabeledInput.module.css';
@@ -31,25 +31,7 @@ import * as styles from './LabeledInput.module.css';
  * @param props.inputStyle Input style object.
  * @returns Returns the component.
  */
-function LabeledInput({
-    type = 'text',
-    color,
-    reverseBackground = false,
-    size,
-    width,
-    labelWidth,
-    label,
-    id,
-    value,
-    defaultValue,
-    placeholder,
-    readOnly = false,
-    onBlur,
-    onChange,
-    disabled = false,
-    wrapperStyle,
-    inputStyle,
-}: {
+const LabeledInput: FunctionComponent<{
     type?: 'text' | 'email' | 'password' | 'number' | 'tel';
     color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     reverseBackground?: boolean;
@@ -67,6 +49,24 @@ function LabeledInput({
     disabled?: boolean;
     wrapperStyle?: object;
     inputStyle?: object;
+}> = function ({
+    type = 'text',
+    color,
+    reverseBackground = false,
+    size,
+    width,
+    labelWidth,
+    label,
+    id,
+    value,
+    defaultValue,
+    placeholder,
+    readOnly = false,
+    onBlur,
+    onChange,
+    disabled = false,
+    wrapperStyle,
+    inputStyle,
 }) {
     const input: any = useRef();
 
@@ -107,7 +107,7 @@ function LabeledInput({
             />
         </div>
     );
-}
+};
 
 LabeledInput.propTypes = {
     type: PropTypes.oneOf(['text', 'email', 'password', 'number', 'tel']),

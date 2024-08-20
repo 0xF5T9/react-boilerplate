@@ -5,7 +5,7 @@
  * @todo Convert to use icon component only.
  */
 'use strict';
-import { forwardRef } from 'react';
+import { ForwardRefRenderFunction, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -23,16 +23,9 @@ import * as styles from './IconButton.module.css';
  * @param props.style Style object.
  * @returns Returns the component.
  */
-const IconButton = forwardRef(function IconButton(
+const IconButtonRefRender: ForwardRefRenderFunction<
+    HTMLDivElement,
     {
-        id,
-        className,
-        icon,
-        icon2,
-        to,
-        onClick,
-        style,
-    }: {
         id?: string;
         className?: string;
         icon?: string;
@@ -40,9 +33,8 @@ const IconButton = forwardRef(function IconButton(
         to?: string;
         onClick?: any;
         style?: object;
-    },
-    ref?: any
-) {
+    }
+> = function ({ id, className, icon, icon2, to, onClick, style }, ref) {
     const Icon = icon2;
     return (
         <div
@@ -66,7 +58,9 @@ const IconButton = forwardRef(function IconButton(
             </Link>
         </div>
     );
-});
+};
+
+const IconButton = forwardRef(IconButtonRefRender);
 
 IconButton.propTypes = {
     id: PropTypes.string,

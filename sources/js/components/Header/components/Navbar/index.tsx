@@ -6,7 +6,13 @@
 
 'use strict';
 import PropTypes from 'prop-types';
-import { ReactNode, useState, useContext, createContext } from 'react';
+import {
+    FunctionComponent,
+    ReactNode,
+    useState,
+    useContext,
+    createContext,
+} from 'react';
 import { NavLink, useNavigation } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
 
@@ -21,9 +27,11 @@ import * as styles from './Navbar.module.css';
  * @param props.children <NavbarItem />.
  * @returns Returns the component.
  */
-function NavbarList({ children }: { children?: ReactNode }) {
+const NavbarList: FunctionComponent<{ children?: ReactNode }> = function ({
+    children,
+}) {
     return <ul className={styles['navbar-list']}>{children}</ul>;
-}
+};
 
 NavbarList.propTypes = {
     children: PropTypes.node,
@@ -38,21 +46,22 @@ const NavbarItemContext = createContext(null);
  * @param props.children <NavbarItem />.
  * @returns Returns the component.
  */
-function NavbarItemProvider({ children }: { children?: ReactNode }) {
-    const [navbarSublistVisibility, setNavbarSublistVisibility] =
-        useState(false);
+const NavbarItemProvider: FunctionComponent<{ children?: ReactNode }> =
+    function ({ children }) {
+        const [navbarSublistVisibility, setNavbarSublistVisibility] =
+            useState(false);
 
-    const value = {
-        navbarSublistVisibility,
-        setNavbarSublistVisibility,
+        const value = {
+            navbarSublistVisibility,
+            setNavbarSublistVisibility,
+        };
+
+        return (
+            <NavbarItemContext.Provider value={value}>
+                {children}
+            </NavbarItemContext.Provider>
+        );
     };
-
-    return (
-        <NavbarItemContext.Provider value={value}>
-            {children}
-        </NavbarItemContext.Provider>
-    );
-}
 
 NavbarItemProvider.propTypes = {
     children: PropTypes.node,
@@ -70,15 +79,7 @@ NavbarItemProvider.propTypes = {
  * @param props.children <NavbarSublist />.
  * @returns Returns the component.
  */
-function NavbarItem({
-    text,
-    to,
-    href,
-    target,
-    icon,
-    onClick,
-    children,
-}: {
+const NavbarItem: FunctionComponent<{
     text?: string;
     to?: string;
     href?: string;
@@ -86,7 +87,7 @@ function NavbarItem({
     icon?: (...args: any[]) => any;
     onClick?: any;
     children?: ReactNode;
-}) {
+}> = function ({ text, to, href, target, icon, onClick, children }) {
     const { navbarSublistVisibility, setNavbarSublistVisibility } =
             useContext(NavbarItemContext),
         navigation = useNavigation();
@@ -133,7 +134,7 @@ function NavbarItem({
             {children}
         </li>
     );
-}
+};
 
 NavbarItem.propTypes = {
     text: PropTypes.string,
@@ -152,13 +153,10 @@ NavbarItem.propTypes = {
  * @param props.children <NavbarSubitem />
  * @returns Returns the component.
  */
-function NavbarSublist({
-    layout,
-    children,
-}: {
+const NavbarSublist: FunctionComponent<{
     layout?: 'full' | 'full-2' | 'full-3' | 'full-4';
     children?: ReactNode;
-}) {
+}> = function ({ layout, children }) {
     const { setNavbarSublistVisibility } = useContext(NavbarItemContext);
 
     let listLayout = '';
@@ -186,7 +184,7 @@ function NavbarSublist({
             {children}
         </ul>
     );
-}
+};
 
 NavbarSublist.propTypes = {
     layout: PropTypes.oneOf(['full', 'full-2', 'full-3', 'full-4']),
@@ -207,17 +205,7 @@ NavbarSublist.propTypes = {
  * @param props.onClick Item on-click callback.
  * @returns Returns the component.
  */
-function NavbarSubitem({
-    title,
-    desc,
-    icon,
-    image,
-    to,
-    href,
-    target,
-    hideOnClick = false,
-    onClick,
-}: {
+const NavbarSubitem: FunctionComponent<{
     title?: string;
     desc?: string;
     icon?: any;
@@ -227,6 +215,16 @@ function NavbarSubitem({
     target?: string;
     hideOnClick?: boolean;
     onClick?: any;
+}> = function ({
+    title,
+    desc,
+    icon,
+    image,
+    to,
+    href,
+    target,
+    hideOnClick = false,
+    onClick,
 }) {
     const { setNavbarSublistVisibility } = useContext(NavbarItemContext),
         navigation = useNavigation();
@@ -282,7 +280,7 @@ function NavbarSubitem({
             </LinkComponent>
         </li>
     );
-}
+};
 
 NavbarSubitem.propTypes = {
     title: PropTypes.string,
@@ -300,7 +298,7 @@ NavbarSubitem.propTypes = {
  * Navbar.
  * @returns Returns the component.
  */
-function Navbar() {
+const Navbar: FunctionComponent = function () {
     const { sessionData } = useAuth();
 
     return (
@@ -367,6 +365,6 @@ function Navbar() {
             </NavbarList>
         </nav>
     );
-}
+};
 
 export default Navbar;

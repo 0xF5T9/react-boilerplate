@@ -4,6 +4,7 @@
  */
 
 'use strict';
+import { FunctionComponent } from 'react';
 import {
     DynamicSection,
     FixedSection,
@@ -18,7 +19,7 @@ import {
  * Index section.
  * @returns Returns the component.
  */
-function IndexSection() {
+const IndexSection: FunctionComponent = function () {
     return (
         <>
             <DynamicSection
@@ -78,6 +79,6 @@ function IndexSection() {
             </FlexibleSection>
         </>
     );
-}
+};
 
 export default IndexSection;

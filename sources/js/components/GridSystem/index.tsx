@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { ReactNode } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './GridSystem.module.css';
 
@@ -18,19 +18,13 @@ import * as styles from './GridSystem.module.css';
  * @param props.children Component children.
  * @returns Returns the component.
  */
-function Row({
-    id,
-    className,
-    style,
-    noGutters,
-    children,
-}: {
+const Row: FunctionComponent<{
     id?: string;
     className?: string;
     style?: object;
     noGutters?: boolean;
     children?: ReactNode;
-}) {
+}> = function ({ id, className, style, noGutters, children }) {
     const classes = `row
                     ${className ? className : ''}
                     ${noGutters ? 'no-gutters' : ''}`;
@@ -39,7 +33,7 @@ function Row({
             {children}
         </div>
     );
-}
+};
 
 Row.propTypes = {
     id: PropTypes.string,
@@ -58,24 +52,19 @@ Row.propTypes = {
  * @param props.children Component children.
  * @returns Returns the component.
  */
-function Column({
-    id,
-    className,
-    style,
-    children,
-}: {
+const Column: FunctionComponent<{
     id?: string;
     className?: string;
     style?: object;
     children?: ReactNode;
-}) {
+}> = function ({ id, className, style, children }) {
     const classes = `col ${className ? className : ''}`;
     return (
         <div id={id} className={classes} style={style}>
             {children}
         </div>
     );
-}
+};
 
 Column.propTypes = {
     id: PropTypes.string,

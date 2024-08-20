@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { ReactNode } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
 import * as styles from './LabeledSelect.module.css';
@@ -28,22 +28,7 @@ import * as styles from './LabeledSelect.module.css';
  * @param props.children <select> elements.
  * @returns Returns the component.
  */
-function LabeledSelect({
-    color,
-    reverseBackground = false,
-    size,
-    width,
-    labelWidth,
-    label,
-    id,
-    value,
-    onBlur,
-    onChange,
-    disabled = false,
-    wrapperStyle,
-    inputStyle,
-    children,
-}: {
+const LabeledSelect: FunctionComponent<{
     color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
     reverseBackground?: boolean;
     size?: 'small' | 'large';
@@ -58,6 +43,21 @@ function LabeledSelect({
     wrapperStyle?: object;
     inputStyle?: object;
     children?: ReactNode;
+}> = function ({
+    color,
+    reverseBackground = false,
+    size,
+    width,
+    labelWidth,
+    label,
+    id,
+    value,
+    onBlur,
+    onChange,
+    disabled = false,
+    wrapperStyle,
+    inputStyle,
+    children,
 }) {
     const classes = `${styles['input-wrapper']}
                    ${color ? styles[color] : ''}
@@ -90,7 +90,7 @@ function LabeledSelect({
             </select>
         </div>
     );
-}
+};
 
 LabeledSelect.propTypes = {
     color: PropTypes.oneOf([
