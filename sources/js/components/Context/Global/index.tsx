@@ -10,8 +10,11 @@ import {
     createContext,
     useState,
     useEffect,
+    useRef,
 } from 'react';
+import { useNavigation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import LoadingBar from 'react-top-loading-bar';
 
 import themes from '../../Theme';
 
@@ -27,6 +30,9 @@ const globalContext = createContext(null);
 const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
     children,
 }) {
+    const navigation = useNavigation(),
+        loadingBarRef = useRef(null);
+
     const [theme, setTheme] = useState(() => {
             let theme = localStorage.getItem('theme');
             if (!theme || (theme !== 'light' && theme !== 'dark')) {
@@ -72,6 +78,19 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
         localStorage.setItem('theme', theme);
     }, [theme]);
 
+    useEffect(() => {
+        switch (navigation.state) {
+            case 'idle':
+                loadingBarRef?.current?.complete();
+                break;
+            case 'loading':
+                loadingBarRef?.current?.continuousStart();
+                break;
+            case 'submitting':
+                break;
+        }
+    }, [navigation.state]);
+
     function handleUpdateDeviceType() {
         const deviceTypeString =
             window.innerWidth >= 1024
@@ -95,6 +114,13 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
 
     return (
         <globalContext.Provider value={global}>
+            <LoadingBar
+                ref={loadingBarRef}
+                color="var(--color-primary)"
+                transitionTime={100}
+                loaderSpeed={100}
+                waitingTime={500}
+            />
             {!allowScrolling && (
                 <style>
                     {`
