@@ -4,8 +4,8 @@
  */
 
 'use strict';
-import { FunctionComponent } from 'react';
-import { Outlet, ScrollRestoration, useLoaderData } from 'react-router-dom';
+import { FunctionComponent, ReactNode } from 'react';
+import { ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 import Content from '../../Content';
 import { ModalOverlay } from '../../Modal';
@@ -23,9 +23,13 @@ async function loader() {
 
 /**
  * Blank layout component.
+ * @param props Component properties.
+ * @param props.children Section components.
  * @returns Returns the component.
  */
-const BlankLayout: FunctionComponent = function () {
+const BlankLayout: FunctionComponent<{ children?: ReactNode }> = function ({
+    children,
+}) {
     return (
         <>
             <style>
@@ -37,9 +41,7 @@ const BlankLayout: FunctionComponent = function () {
                 `}
             </style>
             <div id="app">
-                <Content>
-                    <Outlet />
-                </Content>
+                <Content>{children}</Content>
                 <ModalOverlay />
                 <ToastOverlay />
                 <div className={styles['background']} />

@@ -4,8 +4,8 @@
  */
 
 'use strict';
-import { FunctionComponent } from 'react';
-import { Outlet, ScrollRestoration, useLoaderData } from 'react-router-dom';
+import { FunctionComponent, ReactNode } from 'react';
+import { ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 import Header from '../../Header';
 import Content from '../../Content';
@@ -25,21 +25,21 @@ async function loader() {
 
 /**
  * Default layout component.
+ * @param props Component properties.
+ * @param props.children Section components.
  * @returns Returns the component.
  */
-const DefaultLayout: FunctionComponent = function () {
+const DefaultLayout: FunctionComponent<{ children?: ReactNode }> = function ({
+    children,
+}) {
     return (
         <>
-            <div id="app">
-                <Header />
-                <Content>
-                    <Outlet />
-                </Content>
-                <Footer />
-                <ModalOverlay />
-                <ToastOverlay />
-                <div className={styles['background']} />
-            </div>
+            <Header />
+            <Content>{children}</Content>
+            <Footer />
+            <ModalOverlay />
+            <ToastOverlay />
+            <div className={styles['background']} />
             <ScrollRestoration />
         </>
     );

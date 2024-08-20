@@ -8,8 +8,9 @@ import routes from './routes';
 import { AuthProvider } from '../hooks/useAuth';
 import { GlobalProvider } from '../components/Context/Global';
 import { ModalProvider } from '../components/Modal';
+import App from '../components/App';
 import ProtectedRoute from '../components/ProtectedRoute';
-import { DefaultLayout, BlankLayout, ErrorLayout } from '../components/Layouts';
+import { DefaultLayout, BlankLayout } from '../components/Layouts';
 import * as Sections from '../components/Sections';
 
 const appRouter = [
@@ -19,7 +20,7 @@ const appRouter = [
             <GlobalProvider>
                 <AuthProvider>
                     <ModalProvider>
-                        <DefaultLayout />
+                        <App />
                     </ModalProvider>
                 </AuthProvider>
             </GlobalProvider>
@@ -28,113 +29,150 @@ const appRouter = [
             <GlobalProvider>
                 <AuthProvider>
                     <ModalProvider>
-                        <ErrorLayout />
+                        <div id="app">
+                            <BlankLayout>
+                                <Sections.ErrorSection />
+                            </BlankLayout>
+                        </div>
                     </ModalProvider>
                 </AuthProvider>
             </GlobalProvider>
         ),
         children: [
             {
-                // errorElement: <div>Error Section Here</div>,
                 children: [
                     {
                         index: true,
-                        element: <Sections.IndexSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.IndexSection />
+                            </DefaultLayout>
+                        ),
+                    },
+                    {
+                        path: routes.login,
+                        element: (
+                            <BlankLayout>
+                                <Sections.LoginSection />
+                            </BlankLayout>
+                        ),
+                    },
+                    {
+                        path: routes.register,
+                        element: (
+                            <BlankLayout>
+                                <Sections.RegisterSection />
+                            </BlankLayout>
+                        ),
                     },
                     {
                         path: routes.profile,
                         element: (
-                            <ProtectedRoute>
-                                <Sections.ProfileSection />
-                            </ProtectedRoute>
+                            <DefaultLayout>
+                                <ProtectedRoute>
+                                    <Sections.ProfileSection />
+                                </ProtectedRoute>
+                            </DefaultLayout>
                         ),
                         loader: Sections.ProfileSectionLoader,
                     },
                     {
                         path: routes.samples.components,
-                        element: <Sections.ComponentsSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.ComponentsSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.section,
-                        element: <Sections.SectionsSampleSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.SectionsSampleSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.button,
-                        element: <Sections.ButtonSampleSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.ButtonSampleSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.input,
-                        element: <Sections.InputSampleSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.InputSampleSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.checkbox,
-                        element: <Sections.CheckboxSampleSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.CheckboxSampleSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.radio,
-                        element: <Sections.RadioSampleSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.RadioSampleSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.select,
-                        element: <Sections.SelectSampleSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.SelectSampleSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.labeledInput,
-                        element: <Sections.LabeledInputSampleSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.LabeledInputSampleSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.labeledSelect,
-                        element: <Sections.LabeledSelectSampleSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.LabeledSelectSampleSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.toast,
-                        element: <Sections.ToastSampleSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.ToastSampleSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.modal,
-                        element: <Sections.ModalSampleSection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.ModalSampleSection />
+                            </DefaultLayout>
+                        ),
                     },
                     {
                         path: routes.samples.typography,
-                        element: <Sections.TypographySection />,
+                        element: (
+                            <DefaultLayout>
+                                <Sections.TypographySection />
+                            </DefaultLayout>
+                        ),
                     },
                 ],
-            },
-        ],
-    },
-    {
-        path: routes.login,
-        element: (
-            <GlobalProvider>
-                <AuthProvider>
-                    <ModalProvider>
-                        <BlankLayout />
-                    </ModalProvider>
-                </AuthProvider>
-            </GlobalProvider>
-        ),
-        children: [
-            {
-                index: true,
-                element: <Sections.LoginSection />,
-            },
-        ],
-    },
-    {
-        path: routes.register,
-        element: (
-            <GlobalProvider>
-                <AuthProvider>
-                    <ModalProvider>
-                        <BlankLayout />
-                    </ModalProvider>
-                </AuthProvider>
-            </GlobalProvider>
-        ),
-        children: [
-            {
-                index: true,
-                element: <Sections.RegisterSection />,
             },
         ],
     },

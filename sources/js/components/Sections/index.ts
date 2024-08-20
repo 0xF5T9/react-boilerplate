@@ -1,3 +1,4 @@
+export { default as ErrorSection } from './ErrorSection';
 export { default as IndexSection } from './IndexSection';
 export { default as LoginSection } from './LoginSection';
 export { default as RegisterSection } from './RegisterSection';
