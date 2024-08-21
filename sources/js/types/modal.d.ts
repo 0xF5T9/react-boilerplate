@@ -39,5 +39,9 @@ export type Modal =
     | (CustomModal & { preventCloseOnBackgroundClick?: boolean })
     | null;
 
-// This type is used to enforce typing on modal context values.
-export type ModalSetter = (modal: Modal) => any;
+export type ModalHook = {
+    modal: Modal;
+    setModal: React.Dispatch<React.SetStateAction<Modal>>;
+    modalVisibility: boolean;
+    setModalVisibility: React.Dispatch<React.SetStateAction<boolean>>;
+};

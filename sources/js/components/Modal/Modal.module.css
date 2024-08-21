@@ -76,6 +76,10 @@
     animation: modal-overlay-fade-out 0.1s linear forwards;
 }
 
+.modal-overlay.is-close {
+    animation: modal-overlay-fade-out 0.1s linear forwards;
+}
+
 .modal-window {
     cursor: auto;
     animation: modal-window-fade-in 0.1s linear forwards;

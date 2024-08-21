@@ -4,10 +4,9 @@
  */
 
 'use strict';
-import { FunctionComponent, useContext } from 'react';
-import { ModalSetter } from '../../../types/modal';
+import { FunctionComponent } from 'react';
 
-import { modalContext } from '../../Modal';
+import { useModal } from '../../Modal';
 import { showToast } from '../../Toast';
 import { CircleExclamation } from '../../Icons/CircleExclamation';
 import { CircleLoading } from '../../Icons/CircleLoading';
@@ -23,11 +22,7 @@ import Button from '../../Button';
  * @returns Returns the component.
  */
 const ModalSampleSection: FunctionComponent = function () {
-    const {
-        setModal,
-        setModalVisibility,
-    }: { setModal: ModalSetter; setModalVisibility: any } =
-        useContext(modalContext);
+    const { setModal, setModalVisibility } = useModal();
 
     return (
         <FlexibleSection

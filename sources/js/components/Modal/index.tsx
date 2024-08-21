@@ -6,6 +6,7 @@
 'use strict';
 import {
     FunctionComponent,
+    CSSProperties,
     useState,
     useEffect,
     useRef,
@@ -14,7 +15,7 @@ import {
     ReactNode,
 } from 'react';
 import PropTypes from 'prop-types';
-import { AlertModal, CustomModal, Modal, ModalSetter } from '../../types/modal';
+import { AlertModal, CustomModal, Modal, ModalHook } from '../../types/modal';
 
 import { globalContext } from '../Context/Global';
 import { CircleExclamation } from '../Icons/CircleExclamation';
@@ -40,7 +41,7 @@ const ModalProvider: FunctionComponent<{ children: ReactNode }> = function ({
 
     // 'modalVisibility' is used to check if there is an opening modal. (Don't use 'modal')
     // 'setModalVisibility' is used to close any opening modal programmatically.
-    const [modal, setModal]: [Modal, ModalSetter] = useState(null),
+    const [modal, setModal] = useState<Modal>(null),
         [modalVisibility, setModalVisibility] = useState(false);
 
     useEffect(() => {
@@ -48,7 +49,7 @@ const ModalProvider: FunctionComponent<{ children: ReactNode }> = function ({
         setAllowScrolling(!!!modal);
     }, [modal]);
 
-    const value = {
+    const value: ModalHook = {
         modal,
         setModal,
         modalVisibility,
@@ -69,46 +70,77 @@ ModalProvider.propTypes = {
  * @returns Returns the component.
  */
 const ModalOverlay: FunctionComponent = function () {
-    const {
-        modal,
-        setModal,
-        modalVisibility,
-    }: { modal: any; setModal: ModalSetter; modalVisibility: any } =
-        useContext(modalContext);
+    const { modal, setModal, modalVisibility } = useModal();
 
-    const modalOverlay: any = useRef(),
-        modalWindow: any = useRef();
+    const modalOverlay = useRef<HTMLDivElement>(),
+        modalWindow = useRef<HTMLDivElement>();
 
     function closeModal() {
-        // Trigger close animation animation.
+        // Trigger modal window close animation animation.
         modalWindow?.current?.classList?.add(`${styles['is-close']}`);
 
-        // Actually destroy the modal element on the animation end.
-        modalOverlay?.current?.addEventListener(
-            'animationend',
-            (event: any) => {
-                if (event.target === event.currentTarget) {
+        // Improvise: For chrome version less than 127, animation events and :has css pseudo are not supported.
+        if (
+            !!!getComputedStyle(modalOverlay?.current).animation.includes(
+                styles['modal-overlay-fade-out'] // It should be fade-out if :has is supported.
+            )
+        ) {
+            modalOverlay?.current?.classList.add(`${styles['is-close']}`);
+            setTimeout(
+                () => {
+                    modalOverlay?.current?.classList.remove(
+                        `${styles['is-close']}`
+                    );
                     setModal(null);
-                }
-            }
-        );
-
-        // Improvise:  Polyfill as animationend event may not be available on old browser.
-        // Make sure the duration fit modal-overdal fadeout animation duration.
-        setTimeout(() => {
-            setModal(null);
-        }, 101); // 0.1s
+                },
+                parseFloat(
+                    getComputedStyle(
+                        modalOverlay?.current
+                    ).animationDuration.replace('s', '')
+                ) *
+                    1000 +
+                    1
+            );
+        }
     }
 
-    // Close modal on escape key press.
+    // Actually destroy the modal element on the animation end.
     useEffect(() => {
+        function handleModalOverlayCloseAnimationEnd(event: AnimationEvent) {
+            if (
+                event.target === event.currentTarget &&
+                event.animationName === styles['modal-overlay-fade-out']
+            )
+                setModal(null);
+        }
+
+        modalOverlay?.current?.addEventListener(
+            'animationend',
+            handleModalOverlayCloseAnimationEnd
+        );
+
+        return () => {
+            modalOverlay?.current?.removeEventListener(
+                'animationend',
+                handleModalOverlayCloseAnimationEnd
+            );
+        };
+    }, []);
+
+    useEffect(() => {
+        // Close modal on escape key press.
         function handleKeyDown(event: any) {
             if (modal && event.keyCode === 27) closeModal();
         }
         window.addEventListener('keydown', handleKeyDown);
 
+        // Set focus for default button.
         setTimeout(() => {
-            modalWindow?.current?.querySelector('button.default')?.focus();
+            (
+                modalWindow?.current?.querySelector(
+                    'button.default'
+                ) as HTMLButtonElement
+            )?.focus();
         }, 50);
 
         return () => {
@@ -144,7 +176,7 @@ const ModalOverlay: FunctionComponent = function () {
                 }
             }
 
-            let iconStyle: any = {};
+            let iconStyle: CSSProperties = {};
             if (alertModal?.iconColor) iconStyle.color = alertModal.iconColor;
             if (alertModal?.iconWidth) iconStyle.width = alertModal.iconWidth;
 
@@ -223,6 +255,7 @@ const ModalOverlay: FunctionComponent = function () {
 
     return (
         <div
+            ref={modalOverlay}
             className={styles['modal-overlay']}
             onClick={
                 modal?.preventCloseOnBackgroundClick
@@ -235,4 +268,12 @@ const ModalOverlay: FunctionComponent = function () {
     );
 };
 
-export { ModalOverlay, modalContext, ModalProvider };
+/**
+ * Hook provides a convenient way to use modal component.
+ * @returns modal, setModal, modalVisibility, setModalVisibility
+ */
+function useModal(): ModalHook {
+    return useContext(modalContext);
+}
+
+export { ModalOverlay, ModalProvider, useModal };
