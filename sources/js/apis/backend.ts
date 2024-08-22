@@ -150,6 +150,91 @@ async function authorize(
 }
 
 /**
+ * Send a forgot password request.
+ * @param email Email address.
+ * @returns Returns the API response object.
+ */
+async function forgotPassword(email: string): Promise<APIResult> {
+    try {
+        email = email.toLowerCase();
+
+        if (!/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/.test(email))
+            return new APIResult('Invalid email address.', false, null, 400);
+
+        const result = await axios.post(
+            `${url}${endpoints.recovery}/forgot-password`,
+            {
+                email,
+            }
+        );
+        const { message, data }: BackendResponse = result.data;
+
+        return new APIResult(message, true, data, result.status);
+    } catch (error) {
+        if (error.response) {
+            return new APIResult(
+                error.response.data.message,
+                false,
+                error,
+                error.response.status
+            );
+        } else {
+            console.error(error);
+            return new APIResult(
+                'Unexpected server error occurred.',
+                false,
+                error,
+                null
+            );
+        }
+    }
+}
+
+/**
+ * Send a forgot password request.
+ * @param token Reset password token.
+ * @param newPassword New password.
+ * @returns Returns the API response object.
+ */
+async function resetPassword(
+    token: string,
+    newPassword: string
+): Promise<APIResult> {
+    try {
+        if (!token || !newPassword)
+            return new APIResult('Invalid request.', false, null, 400);
+
+        const result = await axios.post(
+            `${url}${endpoints.recovery}/reset-password`,
+            {
+                token,
+                newPassword,
+            }
+        );
+        const { message, data }: BackendResponse = result.data;
+
+        return new APIResult(message, true, data, result.status);
+    } catch (error) {
+        if (error.response) {
+            return new APIResult(
+                error.response.data.message,
+                false,
+                error,
+                error.response.status
+            );
+        } else {
+            console.error(error);
+            return new APIResult(
+                'Unexpected server error occurred.',
+                false,
+                error,
+                null
+            );
+        }
+    }
+}
+
+/**
  * Get user information.
  * @param username Username.
  * @param token Access token.
@@ -221,4 +306,12 @@ async function verifySession(sessionData: SessionData): Promise<APIResult> {
     }
 }
 
-export { getTestPosts, register, authorize, getUserInfo, verifySession };
+export {
+    getTestPosts,
+    register,
+    authorize,
+    forgotPassword,
+    resetPassword,
+    getUserInfo,
+    verifySession,
+};

@@ -16,7 +16,7 @@ import apis from '../../../apis';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
 import Button from '../../Button';
-import ServerMessage from './components/ServerMessage';
+import ServerMessage from '../../ServerMessage';
 
 import * as styles from './RegisterSection.module.css';
 
@@ -27,7 +27,7 @@ import * as styles from './RegisterSection.module.css';
 const RegisterSection: FunctionComponent = function () {
     const { sessionData, login }: UseAuth = useAuth(),
         [pending, setPending] = useState(false),
-        [serverMessage, setServerMessage] = useState(null), // { message, type }
+        [serverMessage, setServerMessage] = useState(null),
         [email, setEmail] = useState(''),
         [username, setUsername] = useState(''),
         [password, setPassword] = useState(''),
@@ -255,10 +255,11 @@ const RegisterSection: FunctionComponent = function () {
                             className={styles['submit']}
                             onClick={(event: any) => handleRegister(event)}
                             disabled={pending ? true : false}
+                            loading={pending}
                         >
-                            {pending ? 'Registering...' : 'Register'}
+                            Register
                         </Button>
-                        <div className={styles['links']}>
+                        <div className={styles['bottom-links']}>
                             <Link
                                 className={styles['link']}
                                 to={routes.home}

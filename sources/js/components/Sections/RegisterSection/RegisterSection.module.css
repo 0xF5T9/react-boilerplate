@@ -40,14 +40,17 @@
     margin-top: 8px;
 }
 
-.links {
+.bottom-links {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
 }
 
-.link {
+.bottom-links > a {
     margin-top: 8px;
+}
+
+.link {
     color: var(--context-text-dim);
     text-decoration: none;
     user-select: none;

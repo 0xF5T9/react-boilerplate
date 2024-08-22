@@ -15,7 +15,7 @@ import apis from '../../../apis';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
 import Button from '../../Button';
-import ServerMessage from './components/ServerMessage';
+import ServerMessage from '../../ServerMessage';
 
 import * as styles from './LoginSection.module.css';
 
@@ -26,7 +26,7 @@ import * as styles from './LoginSection.module.css';
 const LoginSection: FunctionComponent = function () {
     const { sessionData, login } = useAuth(),
         [pending, setPending] = useState(false),
-        [serverMessage, setServerMessage] = useState(null), // { message, type }
+        [serverMessage, setServerMessage] = useState(null),
         [username, setUsername] = useState(''),
         [password, setPassword] = useState('');
 
@@ -124,7 +124,10 @@ const LoginSection: FunctionComponent = function () {
                                 disabled={pending ? true : false}
                             />
                         </div>
-                        <div className={styles['form-group']}>
+                        <div
+                            className={styles['form-group']}
+                            style={{ position: 'relative' }}
+                        >
                             <label
                                 htmlFor="password-input"
                                 className={styles['label']}
@@ -145,15 +148,32 @@ const LoginSection: FunctionComponent = function () {
                                 }}
                                 disabled={pending ? true : false}
                             />
+                            <Link
+                                className={styles['link']}
+                                style={{
+                                    position: 'absolute',
+                                    right: 0,
+                                    fontSize: '14px',
+                                }}
+                                to={routes.forgotPassword}
+                                onClick={(event) => {
+                                    if (pending) event.preventDefault();
+                                }}
+                            >
+                                Forgot password?
+                            </Link>
                         </div>
+
                         <Button
                             className={styles['submit']}
                             onClick={(event: any) => handleLogin(event)}
                             disabled={pending ? true : false}
+                            loading={pending}
                         >
-                            {pending ? 'Authenticating...' : 'Login'}
+                            Login
                         </Button>
-                        <div className={styles['links']}>
+
+                        <div className={styles['bottom-links']}>
                             <Link
                                 className={styles['link']}
                                 to={routes.home}
@@ -172,7 +192,7 @@ const LoginSection: FunctionComponent = function () {
                             >
                                 Register
                             </Link>
-                        </div>{' '}
+                        </div>
                     </form>
                 </div>
             </FlexibleSection>

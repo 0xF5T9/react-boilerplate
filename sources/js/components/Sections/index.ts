@@ -2,6 +2,8 @@ export { default as ErrorSection } from './ErrorSection';
 export { default as IndexSection } from './IndexSection';
 export { default as LoginSection } from './LoginSection';
 export { default as RegisterSection } from './RegisterSection';
+export { default as ForgotPasswordSection } from './ForgotPasswordSection';
+export { default as ResetPasswordSection } from './ResetPasswordSection';
 export {
     default as ProfileSection,
     loader as ProfileSectionLoader,

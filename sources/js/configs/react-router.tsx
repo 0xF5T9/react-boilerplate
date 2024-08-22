@@ -66,6 +66,22 @@ const appRouter = [
                         ),
                     },
                     {
+                        path: routes.forgotPassword,
+                        element: (
+                            <BlankLayout>
+                                <Sections.ForgotPasswordSection />
+                            </BlankLayout>
+                        ),
+                    },
+                    {
+                        path: routes.resetPassword,
+                        element: (
+                            <BlankLayout>
+                                <Sections.ResetPasswordSection />
+                            </BlankLayout>
+                        ),
+                    },
+                    {
                         path: routes.profile,
                         element: (
                             <DefaultLayout>

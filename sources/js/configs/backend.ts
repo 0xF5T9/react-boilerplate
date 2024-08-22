@@ -9,6 +9,7 @@ const config = {
         posts: '/test/posts',
         register: '/register',
         authorize: '/authorize',
+        recovery: '/recovery',
         verifySession: '/authorize/verifyToken',
         user: '/user',
     },

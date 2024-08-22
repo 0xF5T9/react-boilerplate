@@ -8,6 +8,8 @@ const routes = {
     login: '/login',
     register: '/register',
     profile: '/profile',
+    forgotPassword: '/forgot-password',
+    resetPassword: '/reset-password',
     samples: {
         components: '/samples/components',
         section: '/samples/section',
