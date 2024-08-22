@@ -107,22 +107,26 @@ async function authorize(
             username,
             password,
         });
-        const { message, data }: BackendResponse = result.data,
-            { email, role, token } = data;
+        const { message, data }: BackendResponse = result.data;
 
         if (result.status !== 200)
             throw new Error(
                 `Expected a successful status code '200' but got a status code '${result.status}'.`
             );
-        else if (!token)
+        else if (!data.token)
             throw new Error(
-                `Expected a valid authentication token but got '${token}' value.`
+                `Expected a valid authentication token but got '${data.token}' value.`
             );
 
         return new APIResult(
             message,
             true,
-            { username, email, role, token },
+            {
+                username: data.username,
+                email: data.email,
+                role: data.role,
+                token: data.token,
+            },
             result.status
         );
     } catch (error) {
