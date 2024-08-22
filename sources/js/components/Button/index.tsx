@@ -12,6 +12,7 @@ import {
     forwardRef,
 } from 'react';
 import PropTypes from 'prop-types';
+import { CircleLoading } from '../Icons/CircleLoading';
 
 import * as styles from './Button.module.css';
 
@@ -25,6 +26,7 @@ import * as styles from './Button.module.css';
  * @param props.value Element value.
  * @param props.onClick Button on-click callback.
  * @param props.disabled Disable the button.
+ * @param props.loading Use loading appearance for the button.
  * @param props.style Additional button styles.
  * @param props.children Button content.
  * @param props.elementType Element type.
@@ -40,6 +42,7 @@ const ButtonRefRender: ForwardRefRenderFunction<
         value?: string;
         onClick?: (...args: any[]) => any;
         disabled?: boolean;
+        loading?: boolean;
         style?: CSSProperties;
         children?: ReactNode;
         elementType?: ElementType;
@@ -53,6 +56,7 @@ const ButtonRefRender: ForwardRefRenderFunction<
         value,
         onClick,
         disabled = false,
+        loading = false,
         style,
         children,
         elementType = 'button',
@@ -62,6 +66,7 @@ const ButtonRefRender: ForwardRefRenderFunction<
     const classes = `${styles.button}
                      ${styles[color] || ''}
                      ${styles[size] || ''}
+                     ${loading ? styles['loading'] : ''}
                      ${className || ''}`,
         Component: ElementType = elementType;
 
@@ -75,6 +80,7 @@ const ButtonRefRender: ForwardRefRenderFunction<
             disabled={disabled}
             onClick={onClick}
         >
+            {loading && <CircleLoading className={styles['loading-icon']} />}
             {children}
         </Component>
     );
@@ -97,6 +103,7 @@ Button.propTypes = {
     value: PropTypes.string,
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
+    loading: PropTypes.bool,
     style: PropTypes.object,
     children: PropTypes.node,
     elementType: PropTypes.oneOf(['button', 'a', 'div']),
