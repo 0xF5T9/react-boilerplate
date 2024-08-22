@@ -25,12 +25,14 @@ export type AlertModal = {
     removeDefaultCloseButton?: boolean;
     makeCloseButtonDefault?: boolean;
     customButton?: JSX.Element;
+    onClose?: (...args: any[]) => void;
 };
 
 export type CustomModal = {
     type: 'custom';
     content: JSX.Element;
     className?: string;
+    onClose?: (...args: any[]) => void;
 };
 
 // This type is used to enforce typing on modal context values.

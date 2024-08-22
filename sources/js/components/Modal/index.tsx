@@ -91,6 +91,7 @@ const ModalOverlay: FunctionComponent = function () {
                     modalOverlay?.current?.classList.remove(
                         `${styles['is-close']}`
                     );
+                    if (modal.onClose) modal.onClose();
                     setModal(null);
                 },
                 parseFloat(
@@ -110,8 +111,10 @@ const ModalOverlay: FunctionComponent = function () {
             if (
                 event.target === event.currentTarget &&
                 event.animationName === styles['modal-overlay-fade-out']
-            )
+            ) {
+                if (modal.onClose) modal.onClose();
                 setModal(null);
+            }
         }
 
         modalOverlay?.current?.addEventListener(
@@ -125,7 +128,7 @@ const ModalOverlay: FunctionComponent = function () {
                 handleModalOverlayCloseAnimationEnd
             );
         };
-    }, []);
+    }, [modal]);
 
     useEffect(() => {
         // Close modal on escape key press.
