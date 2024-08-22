@@ -191,15 +191,9 @@ async function getUserInfo(
  */
 async function verifySession(sessionData: SessionData): Promise<APIResult> {
     try {
-        const result = await axios.post(
-            `${url}${endpoints.verifySession}`,
-            {},
-            {
-                headers: {
-                    Authorization: `Bearer ${sessionData.token}`,
-                },
-            }
-        );
+        const result = await axios.post(`${url}${endpoints.verifySession}`, {
+            token: sessionData.token,
+        });
         const { message, data }: BackendResponse = result.data;
 
         return new APIResult(message, true, data, result.status);
