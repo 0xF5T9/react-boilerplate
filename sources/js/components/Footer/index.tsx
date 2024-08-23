@@ -41,6 +41,7 @@ const Footer: FunctionComponent = function () {
             );
         }
 
+        // BUG: ResizeObserver loop completed with undelivered notifications.
         const observer = new ResizeObserver(handleFooterResize);
         observer?.observe(footer?.current);
 
