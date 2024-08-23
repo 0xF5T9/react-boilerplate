@@ -266,8 +266,7 @@ const ModalSampleSection: FunctionComponent = function () {
                                 padding: 20px;
                                 border: 2px solid var(--color-primary);
                                 border-radius: 4px;
-                                color: var(--context-text);
-                                background: var(--context-background); 
+                                background: #ffffff; 
                             }
 
                             .my-custom-modal {

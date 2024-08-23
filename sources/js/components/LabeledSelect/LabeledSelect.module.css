@@ -1,7 +1,7 @@
 .input-wrapper {
     position: relative;
     display: inline-flex;
-    flex-direction: row nowrap;
+    flex-flow: row nowrap;
     align-items: center;
     border-radius: 4px;
     outline: 2px solid transparent;
@@ -37,7 +37,8 @@
 }
 
 .input {
-    padding: 4px 8px;
+    padding: var(--labeled-select-padding-top-bottom)
+        var(--labeled-select-padding-left-right);
     border: 2px solid var(--labeled-select-border-color-default);
     border-radius: 0px 4px 4px 0px;
     outline: 0;
@@ -53,8 +54,8 @@
 }
 
 .input-wrapper > .input::selection {
-    color: var(--labeled-select-inner-background-color-default);
-    background-color: var(--labeled-select-text-color-default);
+    color: var(--general-selection-text-color);
+    background-color: var(--general-selection-background-color);
 }
 
 .input-wrapper > .input:hover {

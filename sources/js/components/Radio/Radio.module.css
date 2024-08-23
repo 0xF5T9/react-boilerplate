@@ -78,6 +78,7 @@
 
 .radio-wrapper > label {
     display: flex;
+    color: var(--radio-label-color);
     cursor: pointer;
 }
 

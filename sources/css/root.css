@@ -4,9 +4,44 @@
  */
 
 :root {
+    /* Predefined color variables */
+    --color-white: #fcfcfa;
+    --color-black: #2d2a2e;
+    --color-black-bright: #423f42;
+    --color-gray: #727072;
+    --color-gray-bright: #807e80;
+    --color-gray-darker: #666466;
+    --color-red: #ff6188;
+    --color-red-bright: #ff7093;
+    --color-red-darker: #e5577a;
+    --color-red-vibrant: #ff144f;
+    --color-orange: #fc9a69;
+    --color-orange-bright: #fca478;
+    --color-orange-darker: #e28a5e;
+    --color-orange-vibrant: #fa681e;
+    --color-yellow: #ffd966;
+    --color-yellow-bright: #ffdc75;
+    --color-yellow-darker: #e5c35b;
+    --color-yellow-vibrant: #ffc61a;
+    --color-green: #a8db75;
+    --color-green-bright: #b0de82;
+    --color-green-darker: #97c569;
+    --color-green-vibrant: #82cc38;
+    --color-blue: #78dde8;
+    --color-blue-bright: #85e0ea;
+    --color-blue-darker: #6cc6d0;
+    --color-blue-vibrant: #36ccdd;
+    --color-purple: #aa9cf2;
+    --color-purple-bright: #b2a5f3;
+    --color-purple-darker: #998cd9;
+    --color-purple-vibrant: #7058e9;
+
     --general-body-background-image-url: url('../img/background.jpg');
     --general-html-overflow: auto;
     --content-max-width: 1200px;
+
+    --header-height: 56.8px;
+    --footer-height: 0px;
 }
 
 * {

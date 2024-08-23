@@ -1,68 +1,4 @@
 :root {
-    /* Predefined color variables */
-    --color-white: #fcfcfa;
-    --color-black: #2d2a2e;
-    --color-black-bright: #423f42;
-    --color-gray: #727072;
-    --color-gray-bright: #807e80;
-    --color-gray-darker: #666466;
-    --color-red: #ff6188;
-    --color-red-bright: #ff7093;
-    --color-red-darker: #e5577a;
-    --color-red-vibrant: #ff144f;
-    --color-orange: #fc9a69;
-    --color-orange-bright: #fca478;
-    --color-orange-darker: #e28a5e;
-    --color-orange-vibrant: #fa681e;
-    --color-yellow: #ffd966;
-    --color-yellow-bright: #ffdc75;
-    --color-yellow-darker: #e5c35b;
-    --color-yellow-vibrant: #ffc61a;
-    --color-green: #a8db75;
-    --color-green-bright: #b0de82;
-    --color-green-darker: #97c569;
-    --color-green-vibrant: #82cc38;
-    --color-blue: #78dde8;
-    --color-blue-bright: #85e0ea;
-    --color-blue-darker: #6cc6d0;
-    --color-blue-vibrant: #36ccdd;
-    --color-purple: #aa9cf2;
-    --color-purple-bright: #b2a5f3;
-    --color-purple-darker: #998cd9;
-    --color-purple-vibrant: #7058e9;
-
-    --text-light: #231f20;
-    --text-light-hover: #231f20;
-    --text-light-highlight: #fc9a69;
-    --text-light-dim: #5b5a5a;
-    --background-light: #f7f7f7;
-    --background-light-highlight: rgba(64, 162, 230, 0.2);
-    --shadow-light: #00000033;
-
-    --context-text-light: #231f20;
-    --context-text-light-hover: #231f20;
-    --context-text-light-highlight: var(--color-primary);
-    --context-text-light-dim: #5b5a5a;
-    --context-background-light: #f4f4f4;
-    --context-background-light-highlight: rgba(252, 154, 105, 0.15);
-    --context-shadow-light: #00000033;
-
-    --text-dark: #f7f7f7;
-    --text-dark-hover: #f7f7f7;
-    --text-dark-highlight: #fc9a69;
-    --text-dark-dim: #797779;
-    --background-dark: #221f22;
-    --background-dark-highlight: rgba(56, 53, 56, 0.45);
-    --shadow-dark: rgba(34, 31, 34, 0.4);
-
-    --context-text-dark: #f7f7f7;
-    --context-text-dark-hover: #f7f7f7;
-    --context-text-dark-highlight: #fc9a69;
-    --context-text-dark-dim: #797779;
-    --context-background-dark: #2d2a2e;
-    --context-background-dark-highlight: rgba(56, 53, 57, 0.45);
-    --context-shadow-dark: rgba(34, 31, 34, 0.4);
-
     --color-primary: var(--color-orange);
     --color-success: var(--color-green);
     --color-warning: var(--color-yellow);
@@ -74,28 +10,34 @@
     --color-scrollbar-thumb-background-active: #fcab83;
     --color-div-scrollbar-thumb-background-default: #4e4c4e;
 
+    --text-light: #231f20;
+    --text-light-dim: #5b5a5a;
+    --text-light-highlight: #fc9a69;
+    --background-light: #f7f8f9;
+    --background-light-highlight: rgba(230, 136, 64, 0.2);
+
+    --text-dark: #f7f8f9;
+    --text-dark-dim: #797779;
+    --text-dark-highlight: #fc9a69;
+    --background-dark: #221f22;
+    --background-dark-highlight: #2d2a2d;
+
     /* Component variables */
-    --header-height: 56.8px;
-    --header-background-color: rgba(34, 31, 34, 0.8);
+    --header-background-color: rgb(34, 31, 34, 0.8);
     --header-shadow-color: rgba(0, 0, 0, 0.05);
     --header-text-color: var(--text-dark-dim);
     --header-brand-text: var(--text-dark);
     --header-backdrop-filter: blur(4px);
 
     --header-icon-button-icon-color-default: var(--text-dark-dim);
-    --header-icon-button-background-color-default: var(rgba(34, 31, 34, 0));
-    --header-icon-button-icon-color-hover: var(--text-dark-hover);
-    --header-icon-button-background-color-hover: var(
-        --background-dark-highlight
-    );
-    --header-icon-button-icon-color-active: var(--text-dark-hover);
-    --header-icon-button-background-color-active: var(
-        --background-dark-highlight
-    );
-    --header-icon-button-icon-color-open: var(--text-dark-hover);
+    --header-icon-button-icon-color-hover: var(--text-dark-dim);
+    --header-icon-button-icon-color-active: var(--text-dark-dim);
+    --header-icon-button-icon-color-open: var(--text-dark-dim);
+    --header-icon-button-background-color-default: rgba(34, 31, 34, 0);
+    --header-icon-button-background-color-hover: rgba(56, 53, 56, 0.45);
+    --header-icon-button-background-color-active: rgba(56, 53, 56, 0.45);
 
-    --footer-height: 0px;
-    --footer-background-color: var(--background-dark);
+    --footer-background-color: #221f22;
     --footer-border-top: 2px solid rgba(0, 0, 0, 0.05);
     --footer-business-section-border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     --footer-text-color: var(--text-dark);
@@ -104,93 +46,71 @@
     --footer-heading-text-color: var(--text-dark);
     --footer-heading-border-color: var(--color-primary);
 
-    --navbar-item-background-color-default: rgba(34, 31, 34, 0);
-    --navbar-item-background-color-hover: var(--background-dark-highlight);
-    --navbar-item-background-color-active: var(--background-dark-highlight);
-    --navbar-item-background-color-link-active: var(
-        --background-dark-highlight
-    );
-    --navbar-item-background-color-link-pending: var(
-        --background-dark-highlight
-    );
-
     --navbar-item-text-color-default: var(--text-dark-dim);
     --navbar-item-text-color-hover: var(--text-dark);
     --navbar-item-text-color-active: var(--text-dark);
     --navbar-item-text-color-link-active: var(--text-dark-highlight);
     --navbar-item-text-color-link-pending: var(--navbar-item-text-color-hover);
 
+    --navbar-item-background-color-default: rgba(34, 31, 34, 0);
+    --navbar-item-background-color-hover: rgba(56, 53, 56, 0.45);
+    --navbar-item-background-color-active: rgba(56, 53, 56, 0.45);
+    --navbar-item-background-color-link-active: rgba(56, 53, 56, 0.45);
+    --navbar-item-background-color-link-pending: rgba(56, 53, 56, 0.45);
+
     --navbar-subitem-background-color-default: rgba(45, 42, 46, 0);
-    --navbar-subitem-background-color-hover: var(
-        --context-background-dark-highlight
-    );
-    --navbar-subitem-background-color-active: var(
-        --context-background-dark-highlight
-    );
-    --navbar-subitem-background-color-link-active: var(
-        --navbar-subitem-background-color-hover
-    );
-    --navbar-subitem-background-color-link-pending: var(
-        --navbar-subitem-background-color-hover
-    );
-    --navbar-subitem-text-color-default: var(--context-text-dark);
-    --navbar-subitem-text-color-hover: var(--context-text-dark-highlight);
-    --navbar-subitem-text-color-active: var(--context-text-dark-highlight);
-    --navbar-subitem-text-color-link-active: var(--context-text-dark-highlight);
-    --navbar-subitem-text-color-link-pending: var(
-        --navbar-subitem-text-color-hover
-    );
-    --navbar-subitem-desc-text-default: var(--context-text-dark-dim);
+    --navbar-subitem-background-color-hover: rgba(56, 53, 57, 0.45);
+    --navbar-subitem-background-color-active: rgba(56, 53, 57, 0.45);
+    --navbar-subitem-background-color-link-active: rgba(56, 53, 57, 0.45);
+    --navbar-subitem-background-color-link-pending: rgba(56, 53, 57, 0.45);
+    --navbar-subitem-text-color-default: var(--text-dark);
+    --navbar-subitem-text-color-hover: var(--text-dark-highlight);
+    --navbar-subitem-text-color-active: var(--text-dark-highlight);
+    --navbar-subitem-text-color-link-active: var(--text-dark-highlight);
+    --navbar-subitem-text-color-link-pending: var(--text-dark-highlight);
+    --navbar-subitem-desc-text-default: var(--text-dark-dim);
 
     --navbar-sublist-background-color: rgba(45, 42, 46, 0.9);
     --navbar-sublist-border-color: transparent;
     --navbar-sublist-border-width: 0px;
     --navbar-sublist-border-radius: 10px;
-    --navbar-sublist-shadow-color: rgba(34, 31, 34, 0.4);
+    --navbar-sublist-box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 16px 0px,
+        rgba(0, 0, 0, 0.06) 0px 4px 4px 0px, rgba(0, 0, 0, 0.1) 0px 0px 2px 0px;
     --navbar-sublist-backdrop-filter: blur(4px);
 
-    --mobile-navbar-blur-layer-background-color: rgba(34, 31, 34, 0.8);
+    --mobile-navbar-blur-layer-background-color: #221f22cc;
     --mobile-navbar-blur-layer-backdrop-filter: blur(10px);
     --mobile-navbar-background-color: rgba(45, 42, 46, 0.7);
     --mobile-navbar-shadow-color: rgba(34, 31, 34, 0.4);
-    --mobile-navbar-close-color-default: var(--context-text-dark-dim);
-    --mobile-navbar-close-color-hover: var(--context-text-dark);
-    --mobile-navbar-close-background-color-highlight: var(
-        --context-background-dark-highlight
-    );
-    --mobile-navbar-section-title-text-color: var(--context-text-dark-dim);
-    --mobile-navbar-item-text-color-default: var(--context-text-dark);
+    --mobile-navbar-close-color-default: var(--text-dark-dim);
+    --mobile-navbar-close-color-hover: var(--text-dark);
+    --mobile-navbar-close-background-color-highlight: rgba(56, 53, 57, 0.45);
+    --mobile-navbar-section-title-text-color: var(--text-dark-dim);
+    --mobile-navbar-item-text-color-default: var(--text-dark);
     --mobile-navbar-item-background-color-default: rgba(45, 42, 46, 0);
-    --mobile-navbar-item-background-color-hover: var(
-        --context-background-dark-highlight
-    );
-    --mobile-navbar-item-background-color-highlight: var(
-        --context-background-dark-highlight
-    );
+    --mobile-navbar-item-background-color-hover: rgba(56, 53, 57, 0.45);
+    --mobile-navbar-item-background-color-highlight: rgba(56, 53, 57, 0.45);
     --mobile-navbar-item-text-color-hover: hsl(25, 96%, 75%);
-    --mobile-navbar-item-text-color-highlight: var(
-        --context-text-dark-highlight
-    );
-    --mobile-navbar-item-desc-text-color: var(--context-text-dark-dim);
+    --mobile-navbar-item-text-color-highlight: var(--text-dark-highlight);
+    --mobile-navbar-item-desc-text-color: var(--text-dark-dim);
 
-    --popup-window-text-color: var(--context-text-dark);
-    --popup-window-background-color: var(--context-background-dark);
+    --popup-window-text-color: var(--text-dark);
+    --popup-window-text-highlight-color: var(--text-dark-highlight);
+    --popup-window-background-color: #2d2a2e;
+    --popup-window-background-highlight-color: #383539;
     --popup-window-padding: 10px;
-    --popup-window-border-color: var(--context-background-dark);
+    --popup-window-border-color: #2d2a2e;
     --popup-window-border-width: 2px;
     --popup-window-border-radius: 4px;
-    --popup-window-shadow-color: var(--context-shadow-dark);
+    --popup-window-box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 16px 0px,
+        rgba(0, 0, 0, 0.06) 0px 4px 4px 0px, rgba(0, 0, 0, 0.1) 0px 0px 2px 0px;
 
-    --context-item-text-color-highlight: var(--context-text-dark-highlight);
-    --context-item-background-color-highlight: #322f33;
-
-    --context-text: var(--context-text-dark);
-    --context-text-hover: var(--context-text-dark-hover);
-    --context-text-highlight: var(--context-text-dark-highlight);
-    --context-text-dim: var(--context-text-dark-dim);
-    --context-background: var(--context-background-dark);
-    --context-background-highlight: var(--context-background-dark-highlight);
-    --context-shadow: var(--context-shadow-dark);
+    --card-text-color: var(--text-dark);
+    --card-text-dim-color: var(--text-dark-dim);
+    --card-text-highlight-color: var(--text-light-highlight);
+    --card-background-color: #2d2a2e;
+    --card-box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 16px 0px,
+        rgba(0, 0, 0, 0.06) 0px 4px 4px 0px, rgba(0, 0, 0, 0.1) 0px 0px 2px 0px;
 
     --toast-container-top-right-margin: 32px;
     --toast-title-color: var(--color-white);
@@ -205,7 +125,7 @@
     --toast-border-radius: 4px;
     --toast-icon-color: var(--color-white);
     --toast-close-icon-color: var(--color-white);
-    --toast-shadow-color: var(--shadow-dark);
+    --toast-shadow-color: rgba(0, 0, 0, 0.1);
 
     --modal-overlay-fade-in-duration: 0.1s;
     --modal-overlay-background-color: rgba(45, 42, 46, 0.9);
@@ -216,8 +136,10 @@
     --modal-window-border-width: 2px;
     --modal-window-border-radius: 4px;
     --modal-window-border-color: var(--color-gray);
-    --modal-window-text-color: var(--context-text);
+    --modal-window-text-color: var(--text-dark);
     --modal-window-background-color: #383539;
+    --modal-window-box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 16px 0px,
+        rgba(0, 0, 0, 0.06) 0px 4px 4px 0px, rgba(0, 0, 0, 0.1) 0px 0px 2px 0px;
     --alert-modal-window-title-text-color: var(--text-dark);
     --alert-modal-window-message-text-color: #b4b0b4;
 
@@ -226,7 +148,7 @@
     --button-text-color-active: rgba(255, 255, 255, 0.9);
     --button-text-color-dark-override: var(--color-black);
     --button-background-color-default: linear-gradient(
-        90deg,
+        0deg,
         #f08764 0%,
         #fc9a69 100%
     );
@@ -240,29 +162,30 @@
     --button-focus-border-color: var(--color-white);
     --button-border-width: 0px;
     --button-border-radius: 6px;
-    --button-padding-left-right: 10px;
-    --button-padding-top-bottom: 6px;
+    --button-padding-left-right: 12px;
+    --button-padding-top-bottom: 8px;
 
     --input-text-color-default: var(--text-dark);
     --input-text-color-hover: var(--input-text-color-default);
     --input-text-color-active: var(--input-text-color-default);
     --input-text-color-focus: var(--input-text-color-default);
-    --input-background-color-default: var(--context-background-dark);
+    --input-background-color-default: #383539;
     --input-background-color-hover: var(--input-background-color-default);
     --input-background-color-active: var(--input-background-color-default);
     --input-background-color-focus: var(--input-background-color-default);
-    --input-border-color-default: var(--color-white);
+    --input-border-color-default: var(--color-gray);
     --input-border-color-hover: var(--input-border-color-default);
     --input-border-color-active: var(--input-border-color-default);
-    --input-icon-color-default: var(--text-dark);
-    --input-icon-color-focus: var(--color-primary);
     --input-border-color-focus: var(--color-primary);
+    --input-icon-color-default: #d3d3d5;
+    --input-icon-color-focus: var(--color-primary);
     --input-border-width: 2px;
     --input-border-radius: 6px;
-    --input-padding-left-right: 4px;
-    --input-padding-top-bottom: 4px;
+    --input-padding-left-right: 8px;
+    --input-padding-top-bottom: 6px;
     --input-icon-extra-padding: 4px;
 
+    --checkbox-label-color: var(--text-dark);
     --checkbox-symbol-color-default: transparent;
     --checkbox-symbol-color-hover: var(--checkbox-symbol-color-default);
     --checkbox-symbol-color-active: var(--checkbox-symbol-color-default);
@@ -279,6 +202,7 @@
     --checkbox-border-color-checked: var(--checkbox-border-color-default);
     --checkbox-focus-border-color: var(--color-white);
 
+    --radio-label-color: var(--text-dark);
     --radio-symbol-color-default: transparent;
     --radio-symbol-color-hover: transparent;
     --radio-symbol-color-active: transparent;
@@ -293,57 +217,47 @@
     --radio-border-color-checked: var(--color-primary);
     --radio-focus-border-color: var(--color-white);
 
-    --labeled-input-label-text-color: var(--context-text-dark);
-    --labeled-input-text-color-default: var(--context-text-dark);
-    --labeled-input-inner-background-color-default: var(
-        --context-background-dark
-    );
+    --labeled-input-label-text-color: var(--text-dark);
+    --labeled-input-text-color-default: var(--text-dark);
+    --labeled-input-inner-background-color-default: #383539;
     --labeled-input-inner-background-color-hover: #383539;
     --labeled-input-inner-background-color-focus: #383539;
     --labeled-input-background-color-default: var(--color-primary);
     --labeled-input-border-color-default: var(--color-primary);
-    --labeled-input-focus-color: var(--context-text-dark);
+    --labeled-input-focus-color: var(--text-dark);
     --labeled-input-font-weight-default: 400;
-    --labeled-input-text-color-default-reverse: var(--context-background-dark);
-    --labeled-input-inner-background-color-default-reverse: var(
-        --context-text-dark
-    );
-    --labeled-input-inner-background-color-hover-reverse: var(
-        --context-text-dark
-    );
-    --labeled-input-inner-background-color-focus-reverse: var(
-        --context-text-dark
-    );
+    --labeled-input-text-color-default-reverse: #383539;
+    --labeled-input-inner-background-color-default-reverse: var(--text-dark);
+    --labeled-input-inner-background-color-hover-reverse: var(--text-dark);
+    --labeled-input-inner-background-color-focus-reverse: var(--text-dark);
+    --labeled-input-padding-left-right: 8px;
+    --labeled-input-padding-top-bottom: 6px;
     --labeled-input-font-weight-reverse: 500;
 
     --select-text-color: var(--text-dark);
-    --select-background-color: var(--context-background-dark);
-    --select-border-color-default: var(--color-white);
+    --select-background-color: #383539;
+    --select-border-color-default: var(--color-gray);
     --select-border-color-focus: var(--color-primary);
     --select-border-width: 2px;
+    --select-padding-left-right: 8px;
+    --select-padding-top-bottom: 6px;
     --select-border-radius: 6px;
 
-    --labeled-select-label-text-color: var(--context-text-dark);
-    --labeled-select-text-color-default: var(--context-text-dark);
-    --labeled-select-inner-background-color-default: var(
-        --context-background-dark
-    );
+    --labeled-select-label-text-color: var(--text-dark);
+    --labeled-select-text-color-default: var(--text-dark);
+    --labeled-select-inner-background-color-default: #383539;
     --labeled-select-inner-background-color-hover: #383539;
     --labeled-select-inner-background-color-focus: #383539;
     --labeled-select-background-color-default: var(--color-primary);
     --labeled-select-border-color-default: var(--color-primary);
-    --labeled-select-focus-color: var(--context-text-dark);
+    --labeled-select-focus-color: var(--text-dark);
     --labeled-select-font-weight-default: 400;
-    --labeled-select-text-color-default-reverse: var(--context-background-dark);
-    --labeled-select-inner-background-color-default-reverse: var(
-        --context-text-dark
-    );
-    --labeled-select-inner-background-color-hover-reverse: var(
-        --context-text-dark
-    );
-    --labeled-select-inner-background-color-focus-reverse: var(
-        --context-text-dark
-    );
+    --labeled-select-text-color-default-reverse: #383539;
+    --labeled-select-inner-background-color-default-reverse: var(--text-dark);
+    --labeled-select-inner-background-color-hover-reverse: var(--text-dark);
+    --labeled-select-inner-background-color-focus-reverse: var(--text-dark);
+    --labeled-select-padding-left-right: 8px;
+    --labeled-select-padding-top-bottom: 6px;
     --labeled-select-font-weight-reverse: 500;
 
     --server-message-text-color-info: var(--color-blue);
@@ -371,9 +285,11 @@
         #221f22
     );
     --general-body-background-backdrop-filter: none;
+    --general-selection-text-color: var(--text-dark);
+    --general-selection-background-color: rgba(230, 139, 64, 0.4);
 }
 
 ::selection {
-    color: var(--color-black);
-    background-color: var(--color-white);
+    color: var(--general-selection-text-color);
+    background-color: var(--general-selection-background-color);
 }

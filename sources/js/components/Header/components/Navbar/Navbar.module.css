@@ -112,13 +112,13 @@
     left: 0;
     display: flex;
     flex-flow: column nowrap;
-    gap: 16px;
+    gap: 12px;
     padding: 15px;
     border: var(--navbar-sublist-border-width) solid
         var(--navbar-sublist-border-color);
     border-radius: var(--navbar-sublist-border-radius);
     background-color: var(--navbar-sublist-background-color);
-    box-shadow: 0px 0px 4px 2px var(--navbar-sublist-shadow-color);
+    box-shadow: var(--navbar-sublist-box-shadow);
     backdrop-filter: var(--navbar-sublist-backdrop-filter, none);
     visibility: collapse;
     opacity: 0;
@@ -139,6 +139,8 @@
     left: 0;
     right: 0;
     flex-flow: row wrap;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
 }
 .navbar-sublist.full .navbar-subitem {
     flex: 0 0 calc(100%);
@@ -155,6 +157,8 @@
     left: 0;
     right: 0;
     flex-flow: row wrap;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
 }
 .navbar-sublist.full-2 .navbar-subitem {
     flex: 0 0 calc(50% - 8px);
@@ -171,6 +175,8 @@
     left: 0;
     right: 0;
     flex-flow: row wrap;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
 }
 .navbar-sublist.full-3 .navbar-subitem {
     flex: 0 0 calc(33.333% - 10.66666666666667px);
@@ -187,6 +193,8 @@
     left: 0;
     right: 0;
     flex-flow: row wrap;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
 }
 .navbar-sublist.full-4 .navbar-subitem {
     flex: 0 0 calc(25% - 12px);
@@ -204,7 +212,7 @@
     user-select: none;
     cursor: pointer;
     opacity: 1;
-    transition: opacity 0.1s linear;
+    transition: opacity 0.1s ease;
 
     -webkit-tap-highlight-color: transparent;
 }
@@ -256,7 +264,7 @@
     display: flex;
     align-items: center;
     min-width: max-content;
-    padding: 5px 15px;
+    padding: 8px 15px;
     border-radius: var(--navbar-sublist-border-radius);
     color: var(--navbar-subitem-text-color-default);
     text-decoration: none;
@@ -300,7 +308,7 @@
 
 .navbar-subitem-desc {
     max-width: 390px;
-    margin-top: 8px;
+    margin-top: 4px;
     font-size: 0.9285714285714286rem;
     font-weight: 500;
     white-space: nowrap;

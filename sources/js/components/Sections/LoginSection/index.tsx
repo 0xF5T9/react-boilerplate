@@ -153,8 +153,10 @@ const LoginSection: FunctionComponent = function () {
                                 className={styles['link']}
                                 style={{
                                     position: 'absolute',
+                                    top: '1px',
                                     right: 0,
-                                    fontSize: '14px',
+                                    color: 'var(--card-text-highlight-color)',
+                                    fontSize: '13px',
                                 }}
                                 to={routes.forgotPassword}
                                 onClick={(event) => {

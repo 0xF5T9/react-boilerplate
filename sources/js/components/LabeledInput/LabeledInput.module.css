@@ -47,7 +47,8 @@ input[type='number'].input::-webkit-inner-spin-button {
 }
 
 .input {
-    padding: 4px;
+    padding: var(--labeled-input-padding-top-bottom)
+        var(--labeled-input-padding-left-right);
     border: 2px solid var(--labeled-input-border-color-default);
     border-radius: 0px 4px 4px 0px;
     outline: 0;
@@ -63,8 +64,8 @@ input[type='number'].input::-webkit-inner-spin-button {
 }
 
 .input-wrapper > .input::selection {
-    color: var(--labeled-input-inner-background-color-default);
-    background-color: var(--labeled-input-text-color-default);
+    color: var(--general-selection-text-color);
+    background-color: var(--general-selection-background-color);
 }
 
 .input-wrapper > .input:hover {

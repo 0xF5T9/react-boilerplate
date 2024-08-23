@@ -104,7 +104,7 @@
     color: var(--modal-window-text-color);
     text-align: center;
     background-color: var(--modal-window-background-color);
-    box-shadow: 0px 0px 8px 4px var(--popup-window-shadow-color);
+    box-shadow: var(--modal-window-box-shadow);
     overflow: auto;
     will-change: opacity, transform;
     filter: blur(0);

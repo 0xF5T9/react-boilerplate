@@ -68,6 +68,7 @@
 
 .checkbox-wrapper > label {
     display: flex;
+    color: var(--checkbox-label-color);
     cursor: pointer;
 }
 
