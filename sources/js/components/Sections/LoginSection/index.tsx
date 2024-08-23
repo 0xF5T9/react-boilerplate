@@ -122,6 +122,7 @@ const LoginSection: FunctionComponent = function () {
                                     iconClass: 'fas fa-user',
                                 }}
                                 disabled={pending ? true : false}
+                                autoCapitalize="off"
                             />
                         </div>
                         <div

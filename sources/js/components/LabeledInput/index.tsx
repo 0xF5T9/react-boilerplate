@@ -27,6 +27,7 @@ import * as styles from './LabeledInput.module.css';
  * @param props.onBlur Input on-blur callback.
  * @param props.onChange Input on-change callback.
  * @param props.disabled Disable the input.
+ * @param props.disableAutoCapitalize Disable auto capitalize.
  * @param props.wrapperStyle Input wrapper style object.
  * @param props.inputStyle Input style object.
  * @returns Returns the component.
@@ -47,6 +48,13 @@ const LabeledInput: FunctionComponent<{
     onBlur?: (...args: any[]) => any;
     onChange?: (...args: any[]) => any;
     disabled?: boolean;
+    autoCapitalize?:
+        | 'none'
+        | 'off'
+        | 'sentences'
+        | 'on'
+        | 'words'
+        | 'characters';
     wrapperStyle?: object;
     inputStyle?: object;
 }> = function ({
@@ -65,6 +73,7 @@ const LabeledInput: FunctionComponent<{
     onBlur,
     onChange,
     disabled = false,
+    autoCapitalize = 'on',
     wrapperStyle,
     inputStyle,
 }) {
@@ -103,6 +112,7 @@ const LabeledInput: FunctionComponent<{
                 onBlur={onBlur}
                 onChange={onChange}
                 disabled={disabled}
+                autoCapitalize={autoCapitalize}
                 style={inputStyle}
             />
         </div>
@@ -132,6 +142,14 @@ LabeledInput.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     disabled: PropTypes.bool,
+    autoCapitalize: PropTypes.oneOf([
+        'none',
+        'off',
+        'sentences',
+        'on',
+        'words',
+        'characters',
+    ]),
     wrapperStyle: PropTypes.object,
     inputStyle: PropTypes.object,
 };

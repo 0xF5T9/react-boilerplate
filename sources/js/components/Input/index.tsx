@@ -24,6 +24,7 @@ import * as styles from './Input.module.css';
  * @param props.onBlur Input on-blur callback.
  * @param props.onChange Input on-change callback.
  * @param props.disabled Disable the input.
+ * @param props.disableAutoCapitalize Disable auto capitalize.
  * @param props.wrapperStyle Additional input wrapper styles.
  * @param props.inputStyle Additional input styles.
  * @returns Returns the component.
@@ -41,6 +42,13 @@ const Input: FunctionComponent<{
     onBlur?: (...args: any[]) => any;
     onChange?: (...args: any[]) => any;
     disabled?: boolean;
+    autoCapitalize?:
+        | 'none'
+        | 'off'
+        | 'sentences'
+        | 'on'
+        | 'words'
+        | 'characters';
     wrapperStyle?: object;
     inputStyle?: object;
 }> = function ({
@@ -56,6 +64,7 @@ const Input: FunctionComponent<{
     onBlur,
     onChange,
     disabled = false,
+    autoCapitalize = 'on',
     wrapperStyle,
     inputStyle,
 }) {
@@ -83,6 +92,7 @@ const Input: FunctionComponent<{
                 onBlur={onBlur}
                 onChange={onChange}
                 disabled={disabled}
+                autoCapitalize={autoCapitalize}
                 style={inputStyle}
             />
         </div>
@@ -110,6 +120,14 @@ Input.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     disabled: PropTypes.bool,
+    autoCapitalize: PropTypes.oneOf([
+        'none',
+        'off',
+        'sentences',
+        'on',
+        'words',
+        'characters',
+    ]),
     wrapperStyle: PropTypes.object,
     inputStyle: PropTypes.object,
 };
