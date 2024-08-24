@@ -158,12 +158,12 @@
     --button-border-color-hover: transparent;
     --button-border-color-active: transparent;
     --button-shadow: 0px 4px 8px rgba(64, 162, 230, 0.2);
-    --button-text-shadow: 0 0 4px rgba(45, 42, 46, 0.15);
+    --button-text-shadow: none;
     --button-focus-border-color: lightblue;
     --button-border-width: 0px;
     --button-border-radius: 6px;
-    --button-padding-left-right: 12px;
-    --button-padding-top-bottom: 8px;
+    --button-padding-left-right: 16px;
+    --button-padding-top-bottom: 8.4px;
 
     --input-text-color-default: var(--text-light);
     --input-text-color-hover: var(--input-text-color-default);
@@ -182,7 +182,7 @@
     --input-border-width: 2px;
     --input-border-radius: 6px;
     --input-padding-left-right: 8px;
-    --input-padding-top-bottom: 6px;
+    --input-padding-top-bottom: 6.8px;
     --input-icon-extra-padding: 4px;
 
     --checkbox-label-color: var(--text-light);
@@ -231,7 +231,7 @@
     --labeled-input-inner-background-color-hover-reverse: #423f42;
     --labeled-input-inner-background-color-focus-reverse: #423f42;
     --labeled-input-padding-left-right: 8px;
-    --labeled-input-padding-top-bottom: 6px;
+    --labeled-input-padding-top-bottom: 6.8px;
     --labeled-input-font-weight-reverse: 500;
 
     --select-text-color: var(--text-light);
@@ -240,7 +240,7 @@
     --select-border-color-focus: var(--color-primary);
     --select-border-width: 2px;
     --select-padding-left-right: 8px;
-    --select-padding-top-bottom: 6px;
+    --select-padding-top-bottom: 6.8px;
     --select-border-radius: 6px;
 
     --labeled-select-label-text-color: #ffffff;
@@ -257,7 +257,7 @@
     --labeled-select-inner-background-color-hover-reverse: #423f42;
     --labeled-select-inner-background-color-focus-reverse: #423f42;
     --labeled-select-padding-left-right: 8px;
-    --labeled-select-padding-top-bottom: 6px;
+    --labeled-select-padding-top-bottom: 6.8px;
     --labeled-select-font-weight-reverse: 500;
 
     --server-message-text-color-info: var(--color-blue);

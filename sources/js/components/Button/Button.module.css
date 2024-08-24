@@ -111,7 +111,6 @@
     --button-border-color-hover: transparent;
     --button-border-color-active: transparent;
     --button-shadow: 0px 4px 8px rgba(81, 213, 124, 0.2);
-    --button-text-shadow: 0 0 4px rgba(45, 42, 46, 0.15);
     --button-border-width: 0px;
 }
 
@@ -144,7 +143,6 @@
     --button-border-color-hover: transparent;
     --button-border-color-active: transparent;
     --button-shadow: 0px 4px 8px rgba(229, 64, 78, 0.2);
-    --button-text-shadow: 0 0 4px rgba(45, 42, 46, 0.15);
     --button-border-width: 0px;
 }
 
@@ -163,7 +161,6 @@
     --button-border-color-hover: transparent;
     --button-border-color-active: transparent;
     --button-shadow: 0px 4px 8px rgba(252, 178, 105, 0.2);
-    --button-text-shadow: 0 0 4px rgba(45, 42, 46, 0.15);
     --button-border-width: 0px;
 }
 
@@ -182,7 +179,6 @@
     --button-border-color-hover: transparent;
     --button-border-color-active: transparent;
     --button-shadow: 0px 4px 8px rgba(64, 162, 230, 0.2);
-    --button-text-shadow: 0 0 4px rgba(45, 42, 46, 0.15);
     --button-border-width: 0px;
 }
 
@@ -201,7 +197,6 @@
     --button-border-color-hover: transparent;
     --button-border-color-active: transparent;
     --button-shadow: 0px 4px 8px rgba(122, 140, 172, 0.2);
-    --button-text-shadow: 0 0 4px rgba(45, 42, 46, 0.15);
     --button-border-width: 0px;
 }
 
@@ -220,7 +215,6 @@
     --button-border-color-hover: transparent;
     --button-border-color-active: transparent;
     --button-shadow: 0px 4px 8px rgba(252, 252, 250, 0.1);
-    --button-text-shadow: 0 0 4px rgba(45, 42, 46, 0.15);
     --button-border-width: 0px;
 }
 

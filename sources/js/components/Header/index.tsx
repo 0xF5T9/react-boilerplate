@@ -127,7 +127,6 @@ const Header: FunctionComponent = function () {
                             <Button
                                 style={{ marginRight: '10px' }}
                                 onClick={() => navigate(routes.register)}
-                                elementType="div"
                             >
                                 Register
                             </Button>
