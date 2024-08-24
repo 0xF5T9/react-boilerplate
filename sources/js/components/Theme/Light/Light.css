@@ -173,11 +173,11 @@
     --input-background-color-hover: var(--input-background-color-default);
     --input-background-color-active: var(--input-background-color-default);
     --input-background-color-focus: var(--input-background-color-default);
-    --input-border-color-default: var(--color-gray);
+    --input-border-color-default: var(--text-dark-dim);
     --input-border-color-hover: var(--input-border-color-default);
     --input-border-color-active: var(--input-border-color-default);
     --input-border-color-focus: var(--color-primary);
-    --input-icon-color-default: #4f4c4d;
+    --input-icon-color-default: var(--text-dark-dim);
     --input-icon-color-focus: var(--color-primary);
     --input-border-width: 2px;
     --input-border-radius: 6px;

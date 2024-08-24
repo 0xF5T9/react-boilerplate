@@ -62,7 +62,8 @@ const LabeledSelect: FunctionComponent<{
     const classes = `${styles['input-wrapper']}
                    ${color ? styles[color] : ''}
                    ${size ? styles[size] : ''}
-                   ${reverseBackground ? styles['reverse-background'] : ''}`;
+                   ${reverseBackground ? styles['reverse-background'] : ''}
+                   ${disabled ? styles['disabled'] : ''}`;
 
     const processedWrapperStyle = Object.assign(
             { width: width && `${width}px` },

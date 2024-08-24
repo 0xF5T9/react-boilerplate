@@ -79,6 +79,7 @@ const Input: FunctionComponent<{
                    ${styles[size] || ''}
                    ${transparent ? styles['transparent'] : ''}
                    ${iconPositionStyle ? iconPositionStyle : ''}
+                   ${disabled ? styles['disabled'] : ''}
                    ${className || ''}`;
     return (
         <div className={classes} style={wrapperStyle}>
