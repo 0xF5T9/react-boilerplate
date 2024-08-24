@@ -7,7 +7,7 @@
 import { FunctionComponent } from 'react';
 import { Link, useRouteError } from 'react-router-dom';
 
-import routes from '../../../configs/routes';
+import routes from '../../../global/react-router/routes';
 
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Button from '../../Button';

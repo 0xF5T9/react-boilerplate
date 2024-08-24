@@ -10,7 +10,7 @@ import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import apis from '../../apis';
-import routes from '../../configs/routes';
+import routes from '../../global/react-router/routes';
 
 import { showToast } from '../Toast';
 import { FlexibleSection } from '../Content/components/GridSection';

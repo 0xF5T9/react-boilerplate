@@ -9,7 +9,7 @@ import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import routes from '../../../../configs/routes';
+import routes from '../../../../global/react-router/routes';
 
 import * as styles from './BrandLogo.module.css';
 

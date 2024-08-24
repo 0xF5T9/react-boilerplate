@@ -4,12 +4,12 @@
  */
 
 'use strict';
-import type { NavbarItem } from '../../types/navbar';
-import routes from '../routes';
-import { House } from '../../components/Icons/House';
-import { CaretDown } from '../../components/Icons/CaretDown';
-import { Code } from '../../components/Icons/Code';
-import { User } from '../../components/Icons/User';
+import type { NavbarItem } from '../types/navbar';
+import routes from '../global/react-router/routes';
+import { House } from '../components/Icons/House';
+import { CaretDown } from '../components/Icons/CaretDown';
+import { Code } from '../components/Icons/Code';
+import { User } from '../components/Icons/User';
 
 export default [
     {

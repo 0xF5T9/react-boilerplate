@@ -6,7 +6,7 @@
 import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
-import routes from '../../../../configs/routes';
+import routes from '../../../../global/react-router/routes';
 
 import * as styles from './BrandText.module.css';
 

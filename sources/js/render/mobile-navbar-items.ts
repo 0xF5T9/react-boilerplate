@@ -4,12 +4,12 @@
  */
 
 'use strict';
-import type { MobileNavbarSection } from '../../types/mobile-navbar';
-import routes from '../routes';
-import { House } from '../../components/Icons/House';
-import { User } from '../../components/Icons/User';
-import { Code } from '../../components/Icons/Code';
-import { showToast } from '../../components/Toast';
+import type { MobileNavbarSection } from '../types/mobile-navbar';
+import routes from '../global/react-router/routes';
+import { House } from '../components/Icons/House';
+import { User } from '../components/Icons/User';
+import { Code } from '../components/Icons/Code';
+import { showToast } from '../components/Toast';
 
 export default [
     {

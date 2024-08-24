@@ -21,7 +21,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import routes from '../configs/routes';
+import routes from '../global/react-router/routes';
 
 // Authentication context.
 const authContext = createContext(null);

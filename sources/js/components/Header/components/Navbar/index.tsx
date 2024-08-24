@@ -18,7 +18,7 @@ import { NavLink, useNavigation } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
 
 import { CircleLoading } from '../../../Icons/CircleLoading';
-import navbarItems from '../../../../configs/render/navbar-items';
+import navbarItems from '../../../../render/navbar-items';
 
 import * as styles from './Navbar.module.css';
 

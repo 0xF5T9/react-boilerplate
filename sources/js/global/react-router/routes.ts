@@ -1,9 +1,9 @@
 /**
  * @file routes.ts
- * @description Application routes.
+ * @description React router routes.
  */
 
-const routes = {
+const routes: Readonly<any> = {
     home: '/',
     login: '/login',
     register: '/register',

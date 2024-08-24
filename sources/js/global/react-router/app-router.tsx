@@ -1,19 +1,20 @@
 /**
- * @file react-router.tsx
- * @description React router configurations.
+ * @file app-router.tsx
+ * @description React router app router.
  */
 
 'use strict';
+import { RouteObject } from 'react-router-dom';
 import routes from './routes';
-import { AuthProvider } from '../hooks/useAuth';
-import { GlobalProvider } from '../components/Context/Global';
-import { ModalProvider } from '../components/Modal';
-import App from '../components/App';
-import ProtectedRoute from '../components/ProtectedRoute';
-import { DefaultLayout, BlankLayout } from '../components/Layouts';
-import * as Sections from '../components/Sections';
+import { AuthProvider } from '../../hooks/useAuth';
+import { GlobalProvider } from '../../components/Context/Global';
+import { ModalProvider } from '../../components/Modal';
+import App from '../../components/App';
+import ProtectedRoute from '../../components/ProtectedRoute';
+import { DefaultLayout, BlankLayout } from '../../components/Layouts';
+import * as Sections from '../../components/Sections';
 
-const appRouter = [
+const appRouter: Readonly<RouteObject[]> = [
     {
         path: routes.home,
         element: (

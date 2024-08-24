@@ -12,6 +12,7 @@ dotenv.config({
 import path from 'path';
 import express, { ErrorRequestHandler } from 'express';
 import rateLimit from 'express-rate-limit';
+import expressConfig from '../configs/express.json';
 
 const rootPath = path.resolve(process.cwd());
 
@@ -61,7 +62,7 @@ const errorHandler: ErrorRequestHandler = function (
 app.use(errorHandler);
 
 // Launch server.
-app.listen(process.env.PORT, () => {
+app.listen(expressConfig.port, () => {
     console.log(`Root directory: ${rootPath}`);
-    console.log(`Application is listening on port ${process.env.PORT}.`);
+    console.log(`Application is listening on port ${expressConfig.port}.`);
 });

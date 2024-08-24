@@ -23,7 +23,7 @@ import { globalContext } from '../../../Context/Global';
 import IconButton, { IconButtonStyles } from '../IconButton';
 import PopupWindow, { PopupStyles } from '../../../PopupWindow';
 import { SquareX } from '../../../Icons/SquareX';
-import mobileNavbarItems from '../../../../configs/render/mobile-navbar-items';
+import mobileNavbarItems from '../../../../render/mobile-navbar-items';
 import * as styles from './MobileNavMenuIcon.module.css';
 
 const MobileNavMenuContext = createContext(null);

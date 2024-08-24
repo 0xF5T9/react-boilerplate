@@ -6,7 +6,7 @@
 'use strict';
 import * as backend from './backend';
 
-const apis = {
+const apis: Readonly<any> = {
     backend,
 };
 

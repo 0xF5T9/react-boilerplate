@@ -1,0 +1,4 @@
+{
+    "apiUrl": "https://api.mywebsite.com",
+    "timeout": 5000
+}

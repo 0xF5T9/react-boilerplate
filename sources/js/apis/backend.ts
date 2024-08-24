@@ -8,9 +8,13 @@ import type { BackendResponse } from '../types/backend-api';
 import type { SessionData } from '../types/authentication';
 import axios from 'axios';
 
-import config from '../configs/backend';
+import backendConfig from '../../../configs/backend.json';
 import { APIResult } from '../utility/api';
-const { url, endpoints } = config;
+
+const backend = axios.create({
+    baseURL: backendConfig.apiUrl,
+    timeout: backendConfig.timeout,
+});
 
 /**
  * Get test posts.
@@ -19,7 +23,7 @@ const { url, endpoints } = config;
  */
 async function getTestPosts(page: number = 1): Promise<APIResult> {
     try {
-        const result = await axios.get(`${url}${endpoints.posts}`, {
+        const result = await backend.get(`test/posts`, {
             params: {
                 page,
             },
@@ -60,7 +64,7 @@ async function register(
     password: string
 ): Promise<APIResult> {
     try {
-        const result = await axios.post(`${url}${endpoints.register}`, {
+        const result = await backend.post(`register`, {
             email,
             username,
             password,
@@ -103,7 +107,7 @@ async function authorize(
     password: string
 ): Promise<APIResult> {
     try {
-        const result = await axios.post(`${url}${endpoints.authorize}`, {
+        const result = await backend.post(`authorize`, {
             username,
             password,
         });
@@ -161,12 +165,9 @@ async function forgotPassword(email: string): Promise<APIResult> {
         if (!/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/.test(email))
             return new APIResult('Invalid email address.', false, null, 400);
 
-        const result = await axios.post(
-            `${url}${endpoints.recovery}/forgot-password`,
-            {
-                email,
-            }
-        );
+        const result = await backend.post(`recovery/forgot-password`, {
+            email,
+        });
         const { message, data }: BackendResponse = result.data;
 
         return new APIResult(message, true, data, result.status);
@@ -204,13 +205,10 @@ async function resetPassword(
         if (!token || !newPassword)
             return new APIResult('Invalid request.', false, null, 400);
 
-        const result = await axios.post(
-            `${url}${endpoints.recovery}/reset-password`,
-            {
-                token,
-                newPassword,
-            }
-        );
+        const result = await backend.post(`recovery/reset-password`, {
+            token,
+            newPassword,
+        });
         const { message, data }: BackendResponse = result.data;
 
         return new APIResult(message, true, data, result.status);
@@ -245,7 +243,7 @@ async function getUserInfo(
     token: string
 ): Promise<APIResult> {
     try {
-        const result = await axios.get(`${url}${endpoints.user}/${username}`, {
+        const result = await backend.get(`user/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -280,7 +278,7 @@ async function getUserInfo(
  */
 async function verifySession(sessionData: SessionData): Promise<APIResult> {
     try {
-        const result = await axios.post(`${url}${endpoints.verifySession}`, {
+        const result = await backend.post(`authorize/verifyToken`, {
             token: sessionData.token,
         });
         const { message, data }: BackendResponse = result.data;

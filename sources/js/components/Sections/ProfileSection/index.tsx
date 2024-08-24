@@ -11,7 +11,7 @@ import { useAuth, getSessionData } from '../../../hooks/useAuth';
 
 import { APIResult } from '../../../utility/api';
 import apis from '../../../apis';
-import routes from '../../../configs/routes';
+import routes from '../../../global/react-router/routes';
 
 import { FlexibleSection } from '../../Content/components/GridSection';
 import { SectionTitle } from '../../Content/components/GridSection/components';

@@ -10,7 +10,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './utility/helper';
-import configs from './configs';
+import globals from './global';
 import apis from './apis';
 
 window.React = React;
@@ -19,7 +19,7 @@ const $ = document.querySelector.bind(document);
 
 (() => {
     // Create the browser router.
-    const browserRouter = createBrowserRouter(configs.appRouter);
+    const browserRouter = createBrowserRouter(globals.reactRouter.appRouter);
 
     // Render the application.
     const render = createRoot($('#root'));
