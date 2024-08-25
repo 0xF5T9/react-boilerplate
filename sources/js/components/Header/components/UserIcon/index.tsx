@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import IconButton, { IconButtonStyles } from '../IconButton';
-import PopupWindow, { PopupStyles } from '../../../PopupWindow';
+import PopupWindow, { PopupRender } from '../../../PopupWindow';
 import * as styles from './UserIcon.module.css';
 
 /**
@@ -101,9 +101,7 @@ const UserIcon: FunctionComponent<{ menus: Array<any> }> = function ({
                     outAnimationName: styles['popup-out'],
                 }}
                 render={() => (
-                    <div
-                        className={`${styles['user-popup']} ${PopupStyles['popup-window']}`}
-                    >
+                    <PopupRender className={styles['user-popup']}>
                         <ul className={styles['list']}>
                             {render.menu.map((item: any, index: any) => {
                                 return (
@@ -130,7 +128,7 @@ const UserIcon: FunctionComponent<{ menus: Array<any> }> = function ({
                                 );
                             })}
                         </ul>
-                    </div>
+                    </PopupRender>
                 )}
             >
                 <IconButton

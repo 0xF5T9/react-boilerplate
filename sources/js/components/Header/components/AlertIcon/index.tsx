@@ -8,7 +8,7 @@
 import { FunctionComponent, useState } from 'react';
 
 import IconButton, { IconButtonStyles } from '../IconButton';
-import PopupWindow, { PopupStyles } from '../../../PopupWindow';
+import PopupWindow, { PopupRender } from '../../../PopupWindow';
 import * as styles from './AlertIcon.module.css';
 
 /**
@@ -40,9 +40,9 @@ const AlertIcon: FunctionComponent = function () {
                     outAnimationName: styles['popup-out'],
                 }}
                 render={() => (
-                    <div
-                        className={`${styles['alert-popup']} ${PopupStyles['popup-window']}`}
-                    ></div>
+                    <PopupRender
+                        className={styles['alert-popup']}
+                    ></PopupRender>
                 )}
             >
                 <IconButton

@@ -21,7 +21,7 @@ import PropTypes from 'prop-types';
 
 import { globalContext } from '../../../Context/Global';
 import IconButton, { IconButtonStyles } from '../IconButton';
-import PopupWindow, { PopupStyles } from '../../../PopupWindow';
+import PopupWindow, { PopupRender } from '../../../PopupWindow';
 import { SquareX } from '../../../Icons/SquareX';
 import mobileNavbarItems from '../../../../render/mobile-navbar-items';
 import * as styles from './MobileNavMenuIcon.module.css';
@@ -269,15 +269,14 @@ const MobileNavMenuIcon: FunctionComponent = function () {
                         },
                     ],
                 }}
-                // onClickOutside={handleBackgroundClick}
                 customAnimation={{
                     classIn: styles['animation-in'],
                     classOut: styles['animation-out'],
                     outAnimationName: styles['popup-out'],
                 }}
-                render={(attrs: any) => (
-                    <div
-                        className={`${styles['blur-layer']} ${PopupStyles['popup-window']}`}
+                render={() => (
+                    <PopupRender
+                        className={styles['blur-layer']}
                         onClick={handleBackgroundClick}
                     >
                         <MobileNavMenuContextProvider>
@@ -362,7 +361,7 @@ const MobileNavMenuIcon: FunctionComponent = function () {
                                 </div>
                             </div>
                         </MobileNavMenuContextProvider>
-                    </div>
+                    </PopupRender>
                 )}
             >
                 <IconButton
