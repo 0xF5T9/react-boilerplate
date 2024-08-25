@@ -1,14 +1,15 @@
 /**
  * @file index.tsx
  * @description Header alert icon button, with popup window.
- * @note This is a sub-component of the <Header /> component.
  */
 
 'use strict';
 import { FunctionComponent, useState } from 'react';
 
-import IconButton, { IconButtonStyles } from '../IconButton';
+import IconButton from '../IconButton';
 import PopupWindow, { PopupRender } from '../../../PopupWindow';
+import { Bell } from '../../../Icons/Bell';
+import { BellOutline } from '../../../Icons/BellOutline';
 import * as styles from './AlertIcon.module.css';
 
 /**
@@ -46,8 +47,8 @@ const AlertIcon: FunctionComponent = function () {
                 )}
             >
                 <IconButton
-                    icon={`${showPopup ? 'fas' : 'far'} fa-bell`}
-                    className={`${showPopup ? IconButtonStyles['is-popup-open'] : ''}`}
+                    icon={showPopup ? Bell : BellOutline}
+                    isOpen={showPopup}
                     onClick={handleClick}
                 />
             </PopupWindow>

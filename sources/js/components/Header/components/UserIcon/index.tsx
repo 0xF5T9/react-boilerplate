@@ -1,7 +1,6 @@
 /**
  * @file index.tsx
  * @description Header user icon button, with popup window.
- * @note This is a sub-component of the <Header /> component.
  */
 
 'use strict';
@@ -9,8 +8,9 @@ import { FunctionComponent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import IconButton, { IconButtonStyles } from '../IconButton';
+import IconButton from '../IconButton';
 import PopupWindow, { PopupRender } from '../../../PopupWindow';
+import { CircleUser } from '../../../Icons/CircleUser';
 import * as styles from './UserIcon.module.css';
 
 /**
@@ -132,8 +132,8 @@ const UserIcon: FunctionComponent<{ menus: Array<any> }> = function ({
                 )}
             >
                 <IconButton
-                    icon={`${showPopup ? 'fas' : 'fas'} fa-circle-user`}
-                    className={`${showPopup ? IconButtonStyles['is-popup-open'] : ''}`}
+                    icon={CircleUser}
+                    isOpen={showPopup}
                     onClick={handleClick}
                 />
             </PopupWindow>

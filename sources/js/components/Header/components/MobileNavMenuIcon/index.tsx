@@ -1,7 +1,6 @@
 /**
  * @file index.tsx
  * @description Header mobile navigation menu icon button, with popup window.
- * @note This is a sub-component of the <Header /> component.
  */
 
 'use strict';
@@ -20,8 +19,10 @@ import { useAuth } from '../../../../hooks/useAuth';
 import PropTypes from 'prop-types';
 
 import { globalContext } from '../../../Context/Global';
-import IconButton, { IconButtonStyles } from '../IconButton';
+import IconButton from '../IconButton';
 import PopupWindow, { PopupRender } from '../../../PopupWindow';
+import { ThreeBars } from '../../../Icons/ThreeBars';
+import { ThreeBarsStaggered } from '../../../Icons/ThreeBarsStaggered';
 import { SquareX } from '../../../Icons/SquareX';
 import mobileNavbarItems from '../../../../render/mobile-navbar-items';
 import * as styles from './MobileNavMenuIcon.module.css';
@@ -365,8 +366,9 @@ const MobileNavMenuIcon: FunctionComponent = function () {
                 )}
             >
                 <IconButton
-                    icon={`${showPopup ? 'fas fa-bars-staggered' : 'fas fa-bars'}`}
-                    className={`${styles['mobile-nav-menu-icon']} ${showPopup ? IconButtonStyles['is-popup-open'] : ''}`}
+                    icon={showPopup ? ThreeBarsStaggered : ThreeBars}
+                    className={`${styles['mobile-nav-menu-icon']}`}
+                    isOpen={showPopup}
                     onClick={handleClick}
                 />
             </PopupWindow>

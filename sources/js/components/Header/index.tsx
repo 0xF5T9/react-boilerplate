@@ -57,7 +57,7 @@ const Header: FunctionComponent = function () {
                     {sessionData ? (
                         <>
                             <IconButton
-                                icon2={theme === 'dark' ? Sun : Moon}
+                                icon={theme === 'dark' ? Sun : Moon}
                                 onClick={() =>
                                     setTheme(
                                         theme === 'dark' ? 'light' : 'dark'
@@ -111,7 +111,7 @@ const Header: FunctionComponent = function () {
                         <>
                             <IconButton
                                 style={{ marginRight: '10px' }}
-                                icon2={theme === 'dark' ? Sun : Moon}
+                                icon={theme === 'dark' ? Sun : Moon}
                                 onClick={() =>
                                     setTheme(
                                         theme === 'dark' ? 'light' : 'dark'
