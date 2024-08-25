@@ -1,13 +1,13 @@
 /**
  * @file index.tsx
- * @description App component.
+ * @description Top-level application component.
  */
 
 import { FunctionComponent } from 'react';
 import { Outlet } from 'react-router-dom';
 
 /**
- * Application component.
+ * Top-level application component.
  * @returns Returns the component.
  */
 const App: FunctionComponent = function () {
