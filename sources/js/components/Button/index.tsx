@@ -4,88 +4,52 @@
  */
 
 'use strict';
-import {
-    ForwardRefRenderFunction,
-    ElementType,
-    CSSProperties,
-    ReactNode,
-    forwardRef,
-} from 'react';
+import { ForwardRefRenderFunction, forwardRef, DetailedHTMLProps } from 'react';
 import PropTypes from 'prop-types';
-import { CircleLoading } from '../Icons/CircleLoading';
+import classNames from 'classnames';
 
+import { CircleLoading } from '../Icons/CircleLoading';
 import * as styles from './Button.module.css';
 
-/**
- * Button component.
- * @param props Component properties.
- * @param props.color Color variant.
- * @param props.size Size variant.
- * @param props.id Element id.
- * @param props.className Element class names.
- * @param props.value Element value.
- * @param props.onClick Button on-click callback.
- * @param props.disabled Disable the button.
- * @param props.loading Use loading appearance for the button.
- * @param props.style Additional button styles.
- * @param props.children Button content.
- * @param props.elementType Element type.
- * @returns Returns the component.
- */
 const ButtonRefRender: ForwardRefRenderFunction<
     HTMLButtonElement,
-    {
+    DetailedHTMLProps<
+        React.ButtonHTMLAttributes<HTMLButtonElement>,
+        HTMLButtonElement
+    > & {
         color?: 'success' | 'danger' | 'warn' | 'info' | 'gray' | 'white';
         size?: 'small' | 'large';
-        id?: string;
-        className?: string;
-        value?: string;
-        onClick?: (...args: any[]) => any;
-        disabled?: boolean;
         loading?: boolean;
-        style?: CSSProperties;
-        children?: ReactNode;
-        elementType?: ElementType;
     }
 > = function (
-    {
-        color,
-        size,
-        id,
-        className,
-        value,
-        onClick,
-        disabled = false,
-        loading = false,
-        style,
-        children,
-        elementType = 'button',
-    },
+    { color, size, loading = false, className, children, ...buttonProps },
     ref
 ) {
-    const classes = `${styles.button}
-                     ${styles[color] || ''}
-                     ${styles[size] || ''}
-                     ${loading ? styles['loading'] : ''}
-                     ${className || ''}`,
-        Component: ElementType = elementType;
+    const classes = classNames(
+        styles.button,
+        styles[color],
+        styles[size],
+        { [styles['loading']]: loading },
+        className
+    );
 
     return (
-        <Component
-            ref={ref}
-            id={id}
-            className={classes}
-            style={style}
-            value={value}
-            disabled={disabled}
-            onClick={onClick}
-        >
+        <button ref={ref} className={classes} {...buttonProps}>
             {loading && <CircleLoading className={styles['loading-icon']} />}
             {children}
-        </Component>
+        </button>
     );
 };
 
+/**
+ * Standard button.
+ * @param props Component properties.
+ * @param props.color Color variant.
+ * @param props.size Size variant.
+ * @param props.loading Use loading appearance for the button.
+ * @note Properties that are not explicitly stated here are passed to button element.
+ * @returns Returns the component.
+ */
 const Button = forwardRef(ButtonRefRender);
 
 Button.propTypes = {
@@ -98,15 +62,7 @@ Button.propTypes = {
         'white',
     ]),
     size: PropTypes.oneOf(['small', 'large']),
-    id: PropTypes.string,
-    className: PropTypes.string,
-    value: PropTypes.string,
-    onClick: PropTypes.func,
-    disabled: PropTypes.bool,
     loading: PropTypes.bool,
-    style: PropTypes.object,
-    children: PropTypes.node,
-    elementType: PropTypes.oneOf(['button', 'a', 'div']),
 };
 
 export default Button;
