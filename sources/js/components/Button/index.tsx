@@ -1,6 +1,6 @@
 /**
  * @file index.tsx
- * @description Button component.
+ * @description Button.
  */
 
 'use strict';
