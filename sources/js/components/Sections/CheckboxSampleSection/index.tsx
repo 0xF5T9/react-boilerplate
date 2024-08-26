@@ -105,9 +105,17 @@ const CheckboxSampleSection: FunctionComponent = function () {
                         rowGap: '12px',
                     }}
                 >
-                    <Checkbox labelText="Small" size="small" id="scb-small" />
+                    <Checkbox
+                        labelText="Small"
+                        inputSize="small"
+                        id="scb-small"
+                    />
                     <Checkbox labelText="Default" id="scb-default" />
-                    <Checkbox labelText="Large" size="large" id="scb-large" />
+                    <Checkbox
+                        labelText="Large"
+                        inputSize="large"
+                        id="scb-large"
+                    />
                 </div>
             </div>
         </FlexibleSection>
