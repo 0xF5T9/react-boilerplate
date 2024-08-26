@@ -14,7 +14,7 @@ export type SessionLogin = (sessionData: SessionData) => Promise<void>;
 
 export type SessionLogout = (route?: string) => Promise<void>;
 
-export type UseAuth = {
+export type AuthHook = {
     sessionData?: SessionData;
     login?: SessionLogin;
     logout?: SessionLogout;

@@ -8,7 +8,7 @@ import type {
     SessionData,
     SessionLogin,
     SessionLogout,
-    UseAuth,
+    AuthHook,
 } from '../types/authentication';
 import { useLocalStorage } from './useLocalStorage';
 import {
@@ -60,7 +60,7 @@ const AuthProvider: FunctionComponent<{ children: ReactNode }> = function ({
                 sessionData,
                 login,
                 logout,
-            }) as UseAuth,
+            }) as AuthHook,
         [sessionData]
     );
     return (
@@ -77,7 +77,7 @@ AuthProvider.propTypes = {
  * authentication status from application components.
  * @returns sessionData, login, logout
  */
-function useAuth() {
+function useAuth(): AuthHook {
     return useContext(authContext);
 }
 

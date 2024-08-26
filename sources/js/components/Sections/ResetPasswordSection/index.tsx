@@ -4,7 +4,6 @@
  */
 
 'use strict';
-import type { UseAuth } from '../../../types/authentication';
 import { FunctionComponent, useState } from 'react';
 import { Navigate, useSearchParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
@@ -30,7 +29,7 @@ const ResetPasswordSection: FunctionComponent = function () {
         { setModal } = useModal();
     if (!token) return <Navigate to={routes.login} />;
 
-    const { sessionData }: UseAuth = useAuth(),
+    const { sessionData } = useAuth(),
         [pending, setPending] = useState(false),
         [serverMessage, setServerMessage] = useState(null),
         [password, setPassword] = useState(''),
