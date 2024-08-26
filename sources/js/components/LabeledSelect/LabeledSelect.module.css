@@ -27,6 +27,10 @@
     pointer-events: none;
 }
 
+.input-wrapper.disabled > .input {
+    opacity: 1;
+}
+
 .input-label {
     padding: 0px 8px;
     color: var(--labeled-select-label-text-color);
