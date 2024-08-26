@@ -1,6 +1,7 @@
 /**
  * @file index.tsx
  * @description Global context for the application.
+ * @todo Make global context a custom hook.
  */
 
 'use strict';
