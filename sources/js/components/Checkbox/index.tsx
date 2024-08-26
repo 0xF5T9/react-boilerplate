@@ -14,6 +14,7 @@ import * as styles from './Checkbox.module.css';
  * Checkbox.
  * @param props Component properties.
  * @param props.labelText Label text.
+ * @param props.labelHTML Label text as html.
  * @param props.color Color variant.
  * @param props.inputSize Size variant.
  * @param props.id Input id.
