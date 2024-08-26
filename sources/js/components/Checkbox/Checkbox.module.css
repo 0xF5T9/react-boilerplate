@@ -21,7 +21,6 @@
     height: calc(1em * 0.8);
     border: 2px solid var(--checkbox-border-color-default);
     border-radius: 3px;
-    margin-right: 6px;
     font-size: 1.5em;
     color: var(--checkbox-symbol-color-default);
     background-color: var(--checkbox-background-color-default);
@@ -63,11 +62,12 @@
 }
 
 .checkbox-wrapper + .checkbox-wrapper {
-    margin-left: 10px;
+    margin-left: 12px;
 }
 
 .checkbox-wrapper > label {
     display: flex;
+    margin-left: 8px;
     color: var(--checkbox-label-color);
     cursor: pointer;
 }

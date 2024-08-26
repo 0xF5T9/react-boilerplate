@@ -22,7 +22,7 @@
     height: calc(1em * 0.8);
     border: 2px solid var(--radio-border-color-default);
     border-radius: 50%;
-    margin-right: 6px;
+
     font-size: 1.5em;
     background-color: var(--radio-background-color-default);
     filter: brightness(1);
@@ -78,6 +78,7 @@
 
 .radio-wrapper > label {
     display: flex;
+    margin-left: 8px;
     color: var(--radio-label-color);
     cursor: pointer;
 }
@@ -90,7 +91,7 @@
 }
 
 .radio-wrapper + .radio-wrapper {
-    margin-left: 10px;
+    margin-left: 12px;
 }
 
 .radio-wrapper .input:disabled ~ label > span {
