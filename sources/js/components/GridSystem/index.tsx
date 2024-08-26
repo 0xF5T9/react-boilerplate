@@ -4,73 +4,60 @@
  */
 
 'use strict';
-import { CSSProperties, FunctionComponent, ReactNode } from 'react';
+import { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
-import * as styles from './GridSystem.module.css';
+import classNames from 'classnames';
 
 /**
- * Grid System row components.
+ * Grid System row component.
  * @param props Component properties.
- * @param props.id Id.
- * @param props.className Class names.
- * @param props.style Style object.
  * @param props.noGutters Specifies whether to remove gutters.
- * @param props.children Component children.
  * @returns Returns the component.
  */
-const Row: FunctionComponent<{
-    id?: string;
-    className?: string;
-    style?: CSSProperties;
-    noGutters?: boolean;
-    children?: ReactNode;
-}> = function ({ id, className, style, noGutters, children }) {
-    const classes = `row
-                    ${className ? className : ''}
-                    ${noGutters ? 'no-gutters' : ''}`;
+const Row: FunctionComponent<
+    React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    > & {
+        noGutters?: boolean;
+    }
+> = function ({ noGutters = false, className, children, ...props }) {
+    const classes = classNames(
+        'row',
+        {
+            'no-gutters': noGutters,
+        },
+        className
+    );
     return (
-        <div id={id} className={classes} style={style}>
+        <div {...props} className={classes}>
             {children}
         </div>
     );
 };
 
 Row.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
-    style: PropTypes.object,
     noGutters: PropTypes.bool,
-    children: PropTypes.node,
 };
 
 /**
- * Grid System column components.
+ * Grid System column component.
  * @param props Component properties.
- * @param props.id Id.
- * @param props.className Class names.
- * @param props.style Style object.
- * @param props.children Component children.
  * @returns Returns the component.
  */
-const Column: FunctionComponent<{
-    id?: string;
-    className?: string;
-    style?: CSSProperties;
-    children?: ReactNode;
-}> = function ({ id, className, style, children }) {
-    const classes = `col ${className ? className : ''}`;
+const Column: FunctionComponent<
+    React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    >
+> = function ({ className, children, ...props }) {
+    const classes = classNames('col', className);
+
     return (
-        <div id={id} className={classes} style={style}>
+        <div {...props} className={classes}>
             {children}
         </div>
     );
-};
-
-Column.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
-    style: PropTypes.object,
-    children: PropTypes.node,
 };
 
 export { Row, Column };
