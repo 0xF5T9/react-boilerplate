@@ -8,7 +8,6 @@ import { FunctionComponent, useLayoutEffect, useRef } from 'react';
 import { Github } from '../Icons/Github';
 import { Discord } from '../Icons/Discord';
 
-const $ = document.querySelector.bind(document);
 import * as styles from './Footer.module.css';
 
 /**
