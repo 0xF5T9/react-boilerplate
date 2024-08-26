@@ -6,102 +6,132 @@
 'use strict';
 import { FunctionComponent, CSSProperties, ReactNode } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Column } from '../../../GridSystem';
+import classNames from 'classnames';
 
+import { Row, Column } from '../../../GridSystem';
 import * as styles from './GridSection.module.css';
 
 /**
  * Grid section component.
  * @param props Component properties.
- * @param props.wide Use wide grid.
- * @param props.fixedHeight Specifies a fixed height for the section.
- * @param props.dynamicHeight Make the section's height determined by its content.
- *                                      By default, the section's height is scaled to fit the remaining space of the content wrapper.
- * @param props.noAnimation Disable section animation.
- * @param props.style Style object.
+ * @param props.type Section type. (Determine section height behavior)
+ * @param props.wide Specfies whether to use wide grid.
+ * @param props.height Specifies section fixed height. (For section with 'fixed' type only)
+ * @param props.noAnimation Disable section initial animation.
+ * @param props.style Section style.
  * @param props.children Component children.
+ * @param props.sectionProps Section element properties.
  * @returns Returns the component.
  */
 const GridSection: FunctionComponent<{
+    type: 'dynamic' | 'fixed' | 'fit';
     wide?: boolean;
-    fixedHeight?: number;
-    dynamicHeight?: boolean;
+    height?: number;
     noAnimation?: boolean;
-    style?: CSSProperties & { height?: string };
+    style?: CSSProperties;
     children?: ReactNode;
+    sectionProps?: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+    >;
 }> = function ({
-    wide,
-    fixedHeight,
-    dynamicHeight,
+    type = 'fit',
+    wide = false,
+    height,
     noAnimation = false,
     style,
     children,
+    sectionProps,
 }) {
-    const classes = `${styles['section']}
-                    ${wide ? 'wide' : ''}
-                    ${fixedHeight || dynamicHeight ? styles['dynamic-height'] : ''}
-                    ${noAnimation ? styles['no-animation'] : ''}
-                    grid`;
-    if (fixedHeight) {
-        if (!style) style = {};
-        style.height = `${fixedHeight}px`;
+    let sectionStyle = { ...style };
+
+    const typeClassName =
+        type === 'dynamic' || type === 'fixed'
+            ? classNames(styles['dynamic-height'])
+            : '';
+    if (type === 'fixed') {
+        if (!height) {
+            console.warn(
+                `The section type is fixed but 'height' prop is ${height}`
+            );
+            height = 0;
+        }
+        sectionStyle.height = `${height.toFixed(2)}px`;
     }
+
+    const classes = classNames(
+        'grid',
+        styles['section'],
+        { wide },
+        { [styles['no-animation']]: noAnimation },
+        typeClassName
+    );
+
     return (
-        <section className={classes} style={style}>
+        <section
+            {...sectionProps}
+            className={`${classes}${sectionProps?.className ? ` ${sectionProps?.className}` : ''}`}
+            style={{ ...sectionProps?.style, ...sectionStyle }}
+        >
             {children}
         </section>
     );
 };
 
 GridSection.propTypes = {
+    type: PropTypes.oneOf(['dynamic', 'fixed', 'fit']),
     wide: PropTypes.bool,
-    fixedHeight: PropTypes.number,
-    dynamicHeight: PropTypes.bool,
+    height: PropTypes.number,
     noAnimation: PropTypes.bool,
     style: PropTypes.object,
     children: PropTypes.node,
+    sectionProps: PropTypes.object,
 };
 
 /**
  * Dynamic section.
  * This section's height is determined by its content.
  * @param props Component properties.
- * @param props.id Section id.
- * @param props.className Section additional class names.
- * @param props.grid Specifies whether to make this section a grid layout '.grid'.
- * @param props.wide Specifies whether to use wide grid.
- * @param props.noGutters Specifies whether to remove default gutters.
- * @param props.noAnimation Disable section animation.
- * @param props.style Additional style object for section.
+ * @param props.grid Specifies whether to use grid system for content div element.
+ * @param props.wide Specifies whether to use wide grid for content div element.
+ * @param props.noGutters Remove the default grid gutters.
+ * @param props.noAnimation Disable section initial animation.
+ * @param props.sectionProps Top-level section element properties.
+ * @param props.contentProps Content div element properties.
  * @param props.children Component children.
+ * @note 'Content div' refering to the element that is the direct parent of the component children.
  * @returns Returns the component.
  */
 const DynamicSection: FunctionComponent<{
-    id?: string;
-    className?: string;
     grid?: boolean;
     wide?: boolean;
     noGutters?: boolean;
     noAnimation?: boolean;
-    style?: CSSProperties;
+    sectionProps?: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+    >;
+    contentProps?: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    >;
     children?: ReactNode;
 }> = function ({
-    id,
-    className,
-    grid,
-    wide,
-    noGutters,
+    grid = false,
+    wide = false,
+    noGutters = false,
     noAnimation = false,
-    style,
+    sectionProps,
+    contentProps,
     children,
 }) {
-    const classes = `c-12 m-12 l-12
-                    ${className || ''}
-                    ${grid ? (wide ? 'grid wide' : 'grid') : ''}`;
+    const classes = classNames('c-12 m-12 l-12', { grid }, { wide });
+
     return (
         <GridSection
-            style={{ display: 'flex', flexGrow: '0' }}
+            type="dynamic"
             noAnimation={noAnimation}
+            sectionProps={sectionProps}
         >
             <Row
                 noGutters={noGutters}
@@ -109,7 +139,10 @@ const DynamicSection: FunctionComponent<{
                     flexGrow: '1',
                 }}
             >
-                <Column id={id} className={classes} style={style}>
+                <Column
+                    {...contentProps}
+                    className={`${classes}${contentProps?.className ? ` ${contentProps?.className}` : ''}`}
+                >
                     {children}
                 </Column>
             </Row>
@@ -118,13 +151,12 @@ const DynamicSection: FunctionComponent<{
 };
 
 DynamicSection.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
     grid: PropTypes.bool,
     wide: PropTypes.bool,
     noGutters: PropTypes.bool,
     noAnimation: PropTypes.bool,
-    style: PropTypes.object,
+    sectionProps: PropTypes.object,
+    contentProps: PropTypes.object,
     children: PropTypes.node,
 };
 
@@ -132,46 +164,49 @@ DynamicSection.propTypes = {
  * Fixed section.
  * This section has a fixed height.
  * @param props Component properties.
- * @param props.id Section id.
- * @param props.className Section additional class names.
- * @param props.height Section fixed height.
- * @param props.grid Specifies whether to make this section a grid layout '.grid'.
- * @param props.wide Specifies whether to use wide grid.
- * @param props.noGutters Specifies whether to remove default gutters.
- * @param props.noAnimation Disable section animation.
- * @param props.style Additional style object for section.
+ * @param props.grid Specifies whether to use grid system for content div element.
+ * @param props.wide Specifies whether to use wide grid for content div element.
+ * @param props.noGutters Remove the default grid gutters.
+ * @param props.noAnimation Disable section initial animation.
+ * @param props.sectionProps Top-level section element properties.
+ * @param props.contentProps Content div element properties.
+ * @param props.height Specifies section fixed height.
  * @param props.children Component children.
  * @returns Returns the component.
  */
 const FixedSection: FunctionComponent<{
-    id?: string;
-    className?: string;
-    height: number;
     grid?: boolean;
     wide?: boolean;
     noGutters?: boolean;
     noAnimation?: boolean;
-    style?: CSSProperties;
+    sectionProps?: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+    >;
+    contentProps?: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    >;
+    height: number;
     children?: ReactNode;
 }> = function ({
-    id,
-    className,
-    height,
-    grid,
-    wide,
-    noGutters,
+    grid = false,
+    wide = false,
+    noGutters = false,
     noAnimation = false,
-    style,
+    sectionProps,
+    contentProps,
+    height,
     children,
 }) {
-    const classes = `c-12 m-12 l-12
-                    ${className || ''}
-                    ${grid ? (wide ? 'grid wide' : 'grid') : ''}`;
+    const classes = classNames('c-12 m-12 l-12', { grid }, { wide });
     return (
         <GridSection
-            fixedHeight={height}
-            style={{ display: 'flex' }}
+            type="fixed"
+            height={height}
             noAnimation={noAnimation}
+            sectionProps={sectionProps}
+            style={{ display: 'flex' }}
         >
             <Row
                 noGutters={noGutters}
@@ -179,7 +214,10 @@ const FixedSection: FunctionComponent<{
                     flexGrow: '1',
                 }}
             >
-                <Column id={id} className={classes} style={style}>
+                <Column
+                    {...contentProps}
+                    className={`${classes}${contentProps?.className ? ` ${contentProps?.className}` : ''}`}
+                >
                     {children}
                 </Column>
             </Row>
@@ -188,14 +226,13 @@ const FixedSection: FunctionComponent<{
 };
 
 FixedSection.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
-    height: PropTypes.number.isRequired,
     grid: PropTypes.bool,
     wide: PropTypes.bool,
     noGutters: PropTypes.bool,
     noAnimation: PropTypes.bool,
-    style: PropTypes.object,
+    sectionProps: PropTypes.object,
+    contentProps: PropTypes.object,
+    height: PropTypes.number.isRequired,
     children: PropTypes.node,
 };
 
@@ -203,47 +240,57 @@ FixedSection.propTypes = {
  * Flexible section.
  * This section's height is automatically scaled to fit the remaining space.
  * @param props Component properties.
- * @param props.id Section id.
- * @param props.className Section additional class names.
- * @param props.grid Specifies whether to make this section a grid layout '.grid'.
- * @param props.wide Specifies whether to use wide grid.
- * @param props.noGutters Specifies whether to remove default gutters.
- * @param props.noAnimation Disable section animation.
- * @param props.style Additional style object for section.
+ * @param props.grid Specifies whether to use grid system for content div element.
+ * @param props.wide Specifies whether to use wide grid for content div element.
+ * @param props.noGutters Remove the default grid gutters.
+ * @param props.noAnimation Disable section initial animation.
+ * @param props.sectionProps Top-level section element properties.
+ * @param props.contentProps Content div element properties.
  * @param props.children Component children.
  * @returns Returns the component.
  */
 const FlexibleSection: FunctionComponent<{
-    id?: string;
-    className?: string;
     grid?: boolean;
     wide?: boolean;
     noGutters?: boolean;
     noAnimation?: boolean;
-    style?: CSSProperties;
+    sectionProps?: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+    >;
+    contentProps?: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    >;
     children?: ReactNode;
 }> = function ({
-    id,
-    className,
-    grid,
-    wide,
-    noGutters,
+    grid = false,
+    wide = false,
+    noGutters = false,
     noAnimation = false,
-    style,
+    sectionProps,
+    contentProps,
     children,
 }) {
-    const classes = `c-12 m-12 l-12
-                    ${className || ''}
-                    ${grid ? (wide ? 'grid wide' : 'grid') : ''}`;
+    const classes = classNames('c-12 m-12 l-12', { grid }, { wide });
+
     return (
-        <GridSection style={{ display: 'flex' }} noAnimation={noAnimation}>
+        <GridSection
+            type="fit"
+            noAnimation={noAnimation}
+            sectionProps={sectionProps}
+            style={{ display: 'flex' }}
+        >
             <Row
                 noGutters={noGutters}
                 style={{
                     flexGrow: '1',
                 }}
             >
-                <Column id={id} className={classes} style={style}>
+                <Column
+                    {...contentProps}
+                    className={`${classes}${contentProps?.className ? ` ${contentProps?.className}` : ''}`}
+                >
                     {children}
                 </Column>
             </Row>
@@ -252,13 +299,12 @@ const FlexibleSection: FunctionComponent<{
 };
 
 FlexibleSection.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
     grid: PropTypes.bool,
     wide: PropTypes.bool,
     noGutters: PropTypes.bool,
     noAnimation: PropTypes.bool,
-    style: PropTypes.object,
+    sectionProps: PropTypes.object,
+    contentProps: PropTypes.object,
     children: PropTypes.node,
 };
 

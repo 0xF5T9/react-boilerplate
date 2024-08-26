@@ -68,14 +68,16 @@ const ComponentsSection: FunctionComponent = function () {
     return (
         <>
             <FlexibleSection
-                className={`${styles['components-section']} ${theme}`}
-                style={{
-                    display: 'flex',
-                    flexFlow: 'column nowrap',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    padding: '50px',
-                    textAlign: 'center',
+                contentProps={{
+                    className: `${styles['components-section']} ${theme}`,
+                    style: {
+                        display: 'flex',
+                        flexFlow: 'column nowrap',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '50px',
+                        textAlign: 'center',
+                    },
                 }}
             >
                 <SectionTitle>Components</SectionTitle>

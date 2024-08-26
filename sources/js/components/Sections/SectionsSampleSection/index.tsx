@@ -13,6 +13,7 @@ import {
 import {
     SectionTitle,
     SectionSubtitle,
+    SectionBlock,
 } from '../../Content/components/GridSection/components';
 
 /**
@@ -24,14 +25,20 @@ const IndexSection: FunctionComponent = function () {
         <>
             <DynamicSection
                 noGutters
-                style={{
-                    display: 'flex',
-                    flexFlow: 'column nowrap',
-                    justifyContent: 'center',
-                    padding: '50px 20px',
-                    alignItems: 'center',
-                    border: '2px solid var(--color-red)',
-                    textAlign: 'center',
+                sectionProps={{
+                    id: 'dynamic-section',
+                    className: 'dynamic-section',
+                }}
+                contentProps={{
+                    style: {
+                        display: 'flex',
+                        flexFlow: 'column nowrap',
+                        justifyContent: 'center',
+                        padding: '50px 20px',
+                        alignItems: 'center',
+                        border: '2px solid var(--color-red)',
+                        textAlign: 'center',
+                    },
                 }}
             >
                 <SectionTitle>Dynamic Section</SectionTitle>
@@ -43,14 +50,20 @@ const IndexSection: FunctionComponent = function () {
             <FixedSection
                 noGutters
                 height={300}
-                style={{
-                    display: 'flex',
-                    flexFlow: 'column nowrap',
-                    justifyContent: 'center',
-                    padding: '50px 20px',
-                    alignItems: 'center',
-                    border: '2px solid var(--color-green)',
-                    textAlign: 'center',
+                sectionProps={{
+                    id: 'fixed-section',
+                    className: 'fixed-section',
+                }}
+                contentProps={{
+                    style: {
+                        display: 'flex',
+                        flexFlow: 'column nowrap',
+                        justifyContent: 'center',
+                        padding: '50px 20px',
+                        alignItems: 'center',
+                        border: '2px solid var(--color-green)',
+                        textAlign: 'center',
+                    },
                 }}
             >
                 <SectionTitle>Fixed Section</SectionTitle>
@@ -61,14 +74,20 @@ const IndexSection: FunctionComponent = function () {
 
             <FlexibleSection
                 noGutters
-                style={{
-                    display: 'flex',
-                    flexFlow: 'column nowrap',
-                    justifyContent: 'center',
-                    padding: '50px 20px',
-                    alignItems: 'center',
-                    border: '2px solid var(--color-blue)',
-                    textAlign: 'center',
+                sectionProps={{
+                    id: 'flexible-section',
+                    className: 'flexible-section',
+                }}
+                contentProps={{
+                    style: {
+                        display: 'flex',
+                        flexFlow: 'column nowrap',
+                        justifyContent: 'center',
+                        padding: '50px 20px',
+                        alignItems: 'center',
+                        border: '2px solid var(--color-blue)',
+                        textAlign: 'center',
+                    },
                 }}
             >
                 <SectionTitle>Flexible Section</SectionTitle>

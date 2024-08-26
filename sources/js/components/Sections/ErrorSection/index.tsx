@@ -24,14 +24,16 @@ const ErrorSection: FunctionComponent = function () {
     return (
         <>
             <FlexibleSection
-                className={styles['error-section']}
-                style={{
-                    display: 'flex',
-                    flexFlow: 'column nowrap',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    padding: '20px 20px',
-                    userSelect: 'none',
+                contentProps={{
+                    className: styles['error-section'],
+                    style: {
+                        display: 'flex',
+                        flexFlow: 'column nowrap',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '20px 20px',
+                        userSelect: 'none',
+                    },
                 }}
             >
                 {error.status ? (

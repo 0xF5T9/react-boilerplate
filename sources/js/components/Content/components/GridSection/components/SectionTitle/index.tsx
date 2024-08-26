@@ -1,39 +1,33 @@
 /**
  * @file index.tsx
- * @description Section title component.
+ * @description Section title.
  */
 
 'use strict';
-import {
-    FunctionComponent,
-    ElementType,
-    CSSProperties,
-    ReactNode,
-} from 'react';
+import { FunctionComponent, ElementType } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import * as styles from './SectionTitle.module.css';
 
 /**
- * Section title component.
+ * Section title.
  * @param props.element Element type.
- * @param props.id Element id.
- * @param props.className Element class names.
- * @param props.style Element styles.
- * @param props.children Element children.
+ * @note Properties that are not explicitly stated here are passed to the element.
  * @returns Returns the component.
  */
-const SectionTitle: FunctionComponent<{
-    element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-    id?: string;
-    className?: string;
-    style?: CSSProperties;
-    children: ReactNode;
-}> = function ({ element = 'h5', id, className, style, children }) {
+const SectionTitle: FunctionComponent<
+    React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLHeadingElement>,
+        HTMLHeadingElement
+    > & {
+        element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    }
+> = function ({ element = 'h5', className, children, ...elementProps }) {
     const Element: ElementType = element,
-        classes = `${styles['section-title']} ${className || ''}`;
+        classes = classNames(styles['section-title'], className);
     return (
-        <Element id={id} className={classes} style={style}>
+        <Element {...elementProps} className={classes}>
             {children}
         </Element>
     );
@@ -41,10 +35,6 @@ const SectionTitle: FunctionComponent<{
 
 SectionTitle.propTypes = {
     element: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-    id: PropTypes.string,
-    className: PropTypes.string,
-    style: PropTypes.object,
-    children: PropTypes.node,
 };
 
 export default SectionTitle;

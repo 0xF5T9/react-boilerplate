@@ -1,42 +1,33 @@
 /**
  * @file index.tsx
- * @description Section subtitle component.
+ * @description Section subtitle.
  */
 
 'use strict';
-import { FunctionComponent, CSSProperties, ReactNode } from 'react';
-import PropTypes from 'prop-types';
+import { FunctionComponent } from 'react';
+import classNames from 'classnames';
 
 import * as styles from './SectionSubtitle.module.css';
 
 /**
- * Section subtitle component.
+ * Section subtitle.
  * @param props Component properties.
- * @param props.id Element id.
- * @param props.className Element class names.
- * @param props.style  Element styles.
- * @param props.children Component children.
+ * @note Properties that are not explicitly stated here are passed to the element.
  * @returns Returns the component.
  */
-const SectionSubtitle: FunctionComponent<{
-    id?: string;
-    className?: string;
-    style?: CSSProperties;
-    children: ReactNode;
-}> = function ({ id, className, style, children }) {
-    const classes = `${styles['section-subtitle']} ${className || ''}`;
+const SectionSubtitle: FunctionComponent<
+    React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLSpanElement>,
+        HTMLSpanElement
+    >
+> = function ({ className, children, ...elementProps }) {
+    const classes = classNames(styles['section-subtitle'], className);
+
     return (
-        <span id={id} className={classes} style={style}>
+        <span {...elementProps} className={classes}>
             {children}
         </span>
     );
-};
-
-SectionSubtitle.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
-    style: PropTypes.object,
-    children: PropTypes.node,
 };
 
 export default SectionSubtitle;

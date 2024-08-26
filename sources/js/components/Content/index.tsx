@@ -1,6 +1,6 @@
 /**
  * @file index.tsx
- * @description Content wrapper component.
+ * @description Content wrapper.
  */
 
 'use strict';
@@ -10,12 +10,12 @@ import PropTypes from 'prop-types';
 import * as styles from './Content.module.css';
 
 /**
- * Content wrapper component.
+ * Content wrapper.
  * @param props Component properties.
  * @param props.children Content children.
  * @returns Returns the component.
  */
-const Content: FunctionComponent<{ children?: ReactNode }> = function ({
+const Content: FunctionComponent<{ children: ReactNode }> = function ({
     children,
 }) {
     return <div className={styles['content-wrapper']}>{children}</div>;

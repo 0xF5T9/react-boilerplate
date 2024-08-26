@@ -16,13 +16,15 @@ import LabeledSelect from '../../LabeledSelect';
 const LabeledSelectSampleSection: FunctionComponent = function () {
     return (
         <FlexibleSection
-            style={{
-                display: 'flex',
-                flexFlow: 'column nowrap',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '50px 20px',
-                textAlign: 'center',
+            contentProps={{
+                style: {
+                    display: 'flex',
+                    flexFlow: 'column nowrap',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: '50px 20px',
+                    textAlign: 'center',
+                },
             }}
         >
             <div>

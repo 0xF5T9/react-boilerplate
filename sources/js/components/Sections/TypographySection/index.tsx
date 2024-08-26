@@ -15,12 +15,14 @@ const TypographySection: FunctionComponent = function () {
     return (
         <>
             <FlexibleSection
-                style={{
-                    display: 'flex',
-                    flexFlow: 'column nowrap',
-                    justifyContent: 'center',
-                    padding: '50px 20px',
-                    alignItems: 'center',
+                contentProps={{
+                    style: {
+                        display: 'flex',
+                        flexFlow: 'column nowrap',
+                        justifyContent: 'center',
+                        padding: '50px 20px',
+                        alignItems: 'center',
+                    },
                 }}
             >
                 <div
