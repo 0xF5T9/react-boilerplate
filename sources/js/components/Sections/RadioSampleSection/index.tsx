@@ -174,7 +174,7 @@ const RadioSampleSection: FunctionComponent = function () {
                     <Radio
                         labelText="Small"
                         id="sr-small"
-                        size="small"
+                        inputSize="small"
                         name="srg"
                         value="srsmall"
                     />
@@ -187,7 +187,7 @@ const RadioSampleSection: FunctionComponent = function () {
                     <Radio
                         labelText="Large"
                         id="sr-large"
-                        size="large"
+                        inputSize="large"
                         name="srg"
                         value="srlarge"
                     />
