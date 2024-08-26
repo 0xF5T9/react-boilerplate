@@ -5,16 +5,17 @@
  */
 
 'use strict';
-import type { UseAuth } from '../../../types/authentication';
 import { FunctionComponent, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
+import { useModal } from '../../Modal';
 
 import routes from '../../../global/react-router/routes';
 import apis from '../../../apis';
 
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
+import Checkbox from '../../Checkbox';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
 
@@ -25,13 +26,16 @@ import * as styles from './RegisterSection.module.css';
  * @returns Returns the component.
  */
 const RegisterSection: FunctionComponent = function () {
-    const { sessionData, login }: UseAuth = useAuth(),
+    const { setModal } = useModal();
+
+    const { sessionData, login } = useAuth(),
         [pending, setPending] = useState(false),
         [serverMessage, setServerMessage] = useState(null),
         [email, setEmail] = useState(''),
         [username, setUsername] = useState(''),
         [password, setPassword] = useState(''),
-        [passwordRepeat, setPasswordRepeat] = useState('');
+        [passwordRepeat, setPasswordRepeat] = useState(''),
+        [agreement, setAgreement] = useState(false);
 
     if (sessionData) {
         return <Navigate to={routes.profile} />;
@@ -95,6 +99,15 @@ const RegisterSection: FunctionComponent = function () {
             return;
         }
 
+        if (!agreement) {
+            setServerMessage({
+                message: 'You must agree to the Term of Service to register.',
+                type: 'error',
+            });
+            document?.getElementById('agreement-checkbox')?.focus();
+            return;
+        }
+
         setPending(true);
 
         const { message: registerMessage, success: isRegisterSuccess } =
@@ -104,6 +117,7 @@ const RegisterSection: FunctionComponent = function () {
             setServerMessage({ message: registerMessage, type: 'error' });
             setPassword('');
             setPasswordRepeat('');
+            setAgreement(false);
             setPending(false);
             return;
         }
@@ -118,6 +132,7 @@ const RegisterSection: FunctionComponent = function () {
             setServerMessage({ message: loginMessage, type: 'error' });
             setPassword('');
             setPasswordRepeat('');
+            setAgreement(false);
             setPending(false);
             return;
         }
@@ -144,6 +159,31 @@ const RegisterSection: FunctionComponent = function () {
 
     return (
         <>
+            <style>
+                {`
+                            .my-custom-modal {
+                                width: 100%;
+                                max-width: 1024px;
+                                padding: 20px;
+                              
+                                border-radius: 4px;
+                              
+                            }
+
+                            .my-custom-modal {
+                                max-height: calc(100vh - 20px);
+                                overflow: auto;
+                            }
+                            
+                            @media only screen and (max-width: 1043px) {
+                                .my-custom-modal {
+                                    max-width: calc(100% - var(--modal-window-margin));
+                                }
+                            }
+
+                           
+                        `}
+            </style>
             <FlexibleSection
                 style={{
                     display: 'flex',
@@ -250,6 +290,42 @@ const RegisterSection: FunctionComponent = function () {
                                     iconClass: 'fas fa-lock',
                                 }}
                                 disabled={pending ? true : false}
+                            />
+                        </div>
+                        <div
+                            className={styles['form-group']}
+                            style={{ marginTop: '8px' }}
+                        >
+                            <Checkbox
+                                labelHTML={
+                                    <span>
+                                        I agree to the{' '}
+                                        <span
+                                            className={styles['link']}
+                                            style={{
+                                                color: 'var(--card-text-highlight-color)',
+                                            }}
+                                            onClick={(event) => {
+                                                event.preventDefault();
+                                                setModal({
+                                                    type: 'alert',
+                                                    title: 'Term of Services',
+                                                    message:
+                                                        'No term of services available.',
+                                                });
+                                            }}
+                                        >
+                                            Terms of Service
+                                        </span>
+                                        .
+                                    </span>
+                                }
+                                id="agreement-checkbox"
+                                checked={agreement}
+                                onChange={(event) =>
+                                    setAgreement(event.currentTarget.checked)
+                                }
+                                required
                             />
                         </div>
                         <Button
