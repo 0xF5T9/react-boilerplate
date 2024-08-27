@@ -2,6 +2,7 @@
  * @file index.tsx
  * @description Global context for the application.
  * @todo Make global context a custom hook.
+ * @todo Fix top loading bar's box shadow artifact on top left screen.
  */
 
 'use strict';
