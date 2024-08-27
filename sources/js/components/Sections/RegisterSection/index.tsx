@@ -17,6 +17,9 @@ import Input from '../../Input';
 import Checkbox from '../../Checkbox';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
+import { Envelope } from '../../Icons/Envelope';
+import { User } from '../../Icons/User';
+import { Lock } from '../../Icons/Lock';
 import staticRender from '../../../render/static-render';
 import * as styles from './RegisterSection.module.css';
 const staticTexts = staticRender.registerSection;
@@ -188,8 +191,8 @@ const RegisterSection: FunctionComponent = function () {
                                     setEmail(event.target.value)
                                 }
                                 icon={{
-                                    iconPosition: 'left',
-                                    iconClass: 'fas fa-envelope',
+                                    position: 'left',
+                                    icon: Envelope,
                                 }}
                                 disabled={pending ? true : false}
                             />
@@ -211,8 +214,8 @@ const RegisterSection: FunctionComponent = function () {
                                     setUsername(event.target.value)
                                 }
                                 icon={{
-                                    iconPosition: 'left',
-                                    iconClass: 'fas fa-user',
+                                    position: 'left',
+                                    icon: User,
                                 }}
                                 disabled={pending ? true : false}
                                 autoCapitalize="off"
@@ -236,8 +239,8 @@ const RegisterSection: FunctionComponent = function () {
                                     setPassword(event.target.value)
                                 }
                                 icon={{
-                                    iconPosition: 'left',
-                                    iconClass: 'fas fa-lock',
+                                    position: 'left',
+                                    icon: Lock,
                                 }}
                                 disabled={pending ? true : false}
                             />
@@ -260,8 +263,8 @@ const RegisterSection: FunctionComponent = function () {
                                     setPasswordRepeat(event.target.value)
                                 }
                                 icon={{
-                                    iconPosition: 'left',
-                                    iconClass: 'fas fa-lock',
+                                    position: 'left',
+                                    icon: Lock,
                                 }}
                                 disabled={pending ? true : false}
                             />

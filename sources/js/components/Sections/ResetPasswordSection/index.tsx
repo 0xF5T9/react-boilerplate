@@ -15,6 +15,7 @@ import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
+import { Lock } from '../../Icons/Lock';
 import staticRender from '../../../render/static-render';
 import * as styles from './ResetPasswordSection.module.css';
 const staticTexts = staticRender.resetPasswordSection;
@@ -126,8 +127,8 @@ const ResetPasswordSection: FunctionComponent = function () {
                                     setPassword(event.target.value)
                                 }
                                 icon={{
-                                    iconPosition: 'left',
-                                    iconClass: 'fas fa-lock',
+                                    position: 'left',
+                                    icon: Lock,
                                 }}
                                 disabled={pending ? true : false}
                             />
@@ -150,8 +151,8 @@ const ResetPasswordSection: FunctionComponent = function () {
                                     setPasswordRepeat(event.target.value)
                                 }
                                 icon={{
-                                    iconPosition: 'left',
-                                    iconClass: 'fas fa-lock',
+                                    position: 'left',
+                                    icon: Lock,
                                 }}
                                 disabled={pending ? true : false}
                             />

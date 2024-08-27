@@ -4,12 +4,20 @@
     font-size: 1rem;
 }
 
-.input-wrapper > i {
+.input-wrapper .icon {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     font-size: 1em;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
     z-index: 1;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.icon:hover ~ .input {
+    border-color: var(--input-border-color-hover);
 }
 
 .input-wrapper::before {
@@ -89,7 +97,7 @@ input[type='number'].input::-webkit-inner-spin-button {
 
 /* Modifier classes */
 
-.input-wrapper.icon-left > i {
+.input-wrapper.icon-left .icon {
     right: initial;
     left: calc(
         var(--input-border-width) + var(--input-padding-left-right) +
@@ -106,7 +114,7 @@ input[type='number'].input::-webkit-inner-spin-button {
         );
 }
 
-.input-wrapper.icon-right > i {
+.input-wrapper.icon-right .icon {
     left: initial;
     right: calc(
         var(--input-border-width) + var(--input-padding-left-right) +
@@ -123,14 +131,14 @@ input[type='number'].input::-webkit-inner-spin-button {
         var(--input-padding-top-bottom) var(--input-padding-left-right);
 }
 
-.input-wrapper.icon-left > i,
-.input-wrapper.icon-right > i {
+.input-wrapper.icon-left .icon,
+.input-wrapper.icon-right .icon {
     color: var(--input-icon-color-default);
     transition: all 0.15s;
     will-change: color;
 }
-.input-wrapper.icon-left:focus-within > i,
-.input-wrapper.icon-right:focus-within > i {
+.input-wrapper.icon-left:focus-within .icon,
+.input-wrapper.icon-right:focus-within .icon {
     color: var(--input-icon-color-focus);
 }
 

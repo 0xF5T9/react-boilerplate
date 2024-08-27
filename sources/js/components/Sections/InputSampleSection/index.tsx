@@ -8,6 +8,11 @@ import { FunctionComponent } from 'react';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import { SectionTitle } from '../../Content/components/GridSection/components';
 import Input from '../../Input';
+import { Envelope } from '../../Icons/Envelope';
+import { Lock } from '../../Icons/Lock';
+import { MagnifyingGlass } from '../../Icons/MagnifyingGlass';
+import { AddressBook } from '../../Icons/AddressBook';
+import { CircleInfo } from '../../Icons/CircleInfo';
 
 /**
  * Input sample section.
@@ -40,43 +45,43 @@ const InputSampleSection: FunctionComponent = function () {
                     <Input
                         type="text"
                         placeholder="Primary"
-                        inputStyle={{ width: '250px' }}
+                        wrapperProps={{ style: { width: '250px' } }}
                     />{' '}
                     <Input
                         type="text"
                         color="red"
                         placeholder="Red"
-                        inputStyle={{ width: '250px' }}
+                        wrapperProps={{ style: { width: '250px' } }}
                     />{' '}
                     <Input
                         type="text"
                         color="orange"
                         placeholder="Orange"
-                        inputStyle={{ width: '250px' }}
+                        wrapperProps={{ style: { width: '250px' } }}
                     />{' '}
                     <Input
                         type="text"
                         color="yellow"
                         placeholder="Yellow"
-                        inputStyle={{ width: '250px' }}
+                        wrapperProps={{ style: { width: '250px' } }}
                     />{' '}
                     <Input
                         type="text"
                         color="green"
                         placeholder="Green"
-                        inputStyle={{ width: '250px' }}
+                        wrapperProps={{ style: { width: '250px' } }}
                     />{' '}
                     <Input
                         type="text"
                         color="blue"
                         placeholder="Blue"
-                        inputStyle={{ width: '250px' }}
+                        wrapperProps={{ style: { width: '250px' } }}
                     />{' '}
                     <Input
                         type="text"
                         color="purple"
                         placeholder="Purple"
-                        inputStyle={{ width: '250px' }}
+                        wrapperProps={{ style: { width: '250px' } }}
                     />{' '}
                 </div>
                 <SectionTitle style={{ marginTop: '28px' }}>
@@ -85,7 +90,7 @@ const InputSampleSection: FunctionComponent = function () {
                 <Input
                     type="text"
                     placeholder="This input is disabled"
-                    inputStyle={{ width: '250px' }}
+                    wrapperProps={{ style: { width: '250px' } }}
                     disabled
                 />{' '}
                 <SectionTitle style={{ marginTop: '28px' }}>
@@ -111,20 +116,20 @@ const InputSampleSection: FunctionComponent = function () {
                         <Input
                             type="email"
                             icon={{
-                                iconPosition: 'left',
-                                iconClass: 'fa-solid fa-envelope',
+                                position: 'left',
+                                icon: Envelope,
                             }}
                             placeholder="Email"
-                            inputStyle={{ width: '250px' }}
+                            wrapperProps={{ style: { width: '250px' } }}
                         />{' '}
                         <Input
                             type="password"
                             icon={{
-                                iconPosition: 'left',
-                                iconClass: 'fa-solid fa-lock',
+                                position: 'left',
+                                icon: Lock,
                             }}
                             placeholder="Password"
-                            inputStyle={{ width: '250px' }}
+                            wrapperProps={{ style: { width: '250px' } }}
                         />
                     </div>
                     <div
@@ -139,20 +144,20 @@ const InputSampleSection: FunctionComponent = function () {
                         <Input
                             type="text"
                             icon={{
-                                iconPosition: 'right',
-                                iconClass: 'fa-solid fa-search',
+                                position: 'right',
+                                icon: MagnifyingGlass,
                             }}
                             placeholder="Search"
-                            inputStyle={{ width: '250px' }}
+                            wrapperProps={{ style: { width: '250px' } }}
                         />{' '}
                         <Input
                             type="tel"
                             icon={{
-                                iconPosition: 'right',
-                                iconClass: 'fa-solid fa-address-book',
+                                position: 'right',
+                                icon: AddressBook,
                             }}
                             placeholder="Phone Number"
-                            inputStyle={{ width: '250px' }}
+                            wrapperProps={{ style: { width: '250px' } }}
                         />
                     </div>
                 </div>
@@ -170,52 +175,52 @@ const InputSampleSection: FunctionComponent = function () {
                     <div>
                         <Input
                             type="text"
-                            size="small"
+                            inputSize="small"
                             placeholder="Small"
-                            inputStyle={{ width: '100px' }}
+                            wrapperProps={{ style: { width: '100px' } }}
                         />{' '}
                         <Input
                             type="text"
                             placeholder="Default"
-                            inputStyle={{ width: '100px' }}
+                            wrapperProps={{ style: { width: '100px' } }}
                         />{' '}
                         <Input
                             type="text"
-                            size="large"
+                            inputSize="large"
                             placeholder="Large"
-                            inputStyle={{ width: '100px' }}
+                            wrapperProps={{ style: { width: '100px' } }}
                         />
                     </div>
                     <div>
                         {' '}
                         <Input
                             type="text"
-                            size="small"
+                            inputSize="small"
                             icon={{
-                                iconPosition: 'right',
-                                iconClass: 'fa-solid fa-info-circle',
+                                position: 'right',
+                                icon: CircleInfo,
                             }}
                             placeholder="Small"
-                            inputStyle={{ width: '100px' }}
+                            wrapperProps={{ style: { width: '100px' } }}
                         />{' '}
                         <Input
                             type="text"
                             icon={{
-                                iconPosition: 'right',
-                                iconClass: 'fa-solid fa-info-circle',
+                                position: 'right',
+                                icon: CircleInfo,
                             }}
                             placeholder="Default"
-                            inputStyle={{ width: '100px' }}
+                            wrapperProps={{ style: { width: '100px' } }}
                         />{' '}
                         <Input
                             type="text"
-                            size="large"
+                            inputSize="large"
                             icon={{
-                                iconPosition: 'right',
-                                iconClass: 'fa-solid fa-info-circle',
+                                position: 'right',
+                                icon: CircleInfo,
                             }}
                             placeholder="Large"
-                            inputStyle={{ width: '100px' }}
+                            wrapperProps={{ style: { width: '100px' } }}
                         />
                     </div>
                 </div>

@@ -15,6 +15,8 @@ import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
+import { User } from '../../Icons/User';
+import { Lock } from '../../Icons/Lock';
 import staticRender from '../../../render/static-render';
 import * as styles from './LoginSection.module.css';
 const staticTexts = staticRender.loginSection;
@@ -125,8 +127,8 @@ const LoginSection: FunctionComponent = function () {
                                     setUsername(event.target.value)
                                 }
                                 icon={{
-                                    iconPosition: 'left',
-                                    iconClass: 'fas fa-user',
+                                    position: 'left',
+                                    icon: User,
                                 }}
                                 disabled={pending ? true : false}
                                 autoCapitalize="off"
@@ -153,8 +155,8 @@ const LoginSection: FunctionComponent = function () {
                                     setPassword(event.target.value)
                                 }
                                 icon={{
-                                    iconPosition: 'left',
-                                    iconClass: 'fas fa-lock',
+                                    position: 'left',
+                                    icon: Lock,
                                 }}
                                 disabled={pending ? true : false}
                             />

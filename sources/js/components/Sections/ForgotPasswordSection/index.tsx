@@ -14,6 +14,7 @@ import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
+import { Envelope } from '../../Icons/Envelope';
 import staticRender from '../../../render/static-render';
 import * as styles from './ForgotPasswordSection.module.css';
 const staticTexts = staticRender.forgotPasswordSection;
@@ -100,8 +101,8 @@ const ForgotPasswordSection: FunctionComponent = function () {
                                     setEmail(event.target.value)
                                 }
                                 icon={{
-                                    iconPosition: 'left',
-                                    iconClass: 'fas fa-envelope',
+                                    position: 'left',
+                                    icon: Envelope,
                                 }}
                                 disabled={pending ? true : false}
                             />
