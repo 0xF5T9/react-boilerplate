@@ -20,7 +20,9 @@ import IconButton from './components/IconButton';
 import Button from '../Button';
 import { Sun } from '../Icons/Sun';
 import { Moon } from '../Icons/Moon';
+import staticRender from '../../render/static-render';
 import * as styles from './Header.module.css';
+const { headerLoginButtonText, headerRegisterButtonText } = staticRender;
 
 /**
  * Header.
@@ -67,10 +69,10 @@ const Header: FunctionComponent = function () {
                                 className={styles['login-link']}
                                 to={routes.login}
                             >
-                                Login
+                                {headerLoginButtonText}
                             </Link>
                             <Button onClick={() => navigate(routes.register)}>
-                                Register
+                                {headerRegisterButtonText}
                             </Button>
                         </>
                     )}

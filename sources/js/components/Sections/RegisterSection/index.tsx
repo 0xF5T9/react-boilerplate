@@ -1,25 +1,25 @@
 /**
  * @file index.tsx
  * @description Register section.
- * TEST: Test component, subject to changes.
  */
 
 'use strict';
+import { SessionData } from '../../../types/authentication';
 import { FunctionComponent, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
+
 import { useAuth } from '../../../hooks/useAuth';
 import { useModal } from '../../Modal';
-
 import routes from '../../../global/react-router/routes';
 import apis from '../../../apis';
-
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
 import Checkbox from '../../Checkbox';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
-
+import staticRender from '../../../render/static-render';
 import * as styles from './RegisterSection.module.css';
+const staticTexts = staticRender.registerSection;
 
 /**
  * Register section.
@@ -45,63 +45,31 @@ const RegisterSection: FunctionComponent = function () {
         event.preventDefault();
         setServerMessage(null);
         if (!email) {
-            document.getElementById('email-input').focus();
+            document?.getElementById('email-input')?.focus();
             return;
         }
         if (!username) {
-            document.getElementById('username-input').focus();
+            document?.getElementById('username-input')?.focus();
             return;
         }
         if (!password) {
-            document.getElementById('password-input').focus();
+            document?.getElementById('password-input')?.focus();
             return;
         }
         if (!passwordRepeat) {
-            document.getElementById('password-repeat-input').focus();
-            return;
-        }
-        if (!/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/.test(email)) {
-            setServerMessage({
-                message: 'The email address is invalid.',
-                type: 'error',
-            });
-            return;
-        }
-        if (!/^[a-zA-Z0-9]+$/.test(username)) {
-            setServerMessage({
-                message:
-                    'The username contains invalid character(s). [a-zA-Z0-9]',
-                type: 'error',
-            });
-            return;
-        }
-        if (username.length < 6 || username.length > 16) {
-            setServerMessage({
-                message:
-                    'The username must have a minimum length of 6 characters and a maximum of 16 characters.',
-                type: 'error',
-            });
-            return;
-        }
-        if (password.length < 8 || password.length > 32) {
-            setServerMessage({
-                message:
-                    'The password must have a minimum length of 8 characters and a maximum of 32 characters.',
-                type: 'error',
-            });
+            document?.getElementById('password-repeat-input')?.focus();
             return;
         }
         if (password !== passwordRepeat) {
             setServerMessage({
-                message: 'Password not match.',
+                message: staticTexts.passwordNotMatch,
                 type: 'error',
             });
             return;
         }
-
         if (!agreement) {
             setServerMessage({
-                message: 'You must agree to the Term of Service to register.',
+                message: staticTexts.consentRequirement,
                 type: 'error',
             });
             document?.getElementById('agreement-checkbox')?.focus();
@@ -117,7 +85,6 @@ const RegisterSection: FunctionComponent = function () {
             setServerMessage({ message: registerMessage, type: 'error' });
             setPassword('');
             setPasswordRepeat('');
-            setAgreement(false);
             setPending(false);
             return;
         }
@@ -132,7 +99,6 @@ const RegisterSection: FunctionComponent = function () {
             setServerMessage({ message: loginMessage, type: 'error' });
             setPassword('');
             setPasswordRepeat('');
-            setAgreement(false);
             setPending(false);
             return;
         }
@@ -142,7 +108,7 @@ const RegisterSection: FunctionComponent = function () {
             email: dataEmail,
             role: dataRole,
             token: dataToken,
-        } = data;
+        }: SessionData = data;
         setTimeout(
             async () =>
                 await login({
@@ -203,7 +169,7 @@ const RegisterSection: FunctionComponent = function () {
                     />
                 )}
                 <div className={styles['wrapper']}>
-                    <h5 className={styles['title']}>Register</h5>
+                    <h5 className={styles['title']}>{staticTexts.title}</h5>
 
                     <form className={styles['form']}>
                         <div className={styles['form-group']}>
@@ -211,13 +177,13 @@ const RegisterSection: FunctionComponent = function () {
                                 htmlFor="email-input"
                                 className={styles['label']}
                             >
-                                Email
+                                {staticTexts.emailLabel}
                             </label>
                             <Input
                                 type="email"
                                 id="email-input"
                                 value={email}
-                                placeholder="Email"
+                                placeholder={staticTexts.emailInputPlaceholder}
                                 onChange={(event) =>
                                     setEmail(event.target.value)
                                 }
@@ -233,12 +199,14 @@ const RegisterSection: FunctionComponent = function () {
                                 htmlFor="username-input"
                                 className={styles['label']}
                             >
-                                Username
+                                {staticTexts.usernameLabel}
                             </label>
                             <Input
                                 id="username-input"
                                 value={username}
-                                placeholder="Username"
+                                placeholder={
+                                    staticTexts.usernameInputPlaceholder
+                                }
                                 onChange={(event) =>
                                     setUsername(event.target.value)
                                 }
@@ -255,13 +223,15 @@ const RegisterSection: FunctionComponent = function () {
                                 htmlFor="password-input"
                                 className={styles['label']}
                             >
-                                Password
+                                {staticTexts.passwordLabel}
                             </label>
                             <Input
                                 id="password-input"
                                 value={password}
                                 type="password"
-                                placeholder="Password"
+                                placeholder={
+                                    staticTexts.passwordInputPlaceholder
+                                }
                                 onChange={(event) =>
                                     setPassword(event.target.value)
                                 }
@@ -277,13 +247,15 @@ const RegisterSection: FunctionComponent = function () {
                                 htmlFor="password-repeat-input"
                                 className={styles['label']}
                             >
-                                Confirm Password
+                                {staticTexts.passwordConfirmLabel}
                             </label>
                             <Input
                                 id="password-repeat-input"
                                 value={passwordRepeat}
                                 type="password"
-                                placeholder="Password"
+                                placeholder={
+                                    staticTexts.passwordConfirmInputPlaceholder
+                                }
                                 onChange={(event) =>
                                     setPasswordRepeat(event.target.value)
                                 }
@@ -301,7 +273,7 @@ const RegisterSection: FunctionComponent = function () {
                             <Checkbox
                                 labelHTML={
                                     <span>
-                                        I agree to the{' '}
+                                        {staticTexts.consentText}{' '}
                                         <span
                                             className={styles['link']}
                                             style={{
@@ -311,13 +283,15 @@ const RegisterSection: FunctionComponent = function () {
                                                 event.preventDefault();
                                                 setModal({
                                                     type: 'alert',
-                                                    title: 'Term of Services',
+                                                    title: staticTexts.termOfService,
                                                     message:
-                                                        'No term of services available.',
+                                                        staticTexts.termOfServiceModalText,
+                                                    closeButtonText:
+                                                        staticTexts.termOfServiceModalButton,
                                                 });
                                             }}
                                         >
-                                            Terms of Service
+                                            {staticTexts.termOfService}
                                         </span>
                                         .
                                     </span>
@@ -336,7 +310,7 @@ const RegisterSection: FunctionComponent = function () {
                             disabled={pending ? true : false}
                             loading={pending}
                         >
-                            Register
+                            {staticTexts.registerButton}
                         </Button>
                         <div className={styles['bottom-links']}>
                             <Link
@@ -346,7 +320,8 @@ const RegisterSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                <i className="fa-solid fa-arrow-left"></i> Back
+                                <i className="fa-solid fa-arrow-left"></i>{' '}
+                                {staticTexts.backLink}
                             </Link>
                             <Link
                                 className={styles['link']}
@@ -355,7 +330,7 @@ const RegisterSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                Login
+                                {staticTexts.loginLink}
                             </Link>
                         </div>{' '}
                     </form>

@@ -6,17 +6,17 @@
 'use strict';
 import { FunctionComponent, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { useAuth } from '../../../hooks/useAuth';
 
+import { useAuth } from '../../../hooks/useAuth';
 import routes from '../../../global/react-router/routes';
 import apis from '../../../apis';
-
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
-
+import staticRender from '../../../render/static-render';
 import * as styles from './ForgotPasswordSection.module.css';
+const staticTexts = staticRender.forgotPasswordSection;
 
 /**
  * Forgot password section.
@@ -81,7 +81,7 @@ const ForgotPasswordSection: FunctionComponent = function () {
                     />
                 )}
                 <div className={styles['wrapper']}>
-                    <h5 className={styles['title']}>Forgot Password</h5>
+                    <h5 className={styles['title']}>{staticTexts.title}</h5>
 
                     <form className={styles['form']}>
                         <div className={styles['form-group']}>
@@ -89,13 +89,13 @@ const ForgotPasswordSection: FunctionComponent = function () {
                                 htmlFor="email-input"
                                 className={styles['label']}
                             >
-                                Email
+                                {staticTexts.emailLabel}
                             </label>
                             <Input
                                 id="email-input"
                                 type="email"
                                 value={email}
-                                placeholder="Enter your email address"
+                                placeholder={staticTexts.emailInputPlaceholder}
                                 onChange={(event) =>
                                     setEmail(event.target.value)
                                 }
@@ -112,7 +112,7 @@ const ForgotPasswordSection: FunctionComponent = function () {
                             disabled={pending ? true : false}
                             loading={pending}
                         >
-                            Reset password
+                            {staticTexts.resetPasswordButton}
                         </Button>
                         <div className={styles['bottom-links']}>
                             <Link
@@ -122,7 +122,8 @@ const ForgotPasswordSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                <i className="fa-solid fa-arrow-left"></i> Back
+                                <i className="fa-solid fa-arrow-left"></i>{' '}
+                                {staticTexts.backLink}
                             </Link>
                             <Link
                                 className={styles['link']}
@@ -131,7 +132,7 @@ const ForgotPasswordSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                Login
+                                {staticTexts.loginLink}
                             </Link>
                         </div>{' '}
                     </form>

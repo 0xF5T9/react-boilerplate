@@ -1,23 +1,23 @@
 /**
  * @file index.tsx
  * @description Login section.
- * TEST: Test component, subject to changes.
  */
 
 'use strict';
+import { SessionData } from '../../../types/authentication';
 import { FunctionComponent, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { useAuth } from '../../../hooks/useAuth';
 
+import { useAuth } from '../../../hooks/useAuth';
 import routes from '../../../global/react-router/routes';
 import apis from '../../../apis';
-
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
-
+import staticRender from '../../../render/static-render';
 import * as styles from './LoginSection.module.css';
+const staticTexts = staticRender.loginSection;
 
 /**
  * Login section.
@@ -67,8 +67,11 @@ const LoginSection: FunctionComponent = function () {
             email: dataEmail,
             role: dataRole,
             token: dataToken,
-        }: any = data;
-        setServerMessage({ message: 'Redirecting...', type: 'success' });
+        }: SessionData = data;
+        setServerMessage({
+            message: staticTexts.loginSuccessful,
+            type: 'success',
+        });
         setTimeout(
             async () =>
                 await login({
@@ -102,7 +105,7 @@ const LoginSection: FunctionComponent = function () {
                     />
                 )}
                 <div className={styles['wrapper']}>
-                    <h5 className={styles['title']}>Login</h5>
+                    <h5 className={styles['title']}>{staticTexts.title}</h5>
 
                     <form className={styles['form']}>
                         <div className={styles['form-group']}>
@@ -110,12 +113,14 @@ const LoginSection: FunctionComponent = function () {
                                 htmlFor="username-input"
                                 className={styles['label']}
                             >
-                                Username
+                                {staticTexts.usernameLabel}
                             </label>
                             <Input
                                 id="username-input"
                                 value={username}
-                                placeholder="Username"
+                                placeholder={
+                                    staticTexts.usernameInputPlaceholder
+                                }
                                 onChange={(event) =>
                                     setUsername(event.target.value)
                                 }
@@ -135,13 +140,15 @@ const LoginSection: FunctionComponent = function () {
                                 htmlFor="password-input"
                                 className={styles['label']}
                             >
-                                Password
+                                {staticTexts.passwordLabel}
                             </label>
                             <Input
                                 id="password-input"
                                 value={password}
                                 type="password"
-                                placeholder="Password"
+                                placeholder={
+                                    staticTexts.passwordInputPlaceholder
+                                }
                                 onChange={(event) =>
                                     setPassword(event.target.value)
                                 }
@@ -165,7 +172,7 @@ const LoginSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                Forgot password?
+                                {staticTexts.forgotPassword}
                             </Link>
                         </div>
 
@@ -175,7 +182,7 @@ const LoginSection: FunctionComponent = function () {
                             disabled={pending ? true : false}
                             loading={pending}
                         >
-                            Login
+                            {staticTexts.loginButton}
                         </Button>
 
                         <div className={styles['bottom-links']}>
@@ -186,7 +193,8 @@ const LoginSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                <i className="fa-solid fa-arrow-left"></i> Back
+                                <i className="fa-solid fa-arrow-left"></i>{' '}
+                                {staticTexts.backLink}
                             </Link>
                             <Link
                                 className={styles['link']}
@@ -195,7 +203,7 @@ const LoginSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                Register
+                                {staticTexts.registerLink}
                             </Link>
                         </div>
                     </form>

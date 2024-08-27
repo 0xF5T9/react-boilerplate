@@ -6,18 +6,18 @@
 'use strict';
 import { FunctionComponent, useState } from 'react';
 import { Navigate, useSearchParams, useNavigate } from 'react-router-dom';
+
 import { useAuth } from '../../../hooks/useAuth';
 import { useModal } from '../../Modal';
-
 import routes from '../../../global/react-router/routes';
 import apis from '../../../apis';
-
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Input from '../../Input';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
-
+import staticRender from '../../../render/static-render';
 import * as styles from './ResetPasswordSection.module.css';
+const staticTexts = staticRender.resetPasswordSection;
 
 /**
  * Reset password section.
@@ -50,17 +50,9 @@ const ResetPasswordSection: FunctionComponent = function () {
             document.getElementById('password-repeat-input').focus();
             return;
         }
-        if (password.length < 8 || password.length > 32) {
-            setServerMessage({
-                message:
-                    'The password must have a minimum length of 8 characters and a maximum of 32 characters.',
-                type: 'error',
-            });
-            return;
-        }
         if (password !== passwordRepeat) {
             setServerMessage({
-                message: 'Password not match.',
+                message: staticTexts.passwordNotMatch,
                 type: 'error',
             });
             return;
@@ -113,7 +105,7 @@ const ResetPasswordSection: FunctionComponent = function () {
                     />
                 )}
                 <div className={styles['wrapper']}>
-                    <h5 className={styles['title']}>Reset Password</h5>
+                    <h5 className={styles['title']}>{staticTexts.title}</h5>
 
                     <form className={styles['form']}>
                         <div className={styles['form-group']}>
@@ -121,13 +113,15 @@ const ResetPasswordSection: FunctionComponent = function () {
                                 htmlFor="password-input"
                                 className={styles['label']}
                             >
-                                Password
+                                {staticTexts.passwordLabel}
                             </label>
                             <Input
                                 id="password-input"
                                 value={password}
                                 type="password"
-                                placeholder="Enter new password"
+                                placeholder={
+                                    staticTexts.passwordInputPlaceholder
+                                }
                                 onChange={(event) =>
                                     setPassword(event.target.value)
                                 }
@@ -143,13 +137,15 @@ const ResetPasswordSection: FunctionComponent = function () {
                                 htmlFor="password-repeat-input"
                                 className={styles['label']}
                             >
-                                Confirm Password
+                                {staticTexts.passwordConfirmLabel}
                             </label>
                             <Input
                                 id="password-repeat-input"
                                 value={passwordRepeat}
                                 type="password"
-                                placeholder="Password"
+                                placeholder={
+                                    staticTexts.passwordConfirmInputPlaceholder
+                                }
                                 onChange={(event) =>
                                     setPasswordRepeat(event.target.value)
                                 }
@@ -166,7 +162,7 @@ const ResetPasswordSection: FunctionComponent = function () {
                             disabled={pending ? true : false}
                             loading={pending}
                         >
-                            Confirm
+                            {staticTexts.resetPasswordButton}
                         </Button>
                     </form>
                 </div>

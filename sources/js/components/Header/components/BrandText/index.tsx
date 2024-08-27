@@ -9,7 +9,9 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import routes from '../../../../global/react-router/routes';
+import staticRender from '../../../../render/static-render';
 import * as styles from './BrandText.module.css';
+const { brandText } = staticRender;
 
 /**
  * Header brand text.
@@ -27,7 +29,7 @@ const BrandText: FunctionComponent<
     return (
         <Link {...props} className={classes} to={routes.home} tabIndex={-1}>
             <div className={styles['text-wrapper']}>
-                <span className={styles['text']}>React Project</span>
+                <span className={styles['text']}>{brandText}</span>
             </div>
         </Link>
     );

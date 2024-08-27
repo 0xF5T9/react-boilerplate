@@ -5,10 +5,12 @@
 
 'use strict';
 import { FunctionComponent, useLayoutEffect, useRef } from 'react';
+
 import { Github } from '../Icons/Github';
 import { Discord } from '../Icons/Discord';
-
+import staticRender from '../../render/static-render';
 import * as styles from './Footer.module.css';
+const { footerCopyRightText } = staticRender;
 
 /**
  * Footer component.
@@ -69,7 +71,7 @@ const Footer: FunctionComponent = function () {
 
                 <div className={styles['bottom-section']}>
                     <span className={styles['copyright']}>
-                        © Copyright 2024 0xF5T9. All right Reserved.
+                        {footerCopyRightText}
                     </span>
                     <div className={styles['social-links']}>
                         <a
