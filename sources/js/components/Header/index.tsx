@@ -31,7 +31,7 @@ const { headerLoginButtonText, headerRegisterButtonText } = staticRender;
 const Header: FunctionComponent = function () {
     const { theme, setTheme } = useContext(globalContext),
         navigate = useNavigate(),
-        { sessionData, logout } = useAuth();
+        { sessionData } = useAuth();
 
     return (
         <header className={styles['header']}>
