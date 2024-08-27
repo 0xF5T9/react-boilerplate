@@ -7,6 +7,7 @@
 import { FunctionComponent } from 'react';
 import { FlexibleSection } from '../../Content/components/GridSection';
 import { BarsLoading } from '../../Icons/BarsLoading';
+import staticRender from '../../../render/static-render';
 
 /**
  * Index section.
@@ -34,7 +35,7 @@ const IndexSection: FunctionComponent = function () {
                     }}
                 />
                 <h5 style={{ marginTop: '28px', opacity: '0.6' }}>
-                    Server Under Maintenance
+                    {staticRender.maintenanceText}
                 </h5>
             </FlexibleSection>
         </>

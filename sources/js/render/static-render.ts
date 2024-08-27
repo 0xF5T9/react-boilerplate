@@ -12,6 +12,8 @@ const staticRender = {
     headerLoginButtonText: 'Login',
     headerRegisterButtonText: 'Register',
     footerCopyRightText: '© Copyright 2024 0xF5T9. All right Reserved.',
+    maintenanceText: 'Server Under Maintenance',
+    backToHomePage404: 'Back To Homepage',
     loginSection: {
         title: 'Login',
         usernameLabel: 'Username',

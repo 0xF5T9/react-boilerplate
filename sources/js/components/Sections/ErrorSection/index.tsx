@@ -8,9 +8,9 @@ import { FunctionComponent } from 'react';
 import { Link, useRouteError } from 'react-router-dom';
 
 import routes from '../../../global/react-router/routes';
-
 import { FlexibleSection } from '../../Content/components/GridSection';
 import Button from '../../Button';
+import staticRender from '../../../render/static-render';
 import * as styles from './ErrorSection.module.css';
 
 /**
@@ -57,8 +57,8 @@ const ErrorSection: FunctionComponent = function () {
                 <div className={styles['homepage-link']}>
                     <Button>
                         <Link to={routes.home}>
-                            <i className="fa-solid fa-arrow-left"></i> Back To
-                            Homepage
+                            <i className="fa-solid fa-arrow-left"></i>{' '}
+                            {staticRender.backToHomePage404}
                         </Link>{' '}
                     </Button>
                 </div>
