@@ -1,24 +1,33 @@
 /**
  * @file index.tsx
- * @description Header brand text component.
- * @note This is a sub-component of the <Header /> component.
+ * @description Header brand text.
  */
+
+'use strict';
 import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
 import routes from '../../../../global/react-router/routes';
-
 import * as styles from './BrandText.module.css';
 
 /**
- * Header brand text component.
+ * Header brand text.
+ * @param props Component properties.
  * @returns Returns the component.
  */
-const BrandText: FunctionComponent = function () {
+const BrandText: FunctionComponent<
+    React.DetailedHTMLProps<
+        React.AnchorHTMLAttributes<HTMLAnchorElement>,
+        HTMLAnchorElement
+    >
+> = function ({ className, ...props }) {
+    const classes = classNames(styles['link'], className);
+
     return (
-        <Link className={styles['link']} to={routes.home} tabIndex={-1}>
+        <Link {...props} className={classes} to={routes.home} tabIndex={-1}>
             <div className={styles['text-wrapper']}>
-                <h1 className={styles['text']}>React Project</h1>
+                <span className={styles['text']}>React Project</span>
             </div>
         </Link>
     );

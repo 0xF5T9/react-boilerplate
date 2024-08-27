@@ -1,7 +1,6 @@
 /**
  * @file index.tsx
- * @description Header navigation bar component. (Desktop | 1024px+)
- * @note This is a sub-component of the <Header /> component>
+ * @description Header navigation bar.
  */
 
 'use strict';
@@ -15,8 +14,9 @@ import {
     createContext,
 } from 'react';
 import { NavLink, useNavigation } from 'react-router-dom';
-import { useAuth } from '../../../../hooks/useAuth';
+import classNames from 'classnames';
 
+import { useAuth } from '../../../../hooks/useAuth';
 import { CircleLoading } from '../../../Icons/CircleLoading';
 import navbarItems from '../../../../render/navbar-items';
 
@@ -86,20 +86,24 @@ const NavbarItem: FunctionComponent<{
     href?: string;
     target?: string;
     icon?: FunctionComponent<any>;
-    onClick?: (...args: any[]) => any;
+    onClick?: React.DetailedHTMLProps<
+        React.AnchorHTMLAttributes<HTMLAnchorElement>,
+        HTMLAnchorElement
+    >['onClick'];
     children?: ReactNode;
 }> = function ({ text, to, href, target, icon, onClick, children }) {
-    const { navbarSublistVisibility, setNavbarSublistVisibility } =
-            useContext(NavbarItemContext),
-        navigation = useNavigation();
+    const navigation = useNavigation(),
+        { navbarSublistVisibility, setNavbarSublistVisibility } =
+            useContext(NavbarItemContext);
 
     const LinkComponent: ElementType = to ? NavLink : ('a' as ElementType),
         Icon = icon;
 
     return (
         <li
-            className={`${styles['navbar-item']}
-                        ${navbarSublistVisibility ? styles['is-open'] : ''}`}
+            className={classNames(styles['navbar-item'], {
+                [styles['is-open']]: navbarSublistVisibility,
+            })}
             onMouseEnter={() => setNavbarSublistVisibility(true)}
             onMouseOver={() => {
                 if (navbarSublistVisibility) setNavbarSublistVisibility(true);
@@ -111,10 +115,16 @@ const NavbarItem: FunctionComponent<{
                     to
                         ? ({ isActive, isPending }: any) => {
                               return isPending
-                                  ? `${styles['navbar-item-link']} ${styles['is-pending']}`
+                                  ? classNames(
+                                        styles['navbar-item-link'],
+                                        styles['is-pending']
+                                    )
                                   : isActive
-                                    ? `${styles['navbar-item-link']} ${styles['is-active']}`
-                                    : `${styles['navbar-item-link']}`;
+                                    ? classNames(
+                                          styles['navbar-item-link'],
+                                          styles['is-active']
+                                      )
+                                    : styles['navbar-item-link'];
                           }
                         : `${styles['navbar-item-link']}`
                 }
@@ -178,7 +188,7 @@ const NavbarSublist: FunctionComponent<{
 
     return (
         <ul
-            className={`${styles['navbar-sublist']} ${listLayout}`}
+            className={classNames(styles['navbar-sublist'], listLayout)}
             onMouseEnter={() => setNavbarSublistVisibility(true)}
             onMouseLeave={() => setNavbarSublistVisibility(false)}
         >
@@ -215,7 +225,10 @@ const NavbarSubitem: FunctionComponent<{
     href?: string;
     target?: string;
     hideOnClick?: boolean;
-    onClick?: any;
+    onClick?: React.DetailedHTMLProps<
+        React.AnchorHTMLAttributes<HTMLAnchorElement>,
+        HTMLAnchorElement
+    >['onClick'];
 }> = function ({
     title,
     desc,
@@ -227,8 +240,8 @@ const NavbarSubitem: FunctionComponent<{
     hideOnClick = false,
     onClick,
 }) {
-    const { setNavbarSublistVisibility } = useContext(NavbarItemContext),
-        navigation = useNavigation();
+    const navigation = useNavigation(),
+        { setNavbarSublistVisibility } = useContext(NavbarItemContext);
 
     const LinkComponent: ElementType = to ? NavLink : ('a' as ElementType),
         Icon = icon;
@@ -240,12 +253,18 @@ const NavbarSubitem: FunctionComponent<{
                     to
                         ? ({ isActive, isPending }: any) => {
                               return isPending
-                                  ? `${styles['navbar-subitem-link']} ${styles['is-pending']}`
+                                  ? classNames(
+                                        styles['navbar-subitem-link'],
+                                        styles['is-pending']
+                                    )
                                   : isActive
-                                    ? `${styles['navbar-subitem-link']} ${styles['is-active']}`
-                                    : `${styles['navbar-subitem-link']}`;
+                                    ? classNames(
+                                          styles['navbar-subitem-link'],
+                                          styles['is-active']
+                                      )
+                                    : styles['navbar-subitem-link'];
                           }
-                        : `${styles['navbar-subitem-link']}`
+                        : styles['navbar-subitem-link']
                 }
                 to={to}
                 href={href}

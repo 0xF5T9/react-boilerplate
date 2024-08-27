@@ -1,6 +1,6 @@
 /**
  * @file index.tsx
- * @description Header alert icon button, with popup window.
+ * @description Header alert button with popup.
  */
 
 'use strict';
@@ -13,7 +13,7 @@ import { BellOutline } from '../../../Icons/BellOutline';
 import * as styles from './AlertIcon.module.css';
 
 /**
- * Header alert icon button, with popup window.
+ * Header Header alert button with popup.
  * @returns Returns the component.
  */
 const AlertIcon: FunctionComponent = function () {
@@ -28,31 +28,30 @@ const AlertIcon: FunctionComponent = function () {
     }
 
     return (
-        <div>
-            <PopupWindow
-                interactive
-                visible={showPopup}
-                offset={[0, 0]}
-                placement="bottom-end"
-                onClickOutside={handleBackgroundClick}
-                customAnimation={{
-                    classIn: styles['animation-in'],
-                    classOut: styles['animation-out'],
-                    outAnimationName: styles['popup-out'],
-                }}
-                render={() => (
-                    <PopupRender
-                        className={styles['alert-popup']}
-                    ></PopupRender>
-                )}
-            >
-                <IconButton
-                    icon={showPopup ? Bell : BellOutline}
-                    isOpen={showPopup}
-                    onClick={handleClick}
-                />
-            </PopupWindow>
-        </div>
+        <PopupWindow
+            appendTo={document.body}
+            interactive
+            visible={showPopup}
+            offset={[0, 0]}
+            placement="bottom-end"
+            onClickOutside={handleBackgroundClick}
+            customAnimation={{
+                classIn: styles['animation-in'],
+                classOut: styles['animation-out'],
+                outAnimationName: styles['popup-out'],
+            }}
+            render={() => (
+                <PopupRender className={styles['alert-popup']}>
+                    No alerts.
+                </PopupRender>
+            )}
+        >
+            <IconButton
+                icon={showPopup ? Bell : BellOutline}
+                isOpen={showPopup}
+                onClick={handleClick}
+            />
+        </PopupWindow>
     );
 };
 

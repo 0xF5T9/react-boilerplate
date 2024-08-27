@@ -1,27 +1,33 @@
-.header-icon-button {
+.button {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(var(--header-height) * 0.83333);
+    flex-shrink: 0;
     height: var(--header-height);
-    font-size: calc(var(--header-height) * 0.45);
 }
 
-.header-icon-button:hover > .header-icon-button-icon {
+.button:hover > .link {
     color: var(--header-icon-button-icon-color-hover);
     background-color: var(--header-icon-button-background-color-hover);
 }
 
-.header-icon-button > .header-icon-button-icon {
+.button + .button {
+    margin-left: 12px;
+}
+
+.button.is-popup-open > .link {
+    color: var(--header-icon-button-icon-color-open);
+    background-color: var(--header-icon-button-background-color-hover);
+}
+
+.link {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
-    height: 70%;
-    border-radius: 4px;
-    width: calc(var(--header-height) * 0.675);
-    height: calc(var(--header-height) * 0.675);
+    flex-shrink: 0;
+    width: 36.92px;
+    height: 36.92px;
     border-radius: 4px;
     color: var(--header-icon-button-icon-color-default);
     background-color: var(--header-icon-button-background-color-default);
@@ -30,17 +36,17 @@
     transition: all 0.15s;
     -webkit-tap-highlight-color: transparent;
 }
-.header-icon-button > .header-icon-button-icon:active {
+
+.link:active {
     color: var(--header-icon-button-icon-color-active);
     background-color: var(--header-icon-button-background-color-hover);
     opacity: 0.7;
 }
 
-.header-icon-button > .header-icon-button-icon:focus {
+.link:focus {
     outline: 0;
 }
 
-.header-icon-button.is-popup-open > .header-icon-button-icon {
-    color: var(--header-icon-button-icon-color-open);
-    background-color: var(--header-icon-button-background-color-hover);
+.icon {
+    height: 70%;
 }

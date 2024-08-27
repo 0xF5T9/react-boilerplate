@@ -1,46 +1,38 @@
 /**
  * @file index.tsx
- * @description Header brand logo component.
- * @note This is a sub-component of the <Header /> component.
+ * @description Header brand logo.
  */
 
 'use strict';
 import { FunctionComponent } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Link, LinkProps } from 'react-router-dom';
+import classNames from 'classnames';
 
 import routes from '../../../../global/react-router/routes';
-
 import * as styles from './BrandLogo.module.css';
 
 /**
- * Header brand logo component.
+ * Header brand logo.
  * @param props Component properties.
- * @param props.id Element id.
- * @param props.className Element addtional class names.
  * @returns Returns the component.
  */
-const BrandLogo: FunctionComponent<{ id?: string; className?: string }> =
-    function ({ id, className }) {
-        return (
-            <Link
-                id={id}
-                className={`${styles['link']} ${className || ''}`}
-                to={routes.home}
-                tabIndex={-1}
-            >
-                <img
-                    className={styles['logo']}
-                    src="/assets/static/img/brand-logo.png"
-                    alt="Brand Logo"
-                />
-            </Link>
-        );
-    };
+const BrandLogo: FunctionComponent<
+    React.DetailedHTMLProps<
+        React.AnchorHTMLAttributes<HTMLAnchorElement>,
+        HTMLAnchorElement
+    >
+> = function ({ className, ...props }) {
+    const classes = classNames(styles['link'], className);
 
-BrandLogo.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
+    return (
+        <Link {...props} className={classes} to={routes.home} tabIndex={-1}>
+            <img
+                className={styles['logo']}
+                src="/assets/static/img/brand-logo.png"
+                alt="Brand Logo"
+            />
+        </Link>
+    );
 };
 
 export default BrandLogo;

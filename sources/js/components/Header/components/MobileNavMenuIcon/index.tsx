@@ -15,9 +15,10 @@ import {
     createContext,
 } from 'react';
 import { NavLink, useNavigation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../../../hooks/useAuth';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
+import { useAuth } from '../../../../hooks/useAuth';
 import { globalContext } from '../../../Context/Global';
 import IconButton from '../IconButton';
 import PopupWindow, { PopupRender } from '../../../PopupWindow';
@@ -71,13 +72,15 @@ const NavSection: FunctionComponent<{
     to?: string;
     children?: ReactNode;
 }> = function ({ title, to, children }) {
-    const { closeButtonRef } = useContext(MobileNavMenuContext),
-        navigate = useNavigate();
+    const navigate = useNavigate(),
+        { closeButtonRef } = useContext(MobileNavMenuContext);
 
     return (
         <div className={styles['nav-section']}>
             <span
-                className={`${styles['nav-section-title']} ${to ? styles['link'] : ''}`}
+                className={classNames(styles['nav-section-title'], {
+                    [styles['link']]: to,
+                })}
                 onClick={
                     to &&
                     (() => {
@@ -123,7 +126,10 @@ const NavItem: FunctionComponent<{
     href?: string;
     target?: string;
     hideOnClick?: boolean;
-    onClick?: (...args: any[]) => any;
+    onClick?: React.DetailedHTMLProps<
+        React.AnchorHTMLAttributes<HTMLAnchorElement>,
+        HTMLAnchorElement
+    >['onClick'];
 }> = function ({
     text,
     desc,
@@ -135,8 +141,8 @@ const NavItem: FunctionComponent<{
     hideOnClick = true,
     onClick,
 }) {
-    const { closeButtonRef } = useContext(MobileNavMenuContext),
-        navigation = useNavigation();
+    const navigation = useNavigation(),
+        { closeButtonRef } = useContext(MobileNavMenuContext);
 
     const LinkComponent: ElementType = to ? NavLink : ('a' as ElementType),
         Icon: FunctionComponent = icon;
@@ -203,9 +209,12 @@ NavItem.propTypes = {
  * @param props.onClick On-click callback that close the mobile navbar.
  * @returns Returns the component.
  */
-const NavCloseButton: FunctionComponent<{ onClick?: any }> = function ({
-    onClick,
-}) {
+const NavCloseButton: FunctionComponent<{
+    onClick?: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    >['onClick'];
+}> = function ({ onClick }) {
     const { setCloseButtonRef } = useContext(MobileNavMenuContext),
         closeButton = useRef();
 

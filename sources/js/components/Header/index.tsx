@@ -1,15 +1,14 @@
 /**
  * @file index.tsx
- * @description Header component.
+ * @description Header.
  */
 
 'use strict';
 import { FunctionComponent, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
 import { useAuth } from '../../hooks/useAuth';
-
 import routes from '../../global/react-router/routes';
-
 import { globalContext } from '../Context/Global';
 import BrandLogo from './components/BrandLogo';
 import BrandText from './components/BrandText';
@@ -21,54 +20,45 @@ import IconButton from './components/IconButton';
 import Button from '../Button';
 import { Sun } from '../Icons/Sun';
 import { Moon } from '../Icons/Moon';
-
 import * as styles from './Header.module.css';
-const $ = document.querySelector.bind(document);
 
 /**
- * Header component.
+ * Header.
  * @returns Returns the component.
  */
 const Header: FunctionComponent = function () {
     const { theme, setTheme } = useContext(globalContext),
-        { sessionData, logout } = useAuth(),
-        navigate = useNavigate();
+        navigate = useNavigate(),
+        { sessionData, logout } = useAuth();
 
     return (
         <header className={styles['header']}>
             <div className={styles['header-content']}>
-                {/* Left content box */}
                 <div className={styles['left-content']}>
-                    {/* Mobile navigation menu */}
                     <MobileNavMenuIcon />
-
-                    {/* Brand logo and brand text */}
                     <BrandLogo />
                     <BrandText />
                 </div>
 
-                {/* Middle content box */}
                 <div className={styles['middle-content']}>
                     <Navbar />
                 </div>
 
-                {/* Right content box */}
                 <div className={styles['right-content']}>
+                    <IconButton
+                        icon={theme === 'dark' ? Sun : Moon}
+                        onClick={() =>
+                            setTheme(theme === 'dark' ? 'light' : 'dark')
+                        }
+                        style={{
+                            marginRight: sessionData ? undefined : '20px',
+                        }}
+                    />
+
                     {sessionData ? (
                         <>
-                            <IconButton
-                                icon={theme === 'dark' ? Sun : Moon}
-                                onClick={() =>
-                                    setTheme(
-                                        theme === 'dark' ? 'light' : 'dark'
-                                    )
-                                }
-                            />
-
-                            {/* Alert icon */}
                             <AlertIcon />
 
-                            {/* User icon */}
                             <UserIcon
                                 menus={[
                                     {
@@ -109,25 +99,13 @@ const Header: FunctionComponent = function () {
                         </>
                     ) : (
                         <>
-                            <IconButton
-                                style={{ marginRight: '10px' }}
-                                icon={theme === 'dark' ? Sun : Moon}
-                                onClick={() =>
-                                    setTheme(
-                                        theme === 'dark' ? 'light' : 'dark'
-                                    )
-                                }
-                            />
                             <Link
                                 className={styles['login-link']}
                                 to={routes.login}
                             >
                                 Login
-                            </Link>{' '}
-                            <Button
-                                style={{ marginRight: '10px' }}
-                                onClick={() => navigate(routes.register)}
-                            >
+                            </Link>
+                            <Button onClick={() => navigate(routes.register)}>
                                 Register
                             </Button>
                         </>
