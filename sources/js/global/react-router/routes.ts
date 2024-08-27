@@ -24,6 +24,6 @@ const routes = {
         modal: '/samples/modal',
         typography: '/samples/typography',
     },
-};
+} as const;
 
 export default routes;
