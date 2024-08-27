@@ -14,6 +14,7 @@ export type ContextMenuItem = {
         HTMLLIElement
     >['onClick'];
     hideOnClick?: boolean;
+    action?: 'logout';
     gotoMenu?: string;
 };
 

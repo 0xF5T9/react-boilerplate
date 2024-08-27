@@ -4,12 +4,13 @@
  */
 
 'use strict';
-import { ContextMenu } from '../../types/context-menu';
+import { ContextMenu, ContextMenuItem } from '../../types/context-menu';
 import { FunctionComponent, useState, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { TippyProps } from '@tippyjs/react';
 import PropTypes, { oneOf } from 'prop-types';
 
+import { useAuth } from '../../hooks/useAuth';
 import PopupWindow, { PopupRender } from '../PopupWindow';
 import * as styles from './ContextMenu.module.css';
 
@@ -21,6 +22,7 @@ import * as styles from './ContextMenu.module.css';
  * @param props.to React router link.
  * @param props.onClick On-click callback function.
  * @param props.hideOnClick Specifies whether to hide the context menu on item click.
+ * @param props.action Item action. If specified, 'to' and 'onClick' props are ignored.
  * @param props.setVisible Visible state setter.
  * @returns Returns the component.
  */
@@ -33,9 +35,19 @@ const ListItem: FunctionComponent<{
         HTMLLIElement
     >['onClick'];
     hideOnClick?: boolean;
+    action?: ContextMenuItem['action'];
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
-}> = function ({ text, icon, to, onClick, hideOnClick = false, setVisible }) {
-    const navigate = useNavigate();
+}> = function ({
+    text,
+    icon,
+    to,
+    onClick,
+    hideOnClick = false,
+    action,
+    setVisible,
+}) {
+    const navigate = useNavigate(),
+        { logout } = useAuth();
 
     const Icon = icon;
 
@@ -44,6 +56,13 @@ const ListItem: FunctionComponent<{
             className={styles['list-item']}
             onClick={(event) => {
                 if (hideOnClick) setVisible(false);
+
+                // Only have 1 action for now.
+                if (action === 'logout') {
+                    logout();
+                    return;
+                }
+
                 if (onClick) onClick(event);
                 if (to) navigate(to);
             }}
@@ -67,6 +86,7 @@ ListItem.propTypes = {
     to: PropTypes.string,
     onClick: PropTypes.func,
     hideOnClick: PropTypes.bool,
+    action: PropTypes.any,
     setVisible: PropTypes.func,
 };
 
@@ -188,6 +208,7 @@ const ContextMenu: FunctionComponent<{
                                             : item.onClick
                                     }
                                     hideOnClick={item.hideOnClick}
+                                    action={item.action}
                                     setVisible={setVisible}
                                 />
                             );
