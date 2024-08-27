@@ -37,7 +37,7 @@ PopupRender.propTypes = {
 };
 
 /**
- * Popup window.
+ * Popup window. (Tippy wrapper)
  * @param props Component properties.
  * @param props.content Popup content.
  * @param props.customAnimation Animation object.
