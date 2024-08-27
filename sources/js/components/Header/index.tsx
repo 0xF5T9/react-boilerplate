@@ -59,43 +59,7 @@ const Header: FunctionComponent = function () {
                         <>
                             <AlertIcon />
 
-                            <UserIcon
-                                menus={[
-                                    {
-                                        id: 'default',
-                                        menu: [
-                                            {
-                                                text: 'Profile',
-                                                icon: 'fas fa-user',
-                                                to: routes.profile,
-                                            },
-                                            {
-                                                text: 'Settings',
-                                                icon: 'fas fa-gear',
-                                                gotoMenu: 'settings',
-                                            },
-                                            {
-                                                text: 'Logout',
-                                                icon: 'fas fa-right-from-bracket',
-                                                onClick: () => logout(),
-                                            },
-                                        ],
-                                    },
-                                    {
-                                        id: 'settings',
-                                        menu: [
-                                            {
-                                                text: 'No option availables.',
-                                            },
-                                            {
-                                                text: 'Back',
-                                                icon: 'fas fa-arrow-left',
-                                                gotoMenu: 'default',
-                                            },
-                                        ],
-                                    },
-                                ]}
-                            />
+                            <UserIcon />
                         </>
                     ) : (
                         <>
