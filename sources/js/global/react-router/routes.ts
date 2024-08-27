@@ -3,7 +3,7 @@
  * @description React router routes.
  */
 
-const routes: Readonly<any> = {
+const routes = {
     home: '/',
     login: '/login',
     register: '/register',
