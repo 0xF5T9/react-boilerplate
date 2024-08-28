@@ -20,7 +20,7 @@ import * as styles from './LabeledSelect.module.css';
  * @param props.labelWidth Specifies a fixed width for the input label.
  * @param props.label Input label.
  * @param props.wrapperProps Top-level wrapper properties.
- * @param props.children option elements.
+ * @param props.children Option elements.
  * @note Properties that are not explicitly stated here are passed to select element.
  * @returns Returns the component.
  */
