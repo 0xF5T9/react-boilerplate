@@ -1,76 +1,55 @@
 /**
  * @file index.tsx
- * @description Select component.
+ * @description Select.
  */
 
 'use strict';
 import { FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import * as styles from './Select.module.css';
 
 /**
- * Select input component.
+ * Select input.
  * @param props Component properties.
- * @param props.id Element id.
- * @param props.className Element class names.
- * @param props.name Select group name.
- * @param props.value Element value.
  * @param props.color Color variant.
- * @param props.size Size variant.
- * @param props.onBlur Select on-blur callback.
- * @param props.onChange Select on-change callback.
- * @param props.disabled Disable the select.
- * @param props.children Select options.
+ * @param props.inputSize Size variant.
+ * @param props.children Option elements.
+ * @note Properties that are not explicitly stated here are passed to select element.
  * @returns Returns the component.
  */
-const Select: FunctionComponent<{
-    id?: string;
-    className?: string;
-    name?: string;
-    value?: string;
-    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
-    size?: 'small' | 'large';
-    onBlur?: (...args: any[]) => any;
-    onChange?: (...args: any[]) => any;
-    disabled?: boolean;
-    children?: ReactNode;
-}> = function ({
-    id,
-    className,
-    name,
-    value,
-    color,
-    size,
-    onBlur,
-    onChange,
-    disabled = false,
-    children,
-}) {
-    const classes = `${styles.select}
-                     ${color ? styles[color] : ''}
-                     ${size ? styles[size] : ''}
-                     ${className || ''}`;
+const Select: FunctionComponent<
+    React.DetailedHTMLProps<
+        React.SelectHTMLAttributes<HTMLSelectElement>,
+        HTMLSelectElement
+    > & {
+        color?:
+            | 'red'
+            | 'orange'
+            | 'yellow'
+            | 'green'
+            | 'blue'
+            | 'purple'
+            | 'black';
+        inputSize?: 'small' | 'large';
+        children?: ReactNode;
+    }
+> = function ({ color, inputSize, className, children, ...props }) {
+    const classes = classNames(
+        styles.select,
+        styles[color],
+        styles[inputSize],
+        className
+    );
     return (
-        <select
-            className={classes}
-            id={id}
-            name={name}
-            onBlur={onBlur}
-            onChange={onChange}
-            disabled={disabled}
-            value={value}
-        >
+        <select {...props} className={classes}>
             {children}
         </select>
     );
 };
 
 Select.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
-    name: PropTypes.string,
-    value: PropTypes.string,
     color: PropTypes.oneOf([
         'red',
         'orange',
@@ -80,11 +59,7 @@ Select.propTypes = {
         'purple',
         'black',
     ]),
-    size: PropTypes.oneOf(['small', 'large']),
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    disabled: PropTypes.bool,
-    children: PropTypes.node,
+    inputSize: PropTypes.oneOf(['small', 'large']),
 };
 
 export default Select;

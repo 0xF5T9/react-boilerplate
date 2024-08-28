@@ -134,7 +134,7 @@ const SelectSampleSection: FunctionComponent = function () {
                         gap: '8px',
                     }}
                 >
-                    <Select size="small">
+                    <Select inputSize="small">
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
@@ -144,7 +144,7 @@ const SelectSampleSection: FunctionComponent = function () {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </Select>
-                    <Select size="large">
+                    <Select inputSize="large">
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
