@@ -8,5 +8,5 @@
  */
 export type BackendResponse = {
     message: string;
-    data: any;
+    data: unknown;
 };

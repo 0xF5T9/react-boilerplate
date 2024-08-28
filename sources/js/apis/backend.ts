@@ -127,17 +127,7 @@ async function authorize(
         });
         const { message, data }: BackendResponse = result.data;
 
-        return new APIResult(
-            message,
-            true,
-            {
-                username: data.username,
-                email: data.email,
-                role: data.role,
-                token: data.token,
-            },
-            result.status
-        );
+        return new APIResult(message, true, data, result.status);
     } catch (error) {
         if (error.response) {
             return new APIResult(

@@ -106,22 +106,7 @@ const RegisterSection: FunctionComponent = function () {
             return;
         }
 
-        const {
-            username: dataUsername,
-            email: dataEmail,
-            role: dataRole,
-            token: dataToken,
-        }: SessionData = data;
-        setTimeout(
-            async () =>
-                await login({
-                    username: dataUsername,
-                    email: dataEmail,
-                    role: dataRole,
-                    token: dataToken,
-                }),
-            300
-        );
+        setTimeout(async () => await login(data as SessionData), 300);
 
         setServerMessage({ message: registerMessage, type: 'success' });
     }

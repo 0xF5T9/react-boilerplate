@@ -11,7 +11,7 @@
 class APIResult {
     message: string;
     success: boolean;
-    data: any;
+    data: unknown;
     invalidToken: boolean;
 
     /**
@@ -24,7 +24,7 @@ class APIResult {
     constructor(
         message: string,
         success: boolean,
-        data: any,
+        data: unknown,
         status: number | null
     ) {
         this.message = message;

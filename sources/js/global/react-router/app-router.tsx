@@ -14,7 +14,7 @@ import ProtectedRoute from '../../components/ProtectedRoute';
 import { DefaultLayout, BlankLayout } from '../../components/Layouts';
 import * as Sections from '../../components/Sections';
 
-const appRouter: Readonly<RouteObject[]> = [
+const appRouter: RouteObject[] = [
     {
         path: routes.home,
         element: (
@@ -193,6 +193,6 @@ const appRouter: Readonly<RouteObject[]> = [
             },
         ],
     },
-];
+] as const;
 
 export default appRouter;

@@ -64,26 +64,11 @@ const LoginSection: FunctionComponent = function () {
             return;
         }
 
-        const {
-            username: dataUsername,
-            email: dataEmail,
-            role: dataRole,
-            token: dataToken,
-        }: SessionData = data;
         setServerMessage({
             message: staticTexts.loginSuccessful,
             type: 'success',
         });
-        setTimeout(
-            async () =>
-                await login({
-                    username: dataUsername,
-                    email: dataEmail,
-                    role: dataRole,
-                    token: dataToken,
-                }),
-            300
-        );
+        setTimeout(async () => await login(data as SessionData), 300);
     }
 
     return (

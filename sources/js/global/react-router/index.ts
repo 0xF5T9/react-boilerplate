@@ -7,9 +7,9 @@
 import routes from './routes';
 import appRouter from './app-router';
 
-const reactRouter: Readonly<any> = {
+const reactRouter = {
     routes,
     appRouter,
-};
+} as const;
 
 export default reactRouter;

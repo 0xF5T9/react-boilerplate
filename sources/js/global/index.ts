@@ -6,8 +6,8 @@
 'use strict';
 import reactRouter from './react-router';
 
-const globals: Readonly<any> = {
+const globals = {
     reactRouter,
-};
+} as const;
 
 export default globals;
