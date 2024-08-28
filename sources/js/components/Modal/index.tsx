@@ -4,7 +4,12 @@
  */
 
 'use strict';
-import { AlertModal, CustomModal, Modal, ModalHook } from '../../types/modal';
+import type {
+    AlertModal,
+    CustomModal,
+    Modal,
+    ModalHook,
+} from '../../types/modal';
 import {
     FunctionComponent,
     CSSProperties,

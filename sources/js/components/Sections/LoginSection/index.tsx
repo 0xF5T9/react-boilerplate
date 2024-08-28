@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { SessionData } from '../../../types/authentication';
+import type { SessionData } from '../../../types/authentication';
 import { FunctionComponent, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 

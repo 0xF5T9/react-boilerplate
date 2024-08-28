@@ -4,8 +4,8 @@
  */
 
 'use strict';
-import { FunctionComponent } from 'react';
 import type { ToastOption, ToastMap } from '../../types/toast';
+import { FunctionComponent } from 'react';
 import * as styles from './Toast.module.css';
 const $ = document.querySelector.bind(document);
 

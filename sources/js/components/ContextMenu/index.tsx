@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import { ContextMenu, ContextMenuItem } from '../../types/context-menu';
+import type { ContextMenu, ContextMenuItem } from '../../types/context-menu';
 import { FunctionComponent, useState, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { TippyProps } from '@tippyjs/react';
