@@ -17,6 +17,7 @@ import {
     useEffect,
     useRef,
     useContext,
+    useMemo,
     createContext,
     ReactNode,
 } from 'react';
@@ -53,12 +54,15 @@ const ModalProvider: FunctionComponent<{ children: ReactNode }> = function ({
         setAllowScrolling(!!!modal);
     }, [modal]);
 
-    const value: ModalHook = {
-        modal,
-        setModal,
-        modalVisibility,
-        setModalVisibility,
-    };
+    const value: ModalHook = useMemo(
+        () => ({
+            modal,
+            setModal,
+            modalVisibility,
+            setModalVisibility,
+        }),
+        [modal, modalVisibility]
+    );
 
     return (
         <modalContext.Provider value={value}>{children}</modalContext.Provider>
