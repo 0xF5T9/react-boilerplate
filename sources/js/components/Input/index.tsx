@@ -83,6 +83,7 @@ const Input: FunctionComponent<
             {Icon && <Icon className={styles['icon']} />}
             <input
                 {...inputProps}
+                type={type}
                 className={styles['input']}
                 disabled={disabled}
             />
