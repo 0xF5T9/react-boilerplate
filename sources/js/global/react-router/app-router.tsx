@@ -8,7 +8,7 @@ import { RouteObject } from 'react-router-dom';
 import routes from './routes';
 import { AuthProvider } from '../../hooks/useAuth';
 import { GlobalProvider } from '../../components/Context/Global';
-import { ModalProvider } from '../../components/Modal';
+import { ModalProvider } from '../../hooks/useModal';
 import App from '../../components/App';
 import ProtectedRoute from '../../components/ProtectedRoute';
 import { DefaultLayout, BlankLayout } from '../../components/Layouts';

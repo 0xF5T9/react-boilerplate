@@ -6,7 +6,7 @@
 'use strict';
 import { FunctionComponent } from 'react';
 
-import { useModal } from '../../Modal';
+import { useModal } from '../../../hooks/useModal';
 import { showToast } from '../../Toast';
 import { CircleExclamation } from '../../Icons/CircleExclamation';
 import { CircleLoading } from '../../Icons/CircleLoading';

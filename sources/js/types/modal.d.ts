@@ -35,7 +35,6 @@ export type CustomModal = {
     onClose?: (...args: any[]) => void;
 };
 
-// This type is used to enforce typing on modal context values.
 export type Modal =
     | (AlertModal & { preventCloseOnBackgroundClick?: boolean })
     | (CustomModal & { preventCloseOnBackgroundClick?: boolean })

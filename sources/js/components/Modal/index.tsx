@@ -4,74 +4,15 @@
  */
 
 'use strict';
-import type {
-    AlertModal,
-    CustomModal,
-    Modal,
-    ModalHook,
-} from '../../types/modal';
-import {
-    FunctionComponent,
-    CSSProperties,
-    useState,
-    useEffect,
-    useRef,
-    useContext,
-    useMemo,
-    createContext,
-    ReactNode,
-} from 'react';
-import PropTypes from 'prop-types';
+import type { AlertModal, CustomModal } from '../../types/modal';
+import { FunctionComponent, CSSProperties, useEffect, useRef } from 'react';
 
-import { globalContext } from '../Context/Global';
+import { useModal } from '../../hooks/useModal';
 import { CircleExclamation } from '../Icons/CircleExclamation';
 import { CircleInfo } from '../Icons/CircleInfo';
 import { CircleCheck } from '../Icons/CircleCheck';
 import Button from '../Button';
 import * as styles from './Modal.module.css';
-
-// Modal context.
-const modalContext = createContext(null);
-
-/**
- * Modal context provider component.
- * @param props Component properties.
- * @param props.children Context children.
- * @returns Returns the component.
- */
-const ModalProvider: FunctionComponent<{ children: ReactNode }> = function ({
-    children,
-}) {
-    const { setAllowScrolling } = useContext(globalContext);
-
-    // 'modalVisibility' is used to check if there is an opening modal. (Don't use 'modal')
-    // 'setModalVisibility' is used to close any opening modal programmatically.
-    const [modal, setModal] = useState<Modal>(null),
-        [modalVisibility, setModalVisibility] = useState(false);
-
-    useEffect(() => {
-        setModalVisibility(!!modal);
-        setAllowScrolling(!!!modal);
-    }, [modal]);
-
-    const value: ModalHook = useMemo(
-        () => ({
-            modal,
-            setModal,
-            modalVisibility,
-            setModalVisibility,
-        }),
-        [modal, modalVisibility]
-    );
-
-    return (
-        <modalContext.Provider value={value}>{children}</modalContext.Provider>
-    );
-};
-
-ModalProvider.propTypes = {
-    children: PropTypes.node,
-};
 
 /**
  * Modal overlay.
@@ -279,12 +220,4 @@ const ModalOverlay: FunctionComponent = function () {
     );
 };
 
-/**
- * Hook provides a convenient way to use modal component.
- * @returns modal, setModal, modalVisibility, setModalVisibility
- */
-function useModal(): ModalHook {
-    return useContext(modalContext);
-}
-
-export { ModalOverlay, ModalProvider, useModal };
+export { ModalOverlay };
