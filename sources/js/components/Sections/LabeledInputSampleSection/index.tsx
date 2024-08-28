@@ -153,9 +153,9 @@ const LabeledInputSampleSection: FunctionComponent = function () {
                         gap: '8px',
                     }}
                 >
-                    <LabeledInput label="Small" size="small" width={150} />
+                    <LabeledInput label="Small" inputSize="small" width={150} />
                     <LabeledInput label="Default" width={150} />
-                    <LabeledInput label="Large" size="large" width={150} />
+                    <LabeledInput label="Large" inputSize="large" width={150} />
                 </div>
             </div>
         </FlexibleSection>

@@ -215,7 +215,7 @@ const LabeledSelectSampleSection: FunctionComponent = function () {
                         gap: '8px',
                     }}
                 >
-                    <LabeledSelect label="Small" size="small">
+                    <LabeledSelect label="Small" inputSize="small">
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
@@ -225,7 +225,7 @@ const LabeledSelectSampleSection: FunctionComponent = function () {
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </LabeledSelect>
-                    <LabeledSelect label="Large" size="large">
+                    <LabeledSelect label="Large" inputSize="large">
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>

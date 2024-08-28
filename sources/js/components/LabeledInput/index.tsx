@@ -1,120 +1,100 @@
 /**
  * @file index.tsx
- * @description Labeled input component.
+ * @description Labeled input.
  */
 
 'use strict';
-import { FunctionComponent, useEffect, useRef } from 'react';
+import { CSSProperties, FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import * as styles from './LabeledInput.module.css';
 
 /**
- * Labeled input component.
+ * Labeled input.
  * @param props Component properties.
- * @param type Input type.
+ * @param props.type Input type.
  * @param props.color Color variant.
- * @param props.reverseBackground Use reverse background variant.
- * @param props.size Size variant.
- * @param props.width Input fixed weight.
- * @param props.labelWidth Input label fixed width.
+ * @param props.inputSize Size variant.
+ * @param props.reverseBackground Specifies whether to use reverse background.
+ * @param props.width Specifies a fixed width for the input.
+ * @param props.labelWidth Specifies a fixed width for the input label.
  * @param props.label Input label.
- * @param props.id Element id.
- * @param props.value Element value.
- * @param props.defaultValue Element value.
- * @param props.placeholder Placeholder text.
- * @param props.readOnly Specifies whether the input is read-only.
- * @param props.onBlur Input on-blur callback.
- * @param props.onChange Input on-change callback.
- * @param props.disabled Disable the input.
- * @param props.disableAutoCapitalize Disable auto capitalize.
- * @param props.wrapperStyle Input wrapper style object.
- * @param props.inputStyle Input style object.
+ * @param props.wrapperProps Top-level wrapper properties.
+ * @note Properties that are not explicitly stated here are passed to input element.
  * @returns Returns the component.
  */
-const LabeledInput: FunctionComponent<{
-    type?: 'text' | 'email' | 'password' | 'number' | 'tel';
-    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
-    reverseBackground?: boolean;
-    size?: 'small' | 'large';
-    width?: number;
-    labelWidth?: number;
-    label: string;
-    id?: string;
-    value?: string;
-    defaultValue?: string;
-    placeholder?: string;
-    readOnly?: boolean;
-    onBlur?: (...args: any[]) => any;
-    onChange?: (...args: any[]) => any;
-    disabled?: boolean;
-    autoCapitalize?:
-        | 'none'
-        | 'off'
-        | 'sentences'
-        | 'on'
-        | 'words'
-        | 'characters';
-    wrapperStyle?: object;
-    inputStyle?: object;
-}> = function ({
+const LabeledInput: FunctionComponent<
+    React.DetailedHTMLProps<
+        React.InputHTMLAttributes<HTMLInputElement>,
+        HTMLInputElement
+    > & {
+        type?: 'text' | 'email' | 'password' | 'number' | 'tel';
+        color?:
+            | 'red'
+            | 'orange'
+            | 'yellow'
+            | 'green'
+            | 'blue'
+            | 'purple'
+            | 'black';
+        inputSize?: 'small' | 'large';
+        reverseBackground?: boolean;
+        width?: number;
+        labelWidth?: number;
+        label: string;
+        wrapperProps?: React.DetailedHTMLProps<
+            React.HTMLAttributes<HTMLDivElement>,
+            HTMLDivElement
+        >;
+    }
+> = function ({
     type = 'text',
     color,
+    inputSize,
     reverseBackground = false,
-    size,
     width,
     labelWidth,
     label,
     id,
-    value,
-    defaultValue,
-    placeholder,
-    readOnly = false,
-    onBlur,
-    onChange,
+    className,
     disabled = false,
-    autoCapitalize = 'on',
-    wrapperStyle,
-    inputStyle,
+    wrapperProps,
+    ...inputProps
 }) {
-    const input: any = useRef();
+    const classes = classNames(
+        styles['input-wrapper'],
+        styles[color],
+        styles[inputSize],
+        { [styles['reverse-background']]: reverseBackground },
+        { [styles['disabled']]: disabled },
+        className
+    );
 
-    const classes = `${styles['input-wrapper']}
-                   ${color ? styles[color] : ''}
-                   ${size ? styles[size] : ''}
-                   ${reverseBackground ? styles['reverse-background'] : ''}
-                   ${disabled ? styles['disabled'] : ''}`;
+    let wrapperStyle = wrapperProps?.style || {};
+    if (width) wrapperStyle.width = `${width}px`;
 
-    const processedWrapperStyle = Object.assign(
-            { width: width && `${width}px` },
-            wrapperStyle || {}
-        ),
-        labelWrapperStyle = labelWidth
-            ? { width: `${labelWidth}px`, flexShrink: '0' }
-            : {};
-
-    useEffect(() => {
-        if (defaultValue && input.current) input.current.value = defaultValue;
-    }, []);
+    let labelWrapperStyle: CSSProperties = {};
+    if (labelWidth) {
+        labelWrapperStyle.width = `${labelWidth}px`;
+        labelWrapperStyle.flexShrink = '0';
+    }
 
     return (
-        <div className={classes} style={processedWrapperStyle}>
+        <div
+            {...wrapperProps}
+            className={classNames(classes, wrapperProps?.className)}
+            style={wrapperStyle}
+        >
             <div className={styles['input-label']} style={labelWrapperStyle}>
                 <label htmlFor={id}>{label}</label>
             </div>
             <input
-                ref={input}
-                className={styles['input']}
-                id={id}
+                {...inputProps}
                 type={type}
-                value={value}
-                placeholder={placeholder}
-                readOnly={readOnly}
-                onBlur={onBlur}
-                onChange={onChange}
+                id={id}
+                className={styles['input']}
                 disabled={disabled}
-                autoCapitalize={autoCapitalize}
-                style={inputStyle}
             />
         </div>
     );
@@ -131,28 +111,12 @@ LabeledInput.propTypes = {
         'purple',
         'black',
     ]),
+    inputSize: PropTypes.oneOf(['small', 'large']),
     reverseBackground: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'large']),
     width: PropTypes.number,
     labelWidth: PropTypes.number,
-    label: PropTypes.string.isRequired,
-    id: PropTypes.string,
-    value: PropTypes.string,
-    defaultValue: PropTypes.string,
-    placeholder: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    disabled: PropTypes.bool,
-    autoCapitalize: PropTypes.oneOf([
-        'none',
-        'off',
-        'sentences',
-        'on',
-        'words',
-        'characters',
-    ]),
-    wrapperStyle: PropTypes.object,
-    inputStyle: PropTypes.object,
+    label: PropTypes.string,
+    wrapperProps: PropTypes.object,
 };
 
 export default LabeledInput;

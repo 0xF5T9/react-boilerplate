@@ -1,91 +1,98 @@
 /**
  * @file index.tsx
- * @description Labeled select component.
+ * @description Labeled select.
  */
 
 'use strict';
-import { FunctionComponent, ReactNode } from 'react';
+import { FunctionComponent, CSSProperties } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import * as styles from './LabeledSelect.module.css';
 
 /**
- * Labeled select component.
+ * Labeled select.
  * @param props Component properties.
  * @param props.color Color variant.
- * @param props.reverseBackground Specifies whether to use input reverse variant.
- * @param props.size Size variant.
- * @param props.width Input fixed width.
- * @param props.labelWidth Input label fixed width.
+ * @param props.inputSize Size variant.
+ * @param props.reverseBackground Specifies whether to use reverse background.
+ * @param props.width Specifies a fixed width for the input.
+ * @param props.labelWidth Specifies a fixed width for the input label.
  * @param props.label Input label.
- * @param props.id Element id.
- * @param props.value Element value.
- * @param props.onBlur Input on-blur callback.
- * @param props.onChange Input on-change callback.
- * @param props.disabled Disable the input.
- * @param props.wrapperStyle Input wrapper style object.
- * @param props.inputStyle Input style object.
- * @param props.children <select> elements.
+ * @param props.wrapperProps Top-level wrapper properties.
+ * @param props.children option elements.
+ * @note Properties that are not explicitly stated here are passed to select element.
  * @returns Returns the component.
  */
-const LabeledSelect: FunctionComponent<{
-    color?: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'black';
-    reverseBackground?: boolean;
-    size?: 'small' | 'large';
-    width?: number;
-    labelWidth?: number;
-    label?: string;
-    id?: string;
-    value?: string;
-    onBlur?: (...args: any[]) => any;
-    onChange?: (...args: any[]) => any;
-    disabled?: boolean;
-    wrapperStyle?: object;
-    inputStyle?: object;
-    children?: ReactNode;
-}> = function ({
+const LabeledSelect: FunctionComponent<
+    React.DetailedHTMLProps<
+        React.SelectHTMLAttributes<HTMLSelectElement>,
+        HTMLSelectElement
+    > & {
+        color?:
+            | 'red'
+            | 'orange'
+            | 'yellow'
+            | 'green'
+            | 'blue'
+            | 'purple'
+            | 'black';
+        inputSize?: 'small' | 'large';
+        reverseBackground?: boolean;
+        width?: number;
+        labelWidth?: number;
+        label?: string;
+        wrapperProps?: React.DetailedHTMLProps<
+            React.HTMLAttributes<HTMLDivElement>,
+            HTMLDivElement
+        >;
+    }
+> = function ({
     color,
+    inputSize,
     reverseBackground = false,
-    size,
     width,
     labelWidth,
     label,
     id,
-    value,
-    onBlur,
-    onChange,
+    className,
     disabled = false,
-    wrapperStyle,
-    inputStyle,
     children,
+    wrapperProps,
+    ...inputProps
 }) {
-    const classes = `${styles['input-wrapper']}
-                   ${color ? styles[color] : ''}
-                   ${size ? styles[size] : ''}
-                   ${reverseBackground ? styles['reverse-background'] : ''}
-                   ${disabled ? styles['disabled'] : ''}`;
+    const classes = classNames(
+        styles['input-wrapper'],
+        styles[color],
+        styles[inputSize],
+        { [styles['reverse-background']]: reverseBackground },
+        { [styles['disabled']]: disabled },
+        className
+    );
 
-    const processedWrapperStyle = Object.assign(
-            { width: width && `${width}px` },
-            wrapperStyle || {}
-        ),
-        labelWrapperStyle = labelWidth
-            ? { width: `${labelWidth}px`, flexShrink: '0' }
-            : {};
+    let wrapperStyle = wrapperProps?.style || {};
+    if (width) wrapperStyle.width = `${width}px`;
+
+    let labelWrapperStyle: CSSProperties = {};
+    if (labelWidth) {
+        labelWrapperStyle.width = `${labelWidth}px`;
+        labelWrapperStyle.flexShrink = '0';
+    }
 
     return (
-        <div className={classes} style={processedWrapperStyle}>
+        <div
+            {...wrapperProps}
+            className={classNames(classes, wrapperProps?.className)}
+            style={wrapperStyle}
+        >
             <div className={styles['input-label']} style={labelWrapperStyle}>
                 <label htmlFor={id}>{label}</label>
             </div>
             <select
+                {...inputProps}
                 className={styles['input']}
                 id={id}
-                value={value}
-                onBlur={onBlur}
-                onChange={onChange}
                 disabled={disabled}
-                style={inputStyle}
             >
                 {children}
             </select>
@@ -103,19 +110,11 @@ LabeledSelect.propTypes = {
         'purple',
         'black',
     ]),
+    inputSize: PropTypes.oneOf(['small', 'large']),
     reverseBackground: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'large']),
     width: PropTypes.number,
     labelWidth: PropTypes.number,
     label: PropTypes.string,
-    id: PropTypes.string,
-    value: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    disabled: PropTypes.bool,
-    wrapperStyle: PropTypes.object,
-    inputStyle: PropTypes.object,
-    children: PropTypes.node,
 };
 
 export default LabeledSelect;
