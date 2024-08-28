@@ -1,7 +1,6 @@
 /**
  * @file useGlobal.tsx
  * @description Global hook.
- * @todo Fix top loading bar's box shadow artifact on top left screen.
  */
 
 'use strict';
@@ -123,6 +122,7 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
                 transitionTime={100}
                 loaderSpeed={100}
                 waitingTime={500}
+                shadow={false}
             />
             {!allowScrolling && (
                 <style>
