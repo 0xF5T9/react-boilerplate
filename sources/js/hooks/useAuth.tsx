@@ -54,13 +54,12 @@ const AuthProvider: FunctionComponent<{ children: ReactNode }> = function ({
         navigate(route || routes.home, { replace: true });
     };
 
-    const value = useMemo(
-        () =>
-            ({
-                sessionData,
-                login,
-                logout,
-            }) as AuthHook,
+    const value: AuthHook = useMemo(
+        () => ({
+            sessionData,
+            login,
+            logout,
+        }),
         [sessionData]
     );
     return (
