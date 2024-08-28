@@ -1,27 +1,27 @@
 /**
  * @file index.tsx
- * @description Protect route component.
+ * @description Protect route wrapper component.
  */
 
 'use strict';
-import { useAuth } from '../../hooks/useAuth';
 import { FunctionComponent, ReactNode, useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { useAuth } from '../../hooks/useAuth';
 import apis from '../../apis';
 import routes from '../../global/react-router/routes';
-
 import { showToast } from '../Toast';
 import { FlexibleSection } from '../Content/components/GridSection';
 import { CircleLoading } from '../Icons/CircleLoading';
+
 /**
  * This component is used to prevent unauthenticated users from accessing private routes.
  * @param props Component properties.
  * @param props.children Component children.
  * @returns Returns the component.
  */
-const ProtectedRoute: FunctionComponent<{ children?: ReactNode }> = function ({
+const ProtectedRoute: FunctionComponent<{ children: ReactNode }> = function ({
     children,
 }) {
     const { sessionData, logout } = useAuth(),
@@ -31,11 +31,6 @@ const ProtectedRoute: FunctionComponent<{ children?: ReactNode }> = function ({
     if (!sessionData) {
         return <Navigate to={routes.login} />;
     }
-
-    // Verify the authentication session. (Check if token is still valid.)
-    useEffect(() => {
-        verifySession();
-    }, [sessionData]);
 
     // If the session token is invalid (expired, tampered) redirect to login page.
     // If the verification failed due to server error, redirect to homepage instead.
@@ -57,6 +52,11 @@ const ProtectedRoute: FunctionComponent<{ children?: ReactNode }> = function ({
         }
         setIsVerifying(false);
     }
+
+    // Verify the authentication session. (Check if token is still valid.)
+    useEffect(() => {
+        verifySession();
+    }, [sessionData]);
 
     // Display loading component while verifying the session.
     if (isVerifying)
