@@ -20,9 +20,9 @@ import IconButton from './components/IconButton';
 import Button from '../Button';
 import { Sun } from '../Icons/Sun';
 import { Moon } from '../Icons/Moon';
-import staticRender from '../../render/static-render';
+import staticTexts from '../../render/static-texts';
 import * as styles from './Header.module.css';
-const { headerLoginButtonText, headerRegisterButtonText } = staticRender;
+const { headerLoginButtonText, headerRegisterButtonText } = staticTexts;
 
 /**
  * Header.

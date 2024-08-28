@@ -15,9 +15,9 @@ import Input from '../../Input';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
 import { Envelope } from '../../Icons/Envelope';
-import staticRender from '../../../render/static-render';
+import staticTexts from '../../../render/static-texts';
 import * as styles from './ForgotPasswordSection.module.css';
-const staticTexts = staticRender.forgotPasswordSection;
+const texts = staticTexts.forgotPasswordSection;
 
 /**
  * Forgot password section.
@@ -82,7 +82,7 @@ const ForgotPasswordSection: FunctionComponent = function () {
                     />
                 )}
                 <div className={styles['wrapper']}>
-                    <h5 className={styles['title']}>{staticTexts.title}</h5>
+                    <h5 className={styles['title']}>{texts.title}</h5>
 
                     <form className={styles['form']}>
                         <div className={styles['form-group']}>
@@ -90,13 +90,13 @@ const ForgotPasswordSection: FunctionComponent = function () {
                                 htmlFor="email-input"
                                 className={styles['label']}
                             >
-                                {staticTexts.emailLabel}
+                                {texts.emailLabel}
                             </label>
                             <Input
                                 id="email-input"
                                 type="email"
                                 value={email}
-                                placeholder={staticTexts.emailInputPlaceholder}
+                                placeholder={texts.emailInputPlaceholder}
                                 onChange={(event) =>
                                     setEmail(event.target.value)
                                 }
@@ -113,7 +113,7 @@ const ForgotPasswordSection: FunctionComponent = function () {
                             disabled={pending ? true : false}
                             loading={pending}
                         >
-                            {staticTexts.resetPasswordButton}
+                            {texts.resetPasswordButton}
                         </Button>
                         <div className={styles['bottom-links']}>
                             <Link
@@ -124,7 +124,7 @@ const ForgotPasswordSection: FunctionComponent = function () {
                                 }}
                             >
                                 <i className="fa-solid fa-arrow-left"></i>{' '}
-                                {staticTexts.backLink}
+                                {texts.backLink}
                             </Link>
                             <Link
                                 className={styles['link']}
@@ -133,7 +133,7 @@ const ForgotPasswordSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                {staticTexts.loginLink}
+                                {texts.loginLink}
                             </Link>
                         </div>{' '}
                     </form>

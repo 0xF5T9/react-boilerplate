@@ -16,9 +16,9 @@ import Input from '../../Input';
 import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
 import { Lock } from '../../Icons/Lock';
-import staticRender from '../../../render/static-render';
+import staticTexts from '../../../render/static-texts';
 import * as styles from './ResetPasswordSection.module.css';
-const staticTexts = staticRender.resetPasswordSection;
+const texts = staticTexts.resetPasswordSection;
 
 /**
  * Reset password section.
@@ -53,7 +53,7 @@ const ResetPasswordSection: FunctionComponent = function () {
         }
         if (password !== passwordRepeat) {
             setServerMessage({
-                message: staticTexts.passwordNotMatch,
+                message: texts.passwordNotMatch,
                 type: 'error',
             });
             return;
@@ -106,7 +106,7 @@ const ResetPasswordSection: FunctionComponent = function () {
                     />
                 )}
                 <div className={styles['wrapper']}>
-                    <h5 className={styles['title']}>{staticTexts.title}</h5>
+                    <h5 className={styles['title']}>{texts.title}</h5>
 
                     <form className={styles['form']}>
                         <div className={styles['form-group']}>
@@ -114,15 +114,13 @@ const ResetPasswordSection: FunctionComponent = function () {
                                 htmlFor="password-input"
                                 className={styles['label']}
                             >
-                                {staticTexts.passwordLabel}
+                                {texts.passwordLabel}
                             </label>
                             <Input
                                 id="password-input"
                                 value={password}
                                 type="password"
-                                placeholder={
-                                    staticTexts.passwordInputPlaceholder
-                                }
+                                placeholder={texts.passwordInputPlaceholder}
                                 onChange={(event) =>
                                     setPassword(event.target.value)
                                 }
@@ -138,14 +136,14 @@ const ResetPasswordSection: FunctionComponent = function () {
                                 htmlFor="password-repeat-input"
                                 className={styles['label']}
                             >
-                                {staticTexts.passwordConfirmLabel}
+                                {texts.passwordConfirmLabel}
                             </label>
                             <Input
                                 id="password-repeat-input"
                                 value={passwordRepeat}
                                 type="password"
                                 placeholder={
-                                    staticTexts.passwordConfirmInputPlaceholder
+                                    texts.passwordConfirmInputPlaceholder
                                 }
                                 onChange={(event) =>
                                     setPasswordRepeat(event.target.value)
@@ -163,7 +161,7 @@ const ResetPasswordSection: FunctionComponent = function () {
                             disabled={pending ? true : false}
                             loading={pending}
                         >
-                            {staticTexts.resetPasswordButton}
+                            {texts.resetPasswordButton}
                         </Button>
                     </form>
                 </div>

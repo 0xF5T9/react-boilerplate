@@ -20,9 +20,9 @@ import ServerMessage from '../../ServerMessage';
 import { Envelope } from '../../Icons/Envelope';
 import { User } from '../../Icons/User';
 import { Lock } from '../../Icons/Lock';
-import staticRender from '../../../render/static-render';
+import staticTexts from '../../../render/static-texts';
 import * as styles from './RegisterSection.module.css';
-const staticTexts = staticRender.registerSection;
+const texts = staticTexts.registerSection;
 
 /**
  * Register section.
@@ -65,14 +65,14 @@ const RegisterSection: FunctionComponent = function () {
         }
         if (password !== passwordRepeat) {
             setServerMessage({
-                message: staticTexts.passwordNotMatch,
+                message: texts.passwordNotMatch,
                 type: 'error',
             });
             return;
         }
         if (!agreement) {
             setServerMessage({
-                message: staticTexts.consentRequirement,
+                message: texts.consentRequirement,
                 type: 'error',
             });
             document?.getElementById('agreement-checkbox')?.focus();
@@ -157,7 +157,7 @@ const RegisterSection: FunctionComponent = function () {
                     />
                 )}
                 <div className={styles['wrapper']}>
-                    <h5 className={styles['title']}>{staticTexts.title}</h5>
+                    <h5 className={styles['title']}>{texts.title}</h5>
 
                     <form className={styles['form']}>
                         <div className={styles['form-group']}>
@@ -165,13 +165,13 @@ const RegisterSection: FunctionComponent = function () {
                                 htmlFor="email-input"
                                 className={styles['label']}
                             >
-                                {staticTexts.emailLabel}
+                                {texts.emailLabel}
                             </label>
                             <Input
                                 type="email"
                                 id="email-input"
                                 value={email}
-                                placeholder={staticTexts.emailInputPlaceholder}
+                                placeholder={texts.emailInputPlaceholder}
                                 onChange={(event) =>
                                     setEmail(event.target.value)
                                 }
@@ -187,14 +187,12 @@ const RegisterSection: FunctionComponent = function () {
                                 htmlFor="username-input"
                                 className={styles['label']}
                             >
-                                {staticTexts.usernameLabel}
+                                {texts.usernameLabel}
                             </label>
                             <Input
                                 id="username-input"
                                 value={username}
-                                placeholder={
-                                    staticTexts.usernameInputPlaceholder
-                                }
+                                placeholder={texts.usernameInputPlaceholder}
                                 onChange={(event) =>
                                     setUsername(event.target.value)
                                 }
@@ -211,15 +209,13 @@ const RegisterSection: FunctionComponent = function () {
                                 htmlFor="password-input"
                                 className={styles['label']}
                             >
-                                {staticTexts.passwordLabel}
+                                {texts.passwordLabel}
                             </label>
                             <Input
                                 id="password-input"
                                 value={password}
                                 type="password"
-                                placeholder={
-                                    staticTexts.passwordInputPlaceholder
-                                }
+                                placeholder={texts.passwordInputPlaceholder}
                                 onChange={(event) =>
                                     setPassword(event.target.value)
                                 }
@@ -235,14 +231,14 @@ const RegisterSection: FunctionComponent = function () {
                                 htmlFor="password-repeat-input"
                                 className={styles['label']}
                             >
-                                {staticTexts.passwordConfirmLabel}
+                                {texts.passwordConfirmLabel}
                             </label>
                             <Input
                                 id="password-repeat-input"
                                 value={passwordRepeat}
                                 type="password"
                                 placeholder={
-                                    staticTexts.passwordConfirmInputPlaceholder
+                                    texts.passwordConfirmInputPlaceholder
                                 }
                                 onChange={(event) =>
                                     setPasswordRepeat(event.target.value)
@@ -261,7 +257,7 @@ const RegisterSection: FunctionComponent = function () {
                             <Checkbox
                                 labelHTML={
                                     <span>
-                                        {staticTexts.consentText}{' '}
+                                        {texts.consentText}{' '}
                                         <span
                                             className={styles['link']}
                                             style={{
@@ -271,15 +267,15 @@ const RegisterSection: FunctionComponent = function () {
                                                 event.preventDefault();
                                                 setModal({
                                                     type: 'alert',
-                                                    title: staticTexts.termOfService,
+                                                    title: texts.termOfService,
                                                     message:
-                                                        staticTexts.termOfServiceModalText,
+                                                        texts.termOfServiceModalText,
                                                     closeButtonText:
-                                                        staticTexts.termOfServiceModalButton,
+                                                        texts.termOfServiceModalButton,
                                                 });
                                             }}
                                         >
-                                            {staticTexts.termOfService}
+                                            {texts.termOfService}
                                         </span>
                                         .
                                     </span>
@@ -298,7 +294,7 @@ const RegisterSection: FunctionComponent = function () {
                             disabled={pending ? true : false}
                             loading={pending}
                         >
-                            {staticTexts.registerButton}
+                            {texts.registerButton}
                         </Button>
                         <div className={styles['bottom-links']}>
                             <Link
@@ -309,7 +305,7 @@ const RegisterSection: FunctionComponent = function () {
                                 }}
                             >
                                 <i className="fa-solid fa-arrow-left"></i>{' '}
-                                {staticTexts.backLink}
+                                {texts.backLink}
                             </Link>
                             <Link
                                 className={styles['link']}
@@ -318,7 +314,7 @@ const RegisterSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                {staticTexts.loginLink}
+                                {texts.loginLink}
                             </Link>
                         </div>{' '}
                     </form>

@@ -10,8 +10,8 @@ import axios from 'axios';
 
 import backendConfig from '../../../configs/backend.json';
 import { APIResult } from '../utility/api';
-import staticRender from '../render/static-render';
-const staticTexts = staticRender.api.backend;
+import staticTexts from '../render/static-texts';
+const texts = staticTexts.api.backend;
 
 const backend = axios.create({
     baseURL: backendConfig.apiUrl,
@@ -43,7 +43,7 @@ async function getTestPosts(page: number = 1): Promise<APIResult> {
             );
         } else {
             console.error(error);
-            return new APIResult(staticTexts.unknownError, false, error, null);
+            return new APIResult(texts.unknownError, false, error, null);
         }
     }
 }
@@ -64,28 +64,18 @@ async function register(
         email = email.toLowerCase();
 
         if (!/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/.test(email))
-            return new APIResult(staticTexts.invalidEmail, false, null, 400);
+            return new APIResult(texts.invalidEmail, false, null, 400);
         if (!/^[a-zA-Z0-9]+$/.test(username))
             return new APIResult(
-                staticTexts.invalidUsernameCharacters,
+                texts.invalidUsernameCharacters,
                 false,
                 null,
                 400
             );
         if (username.length < 6 || username.length > 16)
-            return new APIResult(
-                staticTexts.invalidUsernameLength,
-                false,
-                null,
-                400
-            );
+            return new APIResult(texts.invalidUsernameLength, false, null, 400);
         if (password.length < 8 || password.length > 32)
-            return new APIResult(
-                staticTexts.invalidPasswordLength,
-                false,
-                null,
-                400
-            );
+            return new APIResult(texts.invalidPasswordLength, false, null, 400);
 
         const result = await backend.post(`register`, {
             email,
@@ -105,7 +95,7 @@ async function register(
             );
         } else {
             console.error(error);
-            return new APIResult(staticTexts.unknownError, false, error, null);
+            return new APIResult(texts.unknownError, false, error, null);
         }
     }
 }
@@ -138,7 +128,7 @@ async function authorize(
             );
         } else {
             console.error(error);
-            return new APIResult(staticTexts.unknownError, false, error, null);
+            return new APIResult(texts.unknownError, false, error, null);
         }
     }
 }
@@ -153,7 +143,7 @@ async function forgotPassword(email: string): Promise<APIResult> {
         email = email.toLowerCase();
 
         if (!/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/.test(email))
-            return new APIResult(staticTexts.invalidEmail, false, null, 400);
+            return new APIResult(texts.invalidEmail, false, null, 400);
 
         const result = await backend.post(`recovery/forgot-password`, {
             email,
@@ -171,7 +161,7 @@ async function forgotPassword(email: string): Promise<APIResult> {
             );
         } else {
             console.error(error);
-            return new APIResult(staticTexts.unknownError, false, error, null);
+            return new APIResult(texts.unknownError, false, error, null);
         }
     }
 }
@@ -189,19 +179,14 @@ async function resetPassword(
     try {
         if (!token || !newPassword)
             return new APIResult(
-                staticTexts.invalidResetPasswordRequest,
+                texts.invalidResetPasswordRequest,
                 false,
                 null,
                 400
             );
 
         if (newPassword.length < 8 || newPassword.length > 32)
-            return new APIResult(
-                staticTexts.invalidPasswordLength,
-                false,
-                null,
-                400
-            );
+            return new APIResult(texts.invalidPasswordLength, false, null, 400);
 
         const result = await backend.post(`recovery/reset-password`, {
             token,
@@ -220,7 +205,7 @@ async function resetPassword(
             );
         } else {
             console.error(error);
-            return new APIResult(staticTexts.unknownError, false, error, null);
+            return new APIResult(texts.unknownError, false, error, null);
         }
     }
 }
@@ -254,7 +239,7 @@ async function getUserInfo(
             );
         } else {
             console.error(error);
-            return new APIResult(staticTexts.unknownError, false, error, null);
+            return new APIResult(texts.unknownError, false, error, null);
         }
     }
 }
@@ -282,7 +267,7 @@ async function verifySession(sessionData: SessionData): Promise<APIResult> {
             );
         } else {
             console.error(error);
-            return new APIResult(staticTexts.unknownError, false, error, null);
+            return new APIResult(texts.unknownError, false, error, null);
         }
     }
 }

@@ -1,11 +1,11 @@
 /**
- * @file static-render.ts
- * @description Most of the static render properties of components can be changed here.
+ * @file static-texts.ts
+ * @description Static text used by components.
  */
 
 'use strict';
 
-const staticRender = {
+const staticTexts = {
     brandLogoUrl: '/assets/static/img/brand-logo.png',
     brandLogoAlt: 'Brand logo.',
     brandText: 'React Project',
@@ -79,4 +79,4 @@ const staticRender = {
     },
 } as const;
 
-export default staticRender;
+export default staticTexts;

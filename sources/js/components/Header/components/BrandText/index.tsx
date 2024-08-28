@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import routes from '../../../../global/react-router/routes';
-import staticRender from '../../../../render/static-render';
+import staticTexts from '../../../../render/static-texts';
 import * as styles from './BrandText.module.css';
-const { brandText } = staticRender;
+const { brandText } = staticTexts;
 
 /**
  * Header brand text.

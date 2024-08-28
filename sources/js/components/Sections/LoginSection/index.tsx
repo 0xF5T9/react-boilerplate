@@ -17,9 +17,9 @@ import Button from '../../Button';
 import ServerMessage from '../../ServerMessage';
 import { User } from '../../Icons/User';
 import { Lock } from '../../Icons/Lock';
-import staticRender from '../../../render/static-render';
+import staticTexts from '../../../render/static-texts';
 import * as styles from './LoginSection.module.css';
-const staticTexts = staticRender.loginSection;
+const texts = staticTexts.loginSection;
 
 /**
  * Login section.
@@ -65,7 +65,7 @@ const LoginSection: FunctionComponent = function () {
         }
 
         setServerMessage({
-            message: staticTexts.loginSuccessful,
+            message: texts.loginSuccessful,
             type: 'success',
         });
         setTimeout(async () => await login(data as SessionData), 300);
@@ -92,7 +92,7 @@ const LoginSection: FunctionComponent = function () {
                     />
                 )}
                 <div className={styles['wrapper']}>
-                    <h5 className={styles['title']}>{staticTexts.title}</h5>
+                    <h5 className={styles['title']}>{texts.title}</h5>
 
                     <form className={styles['form']}>
                         <div className={styles['form-group']}>
@@ -100,14 +100,12 @@ const LoginSection: FunctionComponent = function () {
                                 htmlFor="username-input"
                                 className={styles['label']}
                             >
-                                {staticTexts.usernameLabel}
+                                {texts.usernameLabel}
                             </label>
                             <Input
                                 id="username-input"
                                 value={username}
-                                placeholder={
-                                    staticTexts.usernameInputPlaceholder
-                                }
+                                placeholder={texts.usernameInputPlaceholder}
                                 onChange={(event) =>
                                     setUsername(event.target.value)
                                 }
@@ -127,15 +125,13 @@ const LoginSection: FunctionComponent = function () {
                                 htmlFor="password-input"
                                 className={styles['label']}
                             >
-                                {staticTexts.passwordLabel}
+                                {texts.passwordLabel}
                             </label>
                             <Input
                                 id="password-input"
                                 value={password}
                                 type="password"
-                                placeholder={
-                                    staticTexts.passwordInputPlaceholder
-                                }
+                                placeholder={texts.passwordInputPlaceholder}
                                 onChange={(event) =>
                                     setPassword(event.target.value)
                                 }
@@ -159,7 +155,7 @@ const LoginSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                {staticTexts.forgotPassword}
+                                {texts.forgotPassword}
                             </Link>
                         </div>
 
@@ -169,7 +165,7 @@ const LoginSection: FunctionComponent = function () {
                             disabled={pending ? true : false}
                             loading={pending}
                         >
-                            {staticTexts.loginButton}
+                            {texts.loginButton}
                         </Button>
 
                         <div className={styles['bottom-links']}>
@@ -181,7 +177,7 @@ const LoginSection: FunctionComponent = function () {
                                 }}
                             >
                                 <i className="fa-solid fa-arrow-left"></i>{' '}
-                                {staticTexts.backLink}
+                                {texts.backLink}
                             </Link>
                             <Link
                                 className={styles['link']}
@@ -190,7 +186,7 @@ const LoginSection: FunctionComponent = function () {
                                     if (pending) event.preventDefault();
                                 }}
                             >
-                                {staticTexts.registerLink}
+                                {texts.registerLink}
                             </Link>
                         </div>
                     </form>

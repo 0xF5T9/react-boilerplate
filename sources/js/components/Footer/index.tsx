@@ -8,9 +8,9 @@ import { FunctionComponent, useLayoutEffect, useRef } from 'react';
 
 import { Github } from '../Icons/Github';
 import { Discord } from '../Icons/Discord';
-import staticRender from '../../render/static-render';
+import staticTexts from '../../render/static-texts';
 import * as styles from './Footer.module.css';
-const { footerCopyRightText } = staticRender;
+const { footerCopyRightText } = staticTexts;
 
 /**
  * Footer.
