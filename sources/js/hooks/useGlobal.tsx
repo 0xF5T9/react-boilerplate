@@ -1,11 +1,11 @@
 /**
- * @file index.tsx
- * @description Global context for the application.
- * @todo Make global context a custom hook.
+ * @file useGlobal.tsx
+ * @description Global hook.
  * @todo Fix top loading bar's box shadow artifact on top left screen.
  */
 
 'use strict';
+import type { GlobalHook } from '../types/global-hook';
 import {
     FunctionComponent,
     ReactNode,
@@ -13,12 +13,13 @@ import {
     useState,
     useEffect,
     useRef,
+    useContext,
 } from 'react';
 import { useNavigation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import LoadingBar from 'react-top-loading-bar';
 
-import themes from '../../Theme';
+import themes from '../components/Theme';
 
 // Global context.
 const globalContext = createContext(null);
@@ -107,7 +108,7 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
         });
     }
 
-    const global = {
+    const value: GlobalHook = {
         theme,
         setTheme,
         deviceType,
@@ -115,7 +116,7 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
     };
 
     return (
-        <globalContext.Provider value={global}>
+        <globalContext.Provider value={value}>
             <LoadingBar
                 ref={loadingBarRef}
                 color="var(--color-primary)"
@@ -142,4 +143,12 @@ GlobalProvider.propTypes = {
     children: PropTypes.node,
 };
 
-export { globalContext, GlobalProvider };
+/**
+ * Hook that access global states.
+ * @returns theme, setTheme, deviceType, setAllowScrolling
+ */
+function useGlobal(): GlobalHook {
+    return useContext(globalContext);
+}
+
+export { globalContext, GlobalProvider, useGlobal };

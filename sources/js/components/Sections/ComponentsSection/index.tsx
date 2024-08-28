@@ -8,9 +8,8 @@ import { FunctionComponent, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { globalContext } from '../../Context/Global';
+import { useGlobal } from '../../../hooks/useGlobal';
 import routes from '../../../global/react-router/routes';
-
 import { FlexibleSection } from '../../Content/components/GridSection';
 import {
     SectionTitle,
@@ -19,7 +18,6 @@ import {
 } from '../../Content/components/GridSection/components';
 import { Row, Column } from '../../GridSystem';
 import { Code } from '../../Icons/Code';
-
 import * as styles from './ComponentsSection.module.css';
 
 /**
@@ -63,7 +61,7 @@ CardItem.propTypes = {
  * @returns Returns the component.
  */
 const ComponentsSection: FunctionComponent = function () {
-    const { theme } = useContext(globalContext);
+    const { theme } = useGlobal();
 
     return (
         <>

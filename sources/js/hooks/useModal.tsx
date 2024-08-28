@@ -16,7 +16,7 @@ import {
 } from 'react';
 import PropTypes from 'prop-types';
 
-import { globalContext } from '../components/Context/Global';
+import { useGlobal } from './useGlobal';
 
 // Modal context.
 const modalContext = createContext(null);
@@ -30,7 +30,7 @@ const modalContext = createContext(null);
 const ModalProvider: FunctionComponent<{ children: ReactNode }> = function ({
     children,
 }) {
-    const { setAllowScrolling } = useContext(globalContext);
+    const { setAllowScrolling } = useGlobal();
 
     // 'modalVisibility' is used to check if there is an opening modal. (Don't use 'modal')
     // 'setModalVisibility' is used to close any opening modal programmatically.

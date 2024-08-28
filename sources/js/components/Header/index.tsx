@@ -7,9 +7,9 @@
 import { FunctionComponent, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { useGlobal } from '../../hooks/useGlobal';
 import { useAuth } from '../../hooks/useAuth';
 import routes from '../../global/react-router/routes';
-import { globalContext } from '../Context/Global';
 import BrandLogo from './components/BrandLogo';
 import BrandText from './components/BrandText';
 import Navbar from './components/Navbar';
@@ -29,7 +29,7 @@ const { headerLoginButtonText, headerRegisterButtonText } = staticRender;
  * @returns Returns the component.
  */
 const Header: FunctionComponent = function () {
-    const { theme, setTheme } = useContext(globalContext),
+    const { theme, setTheme } = useGlobal(),
         navigate = useNavigate(),
         { sessionData } = useAuth();
 

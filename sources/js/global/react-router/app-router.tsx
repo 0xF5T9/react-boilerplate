@@ -7,7 +7,7 @@
 import { RouteObject } from 'react-router-dom';
 import routes from './routes';
 import { AuthProvider } from '../../hooks/useAuth';
-import { GlobalProvider } from '../../components/Context/Global';
+import { GlobalProvider } from '../../hooks/useGlobal';
 import { ModalProvider } from '../../hooks/useModal';
 import App from '../../components/App';
 import ProtectedRoute from '../../components/ProtectedRoute';
