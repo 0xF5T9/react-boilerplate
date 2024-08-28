@@ -1,11 +1,12 @@
 /**
  * @file index.tsx
- * @description Server message component.
+ * @description Server message.
  */
 
 'use strict';
 import { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import * as styles from './ServerMessage.module.css';
 
@@ -20,9 +21,13 @@ import * as styles from './ServerMessage.module.css';
 const ServerMessage: FunctionComponent<{
     message?: string;
     type?: 'success' | 'error';
-    onClick?: any;
+    onClick?: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    >['onClick'];
 }> = function ({ message, type, onClick }) {
-    const classes = `${styles['server-message-wrapper']} ${styles[type]}`;
+    const classes = classNames(styles['server-message-wrapper'], styles[type]);
+
     return (
         <div className={classes}>
             <span className={styles['server-message']}>{message}</span>
