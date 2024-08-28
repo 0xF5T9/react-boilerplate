@@ -26,7 +26,7 @@ declare global {
         /**
          * Parse a JSON string into object.
          * @param jsonString JSON string.
-         * @returns Returns the parsed JSON object if the string-
+         * @returns Returns the parsed JSON object if the string
          *          is a valid JSON string, otherwise returns false.
          */
         parseJSON(jsonString: string): object | boolean {

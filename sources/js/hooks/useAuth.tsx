@@ -72,7 +72,7 @@ AuthProvider.propTypes = {
 };
 
 /**
- * Hook provides a convenient way to access and manage user-
+ * Hook provides a convenient way to access and manage user
  * authentication status from application components.
  * @returns sessionData, login, logout
  */

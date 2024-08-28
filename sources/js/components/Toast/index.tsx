@@ -1,6 +1,6 @@
 /**
  * @file index.tsx
- * @description Toast component.
+ * @description Toast.
  */
 
 'use strict';
