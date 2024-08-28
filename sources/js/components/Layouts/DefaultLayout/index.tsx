@@ -1,6 +1,6 @@
 /**
  * @file index.tsx
- * @description Default layout component.
+ * @description Default layout.
  */
 
 'use strict';
@@ -12,11 +12,10 @@ import Content from '../../Content';
 import Footer from '../../Footer';
 import { ModalOverlay } from '../../Modal';
 import { ToastOverlay } from '../../Toast';
-
 import * as styles from '../Layout.module.css';
 
 /**
- * Loader component.
+ * Loader.
  * @returns Returns the loader data.
  */
 async function loader() {
@@ -24,7 +23,7 @@ async function loader() {
 }
 
 /**
- * Default layout component.
+ * Default layout.
  * @param props Component properties.
  * @param props.children Section components.
  * @returns Returns the component.

@@ -1,6 +1,6 @@
 /**
  * @file index.tsx
- * @description Blank layout component.
+ * @description Blank layout.
  */
 
 'use strict';
@@ -10,11 +10,10 @@ import { ScrollRestoration, useLoaderData } from 'react-router-dom';
 import Content from '../../Content';
 import { ModalOverlay } from '../../Modal';
 import { ToastOverlay } from '../../Toast';
-
 import * as styles from '../Layout.module.css';
 
 /**
- * Loader component.
+ * Loader.
  * @returns Returns the loader data.
  */
 async function loader() {
@@ -22,7 +21,7 @@ async function loader() {
 }
 
 /**
- * Blank layout component.
+ * Blank layout.
  * @param props Component properties.
  * @param props.children Section components.
  * @returns Returns the component.

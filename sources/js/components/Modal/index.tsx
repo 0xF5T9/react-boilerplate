@@ -1,9 +1,10 @@
 /**
  * @file index.tsx
- * @description Modal component.
+ * @description Modal.
  */
 
 'use strict';
+import { AlertModal, CustomModal, Modal, ModalHook } from '../../types/modal';
 import {
     FunctionComponent,
     CSSProperties,
@@ -15,14 +16,12 @@ import {
     ReactNode,
 } from 'react';
 import PropTypes from 'prop-types';
-import { AlertModal, CustomModal, Modal, ModalHook } from '../../types/modal';
 
 import { globalContext } from '../Context/Global';
 import { CircleExclamation } from '../Icons/CircleExclamation';
 import { CircleInfo } from '../Icons/CircleInfo';
 import { CircleCheck } from '../Icons/CircleCheck';
 import Button from '../Button';
-
 import * as styles from './Modal.module.css';
 
 // Modal context.

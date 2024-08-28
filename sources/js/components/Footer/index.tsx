@@ -1,6 +1,6 @@
 /**
  * @file index.tsx
- * @description Footer component.
+ * @description Footer.
  */
 
 'use strict';
@@ -13,7 +13,7 @@ import * as styles from './Footer.module.css';
 const { footerCopyRightText } = staticRender;
 
 /**
- * Footer component.
+ * Footer.
  * @returns Returns the component.
  */
 const Footer: FunctionComponent = function () {
