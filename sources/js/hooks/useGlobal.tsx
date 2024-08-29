@@ -11,6 +11,7 @@ import {
     createContext,
     useState,
     useEffect,
+    useLayoutEffect,
     useRef,
     useContext,
 } from 'react';
@@ -68,6 +69,23 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
             console.warn('Unknown theme name detected, fallback to default.');
             Theme = themes['Dark'];
     }
+
+    // https://github.com/0xF5T9/react-boilerplate/issues/8
+    useLayoutEffect(() => {
+        function handleUpdateViewPortHeight() {
+            document.documentElement.style.setProperty(
+                '--100vh',
+                `${window.innerHeight}px`
+            );
+        }
+
+        handleUpdateViewPortHeight();
+
+        window.addEventListener('resize', handleUpdateViewPortHeight);
+        return () => {
+            window.removeEventListener('resize', handleUpdateViewPortHeight);
+        };
+    }, []);
 
     useEffect(() => {
         window.addEventListener('resize', handleUpdateDeviceType);

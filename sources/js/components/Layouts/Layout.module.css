@@ -1,7 +1,7 @@
 .background {
     position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: var(--100vh);
     background-image: var(--general-body-background-gradient-color),
         var(--general-body-background-image-url);
     background-size: cover;
@@ -14,7 +14,7 @@
     content: '';
     display: block;
     width: 100vw;
-    height: 100vh;
+    height: var(--100vh);
     background-color: rgba(0, 0, 0, 0);
     backdrop-filter: var(--general-body-background-backdrop-filter, none);
 }
