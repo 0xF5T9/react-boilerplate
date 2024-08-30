@@ -277,8 +277,8 @@
     --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
         'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
         'Segoe UI Emoji';
-    --general-text-color: #231f20;
-    --general-body-background-color: #f7f8f9;
+    --general-text-color: var(--text-light);
+    --general-body-background-color: var(--background-light);
     --general-body-background-gradient-color: linear-gradient(
         to bottom,
         #f7f8f9,
