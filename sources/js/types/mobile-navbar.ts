@@ -1,5 +1,5 @@
 /**
- * @file mobile-navbar.d.ts
+ * @file mobile-navbar.ts
  * @description Header mobile navbar item types.
  */
 

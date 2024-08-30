@@ -1,5 +1,5 @@
 /**
- * @file authentication.d.ts
+ * @file authentication.ts
  * @description Authentication related types.
  */
 

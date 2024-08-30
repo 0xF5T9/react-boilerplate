@@ -1,5 +1,5 @@
 /**
- * @file modal.d.ts
+ * @file modal.ts
  * @description Modal related types.
  */
 

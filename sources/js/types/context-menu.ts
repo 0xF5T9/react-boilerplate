@@ -1,5 +1,5 @@
 /**
- * @file context-menu.d.ts
+ * @file context-menu.ts
  * @description Context menu types.
  */
 

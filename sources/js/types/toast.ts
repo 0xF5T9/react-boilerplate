@@ -1,5 +1,5 @@
 /**
- * @file toast.d.ts
+ * @file toast.ts
  * @description Toast related types.
  */
 

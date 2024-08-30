@@ -1,5 +1,5 @@
 /**
- * @file navbar.d.ts
+ * @file navbar.ts
  * @description Header navbar item types.
  */
 

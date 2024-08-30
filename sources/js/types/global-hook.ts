@@ -1,5 +1,5 @@
 /**
- * @file global-hook.d.ts
+ * @file global-hook.ts
  * @description Global hook types.
  */
 

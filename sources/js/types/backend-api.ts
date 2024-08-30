@@ -1,5 +1,5 @@
 /**
- * @file backend-api.d.ts
+ * @file backend-api.ts
  * @description Backend api related types.
  */
 
