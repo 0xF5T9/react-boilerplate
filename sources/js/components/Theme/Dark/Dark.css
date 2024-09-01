@@ -1,24 +1,25 @@
 :root {
-    --color-primary: var(--color-orange);
+    --color-primary: #fc9a69;
+    --color-primary-bright: #fca376;
     --color-success: var(--color-green);
     --color-warning: var(--color-yellow);
     --color-danger: var(--color-red);
 
     --color-scrollbar-background: #221f22;
     --color-scrollbar-thumb-background-default: #4e4c4e;
-    --color-scrollbar-thumb-background-hover: #fc9a69;
-    --color-scrollbar-thumb-background-active: #fcab83;
+    --color-scrollbar-thumb-background-hover: var(--color-primary);
+    --color-scrollbar-thumb-background-active: var(--color-primary-bright);
     --color-div-scrollbar-thumb-background-default: #4e4c4e;
 
     --text-light: #231f20;
     --text-light-dim: #5b5a5a;
-    --text-light-highlight: #fc9a69;
+    --text-light-highlight: var(--color-primary);
     --background-light: #f2eae6;
     --background-light-highlight: rgba(230, 136, 64, 0.2);
 
     --text-dark: #f2eae6;
     --text-dark-dim: #9f9998;
-    --text-dark-highlight: #fc9a69;
+    --text-dark-highlight: var(--color-primary);
     --background-dark: #221f22;
     --background-dark-highlight: #2d2a2d;
 
@@ -150,7 +151,7 @@
     --button-background-color-default: linear-gradient(
         0deg,
         #f08764 0%,
-        #fc9a69 100%
+        var(--color-primary) 100%
     );
     --button-background-color-hover: var(--button-background-color-default);
     --button-background-color-active: var(--button-background-color-default);

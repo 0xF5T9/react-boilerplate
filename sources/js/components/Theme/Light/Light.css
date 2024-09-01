@@ -1,14 +1,15 @@
 :root {
     --color-primary: #40a2e6;
+    --color-primary-bright: #59bbff;
     --color-success: var(--color-green);
     --color-warning: var(--color-yellow);
     --color-danger: var(--color-red);
 
     --color-scrollbar-background: #f7f8f9;
     --color-scrollbar-thumb-background-default: #a6a1a6;
-    --color-scrollbar-thumb-background-hover: #40a2e6;
-    --color-scrollbar-thumb-background-active: #63b0e6;
-    --color-div-scrollbar-thumb-background-default: #40a2e6;
+    --color-scrollbar-thumb-background-hover: var(--color-primary);
+    --color-scrollbar-thumb-background-active: var(--color-primary-bright);
+    --color-div-scrollbar-thumb-background-default: var(--color-primary);
 
     --text-light: #231f20;
     --text-light-dim: #5b5a5a;
@@ -91,8 +92,8 @@
     --mobile-navbar-item-background-color-default: rgba(255, 255, 255, 0);
     --mobile-navbar-item-background-color-hover: #e9f4fb;
     --mobile-navbar-item-background-color-highlight: #d7ebf9;
-    --mobile-navbar-item-text-color-hover: #40a2e6;
-    --mobile-navbar-item-text-color-highlight: #40a2e6;
+    --mobile-navbar-item-text-color-hover: var(--color-primary);
+    --mobile-navbar-item-text-color-highlight: var(--color-primary);
     --mobile-navbar-item-desc-text-color: var(--text-light-dim);
 
     --popup-window-text-color: var(--text-light);
