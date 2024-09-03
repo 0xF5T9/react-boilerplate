@@ -166,6 +166,7 @@
     --button-padding-left-right: 16px;
     --button-padding-top-bottom: 8.4px;
 
+    --input-placeholder-text-color: var(--text-dark-dim);
     --input-text-color-default: var(--text-dark);
     --input-text-color-hover: var(--input-text-color-default);
     --input-text-color-active: var(--input-text-color-default);
@@ -218,6 +219,7 @@
     --radio-border-color-checked: var(--color-primary);
     --radio-focus-border-color: var(--color-white);
 
+    --labeled-input-placeholder-text-color: var(--text-dark-dim);
     --labeled-input-label-text-color: var(--text-dark);
     --labeled-input-text-color-default: var(--text-dark);
     --labeled-input-inner-background-color-default: #383539;

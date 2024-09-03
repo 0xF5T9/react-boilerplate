@@ -37,39 +37,50 @@ const LabeledInputSampleSection: FunctionComponent = function () {
                         gap: '8px',
                     }}
                 >
-                    <LabeledInput label="Primary" width={250} labelWidth={72} />
+                    <LabeledInput
+                        label="Primary"
+                        placeholder="Primary"
+                        width={250}
+                        labelWidth={72}
+                    />
                     <LabeledInput
                         label="Red"
+                        placeholder="Red"
                         color="red"
                         width={250}
                         labelWidth={72}
                     />
                     <LabeledInput
                         label="Orange"
+                        placeholder="Orange"
                         color="orange"
                         width={250}
                         labelWidth={72}
                     />
                     <LabeledInput
                         label="Yellow"
+                        placeholder="Yellow"
                         color="yellow"
                         width={250}
                         labelWidth={72}
                     />
                     <LabeledInput
                         label="Green"
+                        placeholder="Green"
                         color="green"
                         width={250}
                         labelWidth={72}
                     />
                     <LabeledInput
                         label="Blue"
+                        placeholder="Blue"
                         color="blue"
                         width={250}
                         labelWidth={72}
                     />
                     <LabeledInput
                         label="Purple"
+                        placeholder="Purple"
                         color="purple"
                         width={250}
                         labelWidth={72}
@@ -88,6 +99,7 @@ const LabeledInputSampleSection: FunctionComponent = function () {
                 >
                     <LabeledInput
                         label="Primary"
+                        placeholder="This input is disabled"
                         width={250}
                         labelWidth={72}
                         disabled
@@ -95,6 +107,7 @@ const LabeledInputSampleSection: FunctionComponent = function () {
 
                     <LabeledInput
                         label="Red"
+                        placeholder="This input is disabled"
                         color="red"
                         width={250}
                         labelWidth={72}
@@ -103,6 +116,7 @@ const LabeledInputSampleSection: FunctionComponent = function () {
 
                     <LabeledInput
                         label="Orange"
+                        placeholder="This input is disabled"
                         color="orange"
                         width={250}
                         labelWidth={72}
@@ -111,6 +125,7 @@ const LabeledInputSampleSection: FunctionComponent = function () {
 
                     <LabeledInput
                         label="Yellow"
+                        placeholder="This input is disabled"
                         color="yellow"
                         width={250}
                         labelWidth={72}
@@ -119,6 +134,7 @@ const LabeledInputSampleSection: FunctionComponent = function () {
 
                     <LabeledInput
                         label="Green"
+                        placeholder="This input is disabled"
                         color="green"
                         width={250}
                         labelWidth={72}
@@ -127,6 +143,7 @@ const LabeledInputSampleSection: FunctionComponent = function () {
 
                     <LabeledInput
                         label="Blue"
+                        placeholder="This input is disabled"
                         color="blue"
                         width={250}
                         labelWidth={72}
@@ -135,6 +152,7 @@ const LabeledInputSampleSection: FunctionComponent = function () {
 
                     <LabeledInput
                         label="Purple"
+                        placeholder="This input is disabled"
                         color="purple"
                         width={250}
                         labelWidth={72}
@@ -153,9 +171,23 @@ const LabeledInputSampleSection: FunctionComponent = function () {
                         gap: '8px',
                     }}
                 >
-                    <LabeledInput label="Small" inputSize="small" width={150} />
-                    <LabeledInput label="Default" width={150} />
-                    <LabeledInput label="Large" inputSize="large" width={150} />
+                    <LabeledInput
+                        label="Small"
+                        placeholder="Small"
+                        inputSize="small"
+                        width={150}
+                    />
+                    <LabeledInput
+                        label="Default"
+                        placeholder="Default"
+                        width={150}
+                    />
+                    <LabeledInput
+                        label="Large"
+                        placeholder="Large"
+                        inputSize="large"
+                        width={150}
+                    />
                 </div>
             </div>
         </FlexibleSection>

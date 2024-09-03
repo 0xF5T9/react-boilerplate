@@ -76,6 +76,10 @@ input[type='number'].input::-webkit-inner-spin-button {
     background-color: var(--labeled-input-inner-background-color-focus);
 }
 
+.input::placeholder {
+    color: var(--labeled-input-placeholder-text-color, red);
+}
+
 .input-wrapper.reverse-background > .input {
     color: var(--labeled-input-text-color-default-reverse);
     background-color: var(

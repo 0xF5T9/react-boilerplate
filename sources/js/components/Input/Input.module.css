@@ -78,6 +78,10 @@
     border: var(--input-border-width) solid var(--input-border-color-focus);
 }
 
+.input::placeholder {
+    color: var(--input-placeholder-text-color);
+}
+
 .input-wrapper.disabled {
     opacity: 0.65;
 }
