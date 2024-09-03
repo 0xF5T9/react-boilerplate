@@ -62,6 +62,7 @@
     cursor: pointer;
     animation: modal-overlay-fade-in var(--modal-overlay-fade-in-duration)
         linear forwards;
+    -webkit-backdrop-filter: var(--modal-overlay-backdrop-filter, none);
     backdrop-filter: var(--modal-overlay-backdrop-filter, none);
     z-index: 1000;
     will-change: visibility, background-color;

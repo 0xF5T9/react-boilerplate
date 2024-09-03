@@ -52,6 +52,10 @@
     right: 0;
     bottom: 0;
     background-color: var(--mobile-navbar-blur-layer-background-color);
+    -webkit-backdrop-filter: var(
+        --mobile-navbar-blur-layer-backdrop-filter,
+        none
+    );
     backdrop-filter: var(--mobile-navbar-blur-layer-backdrop-filter, none);
     border: 0;
     border-radius: 0;

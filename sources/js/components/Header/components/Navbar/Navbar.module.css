@@ -119,6 +119,7 @@
     border-radius: var(--navbar-sublist-border-radius);
     background-color: var(--navbar-sublist-background-color);
     box-shadow: var(--navbar-sublist-box-shadow);
+    -webkit-backdrop-filter: var(--navbar-sublist-backdrop-filter, none);
     backdrop-filter: var(--navbar-sublist-backdrop-filter, none);
     visibility: collapse;
     opacity: 0;
