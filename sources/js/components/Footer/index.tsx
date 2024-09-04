@@ -44,11 +44,11 @@ const Footer: FunctionComponent = function () {
                     '--footer-height',
                     `${parsedHeight}px`
                 );
-            }, 100);
+            }, 1);
         }
 
         // BUG: ResizeObserver loop completed with undelivered notifications.
-        // Added 100ms debounce. To be observed.
+        // Added 1ms debounce. To be observed.
         const observer = new ResizeObserver(handleFooterResize);
         observer?.observe(footer?.current);
 
