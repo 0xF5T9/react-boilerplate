@@ -17,32 +17,38 @@ const { footerCopyRightText } = staticTexts;
  * @returns Returns the component.
  */
 const Footer: FunctionComponent = function () {
-    const footer = useRef<HTMLElement>();
+    const footer = useRef<HTMLElement>(),
+        timeoutId = useRef<NodeJS.Timeout>(null);
 
     useLayoutEffect(() => {
         function handleFooterResize() {
-            const currentFooterHeight = getComputedStyle(
-                document.documentElement
-            ).getPropertyValue('--footer-height');
-            if (!currentFooterHeight) {
-                console.warn(
-                    'Expect footer height variable in root, but none were found.',
-                    `\nFound value: '${currentFooterHeight}'`
+            if (timeoutId?.current) clearTimeout(timeoutId.current);
+
+            timeoutId.current = setTimeout(() => {
+                const currentFooterHeight = getComputedStyle(
+                    document.documentElement
+                ).getPropertyValue('--footer-height');
+                if (!currentFooterHeight) {
+                    console.warn(
+                        'Expect footer height variable in root, but none were found.',
+                        `\nFound value: '${currentFooterHeight}'`
+                    );
+                    return;
+                }
+
+                const footerHeight =
+                        footer?.current?.getBoundingClientRect()?.height,
+                    parsedHeight = parseFloat(footerHeight.toFixed(2));
+
+                document.documentElement.style.setProperty(
+                    '--footer-height',
+                    `${parsedHeight}px`
                 );
-                return;
-            }
-
-            const footerHeight =
-                    footer?.current?.getBoundingClientRect()?.height,
-                parsedHeight = parseFloat(footerHeight.toFixed(2));
-
-            document.documentElement.style.setProperty(
-                '--footer-height',
-                `${parsedHeight}px`
-            );
+            }, 100);
         }
 
         // BUG: ResizeObserver loop completed with undelivered notifications.
+        // Added 100ms debounce. To be observed.
         const observer = new ResizeObserver(handleFooterResize);
         observer?.observe(footer?.current);
 
