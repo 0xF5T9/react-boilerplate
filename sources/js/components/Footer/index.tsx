@@ -17,7 +17,7 @@ const { footerCopyRightText } = staticTexts;
  * @returns Returns the component.
  */
 const Footer: FunctionComponent = function () {
-    const footer: any = useRef();
+    const footer = useRef<HTMLElement>();
 
     useLayoutEffect(() => {
         function handleFooterResize() {
