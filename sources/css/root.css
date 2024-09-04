@@ -40,7 +40,7 @@
     --general-html-overflow: auto;
     --content-max-width: 1200px;
 
-    --header-height: 56.8px;
+    --header-height: 0px;
     --footer-height: 0px;
     --100vh: 100vh;
 }

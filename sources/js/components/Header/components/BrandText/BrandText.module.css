@@ -16,7 +16,7 @@
 .text-wrapper {
     width: auto;
     height: 100%;
-    line-height: var(--header-height);
+    line-height: 56.8px;
     user-select: none;
 }
 
