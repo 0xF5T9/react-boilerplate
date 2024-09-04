@@ -181,7 +181,7 @@
     --input-border-color-focus: var(--color-primary);
     --input-icon-color-default: var(--text-dark-dim);
     --input-icon-color-focus: var(--color-primary);
-    --input-border-width: 2px;
+    --input-border-width: 1.4px;
     --input-border-radius: 6px;
     --input-padding-left-right: 8px;
     --input-padding-top-bottom: 6.8px;
