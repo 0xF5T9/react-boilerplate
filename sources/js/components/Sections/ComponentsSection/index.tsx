@@ -4,9 +4,10 @@
  */
 
 'use strict';
-import { FunctionComponent, useContext } from 'react';
+import { CSSProperties, FunctionComponent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import { useGlobal } from '../../../hooks/useGlobal';
 import routes from '../../../global/react-router/routes';
@@ -33,12 +34,26 @@ const CardItem: FunctionComponent<{
     to?: string;
     icon?: FunctionComponent;
 }> = function ({ text, to, icon }) {
-    const navigate = useNavigate();
+    const navigate = useNavigate(),
+        { deviceInfo } = useGlobal();
 
     const Icon = icon || Code;
 
+    const style: CSSProperties =
+        deviceInfo.type === 'mobile'
+            ? {
+                  padding: '0px 8px',
+              }
+            : {};
+
+    const classes = classNames(
+        `c-${deviceInfo.screenWidth < 480 ? '12' : '6'}`,
+        'm-4',
+        'l-3'
+    );
+
     return (
-        <Column className={`c-12 m-4 l-3`}>
+        <Column className={classes} style={style}>
             <div
                 className={styles['card-item']}
                 onClick={to && (() => navigate(to))}
