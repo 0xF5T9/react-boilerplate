@@ -6,10 +6,10 @@
 export type GlobalHook = {
     theme: string;
     setTheme: React.Dispatch<React.SetStateAction<string>>;
-    deviceType: {
-        deviceType: string;
-        deviceWidth: number;
-        deviceHeight: number;
+    deviceInfo: {
+        type: 'desktop' | 'tablet' | 'mobile';
+        screenWidth: number;
+        screenHeight: number;
     };
     setAllowScrolling: React.Dispatch<React.SetStateAction<boolean>>;
 };

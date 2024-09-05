@@ -45,15 +45,19 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
 
             return theme;
         }),
-        [deviceType, setDeviceType] = useState(() => ({
-            deviceType:
+        [deviceInfo, setDeviceInfo] = useState<{
+            type: 'desktop' | 'tablet' | 'mobile';
+            screenWidth: number;
+            screenHeight: number;
+        }>(() => ({
+            type:
                 window.innerWidth >= 1024
-                    ? 'Desktop'
+                    ? 'desktop'
                     : window.innerWidth >= 741
-                      ? 'Tablet'
-                      : 'Mobile',
-            deviceWidth: window.innerWidth,
-            deviceHeight: window.innerHeight,
+                      ? 'tablet'
+                      : 'mobile',
+            screenWidth: window.innerWidth,
+            screenHeight: window.innerHeight,
         })),
         [allowScrolling, setAllowScrolling] = useState(true);
 
@@ -88,9 +92,9 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
     }, []);
 
     useEffect(() => {
-        window.addEventListener('resize', handleUpdateDeviceType);
+        window.addEventListener('resize', handleUpdateDeviceInfo);
         return () => {
-            window.removeEventListener('resize', handleUpdateDeviceType);
+            window.removeEventListener('resize', handleUpdateDeviceInfo);
         };
     }, []);
 
@@ -111,24 +115,24 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
         }
     }, [navigation.state]);
 
-    function handleUpdateDeviceType() {
+    function handleUpdateDeviceInfo() {
         const deviceTypeString =
             window.innerWidth >= 1024
-                ? 'Desktop'
+                ? 'desktop'
                 : window.innerWidth >= 741
-                  ? 'Tablet'
-                  : 'Mobile';
-        setDeviceType({
-            deviceType: deviceTypeString,
-            deviceWidth: window.innerWidth,
-            deviceHeight: window.innerHeight,
+                  ? 'tablet'
+                  : 'mobile';
+        setDeviceInfo({
+            type: deviceTypeString,
+            screenWidth: window.innerWidth,
+            screenHeight: window.innerHeight,
         });
     }
 
     const value: GlobalHook = {
         theme,
         setTheme,
-        deviceType,
+        deviceInfo,
         setAllowScrolling,
     };
 

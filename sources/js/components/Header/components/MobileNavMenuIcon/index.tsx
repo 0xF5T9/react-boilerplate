@@ -244,13 +244,13 @@ NavCloseButton.propTypes = {
 const MobileNavMenuIcon: FunctionComponent = function () {
     const { sessionData } = useAuth();
 
-    const { deviceType, setAllowScrolling } = useGlobal(),
+    const { deviceInfo, setAllowScrolling } = useGlobal(),
         [showPopup, setShowPopup] = useState(false);
 
     // Close the menu when the screen width changes.
     useEffect(() => {
         setShowPopup(false);
-    }, [deviceType.deviceWidth]);
+    }, [deviceInfo.screenWidth]);
 
     useEffect(() => {
         setAllowScrolling(!showPopup);
