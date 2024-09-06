@@ -3,6 +3,49 @@
  * @description Element-level styles.
  */
 
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Regular.ttf')
+        format('truetype');
+    font-weight: 400;
+    font-display: fallback;
+}
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Light.ttf')
+        format('truetype');
+    font-weight: 300;
+    font-display: fallback;
+}
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Medium.ttf')
+        format('truetype');
+    font-weight: 500;
+    font-display: fallback;
+}
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Bold.ttf')
+        format('truetype');
+    font-weight: bold;
+    font-display: fallback;
+}
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Semibold.ttf')
+        format('truetype');
+    font-weight: 600;
+    font-display: fallback;
+}
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Heavy.ttf')
+        format('truetype');
+    font-weight: 800;
+    font-display: fallback;
+}
+
 :root {
     /* Predefined color variables */
     --color-white: #fcfcfa;

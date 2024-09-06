@@ -343,9 +343,8 @@
     --section-desc-text-color: var(--text-dark-dim);
 
     /* General variables */
-    --general-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans',
-        'Poppins', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-        'Segoe UI Emoji';
+    --general-font-family: -apple-system, BlinkMacSystemFont, 'SFProDisplay',
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
     --general-text-color: var(--text-dark);
     --general-body-background-color: var(--background-dark-primary);
     --general-body-background-gradient-color: linear-gradient(
