@@ -7,8 +7,9 @@ import { FunctionComponent } from 'react';
 
 export type ContextMenuItem = {
     text: string;
-    icon?: FunctionComponent<any>;
+    icon?: FunctionComponent<any> | string;
     to?: string;
+    className?: string;
     onClick?: React.DetailedHTMLProps<
         React.LiHTMLAttributes<HTMLLIElement>,
         HTMLLIElement

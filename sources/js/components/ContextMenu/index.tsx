@@ -9,6 +9,7 @@ import { FunctionComponent, useState, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { TippyProps } from '@tippyjs/react';
 import PropTypes, { oneOf } from 'prop-types';
+import classNames from 'classnames';
 
 import { useAuth } from '../../hooks/useAuth';
 import PopupWindow, { PopupRender } from '../PopupWindow';
@@ -24,11 +25,12 @@ import * as styles from './ContextMenu.module.css';
  * @param props.hideOnClick Specifies whether to hide the context menu on item click.
  * @param props.action Item action. If specified, 'to' and 'onClick' props are ignored.
  * @param props.setVisible Visible state setter.
+ * @param props.className Item class names.
  * @returns Returns the component.
  */
 const ListItem: FunctionComponent<{
     text?: string;
-    icon?: FunctionComponent<any>;
+    icon?: FunctionComponent<any> | string;
     to?: string;
     onClick?: React.DetailedHTMLProps<
         React.LiHTMLAttributes<HTMLLIElement>,
@@ -37,6 +39,7 @@ const ListItem: FunctionComponent<{
     hideOnClick?: boolean;
     action?: ContextMenuItem['action'];
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    className?: string;
 }> = function ({
     text,
     icon,
@@ -45,6 +48,7 @@ const ListItem: FunctionComponent<{
     hideOnClick = false,
     action,
     setVisible,
+    className,
 }) {
     const navigate = useNavigate(),
         { logout } = useAuth();
@@ -53,9 +57,9 @@ const ListItem: FunctionComponent<{
 
     return (
         <li
-            className={styles['list-item']}
+            className={classNames(styles['list-item'], className)}
             onClick={(event) => {
-                if (hideOnClick) setVisible(false);
+                if (hideOnClick && setVisible) setVisible(false);
 
                 // Only have 1 action for now.
                 if (action === 'logout') {
@@ -73,7 +77,11 @@ const ListItem: FunctionComponent<{
                 onClick={!to ? (event) => event.preventDefault() : null}
                 tabIndex={-1}
             >
-                {Icon ? <Icon className={styles['list-item-icon']} /> : null}
+                {Icon && typeof Icon === 'function' ? (
+                    <Icon className={styles['list-item-icon']} />
+                ) : Icon && typeof Icon === 'string' ? (
+                    <i className={classNames(styles['list-item-icon'], Icon)} />
+                ) : null}
                 <span className={styles['list-item-text']}>{text}</span>
             </Link>
         </li>
@@ -82,12 +90,13 @@ const ListItem: FunctionComponent<{
 
 ListItem.propTypes = {
     text: PropTypes.string,
-    icon: PropTypes.func,
+    icon: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     to: PropTypes.string,
     onClick: PropTypes.func,
     hideOnClick: PropTypes.bool,
     action: PropTypes.any,
     setVisible: PropTypes.func,
+    className: PropTypes.string,
 };
 
 /**
@@ -98,6 +107,7 @@ ListItem.propTypes = {
  * @param props.setVisible Visible state setter.
  * @param props.offset Tippy 'offset' prop.
  * @param props.placement Tippy 'placement' prop.
+ * @param props.delay Tippy 'delay' prop.
  * @param props.animation Animation presets.
  * @param props.children Component children.
  * @note The consumer-component is responsible for managing popup-visibility. ('visible' & 'setVisible')
@@ -105,10 +115,11 @@ ListItem.propTypes = {
  */
 const ContextMenu: FunctionComponent<{
     menus: ContextMenu[];
-    visible: TippyProps['visible'];
-    setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    visible?: TippyProps['visible'];
+    setVisible?: React.Dispatch<React.SetStateAction<boolean>>;
     offset?: TippyProps['offset'];
     placement?: TippyProps['placement'];
+    delay?: TippyProps['delay'];
     animation?: 'fade' | 'slide-scale';
     children: TippyProps['children'];
 }> = function ({
@@ -117,6 +128,7 @@ const ContextMenu: FunctionComponent<{
     setVisible,
     offset = [0, 0],
     placement = 'bottom-end',
+    delay = 0,
     animation = 'fade',
     children,
 }) {
@@ -145,7 +157,7 @@ const ContextMenu: FunctionComponent<{
     });
 
     function handleBackgroundClick() {
-        setVisible(false);
+        if (setVisible) setVisible(false);
     }
 
     const handlePopupClose = useCallback(
@@ -180,6 +192,7 @@ const ContextMenu: FunctionComponent<{
             visible={visible}
             offset={offset}
             placement={placement}
+            delay={delay}
             onClickOutside={handleBackgroundClick}
             onHidden={handlePopupClose}
             customAnimation={customAnimation}
@@ -193,6 +206,7 @@ const ContextMenu: FunctionComponent<{
                                     text={item.text}
                                     icon={item.icon}
                                     to={item.to}
+                                    className={item.className}
                                     onClick={
                                         item.gotoMenu
                                             ? (event) => {
