@@ -6,8 +6,10 @@
 import { FunctionComponent } from 'react';
 
 export type ContextMenuItem = {
-    text: string;
-    icon?: FunctionComponent<any> | string;
+    title: string;
+    desc?: string;
+    icon?: {icon: FunctionComponent<any> | string, width?: string; height?: string};
+    image?: { url: string; alt?: string; width?: string; height?: string };
     to?: string;
     className?: string;
     onClick?: React.DetailedHTMLProps<

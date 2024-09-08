@@ -18,7 +18,8 @@ import * as styles from './ContextMenu.module.css';
 /**
  * Context menu list item.
  * @param props Component properties.
- * @param props.text Item text.
+ * @param props.title Item title.
+ * @param props.desc Item description.
  * @param props.icon Item icon.
  * @param props.to React router link.
  * @param props.onClick On-click callback function.
@@ -29,8 +30,14 @@ import * as styles from './ContextMenu.module.css';
  * @returns Returns the component.
  */
 const ListItem: FunctionComponent<{
-    text?: string;
-    icon?: FunctionComponent<any> | string;
+    title?: string;
+    desc?: string;
+    icon?: {
+        icon: FunctionComponent<any> | string;
+        width?: string;
+        height?: string;
+    };
+    image?: { url: string; alt?: string; width?: string; height?: string };
     to?: string;
     onClick?: React.DetailedHTMLProps<
         React.LiHTMLAttributes<HTMLLIElement>,
@@ -41,8 +48,10 @@ const ListItem: FunctionComponent<{
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
     className?: string;
 }> = function ({
-    text,
+    title,
+    desc,
     icon,
+    image,
     to,
     onClick,
     hideOnClick = false,
@@ -53,7 +62,7 @@ const ListItem: FunctionComponent<{
     const navigate = useNavigate(),
         { logout } = useAuth();
 
-    const Icon = icon;
+    const Icon = icon?.icon;
 
     return (
         <li
@@ -78,19 +87,59 @@ const ListItem: FunctionComponent<{
                 tabIndex={-1}
             >
                 {Icon && typeof Icon === 'function' ? (
-                    <Icon className={styles['list-item-icon']} />
+                    <Icon
+                        className={styles['list-item-icon']}
+                        style={{
+                            width: icon?.width || '14px',
+                            height: icon?.height || '13px',
+                        }}
+                    />
                 ) : Icon && typeof Icon === 'string' ? (
-                    <i className={classNames(styles['list-item-icon'], Icon)} />
+                    <i
+                        className={classNames(styles['list-item-icon'], Icon)}
+                        style={{
+                            width: icon?.width || '14px',
+                            height: icon?.height || '13px',
+                            fontSize: icon?.height || '13px',
+                        }}
+                    />
                 ) : null}
-                <span className={styles['list-item-text']}>{text}</span>
+                {!Icon && image && (
+                    <img
+                        className={styles['list-item-image']}
+                        src={image.url}
+                        alt={image.alt}
+                        style={{
+                            width: image.width || '14px',
+                            height: image.height || '13px',
+                        }}
+                    />
+                )}
+                <span className={styles['list-item-content']}>
+                    <span className={styles['list-item-title']}>{title}</span>
+                    {desc && (
+                        <span className={styles['list-item-desc']}>{desc}</span>
+                    )}
+                </span>
             </Link>
         </li>
     );
 };
 
 ListItem.propTypes = {
-    text: PropTypes.string,
-    icon: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    title: PropTypes.string,
+    desc: PropTypes.string,
+    icon: PropTypes.exact({
+        icon: PropTypes.any,
+        width: PropTypes.string,
+        height: PropTypes.string,
+    }),
+    image: PropTypes.exact({
+        url: PropTypes.string,
+        width: PropTypes.string,
+        height: PropTypes.string,
+        alt: PropTypes.string,
+    }),
     to: PropTypes.string,
     onClick: PropTypes.func,
     hideOnClick: PropTypes.bool,
@@ -105,10 +154,14 @@ ListItem.propTypes = {
  * @param props.menus Array of context menus.
  * @param props.visible Visible state.
  * @param props.setVisible Visible state setter.
+ * @param props.trigger Tippy 'trigger' prop.
  * @param props.offset Tippy 'offset' prop.
  * @param props.placement Tippy 'placement' prop.
+ * @param props.appendTo Tippy 'appendTo' prop.
  * @param props.delay Tippy 'delay' prop.
+ * @param props.disabled Tippy 'disabled' prop.
  * @param props.animation Animation presets.
+ * @param props.className Context window class name.
  * @param props.children Component children.
  * @note The consumer-component is responsible for managing popup-visibility. ('visible' & 'setVisible')
  * @returns Returns the component.
@@ -117,19 +170,27 @@ const ContextMenu: FunctionComponent<{
     menus: ContextMenu[];
     visible?: TippyProps['visible'];
     setVisible?: React.Dispatch<React.SetStateAction<boolean>>;
+    trigger?: TippyProps['trigger'];
     offset?: TippyProps['offset'];
     placement?: TippyProps['placement'];
+    appendTo?: TippyProps['appendTo'];
     delay?: TippyProps['delay'];
+    disabled?: TippyProps['disabled'];
     animation?: 'fade' | 'slide-scale';
+    className?: string;
     children: TippyProps['children'];
 }> = function ({
     menus,
     visible,
     setVisible,
+    trigger = 'mouseenter focus',
     offset = [0, 0],
     placement = 'bottom-end',
+    appendTo = 'parent',
     delay = 0,
+    disabled = false,
     animation = 'fade',
+    className,
     children,
 }) {
     const [render, setRender] = useState(() => {
@@ -145,7 +206,7 @@ const ContextMenu: FunctionComponent<{
                     id: 'default',
                     menu: [
                         {
-                            text: `This context menu doesn't have a default menu.`,
+                            title: `This context menu doesn't have a default menu.`,
                         },
                     ],
                 },
@@ -190,21 +251,28 @@ const ContextMenu: FunctionComponent<{
         <PopupWindow
             interactive
             visible={visible}
+            trigger={trigger}
             offset={offset}
             placement={placement}
+            appendTo={appendTo}
             delay={delay}
+            disabled={disabled}
             onClickOutside={handleBackgroundClick}
             onHidden={handlePopupClose}
             customAnimation={customAnimation}
             render={() => (
-                <PopupRender className={styles['context-popup']}>
+                <PopupRender
+                    className={classNames(styles['context-popup'], className)}
+                >
                     <ul className={styles['list']}>
                         {render?.menu?.map((item, index) => {
                             return (
                                 <ListItem
                                     key={index}
-                                    text={item.text}
+                                    title={item.title}
+                                    desc={item.desc}
                                     icon={item.icon}
+                                    image={item.image}
                                     to={item.to}
                                     className={item.className}
                                     onClick={

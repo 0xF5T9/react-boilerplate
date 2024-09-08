@@ -16,19 +16,19 @@ export default [
         id: 'default',
         menu: [
             {
-                text: 'Profile',
-                icon: User,
+                title: 'Profile',
+                icon: {icon:User},
                 to: routes.profile,
                 hideOnClick: true,
             },
             {
-                text: 'Settings',
-                icon: Gear,
+                title: 'Settings',
+                icon: {icon: Gear},
                 gotoMenu: 'settings',
             },
             {
-                text: 'Logout',
-                icon: RightFromBracket,
+                title: 'Logout',
+                icon: {icon: RightFromBracket},
                 action: 'logout',
             },
         ],
@@ -37,11 +37,11 @@ export default [
         id: 'settings',
         menu: [
             {
-                text: 'No option availables.',
+                title: 'No option availables.',
             },
             {
-                text: 'Back',
-                icon: ArrowLeft,
+                title: 'Back',
+                icon: {icon: ArrowLeft},
                 gotoMenu: 'default',
             },
         ],

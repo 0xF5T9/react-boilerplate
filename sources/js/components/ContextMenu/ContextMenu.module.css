@@ -134,6 +134,25 @@
     font-size: 13px;
 }
 
-.list-item-text {
+.list-item-image {
+    width: 14px;
+    height: 13px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.list-item-content {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 4px;
+}
+
+.list-item-title {
     color: inherit;
+    text-align: left;
+}
+
+.list-item-desc {
+    color: #888888;
+    text-align: left;
 }
