@@ -103,35 +103,23 @@ input[type='number'].input::-webkit-inner-spin-button {
 
 .input-wrapper.icon-left .icon {
     right: initial;
-    left: calc(
-        var(--input-border-width) + var(--input-padding-left-right) +
-            var(--input-icon-extra-padding)
-    );
+    left: calc(var(--input-border-width) + var(--input-padding-left-right));
 }
 
 .input-wrapper.icon-left > .input {
     padding: var(--input-padding-top-bottom) var(--input-padding-left-right)
         var(--input-padding-top-bottom)
-        calc(
-            var(--input-padding-left-right) * 2 + 1em + 1px +
-                (var(--input-icon-extra-padding) * 2)
-        );
+        calc(var(--input-padding-left-right) * 2 + 1em);
 }
 
 .input-wrapper.icon-right .icon {
     left: initial;
-    right: calc(
-        var(--input-border-width) + var(--input-padding-left-right) +
-            var(--input-icon-extra-padding)
-    );
+    right: calc(var(--input-border-width) + var(--input-padding-left-right));
 }
 
 .input-wrapper.icon-right > .input {
     padding: var(--input-padding-top-bottom)
-        calc(
-            var(--input-padding-left-right) * 2 + 1em + 1px +
-                (var(--input-icon-extra-padding) * 2)
-        )
+        calc(var(--input-padding-left-right) * 2 + 1em)
         var(--input-padding-top-bottom) var(--input-padding-left-right);
 }
 

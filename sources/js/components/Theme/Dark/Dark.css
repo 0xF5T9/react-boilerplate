@@ -235,9 +235,8 @@
     --input-icon-color-focus: var(--color-primary);
     --input-border-width: 1.4px;
     --input-border-radius: 6px;
-    --input-padding-left-right: 8px;
-    --input-padding-top-bottom: 6.8px;
-    --input-icon-extra-padding: 4px;
+    --input-padding-left-right: 12px;
+    --input-padding-top-bottom: 8px;
 
     --checkbox-label-color: var(--text-dark);
     --checkbox-symbol-color-default: transparent;

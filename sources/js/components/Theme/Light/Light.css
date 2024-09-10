@@ -12,13 +12,13 @@
     --color-div-scrollbar-thumb-background-default: var(--color-primary);
 
     --text-light: #231f20;
-    --text-light-dim: #5b5a5a;
+    --text-light-dim: #888888;
     --text-light-highlight: var(--color-primary);
     --background-light: #f7f8f9;
     --background-light-highlight: #d7ebf9;
 
     --text-dark: #f7f8f9;
-    --text-dark-dim: #797779;
+    --text-dark-dim: #888888;
     --text-dark-highlight: var(--color-primary);
     --background-dark: #231f20;
     --background-dark-highlight: #2e2a2b;
@@ -177,7 +177,7 @@
     --input-background-color-hover: var(--input-background-color-default);
     --input-background-color-active: var(--input-background-color-default);
     --input-background-color-focus: var(--input-background-color-default);
-    --input-border-color-default: var(--text-dark-dim);
+    --input-border-color-default: #e5e5e5;
     --input-border-color-hover: var(--input-border-color-default);
     --input-border-color-active: var(--input-border-color-default);
     --input-border-color-focus: var(--color-primary);
@@ -185,9 +185,8 @@
     --input-icon-color-focus: var(--color-primary);
     --input-border-width: 1.4px;
     --input-border-radius: 6px;
-    --input-padding-left-right: 8px;
-    --input-padding-top-bottom: 6.8px;
-    --input-icon-extra-padding: 4px;
+    --input-padding-left-right: 12px;
+    --input-padding-top-bottom: 8px;
 
     --checkbox-label-color: var(--text-light);
     --checkbox-symbol-color-default: transparent;

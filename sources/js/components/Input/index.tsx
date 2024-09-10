@@ -16,6 +16,7 @@ import * as styles from './Input.module.css';
  * @param props.type Input type.
  * @param props.color Color variant.
  * @param props.inputSize Size variant.
+ * @param props.height Input fixed height.
  * @param props.transparent Specifies whether to use transparent background.
  * @param props.icon Input icon.
  * @param props.className Class names. (This applies to the top-level wrapper element)
@@ -38,6 +39,7 @@ const Input: FunctionComponent<
             | 'purple'
             | 'black';
         inputSize?: 'small' | 'large';
+        height?: number;
         transparent?: boolean;
         icon?: { position: 'left' | 'right'; icon: FunctionComponent<any> };
         className?: string;
@@ -50,6 +52,7 @@ const Input: FunctionComponent<
     type = 'text',
     color,
     inputSize,
+    height,
     transparent = false,
     icon,
     className,
@@ -75,6 +78,9 @@ const Input: FunctionComponent<
         className
     );
 
+    const inputStyle = inputProps?.style || {};
+    if (height) inputStyle.height = `${height}px`;
+
     return (
         <div
             {...wrapperProps}
@@ -85,6 +91,7 @@ const Input: FunctionComponent<
                 {...inputProps}
                 type={type}
                 className={styles['input']}
+                style={inputStyle}
                 disabled={disabled}
             />
         </div>
@@ -103,6 +110,7 @@ Input.propTypes = {
         'black',
     ]),
     inputSize: PropTypes.oneOf(['small', 'large']),
+    height: PropTypes.number,
     transparent: PropTypes.bool,
     icon: PropTypes.exact({ position: PropTypes.any, icon: PropTypes.func }),
     className: PropTypes.string,
