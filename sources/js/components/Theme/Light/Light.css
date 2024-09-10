@@ -159,12 +159,14 @@
     --button-border-color-hover: transparent;
     --button-border-color-active: transparent;
     --button-shadow: 0px 4px 8px rgba(64, 162, 230, 0.2);
-    --button-text-shadow: none;
     --button-focus-border-color: lightblue;
     --button-border-width: 0px;
     --button-border-radius: 6px;
-    --button-padding-left-right: 16px;
-    --button-padding-top-bottom: 8.4px;
+    --button-padding-left-right: 12px;
+    --button-padding-top-bottom: 8px;
+    --button-text-shadow: none;
+    --button-font-size: 1rem;
+    --button-font-weight: 700;
 
     --input-placeholder-text-color: var(--text-light-dim);
     --input-text-color-default: var(--text-light);

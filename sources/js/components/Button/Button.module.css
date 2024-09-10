@@ -3,8 +3,8 @@
     padding: calc(var(--button-padding-top-bottom) + var(--button-border-width))
         calc(var(--button-padding-left-right) + var(--button-border-width));
     border: 0;
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
     color: var(--button-text-color-default);
     text-shadow: var(--button-text-shadow);
     background: transparent;
