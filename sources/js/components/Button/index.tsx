@@ -20,9 +20,18 @@ const ButtonRefRender: ForwardRefRenderFunction<
         color?: 'success' | 'danger' | 'warn' | 'info' | 'gray' | 'white';
         size?: 'small' | 'large';
         loading?: boolean;
+        height?: number;
     }
 > = function (
-    { color, size, loading = false, className, children, ...buttonProps },
+    {
+        color,
+        size,
+        loading = false,
+        height,
+        className,
+        children,
+        ...buttonProps
+    },
     ref
 ) {
     const classes = classNames(
@@ -33,8 +42,11 @@ const ButtonRefRender: ForwardRefRenderFunction<
         className
     );
 
+    const style = buttonProps?.style || {};
+    if (height) style.height = `${height}px`;
+
     return (
-        <button ref={ref} className={classes} {...buttonProps}>
+        <button {...buttonProps} ref={ref} className={classes} style={style}>
             {loading && <CircleLoading className={styles['loading-icon']} />}
             {children}
         </button>
@@ -47,6 +59,7 @@ const ButtonRefRender: ForwardRefRenderFunction<
  * @param props.color Color variant.
  * @param props.size Size variant.
  * @param props.loading Use loading appearance for the button.
+ * @param props.height Button fixed height.
  * @note Properties that are not explicitly stated here are passed to button element.
  * @returns Returns the component.
  */
@@ -63,6 +76,7 @@ Button.propTypes = {
     ]),
     size: PropTypes.oneOf(['small', 'large']),
     loading: PropTypes.bool,
+    height: PropTypes.number,
 };
 
 export default Button;
