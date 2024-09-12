@@ -72,10 +72,8 @@ const Footer: FunctionComponent = function () {
 
     return (
         <footer ref={footer} className={styles['footer']}>
-            <div className={styles['footer-content']}>
-                <div className={styles['business-section']}></div>
-
-                <div className={styles['bottom-section']}>
+            <div className={styles['copyright-section-wrapper']}>
+                <div className={styles['copyright-section']}>
                     <span className={styles['copyright']}>
                         {footerCopyRightText}
                     </span>
