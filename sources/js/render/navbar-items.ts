@@ -24,13 +24,13 @@ export default [
             {
                 title: 'Shutdown Timer',
                 desc: 'A simple PC shutdown timer',
-                image: '/assets/static/img/shutdowntimer.png',
+                image: '/assets/boilerplate/img/shutdowntimer.png',
                 hideOnClick: true,
             },
             {
                 title: 'ASC File Cryptor',
                 desc: 'Private file cryptor',
-                image: '/assets/static/img/ascfilecryptor.png',
+                image: '/assets/boilerplate/img/ascfilecryptor.png',
                 hideOnClick: true,
             },
         ],

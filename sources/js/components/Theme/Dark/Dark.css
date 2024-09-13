@@ -353,6 +353,7 @@
         var(--background-dark-primary),
         var(--background-dark-primary)
     );
+    --general-body-background-image-url: rgba(0, 0, 0, 0);
     --general-body-background-backdrop-filter: none;
     --general-selection-text-color: var(--text-dark);
     --general-selection-background-color: var(--color-primary-opa-60);

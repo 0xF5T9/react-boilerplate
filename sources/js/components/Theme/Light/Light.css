@@ -287,6 +287,7 @@
         #f7f8f9,
         #f7f8f9
     );
+    --general-body-background-image-url: rgba(0, 0, 0, 0);
     --general-body-background-backdrop-filter: none;
     --general-selection-text-color: var(--text-light);
     --general-selection-background-color: rgb(64, 162, 230, 0.4);

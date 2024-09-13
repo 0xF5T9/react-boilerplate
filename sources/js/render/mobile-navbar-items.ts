@@ -34,7 +34,7 @@ export default [
             {
                 text: 'Shutdown Timer',
                 desc: 'A simple PC shutdown timer',
-                image: '/assets/static/img/shutdowntimer.png',
+                image: '/assets/boilerplate/img/shutdowntimer.png',
                 hideOnClick: false,
                 onClick: () =>
                     showToast({
@@ -46,7 +46,7 @@ export default [
             {
                 text: 'ASC File Cryptor',
                 desc: 'Private file cryptor',
-                image: '/assets/static/img/ascfilecryptor.png',
+                image: '/assets/boilerplate/img/ascfilecryptor.png',
                 hideOnClick: false,
                 onClick: () =>
                     showToast({

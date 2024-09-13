@@ -8,7 +8,7 @@
 const staticTexts = {
     announcementText: 'Welcome to my React Boilerplate project.',
     announcementCloseText: 'Click to close',
-    brandLogoUrl: '/assets/static/img/brand-logo.png',
+    brandLogoUrl: '/assets/boilerplate/img/brand-logo.png',
     brandLogoAlt: 'Brand logo.',
     brandText: 'React Project',
     headerLoginButtonText: 'Login',

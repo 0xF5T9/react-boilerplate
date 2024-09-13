@@ -5,42 +5,42 @@
 
 @font-face {
     font-family: 'SFProDisplay';
-    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Regular.ttf')
+    src: url('../static/assets/font/SFPRODISPLAY/SFProDisplay-Regular.ttf')
         format('truetype');
     font-weight: 400;
     font-display: fallback;
 }
 @font-face {
     font-family: 'SFProDisplay';
-    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Light.ttf')
+    src: url('../static/assets/font/SFPRODISPLAY/SFProDisplay-Light.ttf')
         format('truetype');
     font-weight: 300;
     font-display: fallback;
 }
 @font-face {
     font-family: 'SFProDisplay';
-    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Medium.ttf')
+    src: url('../static/assets/font/SFPRODISPLAY/SFProDisplay-Medium.ttf')
         format('truetype');
     font-weight: 500;
     font-display: fallback;
 }
 @font-face {
     font-family: 'SFProDisplay';
-    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Bold.ttf')
+    src: url('../static/assets/font/SFPRODISPLAY/SFProDisplay-Bold.ttf')
         format('truetype');
     font-weight: bold;
     font-display: fallback;
 }
 @font-face {
     font-family: 'SFProDisplay';
-    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Semibold.ttf')
+    src: url('../static/assets/font/SFPRODISPLAY/SFProDisplay-Semibold.ttf')
         format('truetype');
     font-weight: 600;
     font-display: fallback;
 }
 @font-face {
     font-family: 'SFProDisplay';
-    src: url('../static/assets/static/font/SFPRODISPLAY/SFProDisplay-Heavy.ttf')
+    src: url('../static/assets/font/SFPRODISPLAY/SFProDisplay-Heavy.ttf')
         format('truetype');
     font-weight: 800;
     font-display: fallback;
@@ -79,7 +79,6 @@
     --color-purple-darker: #998cd9;
     --color-purple-vibrant: #7058e9;
 
-    --general-body-background-image-url: url('../img/background.jpg');
     --general-html-overflow: auto;
     --content-max-width: 1200px;
 

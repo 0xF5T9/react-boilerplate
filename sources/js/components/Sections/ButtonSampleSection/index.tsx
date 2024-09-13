@@ -16,7 +16,9 @@ import { CircleLoading } from '../../Icons/CircleLoading';
  */
 const ButtonSampleSection: FunctionComponent = function () {
     function handlePlayClickSound() {
-        const audio = new Audio('/assets/static/sound/ClickSoundEffect.wav');
+        const audio = new Audio(
+            '/assets/boilerplate/sound/ClickSoundEffect.wav'
+        );
         audio.play();
     }
 
