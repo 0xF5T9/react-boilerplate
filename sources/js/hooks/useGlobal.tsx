@@ -150,7 +150,7 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
                 <style>
                     {`
                     :root {
-                        --general-html-overflow: clip;
+                        --general-html-overflow: hidden;
                     }
                     `}
                 </style>
