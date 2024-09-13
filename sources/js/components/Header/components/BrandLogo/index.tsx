@@ -10,8 +10,10 @@ import classNames from 'classnames';
 
 import routes from '../../../../global/react-router/routes';
 import staticTexts from '../../../../render/static-texts';
+import staticUrls from '../../../../render/static-urls';
 import * as styles from './BrandLogo.module.css';
-const { brandLogoUrl, brandLogoAlt } = staticTexts;
+const { brandLogoAlt } = staticTexts,
+    { brandLogoUrl } = staticUrls;
 
 /**
  * Header brand logo.
