@@ -8,6 +8,11 @@
         "allowJs": true,
         "moduleResolution": "nodenext",
         "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "paths": {
+            "@project/*": ["*"],
+            "~/*": ["sources/*"]
+        }
     }
 }
