@@ -6,7 +6,7 @@
 import Light from './Light';
 import Dark from './Dark';
 
-const themes = {
+const themes: {[key: string]: React.FunctionComponent<{}>;} = {
     Light,
     Dark,
 };

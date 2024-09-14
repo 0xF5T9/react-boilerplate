@@ -146,9 +146,9 @@ const Header: FunctionComponent = function () {
 
                 <div className={styles['right-content']}>
                     <IconButton
-                        icon={theme === 'dark' ? Sun : Moon}
+                        icon={theme === 'Dark' ? Sun : Moon}
                         onClick={() =>
-                            setTheme(theme === 'dark' ? 'light' : 'dark')
+                            setTheme(theme === 'Dark' ? 'Light' : 'Dark')
                         }
                         style={{
                             marginRight: sessionData ? undefined : '20px',

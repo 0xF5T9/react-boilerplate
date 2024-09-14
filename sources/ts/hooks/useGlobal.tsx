@@ -20,6 +20,7 @@ import PropTypes from 'prop-types';
 import LoadingBar from 'react-top-loading-bar';
 
 import themes from '~/ts/components/Theme';
+import themeConfig from '~/ts/render/theme';
 
 // Global context.
 const globalContext = createContext(null);
@@ -38,9 +39,9 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
 
     const [theme, setTheme] = useState(() => {
             let theme = localStorage.getItem('theme');
-            if (!theme || (theme !== 'light' && theme !== 'dark')) {
-                localStorage.setItem('theme', 'dark');
-                theme = 'dark';
+            if (!theme) {
+                localStorage.setItem('theme', themeConfig.defaultTheme);
+                theme = themeConfig.defaultTheme;
             }
 
             return theme;
@@ -61,17 +62,10 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
         })),
         [allowScrolling, setAllowScrolling] = useState(true);
 
-    let Theme;
-    switch (theme) {
-        case 'light':
-            Theme = themes['Light'];
-            break;
-        case 'dark':
-            Theme = themes['Dark'];
-            break;
-        default:
-            console.warn('Unknown theme name detected, fallback to default.');
-            Theme = themes['Dark'];
+    let Theme = themes[theme];
+    if (!Theme) {
+        Theme = themes['Light'];
+        console.error('Invalid theme detected.');
     }
 
     // https://github.com/0xF5T9/react-boilerplate/issues/8
