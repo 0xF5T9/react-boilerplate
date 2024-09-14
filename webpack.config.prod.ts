@@ -13,8 +13,8 @@ console.log('Using Webpack production configuration ...');
 export default {
     target: ['web', 'es5'],
     entry: {
-        style: './sources/js/style.ts',
-        index: './sources/js/entry.tsx',
+        style: './sources/ts/style.ts',
+        index: './sources/ts/entry.tsx',
     },
     output: {
         filename: '[name].[contenthash].bundle.js', // [contenthash] used to purge caches on file content changes.

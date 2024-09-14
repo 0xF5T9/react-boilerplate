@@ -14,8 +14,8 @@ console.log('Using Webpack development configuration ...');
 export default {
     target: ['web', 'es5'],
     entry: {
-        style: './sources/js/style.ts',
-        index: './sources/js/entry.tsx',
+        style: './sources/ts/style.ts',
+        index: './sources/ts/entry.tsx',
     },
     output: {
         filename: '[name].bundle.js',
