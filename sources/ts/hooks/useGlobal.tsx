@@ -65,6 +65,7 @@ const GlobalProvider: FunctionComponent<{ children: ReactNode }> = function ({
     let Theme = themes[theme];
     if (!Theme) {
         Theme = themes['Light'];
+        localStorage.setItem('theme', 'Light');
         console.error('Invalid theme detected.');
     }
 
