@@ -80,6 +80,7 @@
 .button.loading {
     color: transparent !important;
     text-shadow: none !important;
+    user-select: none;
 }
 
 .loading-icon {
