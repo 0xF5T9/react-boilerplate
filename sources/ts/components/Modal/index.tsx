@@ -1,6 +1,7 @@
 /**
  * @file index.tsx
  * @description Modal.
+ * @todo Add customization animation duration variable and refactor keyframes names.
  */
 
 'use strict';
