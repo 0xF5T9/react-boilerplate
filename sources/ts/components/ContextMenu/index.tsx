@@ -6,7 +6,7 @@
 'use strict';
 import type { ContextMenu, ContextMenuItem } from '~/ts/types/context-menu';
 import { FunctionComponent, useState, useCallback } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { TippyProps } from '@tippyjs/react';
 import PropTypes, { oneOf } from 'prop-types';
 import classNames from 'classnames';
@@ -77,12 +77,12 @@ const ListItem: FunctionComponent<{
                 }
 
                 if (onClick) onClick(event);
+
                 if (to) navigate(to);
             }}
         >
-            <Link
+            <a
                 className={styles['list-item-link']}
-                to={to}
                 onClick={!to ? (event) => event.preventDefault() : null}
                 tabIndex={-1}
             >
@@ -121,7 +121,7 @@ const ListItem: FunctionComponent<{
                         <span className={styles['list-item-desc']}>{desc}</span>
                     )}
                 </span>
-            </Link>
+            </a>
         </li>
     );
 };
